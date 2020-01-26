@@ -28,6 +28,14 @@ const Head = props => (
 		<meta property="og:image" content={props.ogImage || defaultOGImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
+
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
+		{/* <meta name="yandex-verification" content="dd48801ed051b178" /> */}
+		{/* <meta name="google-site-verification" content="X1xPf8-Oy5G7KQEJ3lGa94wRmqmFcYt8Qo535vK5szQ" /> */}
+
+		<link href="/images/favicon.png" rel="icon" type="image/png" />
+		<link href="/images/favicon.png" rel="icon" type="image/png" sizes="192x192" />
+		<link href="/images/favicon.png" rel="apple-touch-icon" type="image/png" />
 	</NextHead>
 );
 

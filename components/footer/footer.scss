@@ -1,0 +1,51 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.footer {
+    display: block;
+    width: 100%;
+    margin-top: 14rem;
+    padding-bottom: 4rem;
+    padding: 0px 2rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        padding: 0px 6rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        padding: 0px 10rem;
+    }
+}
+
+.copyright {
+    display: inline-block;
+    width: 100%;
+    color: $clr-black;
+    font-size: 2rem;
+    line-height: 4rem;
+    margin-top: 1rem;
+}
+
+.contacts {
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 4rem;
+    font-weight: $font-semi-bold;
+
+    &__item {
+        display: inline-block;
+        margin-right: 4rem;
+
+        &:nth-last-child(1) {
+            margin-right: 0;
+        }
+
+        @media all and (max-width: $scr-sm-max) {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
