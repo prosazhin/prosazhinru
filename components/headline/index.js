@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 import style from './headline.scss'
 
 
@@ -27,10 +28,13 @@ const Headline = ({ children, title, description, h1 }) => {
                 }
 
                 {!!description &&
-                    <span
-                        className={`description` + `${!title ? ` description_without_title` : ''}`}
-                        dangerouslySetInnerHTML={pastDescription(description)}
-                    />
+                    <div className={`description` + `${!title ? ` description_without_title` : ''}`}>
+                        <ReactMarkdown
+                            source={description}
+                            linkTarget="_blank"
+                            skipHtml
+                        />
+                    </div>
                 }
 
                 {children}

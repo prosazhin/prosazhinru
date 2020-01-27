@@ -12,6 +12,8 @@ const api = new API()
 
 
 const Home = (props) => {
+	// console.log(props.page)
+
 	return (
 		<React.Fragment>
 			<Head
@@ -21,6 +23,7 @@ const Home = (props) => {
 			<Header pages={props.pages} />
 			<Container main>
 				<Headline description={props.page.description} />
+				<Headline title="Последние ссылки" />
 			</Container>
 			<Footer />
 
