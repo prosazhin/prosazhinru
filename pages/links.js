@@ -6,6 +6,7 @@ import Container from '../components/container'
 import Headline from '../components/headline'
 import Tag from '../components/tag'
 import GlobalStyle from '../styles/base.scss'
+import style from '../styles/links.scss'
 
 import API from '../api'
 const api = new API()
@@ -27,16 +28,23 @@ const Links = (props) => {
 					h1
                 />
 
-				{props.tags.length && props.tags.map((tag, index) =>
-					<Tag
-						key={index}
-						title={tag.fields.title}
-					/>
-				)}
+				<ul className="tags">
+					{props.tags.length && props.tags.map(tag =>
+						<li
+							className="tags__item"
+							key={tag.sys.id}
+						>
+							<Tag
+								title={tag.fields.title}
+							/>
+						</li>
+					)}
+				</ul>
 			</Container>
 			<Footer />
 
 			<style jsx>{GlobalStyle}</style>
+			<style jsx>{style}</style>
 		</React.Fragment>
 	)
 }

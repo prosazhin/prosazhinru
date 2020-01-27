@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,25 +8,13 @@ import style from './header.scss'
 
 
 
-// import { openMobileMenu, closeMobileMenu } from '../../app/index/actions'
-
-// const state = state => ({
-//     isActiveMobileMenu: state.index.isActiveMobileMenu,
-// })
-
-// const dispatch = dispatch => ({
-//     openMobileMenu: bindActionCreators(openMobileMenu, dispatch),
-//     closeMobileMenu: bindActionCreators(closeMobileMenu, dispatch),
-// })
-
-
-
 const Header = (props) => {
+    const [isActive, setIsActive] = useState(false)
     const router = useRouter()
 
     return (
         <React.Fragment>
-            <header className="header">
+            <header className={`header` + `${isActive ? ` header__mobile`: ''}`}>
                 <Container>
                     <Link href="/">
                         <a className="logo">
@@ -38,7 +26,7 @@ const Header = (props) => {
                             Евгений Сажин
                         </a>
                     </Link>
-                    <nav className="nav">
+                    <nav className={`nav` + `${isActive ? ` nav__mobile`: ''}`}>
                         {props.pages.length && props.pages.filter(link => link.fields.linkUrl !== '/').map((link, index) =>
                             <li
                                 key={link.sys.id}
@@ -53,6 +41,23 @@ const Header = (props) => {
                         )}
                     </nav>
                 </Container>
+
+                {isActive
+                    ?
+                    <span
+                        className="menu"
+                        onClick={() => setIsActive(!isActive)}
+                    >
+                        <FontAwesomeIcon icon={faTimes} />
+                    </span>
+                    :
+                    <span
+                        className="menu"
+                        onClick={() => setIsActive(!isActive)}
+                    >
+                        <FontAwesomeIcon icon={faBars} />
+                    </span>
+                }
             </header>
 
             <style jsx>{style}</style>

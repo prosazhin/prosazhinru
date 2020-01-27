@@ -130,8 +130,8 @@
 .menu {
     position: absolute;
     top: 6rem;
-    right: 1rem;
-    width: 6rem;
+    right: 6rem;
+    width: 2rem;
     height: 4rem;
     font-size: 2rem;
     line-height: 4rem;
@@ -140,6 +140,7 @@
     text-align: center;
     cursor: pointer;
     transition: all .2s ease;
+    padding: 0.5rem 0px;
 
     @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
         display: none;
