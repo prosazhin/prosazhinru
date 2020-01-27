@@ -1,0 +1,44 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.headline {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.title {
+    display: inline-block;
+    width: 100%;
+    font-size: 6rem;
+    line-height: 7rem;
+    font-weight: bold;
+    color: $clr-black;
+    margin-bottom: 2rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        font-size: 8rem;
+        line-height: 9rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        font-size: 8rem;
+        line-height: 9rem;
+    }
+}
+
+.description {
+    display: inline-block;
+    width: 100%;
+    font-size: 4rem;
+    line-height: 6rem;
+    font-weight: normal;
+    color: $clr-black;
+    margin-bottom: 10rem;
+
+    &_without_title {
+        margin-bottom: 14rem;
+    }
+}

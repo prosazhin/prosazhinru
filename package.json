@@ -12,6 +12,9 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.26",
+		"@fortawesome/free-solid-svg-icons": "^5.12.0",
+		"@fortawesome/react-fontawesome": "^0.1.8",
 		"contentful": "^7.13.1",
 		"next": "^9.1.6",
 		"react": "^16.12.0",

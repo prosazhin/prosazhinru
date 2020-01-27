@@ -1,22 +1,16 @@
-import React from 'react';
-import NextHead from 'next/head';
-import { string } from 'prop-types';
+import React from 'react'
+import NextHead from 'next/head'
 
-const defaultDescription = '';
-const defaultOGURL = '';
-const defaultOGImage = '';
 
-const Head = props => (
+
+const Head = (props) => (
 	<NextHead>
 		<meta charSet="UTF-8" />
-		<title>{props.title || ''}</title>
-		<meta
-			name="description"
-			content={props.description || defaultDescription}
-		/>
+		<title>{props.title}</title>
+		<meta name="description" content={props.description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<meta property="og:url" content={props.url || defaultOGURL} />
+		{/* <meta property="og:url" content={props.url || defaultOGURL} />
 		<meta property="og:title" content={props.title || ''} />
 		<meta
 			property="og:description"
@@ -25,7 +19,7 @@ const Head = props => (
 		<meta name="twitter:site" content={props.url || defaultOGURL} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content={props.ogImage || defaultOGImage} />
-		<meta property="og:image" content={props.ogImage || defaultOGImage} />
+		<meta property="og:image" content={props.ogImage || defaultOGImage} /> */}
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 
@@ -38,13 +32,6 @@ const Head = props => (
 		<link href="/favicon.png" rel="icon" type="image/png" sizes="192x192" />
 		<link href="/favicon.png" rel="apple-touch-icon" type="image/png" />
 	</NextHead>
-);
+)
 
-Head.propTypes = {
-	title: string,
-	description: string,
-	url: string,
-	ogImage: string,
-};
-
-export default Head;
+export default Head

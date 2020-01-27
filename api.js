@@ -17,4 +17,8 @@ export default class API {
     get(params) {
         return this.client.getEntries(params).then(response => response)
     }
+
+    getOne(params) {
+        return this.client.getEntry(params).then(response => response)
+    }
 }

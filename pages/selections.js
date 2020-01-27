@@ -11,7 +11,7 @@ const api = new API()
 
 
 
-const Home = (props) => {
+const Selections = (props) => {
 	return (
 		<React.Fragment>
 			<Head
@@ -20,7 +20,11 @@ const Home = (props) => {
 			/>
 			<Header pages={props.pages} />
 			<Container main>
-				<Headline description={props.page.description} />
+				<Headline
+                    title={props.page.title}
+                    description={props.page.description}
+					h1
+                />
 			</Container>
 			<Footer />
 
@@ -29,8 +33,8 @@ const Home = (props) => {
 	)
 }
 
-Home.getInitialProps = async () => {
-	const page = await api.getOne('22ziEi9xaIBiXD6mZ56r21')
+Selections.getInitialProps = async () => {
+	const page = await api.getOne('4FmC8blew6cpUdbOCZJjyK')
 	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
 	
 	return {
@@ -39,4 +43,4 @@ Home.getInitialProps = async () => {
 	}
 }
 
-export default Home
+export default Selections
