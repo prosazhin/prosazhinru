@@ -1,0 +1,151 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.header {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 10rem;
+    top: 0;
+    text-align: left;
+    background-color: $clr-white;
+    padding-top: 6rem;
+    transition: all .4s ease;
+
+    &__mobile {
+        height: 100vh;
+    }
+}
+
+
+
+.logo {
+    display: inline-block;
+    color: $clr-black;
+    font-weight: $font-semi-bold;
+    line-height: 4rem;
+    vertical-align: top;
+    position: relative;
+    padding-left: 6rem;
+
+    &:hover, &:focus, &:active {
+        color: $clr-black;
+    }
+
+    &__image {
+        display: inline-block;
+        position: absolute;
+        height: 4rem;
+        width: 4rem;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 0;
+    }
+}
+
+
+
+.nav {
+    display: inline-block;
+    height: auto;
+    margin-left: 20rem;
+    vertical-align: top;
+
+    @media all and (max-width: $scr-sm-max) {
+        display: none;
+    }
+
+    &__mobile {
+        display: inline-block;
+        width: 100%;
+        margin-left: 6rem;
+        margin-top: 10rem;
+    }
+
+    &__item {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        margin-bottom: 4rem;
+        
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            width: auto;
+            margin-right: 4rem;
+            margin-bottom: 0px;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            width: auto;
+            margin-right: 4rem;
+            margin-bottom: 0px;
+        }
+
+        &:nth-last-child(1) {
+            margin-right: 0;
+        }
+
+        &__link {
+            display: inline-block;
+            color: $clr-black;
+            font-weight: $font-semi-bold;
+            line-height: 4rem;
+            transition: all .2s ease;
+
+            &:hover {
+                color: $clr-black;
+
+                @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+                    border-bottom: 2px solid $clr-black;
+                }
+            
+                @media all and (min-width: $scr-xl) {
+                    border-bottom: 2px solid $clr-black;
+                }
+            }
+
+            &__active {
+                color: $clr-blue-light;
+                text-decoration: none;
+
+                &:hover {
+                    color: $clr-blue-light;
+                    border-bottom: none;
+                }
+
+                &:active,
+                &:focus {
+                    color: $clr-blue-light;
+                }
+            }
+        }
+    }
+}
+
+
+
+.menu {
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    width: 6rem;
+    height: 4rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    border: none;
+    color: $clr-gray-555555;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        display: none;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        display: none;
+    }
+}

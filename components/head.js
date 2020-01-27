@@ -15,7 +15,7 @@ const Head = props => (
 			content={props.description || defaultDescription}
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" href="/favicon.ico" />
+		
 		<meta property="og:url" content={props.url || defaultOGURL} />
 		<meta property="og:title" content={props.title || ''} />
 		<meta
@@ -33,9 +33,10 @@ const Head = props => (
 		{/* <meta name="yandex-verification" content="dd48801ed051b178" /> */}
 		{/* <meta name="google-site-verification" content="X1xPf8-Oy5G7KQEJ3lGa94wRmqmFcYt8Qo535vK5szQ" /> */}
 
-		<link href="/images/favicon.png" rel="icon" type="image/png" />
-		<link href="/images/favicon.png" rel="icon" type="image/png" sizes="192x192" />
-		<link href="/images/favicon.png" rel="apple-touch-icon" type="image/png" />
+		{/* <link rel="icon" href="/favicon.ico" /> */}
+		<link href="/favicon.png" rel="icon" type="image/png" />
+		<link href="/favicon.png" rel="icon" type="image/png" sizes="192x192" />
+		<link href="/favicon.png" rel="apple-touch-icon" type="image/png" />
 	</NextHead>
 );
 

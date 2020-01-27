@@ -1,6 +1,19 @@
-const withSass = require('@zeit/next-sass');
-const withCSS = require('@zeit/next-css');
+module.exports = {
+    webpack: (config, { defaultLoaders }) => {
+        config.module.rules.push({
+            test: /\.scss$/,
+            use: [
+                defaultLoaders.babel,
+                {
+                    loader: require('styled-jsx/webpack').loader,
+                    options: {
+                        type: (fileName, options) => options.query.type || 'scoped',
+                    },
+                },
+                'sass-loader',
+            ],
+        })
 
-module.exports = withCSS(withSass({
-    cssModules: true
-}));
+        return config
+    },
+};

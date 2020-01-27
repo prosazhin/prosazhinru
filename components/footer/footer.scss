@@ -8,15 +8,6 @@
     width: 100%;
     margin-top: 14rem;
     padding-bottom: 4rem;
-    padding: 0px 2rem;
-
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        padding: 0px 6rem;
-    }
-
-    @media all and (min-width: $scr-xl) {
-        padding: 0px 10rem;
-    }
 }
 
 .copyright {

@@ -1,25 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Head from '../components/head';
-import Nav from '../components/nav';
-import Footer from '../components/footer';
-import '../styles/base.scss';
+import React from 'react'
+import Head from '../components/head'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
+import Container from '../components/container'
+import Tag from '../components/tag'
+import GlobalStyle from '../styles/base.scss'
+
+import API from '../api'
+const api = new API()
 
 
 
-const Home = () => {
+const Home = (props) => {
 	return (
 		<React.Fragment>
 			<Head title="Home" />
 			<Nav />
 
-			<main>
-				<h1 className="title">Welcome to Next!</h1>
-			</main>
+			<Container main>
+				<h1 className="title">Home</h1>
 
+				{props.tags.length && props.tags.map((tag, index) =>
+					<Tag
+						key={index}
+						title={tag.fields.title}
+					/>
+				)}
+			</Container>
 			<Footer />
-		</React.Fragment>
-	);
-};
 
-export default Home;
+			<style jsx>{GlobalStyle}</style>
+		</React.Fragment>
+	)
+}
+
+Home.getInitialProps = async () => {
+	const result = await api.get({ content_type: 'tags', order: 'sys.createdAt' })
+	return { tags: result.items }
+}
+
+export default Home

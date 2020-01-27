@@ -1,3 +1,4 @@
+/* @styled-jsx=global */
 
 @import './variables.scss';
 
@@ -34,25 +35,6 @@ body {
     line-height: 3rem;
     font-weight: $font-normal;
     color: $clr-black;
-}
-
-main {
-    display: block;
-    width: 100vw;
-    margin: auto;
-    margin-top: 20rem;
-    position: relative;
-    z-index: 20;
-    overflow: hidden;
-    padding: 0px 2rem;
-
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        padding: 0px 6rem;
-    }
-
-    @media all and (min-width: $scr-xl) {
-        padding: 0px 10rem;
-    }
 }
 
 
