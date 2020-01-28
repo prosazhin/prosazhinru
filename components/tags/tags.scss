@@ -1,0 +1,17 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.tags {
+    display: block;
+    text-align: left;
+    margin-bottom: 3rem;
+
+    &__item {
+        display: inline-block;
+        text-align: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+}

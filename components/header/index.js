@@ -27,7 +27,7 @@ const Header = (props) => {
                         </a>
                     </Link>
                     <nav className={`nav` + `${isActive ? ` nav__mobile`: ''}`}>
-                        {props.pages.length && props.pages.filter(link => link.fields.linkUrl !== '/').map((link, index) =>
+                        {props.pages.length && props.pages.filter(link => link.fields.linkUrl !== '/').map(link =>
                             <li
                                 key={link.sys.id}
                                 className="nav__item"

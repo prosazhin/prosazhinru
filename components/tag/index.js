@@ -1,26 +1,24 @@
 import React from 'react'
-// import { withRouter } from 'react-router'
-// import queryString from 'query-string'
+import Router, { useRouter } from 'next/router'
 import style from './tag.scss'
 
 
 
-const Tag = ({ title, active, history, url }) => {
+const Tag = ({ title, url, page }) => {
+    const router = useRouter()
 
     function handelClick(event) {
         event.preventDefault()
+        
+        let activeTag = {
+            pathname: `/${page}`,
+        }
 
-        // const urlTag = queryString.parse(history.location.search)
-        // let activeTag = ''
+        if (url !== router.query.tag) {
+            activeTag.query = { tag: url }
+        }
 
-        // if (urlTag.tag !== tag.url) {
-        //     activeTag = `?tag=${tag.url}`
-        // }
-
-        // history.push({
-        //     pathname: `/${url}`,
-        //     search: activeTag,
-        // })
+        Router.push(activeTag)
     }
 
     return (
@@ -28,7 +26,7 @@ const Tag = ({ title, active, history, url }) => {
             <span
                 className={
                     `tag` +
-                    `${active ? ` tag__active` : ''}`
+                    `${url === router.query.tag ? ` tag__active` : ''}`
                 }
                 onClick={(event) => handelClick(event)}
             >

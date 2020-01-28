@@ -5,11 +5,6 @@ import style from './headline.scss'
 
 
 const Headline = ({ children, title, description, h1 }) => {
-
-    function pastDescription(value) {
-        return { __html: value }
-    }
-
     return (
         <React.Fragment>
             <div className="headline">

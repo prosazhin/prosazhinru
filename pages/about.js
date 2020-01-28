@@ -22,7 +22,7 @@ const About = (props) => {
 			<Container main>
 				<Headline description={props.page.description} />
 			</Container>
-			<Footer />
+			<Footer contacts={props.contacts} />
 
 			<style jsx>{GlobalStyle}</style>
 		</React.Fragment>
@@ -32,10 +32,12 @@ const About = (props) => {
 About.getInitialProps = async () => {
 	const page = await api.getOne('3JFErwJlyqQQvqF77kZ2K9')
 	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
+	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
 	
 	return {
 		page: page.fields,
 		pages: pages.items,
+		contacts: contacts.items,
 	}
 }
 
