@@ -7,6 +7,7 @@ import Container from '../components/container'
 import Headline from '../components/headline'
 import Tags from '../components/tags'
 import Link from '../components/link'
+import Tabs from '../components/tabs'
 import GlobalStyle from '../styles/base.scss'
 import style from '../styles/links.scss'
 
@@ -34,6 +35,8 @@ const Links = (props) => {
 			<Head
 				title={props.page.metaTitle}
 				description={props.page.metaDescription}
+				image="/sharing-links.jpg"
+				url={`https://prosazhin.ru` + `${router.pathname}`}
 			/>
 			<Header pages={props.pages} />
 			<Container main>
@@ -42,6 +45,7 @@ const Links = (props) => {
                     description={props.page.description}
 					h1
                 />
+				<Tabs />
 				<Tags
 					tags={props.tags}
 					page="links"

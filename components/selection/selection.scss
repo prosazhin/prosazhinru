@@ -1,0 +1,196 @@
+
+@import '../../../styles/variables.scss';
+
+
+
+.selections {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-gap: 2rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+        grid-gap: 4rem 2rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+        grid-gap: 4rem 2rem;
+    }
+
+    &__inline {
+        display: inline-grid;
+        overflow-x: auto;
+        overflow-y: hidden;
+        grid-template-columns: repeat(10, minmax(324px, 1fr));
+    }
+}
+
+.selection {
+    display: block;
+    width: 100%;
+    border: 1px solid $clr-gray-EEEEEE;
+    background-color: $clr-white;
+    border-radius: 4px;
+    padding: 4rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    transition: all .2s ease;
+    position: relative;
+    user-select: none;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        padding: 4rem 6rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        padding: 4rem 6rem;
+    }
+
+    &:hover {
+        border-color: $clr-blue-light;
+
+        .headline {
+            color: $clr-blue;
+        }
+
+        .description {
+            color: $clr-blue-light;
+        }
+
+        .count {
+            color: $clr-black;
+        }
+    }
+
+    &:active,
+    &:focus {
+        color: $clr-black;
+    }
+
+    &_size_big {
+        padding: 4rem;
+
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            grid-column: 1/3;
+            padding: 6rem 8rem;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            grid-column: 1/3;
+            padding: 6rem 8rem;
+        }
+    }
+}
+
+.headline {
+    display: inline-block;
+    width: 100%;
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: $font-bold;
+    color: $clr-black;
+    transition: all .2s ease;
+
+    &_size_big {
+        font-size: 4rem;
+        line-height: 5rem;
+
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            font-size: 6rem;
+            line-height: 7rem;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            font-size: 6rem;
+            line-height: 7rem;
+        }
+    }
+}
+
+.description {
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: $font-normal;
+    margin-top: 2rem;
+    color: $clr-gray-999999;
+    transition: all .2s ease;
+
+    &_size_big {
+        font-size: 2rem;
+        line-height: 3rem;
+        margin-top: 2rem;
+
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            font-size: 4rem;
+            line-height: 6rem;
+            margin-top: 4rem;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            font-size: 4rem;
+            line-height: 6rem;
+            margin-top: 4rem;
+        }
+    }
+}
+
+.bottom {
+    display: inline-block;
+    width: 100%;
+    margin-top: 2rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        margin-top: 6rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        margin-top: 6rem;
+    }
+}
+
+.count {
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: $font-normal;
+    color: $clr-gray-999999;
+    transition: all .2s ease;
+    margin-right: 4rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        width: auto;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        width: auto;
+    }
+}
+
+.tags {
+    display: inline-block;
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: -1rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        width: auto;
+        margin-top: 0;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        width: auto;
+        margin-top: 0;
+    }
+
+    &__item {
+        display: inline-block;
+        text-align: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+}

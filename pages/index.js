@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import Head from '../components/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -15,11 +16,17 @@ const api = new API()
 
 
 const Home = (props) => {
+	const router = useRouter()
+
+	console.log(props.page)
+
 	return (
 		<React.Fragment>
 			<Head
 				title={props.page.metaTitle}
 				description={props.page.metaDescription}
+				image="/sharing-index.jpg"
+				url={`https://prosazhin.ru` + `${router.pathname}`}
 			/>
 			<Header pages={props.pages} />
 			<Container main>
