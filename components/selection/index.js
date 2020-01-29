@@ -18,7 +18,7 @@ const Selection = ({ selection }) => {
 
     return (
         <React.Fragment>
-            <Link href={`/selections/` + `${selection.fields.url}`}>
+            <Link href="/[slug]" as={`/` + `${selection.fields.url}`}>
                 <a className={`selection` + `${selection.fields.big ? ` selection_size_big`: ''}`}>
                     <span className={`headline` + `${selection.fields.big ? ` headline_size_big`: ''}`}>
                         {selection.fields.title}
