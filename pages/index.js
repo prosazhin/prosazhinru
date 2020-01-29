@@ -5,6 +5,7 @@ import Footer from '../components/footer'
 import Container from '../components/container'
 import Headline from '../components/headline'
 import ButtonLink from '../components/button'
+import Link from '../components/link'
 import GlobalStyle from '../styles/base.scss'
 import style from '../styles/index.scss'
 
@@ -25,6 +26,14 @@ const Home = (props) => {
 				<Headline description={props.page.description} />
 				<Headline title="Последние ссылки" />
 
+				<div className="links">
+					{props.links.map(link =>
+						<Link
+							link={link}
+							key={link.sys.id}
+						/>
+					)}
+				</div>
 				<div className="button_wrapper">
 					<ButtonLink
 						title="Все ссылки"
@@ -45,11 +54,13 @@ Home.getInitialProps = async () => {
 	const page = await api.getOne('22ziEi9xaIBiXD6mZ56r21')
 	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
 	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
+	const links = await api.get({ content_type: 'links', limit: 10, })
 	
 	return {
 		page: page.fields,
 		pages: pages.items,
 		contacts: contacts.items,
+		links: links.items,
 	}
 }
 

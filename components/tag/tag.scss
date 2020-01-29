@@ -16,15 +16,16 @@
     transition: all .2s ease;
     user-select: none;
     color: $clr-black;
-    background-color: $clr-gray-EEEEEE;
+    border: 1px solid $clr-gray-CCCCCC;
 
     &:hover {
         color: $clr-blue;
-        background-color: $clr-blue-lighter;
+        border-color: $clr-blue;
     }
 
     &__active {
         color: $clr-white;
+        border-color: $clr-blue;
         background-color: $clr-blue;
 
         &:hover {
