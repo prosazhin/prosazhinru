@@ -18,8 +18,6 @@ const api = new API()
 const Home = (props) => {
 	const router = useRouter()
 
-	console.log(props.page)
-
 	return (
 		<React.Fragment>
 			<Head

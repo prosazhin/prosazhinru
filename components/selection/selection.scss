@@ -1,37 +1,12 @@
 
-@import '../../../styles/variables.scss';
+@import '../../styles/variables.scss';
 
 
-
-.selections {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    grid-gap: 2rem;
-
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
-        grid-gap: 4rem 2rem;
-    }
-
-    @media all and (min-width: $scr-xl) {
-        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
-        grid-gap: 4rem 2rem;
-    }
-
-    &__inline {
-        display: inline-grid;
-        overflow-x: auto;
-        overflow-y: hidden;
-        grid-template-columns: repeat(10, minmax(324px, 1fr));
-    }
-}
 
 .selection {
     display: block;
     width: 100%;
-    border: 1px solid $clr-gray-EEEEEE;
-    background-color: $clr-white;
+    background-color: $clr-gray-F3F3F3;
     border-radius: 4px;
     padding: 4rem;
     word-wrap: break-word;
@@ -49,14 +24,12 @@
     }
 
     &:hover {
-        border-color: $clr-blue-light;
-
         .headline {
             color: $clr-blue;
         }
 
         .description {
-            color: $clr-blue-light;
+            color: $clr-blue;
         }
 
         .count {
@@ -116,7 +89,7 @@
     line-height: 3rem;
     font-weight: $font-normal;
     margin-top: 2rem;
-    color: $clr-gray-999999;
+    color: $clr-gray-555555;
     transition: all .2s ease;
 
     &_size_big {
@@ -127,13 +100,11 @@
         @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
             font-size: 4rem;
             line-height: 6rem;
-            margin-top: 4rem;
         }
     
         @media all and (min-width: $scr-xl) {
             font-size: 4rem;
             line-height: 6rem;
-            margin-top: 4rem;
         }
     }
 }
