@@ -4,7 +4,7 @@ import style from './link.scss'
 
 
 
-const Link = ({ link }) => {
+const Link = ({ link, tags }) => {
     return (
         <React.Fragment>
             <a
@@ -23,7 +23,7 @@ const Link = ({ link }) => {
                     </span>
                 }
 
-                {link.fields.tags.length &&
+                {link.fields.tags.length && tags &&
                     <ul className="link__tags">
                         {link.fields.tags.map(tag =>
                             <li

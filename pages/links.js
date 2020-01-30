@@ -55,6 +55,7 @@ const Links = (props) => {
 						<Link
 							link={link}
 							key={link.sys.id}
+							tags
 						/>
 					)}
 				</div>
@@ -72,7 +73,7 @@ Links.getInitialProps = async () => {
 	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
 	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
 	const tags = await api.get({ content_type: 'tags', order: 'sys.createdAt' })
-	const links = await api.get({ content_type: 'links' })
+	const links = await api.get({ content_type: 'links', limit: 500 })
 	
 	return {
 		page: page.fields,

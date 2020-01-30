@@ -36,6 +36,7 @@ const Home = (props) => {
 						<Link
 							link={link}
 							key={link.sys.id}
+							tags
 						/>
 					)}
 				</div>
