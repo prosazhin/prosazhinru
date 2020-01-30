@@ -25,8 +25,8 @@ const Head = (props) => (
 		<meta property="og:url" content={props.url} />
 		<meta property="og:image" content={props.image} />
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
-		{/* <meta name="yandex-verification" content="dd48801ed051b178" /> */}
-		{/* <meta name="google-site-verification" content="X1xPf8-Oy5G7KQEJ3lGa94wRmqmFcYt8Qo535vK5szQ" /> */}
+		<meta name="yandex-verification" content="dd48801ed051b178" />
+		<meta name="google-site-verification" content="X1xPf8-Oy5G7KQEJ3lGa94wRmqmFcYt8Qo535vK5szQ" />
 	</NextHead>
 )
 
