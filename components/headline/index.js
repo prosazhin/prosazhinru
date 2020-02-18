@@ -4,7 +4,7 @@ import style from './headline.scss'
 
 
 
-const Headline = ({ children, title, description, h1 }) => {
+const Headline = ({ children, title, description, h1, bigMargin }) => {
     return (
         <React.Fragment>
             <div className="headline">
@@ -23,7 +23,7 @@ const Headline = ({ children, title, description, h1 }) => {
                 }
 
                 {!!description &&
-                    <div className={`description` + `${!title ? ` description_without_title` : ''}`}>
+                    <div className={`description` + `${bigMargin ? ` description_big_margin` : ''}`}>
                         <ReactMarkdown
                             source={description}
                             linkTarget="_blank"

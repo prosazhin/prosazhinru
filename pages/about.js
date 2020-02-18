@@ -5,6 +5,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Container from '../components/container'
 import Headline from '../components/headline'
+import Blog from '../components/blog'
 import GlobalStyle from '../styles/base.scss'
 import style from '../styles/about.scss'
 
@@ -27,7 +28,7 @@ const About = (props) => {
 			<Header pages={props.pages} />
 			<Container main>
 				<Headline description={props.page.description} />
-
+                <Blog />
 				<article className="row">
                     <section>
                         <h3 className="title">
@@ -74,19 +75,18 @@ const About = (props) => {
                         </p>
                     </section>
                 </article>
-
 				<Headline title="Где работал?" />
                 <article className="road">
                     <section className="road__item">
                         <span className="road__icon road__icon_state_active"></span>
                         <h3 className="road__title">
-                            reg.ru
+                            <a href="https://www.reg.ru/" target="_blank">reg.ru</a>
                         </h3>
                         <p className="road__date">
                             Октябрь 2018 — Сейчас
                         </p>
                         <p className="road__description">
-                            <b>UX дизайнер / фронтендер</b><br />
+                            UX дизайнер / фронтендер<br />
                             Проектирование и разработка внутренних проектов.<br />
                             Поддержка и развития сервиса.
                         </p>
@@ -94,13 +94,13 @@ const About = (props) => {
                     <section className="road__item">
                         <span className="road__icon"></span>
                         <h3 className="road__title">
-                            supl.biz
+                            <a href="https://supl.biz/" target="_blank">supl.biz</a>
                         </h3>
                         <p className="road__date">
                             Октябрь 2016 — Октябрь 2018
                         </p>
                         <p className="road__description">
-                            <b>Дизайнер / фронтендер</b><br />
+                            Дизайнер / фронтендер<br />
                             Проектирование и разработка площадки<br />
                             и внутренних проектов компании.
                         </p>
@@ -108,13 +108,13 @@ const About = (props) => {
                     <section className="road__item">
                         <span className="road__icon"></span>
                         <h3 className="road__title">
-                            franbazar.com
+                            <a href="http://franbazar.com/" target="_blank">franbazar.com</a>
                         </h3>
                         <p className="road__date">
                             Май 2016 — Октябрь 2016
                         </p>
                         <p className="road__description">
-                            <b>Дизайнер / верстальщик</b><br />
+                            Дизайнер / верстальщик<br />
                             Поддержка старых проектов.<br />
                             Дизайн и верстка мобильных приложений на WebView.
                         </p>
@@ -122,13 +122,13 @@ const About = (props) => {
                     <section className="road__item">
                         <span className="road__icon"></span>
                         <h3 className="road__title">
-                            pixlpark.ru
+                            <a href="https://pixlpark.ru/" target="_blank">pixlpark.ru</a>
                         </h3>
                         <p className="road__date">
                             Ферваль 2014 — Май 2016
                         </p>
                         <p className="road__description">
-                            <b>Дизайнер / верстальщик</b><br />
+                            Дизайнер / верстальщик<br />
                             Поддержка демо сайта и админки.<br />
                             Помощь новым и постоянным клиентам.
                         </p>
@@ -142,7 +142,7 @@ const About = (props) => {
                             2011 — 2014
                         </p>
                         <p className="road__description">
-                            <b>Дизайнер</b><br />
+                            Дизайнер<br />
                             Верстка книг, газет и журналов. Графический дизайн.<br />
                             Рекламная полиграфия.
                         </p>

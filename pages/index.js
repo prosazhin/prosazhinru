@@ -6,6 +6,7 @@ import Footer from '../components/footer'
 import Container from '../components/container'
 import Headline from '../components/headline'
 import ButtonLink from '../components/button'
+import Blog from '../components/blog'
 import Link from '../components/link'
 import GlobalStyle from '../styles/base.scss'
 import style from '../styles/index.scss'
@@ -29,8 +30,8 @@ const Home = (props) => {
 			<Header pages={props.pages} />
 			<Container main>
 				<Headline description={props.page.description} />
+				<Blog />
 				<Headline title="Последние ссылки" />
-
 				<div className="links">
 					{props.links.map(link =>
 						<Link

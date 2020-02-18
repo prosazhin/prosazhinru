@@ -1,0 +1,67 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.blog {
+    display: block;
+    width: 100%;
+    background-color: $clr-gray-F3F3F3;
+    padding: 2rem 4rem;
+    padding-top: 136px;
+    margin-bottom: 14rem;
+    border-radius: 2rem;
+    position: relative;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        padding-left: 176px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        padding-left: 176px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    &__image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 4rem;
+        margin: auto;
+        width: 96px;
+        height: 96px;
+
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            top: 0;
+            bottom: 0;
+            left: 4rem;
+            right: auto;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            top: 0;
+            bottom: 0;
+            left: 4rem;
+            right: auto;
+        }
+    }
+
+    &__text {
+        display: inline-block;
+        width: 100%;
+        font-size: 4rem;
+        line-height: 6rem;
+        text-align: center;
+
+        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+            text-align: left;
+        }
+    
+        @media all and (min-width: $scr-xl) {
+            text-align: left;
+        }
+    }
+}
