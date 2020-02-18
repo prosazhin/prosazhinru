@@ -108,17 +108,17 @@
             }
 
             &__active {
-                color: $clr-blue-light;
+                color: $clr-blue;
                 text-decoration: none;
 
                 &:hover {
-                    color: $clr-blue-light;
+                    color: $clr-blue;
                     border-bottom: none;
                 }
 
                 &:active,
                 &:focus {
-                    color: $clr-blue-light;
+                    color: $clr-blue;
                 }
             }
         }
