@@ -1,10 +1,10 @@
 import React from 'react'
 import Router, { useRouter } from 'next/router'
-import style from './tag.scss'
+import style from './Tag.module.scss'
 
 
 
-const Tag = ({ title, url, page }) => {
+export default function Tag({ title, url, page }) {
     const router = useRouter()
 
     function handelClick(event) {
@@ -24,18 +24,11 @@ const Tag = ({ title, url, page }) => {
     return (
         <React.Fragment>
             <span
-                className={
-                    `tag` +
-                    `${url === router.query.tag ? ` tag__active` : ''}`
-                }
+                className={`${style.tag}${url === router.query.tag ? ` ${style.tag__active}` : ''}`}
                 onClick={(event) => handelClick(event)}
             >
                 {title}
             </span>
-
-            <style jsx>{style}</style>
         </React.Fragment>
     )
 }
-
-export default Tag

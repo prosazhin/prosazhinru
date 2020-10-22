@@ -1,14 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
-import Tag from '../tag'
-import style from './selection.scss'
+import style from './Selection.module.scss'
+
+import {
+    Tag,
+} from '../'
 
 
 
-const Selection = ({ selection }) => {
+export default function Selection({ selection }) {
 
     function linksCount(count) {
-        function declOfNum(number, titles) {  
+        function declOfNum(number, titles) {
             const cases = [2, 0, 1, 1, 1, 2]
             return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ]
         }
@@ -19,25 +22,25 @@ const Selection = ({ selection }) => {
     return (
         <React.Fragment>
             <Link href="/[slug]" as={`/` + `${selection.fields.url}`}>
-                <a className={`selection` + `${selection.fields.big ? ` selection_size_big`: ''}`}>
-                    <span className={`headline` + `${selection.fields.big ? ` headline_size_big`: ''}`}>
+                <a className={`${style.selection}${selection.fields.big ? ` ${style.selection_size_big}`: ''}`}>
+                    <span className={`${style.headline}${selection.fields.big ? ` ${style.headline_size_big}`: ''}`}>
                         {selection.fields.title}
                     </span>
 
                     {selection.fields.description &&
-                        <span className={`description` + `${selection.fields.big ? ` description_size_big`: ''}`}>
+                        <span className={`${style.description}${selection.fields.big ? ` ${style.description_size_big}`: ''}`}>
                             {selection.fields.description}
                         </span>
                     }
 
-                    <div className="bottom">
-                        <span className="count">
+                    <div className={style.bottom}>
+                        <span className={style.count}>
                             {linksCount(selection.fields.links.length)}
                         </span>
-                        <ul className="tags">
+                        <ul className={style.tags}>
                             {selection.fields.tags.map(tag =>
                                 <li
-                                    className="tags__item"
+                                    className={style.tags__item}
                                     key={tag.sys.id}
                                 >
                                     <Tag
@@ -51,10 +54,6 @@ const Selection = ({ selection }) => {
                     </div>
                 </a>
             </Link>
-
-            <style jsx>{style}</style>
         </React.Fragment>
     )
 }
-
-export default Selection

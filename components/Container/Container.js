@@ -1,24 +1,20 @@
 import React from 'react'
-import style from './container.scss'
+import style from './Container.module.scss'
 
 
 
-const Container = ({ children, main }) => {
+export default function Container({ children, main }) {
     return (
         <React.Fragment>
             {main ?
-                <main className="container main">
+                <main className={`${style.container} ${style.main}`}>
                     {children}
                 </main>
             :
-                <div className="container">
+                <div className={style.container}>
                     {children}
                 </div>
             }
-
-            <style jsx>{style}</style>
         </React.Fragment>
     )
 }
-
-export default Container

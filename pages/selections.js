@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Head from '../components/head'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Container from '../components/container'
-import Headline from '../components/headline'
-import Tags from '../components/tags'
-import Tabs from '../components/tabs'
-import Selection from '../components/selection'
-import GlobalStyle from '../styles/base.scss'
-import style from '../styles/selections.scss'
+import style from '../styles/pages/selections.module.scss'
+
+import {
+	Wrapper,
+	Headline,
+	Tags,
+	Tabs,
+	Selection,
+} from '../components'
 
 import API from '../api'
 const api = new API()
 
 
 
-const Selections = (props) => {
+function Selections(props) {
 	const [selections, setSelections] = useState(props.selections)
 	const router = useRouter()
 
@@ -31,45 +30,43 @@ const Selections = (props) => {
 	}, [router.query.tag])
 
 	return (
-		<React.Fragment>
-			<Head
-				title={props.page.metaTitle}
-				description={props.page.metaDescription}
-				image="/sharing-selections.jpg"
-				url={`https://prosazhin.ru` + `${router.pathname}`}
+		<Wrapper
+			pages={props.pages}
+			navigations={props.navigations}
+			contacts={props.contacts}
+			title={props.page.metaTitle}
+			description={props.page.metaDescription}
+			image="/sharing-selections.jpg"
+			url={`https://prosazhin.ru` + `${router.pathname}`}
+		>
+			<Headline
+				title={props.page.title}
+				description={props.page.description}
+				h1
 			/>
-			<Header pages={props.pages} />
-			<Container main>
-				<Headline
-                    title={props.page.title}
-                    description={props.page.description}
-					h1
-                />
-				<Tabs />
-				<Tags
-					tags={props.tags}
-					page="selections"
-				/>
-				<div className="selections">
-					{selections.map(selection =>
-						<Selection
-							selection={selection}
-							key={selection.sys.id}
-						/>
-					)}
-				</div>
-			</Container>
-			<Footer contacts={props.contacts} />
-
-			<style jsx>{GlobalStyle}</style>
-			<style jsx>{style}</style>
-		</React.Fragment>
+			<Tabs />
+			<Tags
+				tags={props.tags}
+				page="selections"
+			/>
+			<div className={style.selections}>
+				{selections.map(selection =>
+					<Selection
+						selection={selection}
+						key={selection.sys.id}
+					/>
+				)}
+			</div>
+		</Wrapper>
 	)
 }
+
+
 
 Selections.getInitialProps = async () => {
 	const page = await api.getOne('4FmC8blew6cpUdbOCZJjyK')
 	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
+	const navigations = await api.get({ content_type: 'navigations' })
 	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
 	const tags = await api.get({ content_type: 'tags', order: 'sys.createdAt' })
 	const selections = await api.get({ content_type: 'selections', order: 'sys.createdAt' })
@@ -80,6 +77,7 @@ Selections.getInitialProps = async () => {
 		contacts: contacts.items,
 		tags: tags.items,
 		selections: selections.items,
+		navigations: navigations.items,
 	}
 }
 

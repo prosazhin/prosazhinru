@@ -1,17 +1,20 @@
 import React from 'react'
-import Container from '../container'
-import style from './footer.scss'
+import style from './Footer.module.scss'
+
+import {
+    Container,
+} from '../'
 
 
 
-const Footer = (props) => {
+export default function Footer(props) {
     return (
         <React.Fragment>
-            <footer className="footer">
+            <footer className={style.footer}>
                 <Container>
-                    <ul className="contacts">
+                    <ul className={style.contacts}>
                         {props.contacts.length && props.contacts.map(contact =>
-                            <li className="contacts__item" key={contact.sys.id}>
+                            <li className={style.contacts__item} key={contact.sys.id}>
                                 <a
                                     href={contact.fields.url}
                                     target={contact.fields.target}
@@ -21,16 +24,12 @@ const Footer = (props) => {
                             </li>
                         )}
                     </ul>
-                    <span className="copyright">
+                    <span className={style.copyright}>
                         © 2017 - 2019, Евгений Сажин
                     </span>
                 </Container>
             </footer>
-
-            <style jsx>{style}</style>
         </React.Fragment>
         
     )
 }
-
-export default Footer

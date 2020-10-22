@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import style from './headline.scss'
+import style from './Headline.module.scss'
 
 
 
-const Headline = ({ children, title, description, h1, bigMargin }) => {
+export default function Headline({ children, title, description, h1, bigMargin }) {
     return (
         <React.Fragment>
-            <div className="headline">
+            <div className={style.headline}>
                 {!!title &&
                     <React.Fragment>
                         {h1 ?
-                            <h1 className="title">
+                            <h1 className={style.title}>
                                 {title}
                             </h1>
                             :
-                            <span className="title">
+                            <span className={style.title}>
                                 {title}
                             </span>
                         }
@@ -23,7 +23,7 @@ const Headline = ({ children, title, description, h1, bigMargin }) => {
                 }
 
                 {!!description &&
-                    <div className={`description` + `${bigMargin ? ` description_big_margin` : ''}`}>
+                    <div className={`${style.description}${bigMargin ? ` ${style.description_big_margin}` : ''}`}>
                         <ReactMarkdown
                             source={description}
                             linkTarget="_blank"
@@ -34,10 +34,6 @@ const Headline = ({ children, title, description, h1, bigMargin }) => {
 
                 {children}
             </div>
-
-            <style jsx>{style}</style>
         </React.Fragment>
     )
 }
-
-export default Headline

@@ -1,33 +1,36 @@
 import React from 'react'
-import Tag from '../tag'
-import style from './link.scss'
+import style from './Link.module.scss'
+
+import {
+    Tag,
+} from '../'
 
 
 
-const Link = ({ link, tags }) => {
+export default function Link({ link, tags }) {
     return (
         <React.Fragment>
             <a
                 href={link.fields.url}
                 // eslint-disable-next-line
                 target="_blank"
-                className="link"
+                className={style.link}
             >
-                <span className="link__headline">
+                <span className={style.link__headline}>
                     {link.fields.title}
                 </span>
 
                 {link.fields.description &&
-                    <span className="link__description">
+                    <span className={style.link__description}>
                         {link.fields.description}
                     </span>
                 }
 
                 {link.fields.tags.length && tags &&
-                    <ul className="link__tags">
+                    <ul className={style.link__tags}>
                         {link.fields.tags.map(tag =>
                             <li
-                                className="link__tags__item"
+                                className={style.link__tags__item}
                                 key={tag.sys.id}
                             >
                                 <Tag
@@ -40,10 +43,6 @@ const Link = ({ link, tags }) => {
                     </ul>
                 }
             </a>
-
-            <style jsx>{style}</style>
         </React.Fragment>
     )
 }
-
-export default Link
