@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import style from '../../styles/pages/selections.module.scss'
+import style from './selections.module.scss'
 
 import {
     Wrapper,
@@ -8,12 +8,16 @@ import {
     Link,
 } from '../../components'
 
-import API from '../../api'
+import {
+	navigationsSerializer,
+} from '../../utils/Serializers'
+
+import API from '../../utils/Api'
 const api = new API()
 
 
 
-function PageSelection(props) {
+export default function PageSelection(props) {
     const [selection, setSelection] = useState(null)
     const router = useRouter()
 
@@ -23,7 +27,6 @@ function PageSelection(props) {
     
     return (
         <Wrapper
-            pages={props.pages}
             navigations={props.navigations}
 			contacts={props.contacts}
 			title={selection ? `${props.page.metaTitle} — ${selection.fields.title}` : props.page.metaTitle}
@@ -54,20 +57,18 @@ function PageSelection(props) {
 
 
 
-PageSelection.getInitialProps = async (ctx) => {
+export async function getStaticProps() {
 	const page = await api.getOne('4FmC8blew6cpUdbOCZJjyK')
-    const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
-    const navigations = await api.get({ content_type: 'navigations' })
-    const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
+    const navigations = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
     const selections = await api.get({ content_type: 'selections', order: 'sys.createdAt' })
-	
+    const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
+
 	return {
-		page: page.fields,
-		pages: pages.items,
-        contacts: contacts.items,
-        selections: selections.items,
-        navigations: navigations.items,
+		props: {
+			page: page.fields,
+            navigations: navigations,
+            selections: selections.items,
+            contacts: contacts.items,
+		},
 	}
 }
-
-export default PageSelection

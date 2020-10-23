@@ -21,31 +21,31 @@ export default function Selection({ selection }) {
 
     return (
         <React.Fragment>
-            <Link href="/[slug]" as={`/` + `${selection.fields.url}`}>
-                <a className={`${style.selection}${selection.fields.big ? ` ${style.selection_size_big}`: ''}`}>
-                    <span className={`${style.headline}${selection.fields.big ? ` ${style.headline_size_big}`: ''}`}>
-                        {selection.fields.title}
+            <Link href="/[slug]" as={`/` + `${selection.url}`}>
+                <a className={`${style.selection}${selection.big ? ` ${style.selection_size_big}`: ''}`}>
+                    <span className={`${style.headline}${selection.big ? ` ${style.headline_size_big}`: ''}`}>
+                        {selection.title}
                     </span>
 
-                    {selection.fields.description &&
-                        <span className={`${style.description}${selection.fields.big ? ` ${style.description_size_big}`: ''}`}>
-                            {selection.fields.description}
+                    {selection.description &&
+                        <span className={`${style.description}${selection.big ? ` ${style.description_size_big}`: ''}`}>
+                            {selection.description}
                         </span>
                     }
 
                     <div className={style.bottom}>
                         <span className={style.count}>
-                            {linksCount(selection.fields.links.length)}
+                            {linksCount(selection.links.length)}
                         </span>
                         <ul className={style.tags}>
-                            {selection.fields.tags.map(tag =>
+                            {selection.tags.map(tag =>
                                 <li
                                     className={style.tags__item}
-                                    key={tag.sys.id}
+                                    key={tag.id}
                                 >
                                     <Tag
-                                        title={tag.fields.title}
-                                        url={tag.fields.url}
+                                        title={tag.title}
+                                        url={tag.url}
                                         page="selections"
                                     />
                                 </li>

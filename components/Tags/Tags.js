@@ -7,19 +7,19 @@ import {
 
 
 
-export default function Tags(props) {
+export default function Tags({ tags, page }) {
     return (
         <React.Fragment>
             <ul className={style.tags}>
-                {props.tags.length && props.tags.map(tag =>
+                {tags.length && tags.map(tag =>
                     <li
                         className={style.tags__item}
-                        key={tag.sys.id}
+                        key={tag.id}
                     >
                         <Tag
-                            title={tag.fields.title}
-                            url={tag.fields.url}
-                            page={props.page}
+                            title={tag.title}
+                            url={tag.url}
+                            page={page}
                         />
                     </li>
                 )}

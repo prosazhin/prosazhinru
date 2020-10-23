@@ -11,31 +11,31 @@ export default function Link({ link, tags }) {
     return (
         <React.Fragment>
             <a
-                href={link.fields.url}
+                href={link.url}
                 // eslint-disable-next-line
                 target="_blank"
                 className={style.link}
             >
                 <span className={style.link__headline}>
-                    {link.fields.title}
+                    {link.title}
                 </span>
 
-                {link.fields.description &&
+                {link.description &&
                     <span className={style.link__description}>
-                        {link.fields.description}
+                        {link.description}
                     </span>
                 }
 
-                {link.fields.tags.length && tags &&
+                {link.tags.length && tags &&
                     <ul className={style.link__tags}>
-                        {link.fields.tags.map(tag =>
+                        {link.tags.map(tag =>
                             <li
                                 className={style.link__tags__item}
-                                key={tag.sys.id}
+                                key={tag.id}
                             >
                                 <Tag
-                                    title={tag.fields.title}
-                                    url={tag.fields.url}
+                                    title={tag.title}
+                                    url={tag.url}
                                     page="links"
                                 />
                             </li>

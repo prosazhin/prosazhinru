@@ -11,7 +11,7 @@ import {
 
 
 
-export default function Header(props) {
+export default function Header({ navigations }) {
     const [isActive, setIsActive] = useState(false)
     const router = useRouter()
 
@@ -30,15 +30,15 @@ export default function Header(props) {
                         </a>
                     </Link>
                     <nav className={`${style.nav}${isActive ? ` ${style.nav__mobile}` : ''}`}>
-                        {props.navigations
-                            .sort(( a, b ) => a.fields.order - b.fields.order)
+                        {navigations
+                            .sort(( a, b ) => a.order - b.order)
                             .map(link =>
-                            <React.Fragment key={link.sys.id}>
-                                {!!link.fields.show &&
+                            <React.Fragment key={link.id}>
+                                {!!link.show &&
                                     <li className={style.nav__item}>
-                                        <Link href={link.fields.url}>
-                                            <a className={`${style.nav__item__link}${router.pathname === link.fields.url ? ` ${style.nav__item__link__active}` : ''}`}>
-                                                {link.fields.title}
+                                        <Link href={link.url}>
+                                            <a className={`${style.nav__item__link}${router.pathname === link.url ? ` ${style.nav__item__link__active}` : ''}`}>
+                                                {link.title}
                                             </a>
                                         </Link>
                                     </li>

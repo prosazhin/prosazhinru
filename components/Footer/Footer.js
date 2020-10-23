@@ -7,19 +7,19 @@ import {
 
 
 
-export default function Footer(props) {
+export default function Footer({ contacts }) {
     return (
         <React.Fragment>
             <footer className={style.footer}>
                 <Container>
                     <ul className={style.contacts}>
-                        {props.contacts.length && props.contacts.map(contact =>
-                            <li className={style.contacts__item} key={contact.sys.id}>
+                        {contacts.length && contacts.map(contact =>
+                            <li className={style.contacts__item} key={contact.id}>
                                 <a
-                                    href={contact.fields.url}
-                                    target={contact.fields.target}
+                                    href={contact.url}
+                                    target={contact.target}
                                 >
-                                    {contact.fields.title}
+                                    {contact.title}
                                 </a>
                             </li>
                         )}

@@ -1,32 +1,37 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import style from '../styles/pages/about.module.scss'
+import style from './styles.module.scss'
 
 import {
     Wrapper,
     Headline,
     Blog,
-} from '../components'
+} from '../../components'
 
-import API from '../api'
+import {
+    pageSerializer,
+    navigationsSerializer,
+    contactsSerializer,
+} from '../../utils/Serializers'
+
+import API from '../../utils/Api'
 const api = new API()
 
 
 
-function About(props) {
+export default function About({ pageData, navigationsList, contactsList }) {
     const router = useRouter()
 
 	return (
         <Wrapper
-            pages={props.pages}
-            navigations={props.navigations}
-			contacts={props.contacts}
-			title={props.page.metaTitle}
-			description={props.page.metaDescription}
+            navigations={navigationsList}
+			contacts={contactsList}
+			title={pageData.metaTitle}
+			description={pageData.metaDescription}
 			image="/sharing-about.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-            <Headline description={props.page.description} />
+            <Headline description={pageData.description} />
             <Blog />
             <article className={style.row}>
                 <section>
@@ -153,18 +158,16 @@ function About(props) {
 
 
 
-About.getInitialProps = async () => {
-	const page = await api.getOne('3JFErwJlyqQQvqF77kZ2K9')
-    const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
-    const navigations = await api.get({ content_type: 'navigations' })
-	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
-	
+export async function getStaticProps() {
+	const pageResult = pageSerializer( await api.getOne('3JFErwJlyqQQvqF77kZ2K9') )
+    const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
+	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+
 	return {
-		page: page.fields,
-		pages: pages.items,
-        contacts: contacts.items,
-        navigations: navigations.items,
+		props: {
+            pageData: pageResult,
+            navigationsList: navigationsResult,
+            contactsList: contactsResult,
+		},
 	}
 }
-
-export default About

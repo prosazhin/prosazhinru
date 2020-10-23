@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import style from '../styles/pages/index.module.scss'
+import style from './index.module.scss'
 
 import {
 	Wrapper,
@@ -10,32 +10,38 @@ import {
 	Link,
 } from '../components'
 
-import API from '../api'
+import {
+	pageSerializer,
+	navigationsSerializer,
+	linksSerializer,
+	contactsSerializer,
+} from '../utils/Serializers'
+
+import API from '../utils/Api'
 const api = new API()
 
 
 
-function Home(props) {
+export default function Home({ pageData, navigationsList, linksList, contactsList }) {
 	const router = useRouter()
 
 	return (
 		<Wrapper
-			pages={props.pages}
-			navigations={props.navigations}
-			contacts={props.contacts}
-			title={props.page.metaTitle}
-			description={props.page.metaDescription}
+			navigations={navigationsList}
+			contacts={contactsList}
+			title={pageData.metaTitle}
+			description={pageData.metaDescription}
 			image="/sharing-index.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Headline description={props.page.description} />
+			<Headline description={pageData.description} />
 			<Blog />
 			<Headline title="Последние ссылки" />
 			<div className={style.links}>
-				{props.links.map(link =>
+				{linksList.map(link =>
 					<Link
 						link={link}
-						key={link.sys.id}
+						key={link.id}
 						tags
 					/>
 				)}
@@ -53,20 +59,18 @@ function Home(props) {
 
 
 
-Home.getInitialProps = async () => {
-	const page = await api.getOne('22ziEi9xaIBiXD6mZ56r21')
-	const pages = await api.get({ content_type: 'page', order: 'sys.createdAt' })
-	const navigations = await api.get({ content_type: 'navigations' })
-	const contacts = await api.get({ content_type: 'contacts', order: 'sys.createdAt' })
-	const links = await api.get({ content_type: 'links', limit: 10, })
-	
+export async function getStaticProps() {
+	const pageResult = pageSerializer( await api.getOne('22ziEi9xaIBiXD6mZ56r21') )
+	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
+	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 10, }) )
+	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+
 	return {
-		page: page.fields,
-		pages: pages.items,
-		contacts: contacts.items,
-		links: links.items,
-		navigations: navigations.items,
+		props: {
+			pageData: pageResult,
+			navigationsList: navigationsResult,
+			linksList: linksResult,
+			contactsList: contactsResult,
+		},
 	}
 }
-
-export default Home

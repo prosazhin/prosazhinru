@@ -10,7 +10,6 @@ import {
 
 export default function Wrapper({
     children,
-	pages,
 	navigations,
     contacts,
     title,

@@ -1,0 +1,21 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.links {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-gap: 2rem;
+
+    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+        grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+        grid-gap: 4rem 2rem;
+    }
+
+    @media all and (min-width: $scr-xl) {
+        grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+        grid-gap: 4rem 2rem;
+    }
+}
