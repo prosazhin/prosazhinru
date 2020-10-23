@@ -21,7 +21,7 @@ export default function Selection({ selection }) {
 
     return (
         <React.Fragment>
-            <Link href="/[slug]" as={`/` + `${selection.url}`}>
+            <Link href="/selections/[url]" as={`/selections/` + `${selection.url}`}>
                 <a className={`${style.selection}${selection.big ? ` ${style.selection_size_big}`: ''}`}>
                     <span className={`${style.headline}${selection.big ? ` ${style.headline_size_big}`: ''}`}>
                         {selection.title}

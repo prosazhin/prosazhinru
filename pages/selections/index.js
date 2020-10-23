@@ -37,8 +37,6 @@ export default function Selections({ pageData, navigationsList, tagsList, select
 		setSelections(dataSelections)
 	}, [router.query.tag])
 
-	console.log(selectionsList)
-
 	return (
 		<Wrapper
 			navigations={navigationsList}
