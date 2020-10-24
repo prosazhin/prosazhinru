@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 
 import {
-    Wrapper,
+    MainWrapper,
     Headline,
     Link,
 } from '../../components'
@@ -23,7 +23,7 @@ export default function PageSelection({ navigationsList, selectionData, contacts
     const router = useRouter()
 
     return (
-        <Wrapper
+        <MainWrapper
             navigations={navigationsList}
             contacts={contactsList}
             title={selectionData.title}
@@ -44,7 +44,7 @@ export default function PageSelection({ navigationsList, selectionData, contacts
                     />
                 )}
             </div>
-        </Wrapper>
+        </MainWrapper>
     )
 }
 

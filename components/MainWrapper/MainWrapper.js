@@ -3,12 +3,12 @@ import Head from '../../utils/Head'
 import {
     Header,
     Footer,
-    Container,
-} from '../'
+    MainContainer,
+} from '..'
 
 
 
-export default function Wrapper({
+export default function MainWrapper({
     children,
 	navigations,
     contacts,
@@ -26,9 +26,9 @@ export default function Wrapper({
 				url={url}
 			/>
 			<Header navigations={navigations} />
-			<Container main>
+			<MainContainer>
                 {children}
-			</Container>
+			</MainContainer>
 			<Footer contacts={contacts} />
 		</React.Fragment>
 	)

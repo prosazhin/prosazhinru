@@ -1,30 +1,35 @@
 
-@import '../../styles/variables.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+@import '../../scss/screens.scss';
 
 
+
+.wrapper {
+    display: block;
+    width: 100%;
+    padding-bottom: 5rem;
+}
 
 .footer {
     display: block;
     width: 100%;
-    margin-top: 14rem;
-    padding-bottom: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid $clr-gray-main;
 }
 
 .copyright {
     display: inline-block;
     width: 100%;
-    color: $clr-black;
-    font-size: 2rem;
-    line-height: 4rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    color: $clr-base-black;
+    @include text-regular-lvl-4;
 }
 
 .contacts {
     display: inline-block;
     width: 100%;
-    font-size: 2rem;
-    line-height: 4rem;
-    font-weight: $font-semi-bold;
+    @include text-medium-lvl-4;
 
     &__item {
         display: inline-block;
@@ -34,9 +39,14 @@
             margin-right: 0;
         }
 
-        @media all and (max-width: $scr-sm-max) {
+        @include for_small_screen {    
             width: 100%;
             margin: 0;
+            margin-bottom: 1rem;
+
+            &:nth-last-child(1) {
+                margin-bottom: 0;
+            }
         }
     }
 }

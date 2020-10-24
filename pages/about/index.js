@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 
 import {
-    Wrapper,
+    MainWrapper,
     Headline,
     Blog,
 } from '../../components'
@@ -23,7 +23,7 @@ export default function About({ pageData, navigationsList, contactsList }) {
     const router = useRouter()
 
 	return (
-        <Wrapper
+        <MainWrapper
             navigations={navigationsList}
 			contacts={contactsList}
 			title={pageData.metaTitle}
@@ -152,7 +152,7 @@ export default function About({ pageData, navigationsList, contactsList }) {
                     </p>
                 </section>
             </article>
-        </Wrapper>
+        </MainWrapper>
 	)
 }
 

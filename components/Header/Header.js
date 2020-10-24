@@ -16,9 +16,9 @@ export default function Header({ navigations }) {
     const router = useRouter()
 
     return (
-        <React.Fragment>
-            <header className={`${style.header}${isActive ? ` ${style.header__mobile}` : ''}`}>
-                <Container>
+        <header className={`${style.header}${isActive ? ` ${style.header__mobile}` : ''}`}>
+            <Container>
+                <div className={style.header__wrapper}>
                     <Link href="/">
                         <a className={style.logo}>
                             <img
@@ -46,25 +46,23 @@ export default function Header({ navigations }) {
                             </React.Fragment>
                         )}
                     </nav>
-                </Container>
-
-                {isActive
-                    ?
+                </div>
+                {isActive ?
                     <span
-                        className={style.menu}
+                        className={style.header__mobile_toogle}
                         onClick={() => setIsActive(!isActive)}
                     >
                         <FontAwesomeIcon icon={faTimes} />
                     </span>
                     :
                     <span
-                        className={style.menu}
+                        className={style.header__mobile_toogle}
                         onClick={() => setIsActive(!isActive)}
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </span>
                 }
-            </header>
-        </React.Fragment>
+            </Container>
+        </header>
     )
 }

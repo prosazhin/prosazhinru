@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 
 import {
-	Wrapper,
+	MainWrapper,
 	Headline,
 	Tags,
 	Tabs,
@@ -38,7 +38,7 @@ export default function Selections({ pageData, navigationsList, tagsList, select
 	}, [router.query.tag])
 
 	return (
-		<Wrapper
+		<MainWrapper
 			navigations={navigationsList}
 			contacts={contactsList}
 			title={pageData.metaTitle}
@@ -64,7 +64,7 @@ export default function Selections({ pageData, navigationsList, tagsList, select
 					/>
 				)}
 			</div>
-		</Wrapper>
+		</MainWrapper>
 	)
 }
 

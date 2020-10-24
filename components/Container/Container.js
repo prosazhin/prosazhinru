@@ -3,18 +3,22 @@ import style from './Container.module.scss'
 
 
 
-export default function Container({ children, main }) {
+export function Container({ children, small }) {
     return (
         <React.Fragment>
-            {main ?
-                <main className={`${style.container} ${style.main}`}>
-                    {children}
-                </main>
-            :
-                <div className={style.container}>
-                    {children}
-                </div>
-            }
+            <div className={`${style.container} ${small ? style.container__size_small : style.container__size_normal}`}>
+                {children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+export function MainContainer({ children }) {
+    return (
+        <React.Fragment>
+            <main className={`${style.container} ${style.container__size_normal} ${style.main}`}>
+                {children}
+            </main>
         </React.Fragment>
     )
 }

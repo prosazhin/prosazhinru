@@ -1,7 +1,7 @@
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
-import Container from './Container/Container'
-import Wrapper from './Wrapper/Wrapper'
+import { Container, MainContainer } from './Container/Container'
+import MainWrapper from './MainWrapper/MainWrapper'
 import Headline from './Headline/Headline'
 import Tabs from './Tabs/Tabs'
 import ButtonLink from './Button/Button'
@@ -17,7 +17,8 @@ export {
     Header,
     Footer,
     Container,
-    Wrapper,
+    MainContainer,
+    MainWrapper,
     Headline,
     Tabs,
     ButtonLink,

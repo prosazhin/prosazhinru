@@ -3,11 +3,12 @@ import { useRouter } from 'next/router'
 import style from './index.module.scss'
 
 import {
-	Wrapper,
+	MainWrapper,
 	Headline,
 	ButtonLink,
 	Blog,
 	Link,
+	Container,
 } from '../components'
 
 import {
@@ -26,7 +27,7 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 	const router = useRouter()
 
 	return (
-		<Wrapper
+		<MainWrapper
 			navigations={navigationsList}
 			contacts={contactsList}
 			title={pageData.metaTitle}
@@ -34,7 +35,9 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 			image="/sharing-index.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Headline description={pageData.description} />
+			<Container small>
+				<Headline description={pageData.description} />
+			</Container>
 			<Blog />
 			<Headline title="Последние ссылки" />
 			<div className={style.links}>
@@ -53,7 +56,7 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 					target="_self"
 				/>
 			</div>
-		</Wrapper>
+		</MainWrapper>
 	)
 }
 

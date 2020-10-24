@@ -1,28 +1,44 @@
 
-@import '../../styles/variables.scss';
+@import '../../scss/screens.scss';
 
 
 
 .container {
     display: block;
-    width: 100%;
     margin: auto;
     position: relative;
     text-align: inherit;
+}
+
+.container__size_normal {
+    width: 100%;
     padding: 0px 2rem;
 
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        padding: 0px 6rem;
+    @include for_middle_screen {    
+        width: 736px;
+        padding: 0px;
     }
 
-    @media all and (min-width: $scr-xl) {
-        padding: 0px 10rem;
+    @include for_large_screen {    
+        width: 80%;
+        padding: 0px;
+    }
+
+    @include for_big_screen {    
+        width: 1152px;
+        padding: 0px;
+    }
+}
+
+.container__size_small {
+    width: 736px;
+
+    @include for_small_screen {    
+        width: 100%;
     }
 }
 
 .main {
-    width: 100vw;
     margin-top: 20rem;
-    z-index: 20;
-    overflow: hidden;
+    margin-bottom: 10rem;
 }

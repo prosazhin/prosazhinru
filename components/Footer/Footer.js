@@ -9,27 +9,32 @@ import {
 
 export default function Footer({ contacts }) {
     return (
-        <React.Fragment>
-            <footer className={style.footer}>
-                <Container>
+        <footer className={style.wrapper}>
+            <Container>
+                <div className={style.footer}>
                     <ul className={style.contacts}>
-                        {contacts.length && contacts.map(contact =>
+                        {contacts.map(contact =>
                             <li className={style.contacts__item} key={contact.id}>
-                                <a
-                                    href={contact.url}
-                                    target={contact.target}
-                                >
-                                    {contact.title}
-                                </a>
+                                {contact.type === 'link' ?
+                                    <a
+                                        href={contact.url}
+                                        target={contact.target}
+                                    >
+                                        {contact.title}
+                                    </a>
+                                    :
+                                    <React.Fragment>
+                                        {contact.title}
+                                    </React.Fragment>
+                                }
                             </li>
                         )}
                     </ul>
                     <span className={style.copyright}>
-                        © 2017 - 2019, Евгений Сажин
+                        © 2017 - 2020, Евгений Сажин
                     </span>
-                </Container>
-            </footer>
-        </React.Fragment>
-        
+                </div>
+            </Container>
+        </footer>
     )
 }

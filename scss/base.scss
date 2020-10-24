@@ -1,0 +1,30 @@
+
+$font-normal: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+
+
+@mixin radius-4 {
+    border-radius: 4px;
+}
+
+@mixin radius-6 {
+    border-radius: 6px;
+}
+
+@mixin radius-8 {
+    border-radius: 8px;
+}
+
+@mixin radius-12 {
+    border-radius: 12px;
+}
+
+@mixin radius-16 {
+    border-radius: 16px;
+}
+
+@mixin radius-24 {
+    border-radius: 24px;
+}

@@ -1,5 +1,9 @@
 
-@import '../../styles/variables.scss';
+@import '../../scss/base.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+@import '../../scss/icons.scss';
+@import '../../scss/screens.scss';
 
 
 
@@ -7,16 +11,44 @@
     display: block;
     position: fixed;
     z-index: 100;
-    width: 100vw;
+    width: 100%;
     height: 10rem;
     top: 0;
     text-align: left;
-    background-color: $clr-white;
-    padding-top: 6rem;
-    transition: all .4s ease;
+    background-color: $clr-base-white;
+    padding-top: 5rem;
+
+    @include for_small_screen {    
+        transition: all .4s ease;
+    }
 
     &__mobile {
         height: 100vh;
+    }
+
+    &__wrapper {
+        width: 100%;
+        display: block;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $clr-gray-main;
+    }
+
+    &__mobile_toogle {
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        width: 3rem;
+        height: 3rem;
+        @include icon-lvl-4;
+        border: none;
+        color: $clr-base-black;
+        text-align: center;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    
+        @include for_not_small_screen {    
+            display: none;
+        }
     }
 }
 
@@ -24,22 +56,22 @@
 
 .logo {
     display: inline-block;
-    color: $clr-black;
-    font-weight: $font-semi-bold;
-    line-height: 4rem;
+    color: $clr-base-black;
+    @include text-medium-lvl-4;
     vertical-align: top;
     position: relative;
-    padding-left: 6rem;
+    padding-left: 4rem;
 
     &:hover, &:focus, &:active {
-        color: $clr-black;
+        color: $clr-base-black;
+        text-decoration: none;
     }
 
     &__image {
         display: inline-block;
         position: absolute;
-        height: 4rem;
-        width: 4rem;
+        height: 3rem;
+        width: 3rem;
         top: 0;
         bottom: 0;
         margin: auto;
@@ -55,7 +87,7 @@
     margin-left: 20rem;
     vertical-align: top;
 
-    @media all and (max-width: $scr-sm-max) {
+    @include for_small_screen {    
         display: none;
     }
 
@@ -71,82 +103,49 @@
         width: 100%;
         height: auto;
         margin-bottom: 4rem;
-        
-        @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-            width: auto;
-            margin-right: 4rem;
-            margin-bottom: 0px;
-        }
-    
-        @media all and (min-width: $scr-xl) {
-            width: auto;
-            margin-right: 4rem;
-            margin-bottom: 0px;
-        }
 
-        &:nth-last-child(1) {
-            margin-right: 0;
+        @include for_not_small_screen {    
+            width: auto;
+            margin-right: 4rem;
+            margin-bottom: 0px;
+
+            &:nth-last-child(1) {
+                margin-right: 0;
+            }
         }
 
         &__link {
             display: inline-block;
-            color: $clr-black;
-            font-weight: $font-semi-bold;
-            line-height: 4rem;
-            transition: all .2s ease;
+            color: $clr-base-black;
+            transition: all .2s ease-in-out;
+            @include text-medium-lvl-4;
 
             &:hover {
-                color: $clr-black;
+                color: $clr-base-black;
 
-                @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-                    border-bottom: 2px solid $clr-black;
-                }
+                // @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+                //     border-bottom: 2px solid $clr-base-black;
+                // }
             
-                @media all and (min-width: $scr-xl) {
-                    border-bottom: 2px solid $clr-black;
-                }
+                // @media all and (min-width: $scr-xl) {
+                //     border-bottom: 2px solid $clr-base-black;
+                // }
             }
 
             &__active {
-                color: $clr-blue;
+                color: $clr-blue-main;
                 text-decoration: none;
 
                 &:hover {
-                    color: $clr-blue;
+                    color: $clr-blue-main;
                     border-bottom: none;
                 }
 
                 &:active,
                 &:focus {
-                    color: $clr-blue;
+                    color: $clr-blue-main;
                 }
             }
         }
-    }
-}
-
-
-
-.menu {
-    position: absolute;
-    top: 6rem;
-    right: 6rem;
-    width: 2rem;
-    height: 4rem;
-    font-size: 2rem;
-    line-height: 4rem;
-    border: none;
-    color: $clr-gray-555555;
-    text-align: center;
-    cursor: pointer;
-    transition: all .2s ease;
-    padding: 0.5rem 0px;
-
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        display: none;
-    }
-
-    @media all and (min-width: $scr-xl) {
-        display: none;
     }
 }

@@ -108,6 +108,7 @@ export function contactsSerializer(data) {
             title: item.fields.title,
             url: item.fields.url,
             target: item.fields.target,
+            type: item.fields.type,
         }
     })
 
