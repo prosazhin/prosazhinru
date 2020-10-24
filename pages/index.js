@@ -37,8 +37,8 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 		>
 			<Container small>
 				<Headline description={pageData.description} />
+				<Blog />
 			</Container>
-			<Blog />
 			<Headline title="Последние ссылки" />
 			<div className={style.links}>
 				{linksList.map(link =>

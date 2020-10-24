@@ -1,44 +1,57 @@
 
 @import '../../styles/variables.scss';
 
+@import '../../scss/colors.scss';
+@import '../../scss/headline.scss';
+@import '../../scss/text.scss';
+
 
 
 .headline {
     display: inline-block;
     width: 100%;
     text-align: left;
+    margin-top: 10rem;
 }
 
 .title {
     display: inline-block;
     width: 100%;
-    font-size: 6rem;
-    line-height: 7rem;
-    font-weight: bold;
-    color: $clr-black;
+    color: $clr-base-black;
     margin-bottom: 2rem;
-
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        font-size: 8rem;
-        line-height: 9rem;
-    }
-
-    @media all and (min-width: $scr-xl) {
-        font-size: 8rem;
-        line-height: 9rem;
-    }
+    @include headline-lvl-2;
 }
 
 .description {
     display: inline-block;
     width: 100%;
-    font-size: 4rem;
-    line-height: 6rem;
-    font-weight: normal;
-    color: $clr-black;
-    margin-bottom: 10rem;
+    color: $clr-base-black;
+    margin-bottom: 6rem;
+    @include text-regular-lvl-1;
 
-    &_big_margin {
-        margin-bottom: 14rem;
+    p {
+        display: inline-block;
+        width: 100%;
+        margin-top: 2rem;
+    
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+    
+        br {
+            display: none;
+    
+            @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
+                display: inline-block;
+            }
+    
+            @media all and (min-width: $scr-xl) {
+                display: inline-block;
+            }
+        }
+
+        strong {
+            @include text-medium-lvl-1;
+        }
     }
 }
