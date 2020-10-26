@@ -10,12 +10,3 @@
     padding: 0;
     margin-top: 6rem;
 }
-
-.links {
-    display: inline-grid;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    grid-template-columns: repeat(10, minmax(324px, 1fr));
-    grid-gap: 2rem;
-}

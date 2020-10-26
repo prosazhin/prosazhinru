@@ -9,6 +9,8 @@ import Tag from './Tag/Tag'
 import Tags from './Tags/Tags'
 import Blog from './Blog/Blog'
 import Link from './Link/Link'
+import Card from './Card/Card'
+import Links from './Links/Links'
 import Selection from './Selection/Selection'
 
 
@@ -26,5 +28,7 @@ export {
     Tags,
     Blog,
     Link,
+    Card,
+    Links,
     Selection,
 }

@@ -4,36 +4,32 @@ import style from './Headline.module.scss'
 
 
 
-export default function Headline({ children, title, description, h1, bigMargin }) {
+export default function Headline({ children, title, description, h1, notBottomMargin }) {
     return (
-        <React.Fragment>
-            <div className={style.headline}>
-                {!!title &&
-                    <React.Fragment>
-                        {h1 ?
-                            <h1 className={style.title}>
-                                {title}
-                            </h1>
-                            :
-                            <span className={style.title}>
-                                {title}
-                            </span>
-                        }
-                    </React.Fragment>
-                }
-
-                {!!description &&
-                    <div className={`${style.description}${bigMargin ? ` ${style.description_big_margin}` : ''}`}>
-                        <ReactMarkdown
-                            source={description}
-                            linkTarget="_blank"
-                            skipHtml
-                        />
-                    </div>
-                }
-
-                {children}
-            </div>
-        </React.Fragment>
+        <div className={`${style.headline}${notBottomMargin ? ` ${style.headline__not_bottom_margin}` : ''}`}>
+            {!!title &&
+                <React.Fragment>
+                    {h1 ?
+                        <h1 className={style.title}>
+                            {title}
+                        </h1>
+                        :
+                        <span className={style.title}>
+                            {title}
+                        </span>
+                    }
+                </React.Fragment>
+            }
+            {!!description &&
+                <div className={style.description}>
+                    <ReactMarkdown
+                        source={description}
+                        linkTarget="_blank"
+                        skipHtml
+                    />
+                </div>
+            }
+            {children}
+        </div>
     )
 }

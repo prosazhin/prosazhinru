@@ -22,13 +22,11 @@ export default function Tag({ title, url, page }) {
     }
 
     return (
-        <React.Fragment>
-            <span
-                className={`${style.tag}${url === router.query.tag ? ` ${style.tag__active}` : ''}`}
-                onClick={(event) => handelClick(event)}
-            >
-                {title}
-            </span>
-        </React.Fragment>
+        <span
+            className={`${style.tag}${url === router.query.tag ? ` ${style.tag__active}` : ''}`}
+            onClick={(event) => handelClick(event)}
+        >
+            {title}
+        </span>
     )
 }

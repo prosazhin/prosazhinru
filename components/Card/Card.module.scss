@@ -1,0 +1,67 @@
+
+@import '../../styles/variables.scss';
+
+
+
+.card {
+    display: block;
+    width: 100%;
+    background-color: $clr-gray-F3F3F3;
+    border-radius: 4px;
+    padding: 4rem 5rem;
+    word-wrap: break-word;
+    overflow: hidden;
+    transition: all .2s ease;
+    position: relative;
+    user-select: none;
+
+    &:hover {
+        .card__headline {
+            color: $clr-blue;
+        }
+
+        .card__description {
+            color: $clr-blue;
+        }
+    }
+
+    &:active,
+    &:focus {
+        color: $clr-black;
+    }
+
+    &__headline {
+        display: inline-block;
+        width: 100%;
+        font-size: 4rem;
+        line-height: 5rem;
+        font-weight: $font-bold;
+        color: $clr-black;
+        transition: all .2s ease;
+    }
+    
+    &__description {
+        display: inline-block;
+        width: 100%;
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: $font-normal;
+        margin-top: 1rem;
+        color: $clr-gray-555555;
+        transition: all .2s ease;
+    }
+
+    &__tags {
+        display: inline-block;
+        width: 100%;
+        margin-top: 4rem;
+        margin-bottom: -1rem;
+    
+        &__item {
+            display: inline-block;
+            text-align: left;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+}

@@ -20,40 +20,38 @@ export default function Selection({ selection }) {
     }
 
     return (
-        <React.Fragment>
-            <Link href="/selections/[url]" as={`/selections/` + `${selection.url}`}>
-                <a className={`${style.selection}${selection.big ? ` ${style.selection_size_big}`: ''}`}>
-                    <span className={`${style.headline}${selection.big ? ` ${style.headline_size_big}`: ''}`}>
-                        {selection.title}
+        <Link href="/selections/[url]" as={`/selections/` + `${selection.url}`}>
+            <a className={`${style.selection}${selection.big ? ` ${style.selection_size_big}`: ''}`}>
+                <span className={`${style.headline}${selection.big ? ` ${style.headline_size_big}`: ''}`}>
+                    {selection.title}
+                </span>
+
+                {selection.description &&
+                    <span className={`${style.description}${selection.big ? ` ${style.description_size_big}`: ''}`}>
+                        {selection.description}
                     </span>
+                }
 
-                    {selection.description &&
-                        <span className={`${style.description}${selection.big ? ` ${style.description_size_big}`: ''}`}>
-                            {selection.description}
-                        </span>
-                    }
-
-                    <div className={style.bottom}>
-                        <span className={style.count}>
-                            {linksCount(selection.links.length)}
-                        </span>
-                        <ul className={style.tags}>
-                            {selection.tags.map(tag =>
-                                <li
-                                    className={style.tags__item}
-                                    key={tag.id}
-                                >
-                                    <Tag
-                                        title={tag.title}
-                                        url={tag.url}
-                                        page="selections"
-                                    />
-                                </li>
-                            )}
-                        </ul>
-                    </div>
-                </a>
-            </Link>
-        </React.Fragment>
+                <div className={style.bottom}>
+                    <span className={style.count}>
+                        {linksCount(selection.links.length)}
+                    </span>
+                    <ul className={style.tags}>
+                        {selection.tags.map(tag =>
+                            <li
+                                className={style.tags__item}
+                                key={tag.id}
+                            >
+                                <Tag
+                                    title={tag.title}
+                                    url={tag.url}
+                                    page="selections"
+                                />
+                            </li>
+                        )}
+                    </ul>
+                </div>
+            </a>
+        </Link>
     )
 }

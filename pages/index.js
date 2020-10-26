@@ -7,7 +7,7 @@ import {
 	Headline,
 	ButtonLink,
 	Blog,
-	Link,
+	Links,
 	Container,
 } from '../components'
 
@@ -36,26 +36,27 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
 			<Container small>
-				<Headline description={pageData.description} />
-				<Blog />
+				<Headline
+					description={pageData.description}
+					notBottomMargin
+				>
+					<Blog />
+				</Headline>
 			</Container>
-			<Headline title="Последние ссылки" />
-			<div className={style.links}>
-				{linksList.map(link =>
-					<Link
-						link={link}
-						key={link.id}
-						tags
-					/>
-				)}
-			</div>
-			<div className={style.button_wrapper}>
-				<ButtonLink
-					title="Все ссылки"
-					url="/links"
-					target="_self"
-				/>
-			</div>
+			<Headline
+				title="Последние ссылки"
+				notBottomMargin
+			/>
+			<Links
+				array={linksList}
+				tags={true}
+				tagLinkTo="links"
+			/>
+			<ButtonLink
+				title="Все ссылки"
+				url="/links"
+				target="_self"
+			/>
 		</MainWrapper>
 	)
 }
@@ -65,7 +66,7 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 export async function getStaticProps() {
 	const pageResult = pageSerializer( await api.getOne('22ziEi9xaIBiXD6mZ56r21') )
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 10, }) )
+	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8, }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
 	return {
