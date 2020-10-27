@@ -11,8 +11,6 @@
     display: inline-block;
     width: 100%;
     text-align: left;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
 
     &__not_bottom_margin {
         margin-bottom: 0;
@@ -31,7 +29,6 @@
     display: inline-block;
     width: 100%;
     color: $clr-base-black;
-    margin-bottom: 6rem;
     @include text-regular-lvl-1;
 
     p {

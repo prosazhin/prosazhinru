@@ -6,6 +6,7 @@ import {
     MainWrapper,
     Headline,
     Blog,
+    Container,
 } from '../../components'
 
 import {
@@ -31,8 +32,18 @@ export default function About({ pageData, navigationsList, contactsList }) {
 			image="/sharing-about.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-            <Headline description={pageData.description} />
-            <Blog />
+            <Container
+                small
+                center
+            >
+				<Headline
+                    title={pageData.title}
+					description={pageData.description}
+					notBottomMargin
+				>
+					<Blog />
+				</Headline>
+			</Container>
             <article className={style.row}>
                 <section>
                     <h3 className={style.title}>

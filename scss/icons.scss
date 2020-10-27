@@ -1,5 +1,6 @@
 
 @import './base.scss';
+@import './screens.scss';
 
 
 
@@ -8,6 +9,11 @@
     font-weight: $font-normal;
     font-size: 32px;
     line-height: 40px;
+
+    @include for_small_screen {    
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 @mixin icon-lvl-2 {
@@ -15,6 +21,11 @@
     font-weight: $font-normal;
     font-size: 24px;
     line-height: 32px;
+
+    @include for_small_screen {    
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 @mixin icon-lvl-3 {
@@ -22,6 +33,11 @@
     font-weight: $font-normal;
     font-size: 20px;
     line-height: 28px;
+
+    @include for_small_screen {    
+        font-size: 20px;
+        line-height: 28px;
+    }
 }
 
 @mixin icon-lvl-4 {
@@ -29,6 +45,11 @@
     font-weight: $font-normal;
     font-size: 16px;
     line-height: 24px;
+
+    @include for_small_screen {    
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 
 @mixin icon-lvl-5 {
@@ -36,4 +57,9 @@
     font-weight: $font-normal;
     font-size: 12px;
     line-height: 16px;
+
+    @include for_small_screen {    
+        font-size: 12px;
+        line-height: 16px;
+    }
 }
