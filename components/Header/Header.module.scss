@@ -82,13 +82,13 @@
 
 
 .nav {
-    display: inline-block;
+    display: none;
     height: auto;
     margin-left: 20rem;
     vertical-align: top;
 
-    @include for_small_screen {    
-        display: none;
+    @include for_not_small_screen {
+        display: inline-block;
     }
 
     &__mobile {

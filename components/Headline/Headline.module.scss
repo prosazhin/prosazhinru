@@ -4,6 +4,7 @@
 @import '../../scss/colors.scss';
 @import '../../scss/headline.scss';
 @import '../../scss/text.scss';
+@import '../../scss/screens.scss';
 
 
 
@@ -21,8 +22,12 @@
     display: inline-block;
     width: 100%;
     color: $clr-base-black;
-    margin-bottom: 2rem;
     @include headline-lvl-2;
+    margin-bottom: 1rem;
+
+    @include for_not_small_screen {    
+        margin-bottom: 2rem;
+    }
 }
 
 .description {
@@ -34,20 +39,20 @@
     p {
         display: inline-block;
         width: 100%;
-        margin-top: 3rem;
-    
+        margin-top: 2rem;
+
+        @include for_not_small_screen {    
+            margin-top: 3rem;
+        }
+
         &:nth-child(1) {
             margin-top: 0;
         }
     
         br {
             display: none;
-    
-            @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-                display: inline-block;
-            }
-    
-            @media all and (min-width: $scr-xl) {
+
+            @include for_not_small_screen {
                 display: inline-block;
             }
         }

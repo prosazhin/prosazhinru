@@ -35,10 +35,10 @@
 }
 
 .container__size_small {
-    width: 736px;
+    width: 100%;
 
-    @include for_small_screen {    
-        width: 100%;
+    @include for_not_small_screen {
+        width: 736px;
     }
 }
 
@@ -49,4 +49,9 @@
 .main {
     margin-top: 10rem;
     margin-bottom: 10rem;
+    padding-top: 6rem;
+
+    @include for_not_small_screen {
+        padding-top: 10rem;
+    }
 }
