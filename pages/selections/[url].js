@@ -19,7 +19,7 @@ const api = new API()
 
 
 
-export default function PageSelection({ navigationsList, selectionData, contactsList, }) {
+export default function SelectionPage({ navigationsList, selectionData, contactsList, }) {
     const router = useRouter()
 
     return (

@@ -1,0 +1,54 @@
+
+@import '../../scss/colors.scss';
+@import '../../scss/headline.scss';
+@import '../../scss/text.scss';
+@import '../../scss/screens.scss';
+
+
+
+.headline {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.title {
+    display: inline-block;
+    width: 100%;
+    color: $clr-base-black;
+    @include headline-lvl-2;
+    margin-bottom: 2rem;
+}
+
+.description {
+    display: inline-block;
+    width: 100%;
+    color: $clr-base-black;
+    @include text-regular-lvl-1;
+
+    p {
+        display: inline-block;
+        width: 100%;
+        margin-top: 2rem;
+
+        @include for_not_small_screen {    
+            margin-top: 3rem;
+        }
+
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+    
+        br {
+            display: none;
+
+            @include for_not_small_screen {
+                display: inline-block;
+            }
+        }
+
+        strong {
+            @include text-medium-lvl-1;
+        }
+    }
+}

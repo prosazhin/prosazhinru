@@ -7,18 +7,18 @@ import {
 
 
 
-export default function Tags({ tags, page }) {
+export default function Tags({ array, tagLinkTo }) {
     return (
         <ul className={style.tags}>
-            {tags.length && tags.map(tag =>
+            {array.map(item =>
                 <li
                     className={style.tags__item}
-                    key={tag.id}
+                    key={item.id}
                 >
                     <Tag
-                        title={tag.title}
-                        url={tag.url}
-                        page={page}
+                        title={item.title}
+                        url={item.url}
+                        tagLinkTo={tagLinkTo}
                     />
                 </li>
             )}

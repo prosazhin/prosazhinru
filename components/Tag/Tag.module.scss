@@ -1,36 +1,37 @@
 
 @import '../../styles/variables.scss';
 
+@import '../../scss/base.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+
 
 
 .tag {
     display: inline-block;
-    font-size: 14px;
-    line-height: 3rem;
-    font-weight: $font-semi-bold;
     text-align: left;
     text-decoration: none !important;
-    border-radius: 4px;
-    padding: 0 16px;
-    cursor: pointer;
-    transition: all .2s ease;
     user-select: none;
-    color: $clr-black;
-    border: 1px solid $clr-gray-CCCCCC;
+    padding: 0.5rem 1rem;
+    color: $clr-base-black;
+    background-color: $clr-gray-light;
+    @include text-medium-lvl-5;
+    @include radius-6;
+    @include animated;
+    cursor: pointer;
 
     &:hover {
-        color: $clr-blue;
-        border-color: $clr-blue;
+        color: $clr-blue-main;
+        background-color: $clr-blue-lighter;
     }
 
     &__active {
-        color: $clr-white;
-        border-color: $clr-blue;
-        background-color: $clr-blue;
+        color: $clr-base-white;
+        background-color: $clr-blue-main;
 
         &:hover {
-            color: $clr-white;
-            background-color: $clr-blue;
+            color: $clr-base-white;
+            background-color: $clr-blue-main;
         }
     }
 }

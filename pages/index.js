@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import {
 	MainWrapper,
+	PageHeadline,
 	Headline,
 	ButtonLink,
 	Blog,
@@ -22,7 +23,7 @@ const api = new API()
 
 
 
-export default function Home({ pageData, navigationsList, linksList, contactsList }) {
+export default function HomePage({ pageData, navigationsList, linksList, contactsList }) {
 	const router = useRouter()
 
 	return (
@@ -35,17 +36,11 @@ export default function Home({ pageData, navigationsList, linksList, contactsLis
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
 			<Container small>
-				<Headline
-					description={pageData.description}
-					notBottomMargin
-				>
+				<PageHeadline description={pageData.description}>
 					<Blog />
-				</Headline>
+				</PageHeadline>
 			</Container>
-			<Headline
-				title="Последние ссылки"
-				notBottomMargin
-			/>
+			<Headline title="Последние ссылки" />
 			<Links
 				array={linksList}
 				tags={true}

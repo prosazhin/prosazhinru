@@ -23,7 +23,7 @@ const api = new API()
 
 
 
-export default function Selections({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
+export default function SelectionsPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
 	const [selections, setSelections] = useState(selectionsList)
 	const router = useRouter()
 

@@ -4,9 +4,9 @@ import style from './styles.module.scss'
 
 import {
 	MainWrapper,
-	Headline,
+	PageHeadline,
 	Tags,
-	Link,
+	Links,
 	Tabs,
 } from '../../components'
 
@@ -23,8 +23,8 @@ const api = new API()
 
 
 
-export default function Links({ pageData, navigationsList, tagsList, linksList, contactsList }) {
-	const [links, setLinks] = useState(linksList)
+export default function LinksPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
+	const [dataLinks, setDataLinks] = useState(linksList)
 	const router = useRouter()
 
 	useEffect(() => {
@@ -34,7 +34,7 @@ export default function Links({ pageData, navigationsList, tagsList, linksList, 
 			dataLinks = linksList.filter(link => link.tags.some(tag => tag.url === router.query.tag))
 		}
 
-		setLinks(dataLinks)
+		setDataLinks(dataLinks)
 	}, [router.query.tag])
 
 	return (
@@ -46,25 +46,20 @@ export default function Links({ pageData, navigationsList, tagsList, linksList, 
 			image="/sharing-links.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Headline
+			<PageHeadline
 				title={pageData.title}
 				description={pageData.description}
-				h1
 			/>
 			<Tabs />
 			<Tags
-				tags={tagsList}
-				page="links"
+				array={tagsList}
+				tagLinkTo="links"
 			/>
-			<div className={style.links}>
-				{links.map(link =>
-					<Link
-						link={link}
-						key={link.id}
-						tags
-					/>
-				)}
-			</div>
+			<Links
+				array={dataLinks}
+				tags={true}
+				tagLinkTo="links"
+			/>
 		</MainWrapper>
 	)
 }

@@ -4,14 +4,14 @@ import style from './Tag.module.scss'
 
 
 
-export default function Tag({ title, url, page }) {
+export default function Tag({ title, url, tagLinkTo }) {
     const router = useRouter()
 
     function handelClick(event) {
         event.preventDefault()
         
         let activeTag = {
-            pathname: `/${page}`,
+            pathname: `/${tagLinkTo}`,
         }
 
         if (url !== router.query.tag) {

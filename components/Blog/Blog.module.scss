@@ -2,15 +2,22 @@
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
 @import '../../scss/base.scss';
+@import '../../scss/screens.scss';
 
 
 
 .blog {
     display: block;
     width: 100%;
-    padding: 3rem 4rem;
+    padding: 2rem 3rem;
+    margin-top: 4rem;
     background-color: $clr-blue-lighter;
     color: $clr-base-black;
     @include text-regular-lvl-1;
     @include radius-24;
+
+    @include for_not_small_screen {
+        padding: 3rem 4rem;
+        margin-top: 6rem;
+    }
 }

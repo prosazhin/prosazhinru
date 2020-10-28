@@ -3,6 +3,7 @@ import style from './Card.module.scss'
 
 import {
     Tag,
+    Tags,
 } from '../'
 
 
@@ -18,28 +19,18 @@ export default function Card({ item, tags, tagLinkTo }) {
             <span className={style.card__headline}>
                 {item.title}
             </span>
-
+            {(tags && item.tags.length) &&
+                <div className={style.card__tags}>
+                    <Tags
+                        array={item.tags}
+                        tagLinkTo={tagLinkTo}
+                    />
+                </div>
+            }
             {item.description &&
                 <span className={style.card__description}>
                     {item.description}
                 </span>
-            }
-
-            {tags &&
-                <ul className={style.card__tags}>
-                    {item.tags.map(tag =>
-                        <li
-                            className={style.card__tags__item}
-                            key={tag.id}
-                        >
-                            <Tag
-                                title={tag.title}
-                                url={tag.url}
-                                page={tagLinkTo}
-                            />
-                        </li>
-                    )}
-                </ul>
             }
         </a>
     )

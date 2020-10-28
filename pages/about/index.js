@@ -4,6 +4,7 @@ import style from './styles.module.scss'
 
 import {
     MainWrapper,
+    PageHeadline,
     Headline,
     Blog,
     Container,
@@ -20,7 +21,7 @@ const api = new API()
 
 
 
-export default function About({ pageData, navigationsList, contactsList }) {
+export default function AboutPage({ pageData, navigationsList, contactsList }) {
     const router = useRouter()
 
 	return (
@@ -36,13 +37,12 @@ export default function About({ pageData, navigationsList, contactsList }) {
                 small
                 center
             >
-				<Headline
+				<PageHeadline
                     title={pageData.title}
 					description={pageData.description}
-					notBottomMargin
 				>
 					<Blog />
-				</Headline>
+				</PageHeadline>
 			</Container>
             <article className={style.row}>
                 <section>

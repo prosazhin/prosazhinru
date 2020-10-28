@@ -1,67 +1,59 @@
 
 @import '../../styles/variables.scss';
 
+@import '../../scss/base.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+
 
 
 .card {
     display: block;
     width: 100%;
-    background-color: $clr-gray-F3F3F3;
-    border-radius: 4px;
-    padding: 4rem 5rem;
+    background-color: $clr-base-white;
+    border: 1px solid $clr-gray-dark;
+    padding: 3rem;
     word-wrap: break-word;
     overflow: hidden;
-    transition: all .2s ease;
     position: relative;
     user-select: none;
+    @include radius-24;
+    @include animated;
 
     &:hover {
-        .card__headline {
-            color: $clr-blue;
-        }
-
-        .card__description {
-            color: $clr-blue;
+        border-color: $clr-blue-main;
+        
+        .card__headline, .card__description {
+            color: $clr-blue-main;
         }
     }
 
     &:active,
     &:focus {
-        color: $clr-black;
+        color: $clr-base-black;
+        border-color: $clr-base-black;
     }
 
     &__headline {
         display: inline-block;
         width: 100%;
-        font-size: 4rem;
-        line-height: 5rem;
-        font-weight: $font-bold;
-        color: $clr-black;
-        transition: all .2s ease;
+        color: $clr-base-black;
+        @include text-medium-lvl-2;
+        @include animated;
+        margin-bottom: 12px;
     }
     
     &__description {
         display: inline-block;
         width: 100%;
-        font-size: 2rem;
-        line-height: 3rem;
-        font-weight: $font-normal;
-        margin-top: 1rem;
-        color: $clr-gray-555555;
-        transition: all .2s ease;
+        color: $clr-base-black;
+        @include text-regular-lvl-4;
+        @include animated;
     }
 
     &__tags {
         display: inline-block;
         width: 100%;
-        margin-top: 4rem;
-        margin-bottom: -1rem;
-    
-        &__item {
-            display: inline-block;
-            text-align: left;
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-        }
+        margin-bottom: 2rem;
     }
 }

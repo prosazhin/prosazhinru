@@ -1,9 +1,6 @@
 
-@import '../../styles/variables.scss';
-
 @import '../../scss/colors.scss';
 @import '../../scss/headline.scss';
-@import '../../scss/text.scss';
 @import '../../scss/screens.scss';
 
 
@@ -12,53 +9,12 @@
     display: inline-block;
     width: 100%;
     text-align: left;
-
-    &__not_bottom_margin {
-        margin-bottom: 0;
-    }
-}
-
-.title {
-    display: inline-block;
-    width: 100%;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
     color: $clr-base-black;
-    @include headline-lvl-2;
-    margin-bottom: 1rem;
+    @include headline-lvl-3;
 
     @include for_not_small_screen {    
-        margin-bottom: 2rem;
-    }
-}
-
-.description {
-    display: inline-block;
-    width: 100%;
-    color: $clr-base-black;
-    @include text-regular-lvl-1;
-
-    p {
-        display: inline-block;
-        width: 100%;
-        margin-top: 2rem;
-
-        @include for_not_small_screen {    
-            margin-top: 3rem;
-        }
-
-        &:nth-child(1) {
-            margin-top: 0;
-        }
-    
-        br {
-            display: none;
-
-            @include for_not_small_screen {
-                display: inline-block;
-            }
-        }
-
-        strong {
-            @include text-medium-lvl-1;
-        }
+        margin-top: 10rem;
     }
 }

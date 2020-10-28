@@ -3,6 +3,7 @@ import Footer from './Footer/Footer'
 import { Container, MainContainer } from './Container/Container'
 import MainWrapper from './MainWrapper/MainWrapper'
 import Headline from './Headline/Headline'
+import PageHeadline from './PageHeadline/PageHeadline'
 import Tabs from './Tabs/Tabs'
 import ButtonLink from './Button/Button'
 import Tag from './Tag/Tag'
@@ -22,6 +23,7 @@ export {
     MainContainer,
     MainWrapper,
     Headline,
+    PageHeadline,
     Tabs,
     ButtonLink,
     Tag,
