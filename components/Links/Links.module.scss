@@ -1,5 +1,5 @@
 
-@import '../../styles/variables.scss';
+@import '../../scss/screens.scss';
 
 
 
@@ -9,22 +9,8 @@
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     grid-gap: 2rem;
 
-    @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-        grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
-        grid-gap: 2rem;
-    }
-
-    @media all and (min-width: $scr-xl) {
+    @include for_not_small_screen {    
         grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
         grid-gap: 2rem;
     }
 }
-
-// .links {
-//     display: inline-grid;
-//     overflow-x: auto;
-//     overflow-y: hidden;
-//     width: 100%;
-//     grid-template-columns: repeat(10, minmax(324px, 1fr));
-//     grid-gap: 2rem;
-// }

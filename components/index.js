@@ -5,8 +5,6 @@ import { Container, MainContainer } from './Container/Container'
 import MainWrapper from './MainWrapper/MainWrapper'
 import Headline from './Headline/Headline'
 import PageHeadline from './PageHeadline/PageHeadline'
-import Tabs from './Tabs/Tabs'
-import ButtonLink from './Button/Button'
 import { ClickableTag, StaticTag } from './Tag/Tag'
 import Tags from './Tags/Tags'
 import Blog from './Blog/Blog'
@@ -24,8 +22,6 @@ export {
     MainWrapper,
     Headline,
     PageHeadline,
-    Tabs,
-    ButtonLink,
     ClickableTag,
     StaticTag,
     Tags,

@@ -1,6 +1,4 @@
 
-@import '../../styles/variables.scss';
-
 @import '../../scss/base.scss';
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
@@ -23,9 +21,7 @@
         background-color: $clr-gray-light;
         cursor: pointer;
 
-        &:hover,
-        &:focus,
-        &:active {
+        &:hover {
             color: $clr-blue-main;
             background-color: $clr-blue-lighter;
         }

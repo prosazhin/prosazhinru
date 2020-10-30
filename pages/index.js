@@ -5,7 +5,6 @@ import {
 	MainWrapper,
 	PageHeadline,
 	Headline,
-	ButtonLink,
 	Blog,
 	Links,
 	Container,
@@ -45,11 +44,6 @@ export default function HomePage({ pageData, navigationsList, linksList, contact
 				array={linksList}
 				tags={true}
 				tagLinkTo="links"
-			/>
-			<ButtonLink
-				title="Все ссылки"
-				url="/links"
-				target="_self"
 			/>
 		</MainWrapper>
 	)

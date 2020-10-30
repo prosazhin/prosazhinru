@@ -46,7 +46,7 @@ export default function LinksTagPage({ pageData, navigationsList, tagsList, link
 			/>
 			<Links
 				array={linksList}
-				tags={true}
+				isShowTags={true}
 			/>
 		</MainWrapper>
 	)

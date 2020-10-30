@@ -46,7 +46,7 @@ export default function SelectionsTagPage({ pageData, navigationsList, tagsList,
 			/>
 			<Selections
 				array={selectionsList}
-				tags={true}
+				isShowTags={true}
 			/>
 		</MainWrapper>
 	)

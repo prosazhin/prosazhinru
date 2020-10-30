@@ -4,15 +4,17 @@ import style from './Links.module.scss'
 
 
 
-export default function Links({ array, tags, customClass }) {
+export default function Links({ array, isShowTags, customClass }) {
     return (
         <div className={`${style.links}${customClass ? ` ${customClass}` : ''}`}>
             {array.map(item =>
                 <Card
-                    item={item}
                     key={item.id}
-                    tags={tags}
-                    targer="_blank"
+                    item={item}
+                    linkUrl={item.url}
+                    linkTarger="_blank"
+                    isShowTags={isShowTags}
+                    isBigSize={false}
                 />
             )}
         </div>
