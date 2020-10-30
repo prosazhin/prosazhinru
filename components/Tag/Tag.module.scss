@@ -12,26 +12,46 @@
     text-align: left;
     text-decoration: none !important;
     user-select: none;
+    height: 3rem;
     padding: 0.5rem 1rem;
-    color: $clr-base-black;
-    background-color: $clr-gray-light;
     @include text-medium-lvl-5;
     @include radius-6;
     @include animated;
-    cursor: pointer;
+    color: $clr-base-black;
 
-    &:hover {
-        color: $clr-blue-main;
-        background-color: $clr-blue-lighter;
-    }
+    &__clickable {
+        background-color: $clr-gray-light;
+        cursor: pointer;
 
-    &__active {
-        color: $clr-base-white;
-        background-color: $clr-blue-main;
+        &:hover,
+        &:focus,
+        &:active {
+            color: $clr-blue-main;
+            background-color: $clr-blue-lighter;
+        }
 
-        &:hover {
+        &_active {
             color: $clr-base-white;
             background-color: $clr-blue-main;
+    
+            &:hover,
+            &:focus,
+            &:active {
+                color: $clr-base-white;
+                background-color: $clr-blue-main;
+            }
+        }
+    }
+
+    &__static {
+        padding: 0.4rem 1rem;
+        border: 1px solid $clr-gray-dark;
+        cursor: inherit;
+
+        &_active {
+            color: $clr-base-white;
+            background-color: $clr-blue-main;
+            border-color: $clr-blue-main;
         }
     }
 }

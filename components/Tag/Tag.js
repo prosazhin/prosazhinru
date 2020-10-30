@@ -1,31 +1,28 @@
+
 import React from 'react'
-import Router, { useRouter } from 'next/router'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import style from './Tag.module.scss'
 
 
 
-export default function Tag({ title, url, tagLinkTo }) {
+export function ClickableTag({ title, url, tagLinkTo }) {
     const router = useRouter()
 
-    function handelClick(event) {
-        event.preventDefault()
-        
-        let activeTag = {
-            pathname: `/${tagLinkTo}`,
-        }
+    return (
+        <Link href={router.query.tag === url ? `/${tagLinkTo}` : `/${tagLinkTo}/${url}`}>
+            <a className={`${style.tag} ${style.tag__clickable}${router.query.tag === url ? ` ${style.tag__clickable_active}` : ''}`}>
+                {title}
+            </a>
+        </Link>
+    )
+}
 
-        if (url !== router.query.tag) {
-            activeTag.query = { tag: url }
-        }
-
-        Router.push(activeTag)
-    }
+export function StaticTag({ title, url }) {
+    const router = useRouter()
 
     return (
-        <span
-            className={`${style.tag}${url === router.query.tag ? ` ${style.tag__active}` : ''}`}
-            onClick={(event) => handelClick(event)}
-        >
+        <span className={`${style.tag} ${style.tag__static}${router.query.tag === url ? ` ${style.tag__static_active}` : ''}`}>
             {title}
         </span>
     )

@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 
 import {
 	MainWrapper,
-	Headline,
+	PageHeadline,
 	Tags,
-	Tabs,
-	Selection,
+	Selections,
 } from '../../components'
 
 import {
-	pageSerializer,
+	pagesSerializer,
 	navigationsSerializer,
 	tagsSerializer,
 	selectionsSerializer,
@@ -24,18 +23,7 @@ const api = new API()
 
 
 export default function SelectionsPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
-	const [selections, setSelections] = useState(selectionsList)
 	const router = useRouter()
-
-	useEffect(() => {
-		let dataSelections = [].concat(selectionsList)
-
-		if (router.query.tag) {
-			dataSelections = selectionsList.filter(selection => selection.tags.some(tag => tag.url === router.query.tag))
-		}
-
-		setSelections(dataSelections)
-	}, [router.query.tag])
 
 	return (
 		<MainWrapper
@@ -46,24 +34,20 @@ export default function SelectionsPage({ pageData, navigationsList, tagsList, se
 			image="/sharing-selections.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Headline
+			<PageHeadline
 				title={pageData.title}
 				description={pageData.description}
-				h1
 			/>
-			<Tabs />
 			<Tags
-				tags={tagsList}
-				page="selections"
+				array={tagsList}
+				tagLinkTo="selections"
+				customClass={style.tags}
+				clickable
 			/>
-			<div className={style.selections}>
-				{selections.map(selection =>
-					<Selection
-						selection={selection}
-						key={selection.id}
-					/>
-				)}
-			</div>
+			<Selections
+				array={selectionsList}
+				tags={true}
+			/>
 		</MainWrapper>
 	)
 }
@@ -71,7 +55,7 @@ export default function SelectionsPage({ pageData, navigationsList, tagsList, se
 
 
 export async function getStaticProps() {
-	const pageResult = pageSerializer( await api.getOne('4FmC8blew6cpUdbOCZJjyK') )
+	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'selections' }) )[0]
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
 	const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
 	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt' }) )

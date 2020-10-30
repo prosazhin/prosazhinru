@@ -1,13 +1,11 @@
+
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
+import { Container } from '../'
 import style from './Header.module.scss'
-
-import {
-    Container,
-} from '../'
 
 
 
@@ -29,10 +27,8 @@ export default function Header({ navigations }) {
                             Евгений Сажин
                         </a>
                     </Link>
-                    <nav className={`${style.nav}${isActive ? ` ${style.nav__mobile}` : ''}`}>
-                        {navigations
-                            .sort(( a, b ) => a.order - b.order)
-                            .map(link =>
+                    <nav className={`${style.nav} ${style.nav__desktop}`}>
+                        {navigations.sort(( a, b ) => a.order - b.order).map(link =>
                             <React.Fragment key={link.id}>
                                 {!!link.show &&
                                     <li className={style.nav__item}>
@@ -47,6 +43,21 @@ export default function Header({ navigations }) {
                         )}
                     </nav>
                 </div>
+                <nav className={`${style.nav} ${style.nav__mobile}${isActive ? ` ${style.nav__mobile_active}` : ''}`}>
+                    {navigations.sort(( a, b ) => a.order - b.order).map(link =>
+                        <React.Fragment key={link.id}>
+                            {!!link.show &&
+                                <li className={style.nav__item}>
+                                    <Link href={link.url}>
+                                        <a className={`${style.nav__item__link}${router.pathname === link.url ? ` ${style.nav__item__link__active}` : ''}`}>
+                                            {link.title}
+                                        </a>
+                                    </Link>
+                                </li>
+                            }
+                        </React.Fragment>
+                    )}
+                </nav>
                 {isActive ?
                     <span
                         className={style.header__mobile_toogle}

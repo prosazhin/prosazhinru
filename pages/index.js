@@ -12,7 +12,7 @@ import {
 } from '../components'
 
 import {
-	pageSerializer,
+	pagesSerializer,
 	navigationsSerializer,
 	linksSerializer,
 	contactsSerializer,
@@ -58,9 +58,9 @@ export default function HomePage({ pageData, navigationsList, linksList, contact
 
 
 export async function getStaticProps() {
-	const pageResult = pageSerializer( await api.getOne('22ziEi9xaIBiXD6mZ56r21') )
+	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8, }) )
+	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8 }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
 	return {

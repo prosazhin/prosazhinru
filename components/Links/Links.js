@@ -1,21 +1,18 @@
-import React from 'react'
+
+import { Card } from '../'
 import style from './Links.module.scss'
 
-import {
-    Card,
-} from '../'
 
 
-
-export default function Links({ array, tags, tagLinkTo }) {
+export default function Links({ array, tags, customClass }) {
     return (
-        <div className={style.links}>
+        <div className={`${style.links}${customClass ? ` ${customClass}` : ''}`}>
             {array.map(item =>
                 <Card
                     item={item}
                     key={item.id}
                     tags={tags}
-                    tagLinkTo={tagLinkTo}
+                    targer="_blank"
                 />
             )}
         </div>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 
 import {
     MainWrapper,
-    Headline,
-    Link,
+    PageHeadline,
+    Links,
 } from '../../components'
 
 import {
@@ -31,19 +31,15 @@ export default function SelectionPage({ navigationsList, selectionData, contacts
             image="/sharing-selections.jpg"
             url={`https://prosazhin.ru` + `${router.pathname}`}
         >
-            <Headline
+            <PageHeadline
                 title={selectionData.title}
                 description={selectionData.description}
-                h1
             />
-            <div className={style.links}>
-                {selectionData.links.map(link =>
-                    <Link
-                        link={link}
-                        key={link.id}
-                    />
-                )}
-            </div>
+            <Links
+				array={selectionData.links}
+                tags={false}
+                customClass={style.links}
+			/>
         </MainWrapper>
     )
 }

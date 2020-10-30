@@ -19,7 +19,7 @@
     padding-top: 5rem;
 
     @include for_small_screen {    
-        transition: all .4s ease;
+        @include animated;
     }
 
     &__mobile {
@@ -43,7 +43,7 @@
         border: none;
         color: $clr-base-black;
         text-align: center;
-        transition: all .2s ease-in-out;
+        @include animated;
         cursor: pointer;
     
         @include for_not_small_screen {    
@@ -82,20 +82,40 @@
 
 
 .nav {
-    display: none;
     height: auto;
-    margin-left: 20rem;
     vertical-align: top;
 
-    @include for_not_small_screen {
-        display: inline-block;
+    &:hover {
+        .nav__item__link {
+            color: $clr-gray-darken;
+
+            &:hover {
+                color: $clr-base-black;
+            }
+        }
+    }
+
+    &__desktop {
+        display: none;
+
+        @include for_not_small_screen {
+            display: inline-block;
+            margin-left: 20rem;
+        }
     }
 
     &__mobile {
-        display: inline-block;
+        display: none;
         width: 100%;
-        margin-left: 6rem;
-        margin-top: 10rem;
+
+        @include for_not_small_screen {
+            display: none;
+        }
+
+        &_active {
+            display: inline-block;
+            margin-top: 10rem;
+        }
     }
 
     &__item {
@@ -117,34 +137,17 @@
         &__link {
             display: inline-block;
             color: $clr-base-black;
-            transition: all .2s ease-in-out;
+            @include animated;
             @include text-medium-lvl-4;
 
             &:hover {
                 color: $clr-base-black;
-
-                // @media all and (min-width: $scr-md-min) and (max-width: $scr-md-max) {
-                //     border-bottom: 2px solid $clr-base-black;
-                // }
-            
-                // @media all and (min-width: $scr-xl) {
-                //     border-bottom: 2px solid $clr-base-black;
-                // }
+                text-decoration: none;
             }
 
             &__active {
                 color: $clr-blue-main;
                 text-decoration: none;
-
-                &:hover {
-                    color: $clr-blue-main;
-                    border-bottom: none;
-                }
-
-                &:active,
-                &:focus {
-                    color: $clr-blue-main;
-                }
             }
         }
     }

@@ -1,5 +1,6 @@
 
 export function pageSerializer(data) {
+    console.log(data)
     const result = {
         id: data.sys.id,
         title: data.fields.title,
@@ -7,6 +8,22 @@ export function pageSerializer(data) {
         metaTitle: data.fields.metaTitle,
         metaDescription: data.fields.metaDescription,
     }
+
+    return result
+}
+
+
+
+export function pagesSerializer(data) {
+    const result = data.items.map(item => {
+        return {
+            id: item.sys.id,
+            title: item.fields.title,
+            description: item.fields.description,
+            metaTitle: item.fields.metaTitle,
+            metaDescription: item.fields.metaDescription,
+        }
+    })
 
     return result
 }

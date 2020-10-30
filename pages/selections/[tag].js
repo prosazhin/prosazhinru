@@ -6,14 +6,14 @@ import {
 	MainWrapper,
 	PageHeadline,
 	Tags,
-	Links,
+	Selections,
 } from '../../components'
 
 import {
 	pagesSerializer,
 	navigationsSerializer,
 	tagsSerializer,
-	linksSerializer,
+	selectionsSerializer,
 	contactsSerializer,
 } from '../../utils/Serializers'
 
@@ -22,7 +22,7 @@ const api = new API()
 
 
 
-export default function LinksPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
+export default function SelectionsTagPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
 	const router = useRouter()
 
 	return (
@@ -31,7 +31,7 @@ export default function LinksPage({ pageData, navigationsList, tagsList, linksLi
 			contacts={contactsList}
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
-			image="/sharing-links.jpg"
+			image="/sharing-selections.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
 			<PageHeadline
@@ -40,12 +40,12 @@ export default function LinksPage({ pageData, navigationsList, tagsList, linksLi
 			/>
 			<Tags
 				array={tagsList}
-				tagLinkTo="links"
+				tagLinkTo="selections"
 				customClass={style.tags}
 				clickable
 			/>
-			<Links
-				array={linksList}
+			<Selections
+				array={selectionsList}
 				tags={true}
 			/>
 		</MainWrapper>
@@ -54,11 +54,25 @@ export default function LinksPage({ pageData, navigationsList, tagsList, linksLi
 
 
 
-export async function getStaticProps() {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'links' }) )[0]
+export async function getStaticPaths() {
+    const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
+
+    const paths = tagsResult.map((item) => ({
+        params: { tag: item.url },
+    }))
+
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export async function getStaticProps({ params }) {
+	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'selections' }) )[0]
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
 	const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 500 }) )
+	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
+	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt', 'fields.tags.sys.id[in]': activeTagId }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
 	return {
@@ -66,7 +80,7 @@ export async function getStaticProps() {
 			pageData: pageResult,
 			navigationsList: navigationsResult,
 			tagsList: tagsResult,
-			linksList: linksResult,
+			selectionsList: selectionsResult,
 			contactsList: contactsResult,
 		},
 	}

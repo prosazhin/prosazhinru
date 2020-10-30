@@ -1,9 +1,7 @@
-import React from 'react'
-import style from './Footer.module.scss'
 
-import {
-    Container,
-} from '../'
+import React from 'react'
+import { Container } from '../'
+import style from './Footer.module.scss'
 
 
 
