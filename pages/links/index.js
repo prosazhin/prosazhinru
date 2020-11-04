@@ -1,12 +1,14 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
+import { dataTabs } from '../../utils/Tabs'
 
 import {
 	MainWrapper,
 	PageHeadline,
 	Tags,
 	Links,
+	Tabs,
 } from '../../components'
 
 import {
@@ -57,6 +59,10 @@ export default function LinksPage({ pageData, navigationsList, tagsList, linksLi
 			<PageHeadline
 				title={pageData.title}
 				description={pageData.description}
+			/>
+			<Tabs
+				array={dataTabs}
+				customClass={style.tabs}
 			/>
 			<Tags
 				array={tagsList}

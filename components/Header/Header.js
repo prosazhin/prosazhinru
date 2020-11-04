@@ -13,6 +13,11 @@ export default function Header({ navigations }) {
     const [isActive, setIsActive] = useState(false)
     const router = useRouter()
 
+    const isActiveLink = (url) => {
+        const result = router.pathname.search(url)
+        return result === -1 ? false : true
+    }
+
     return (
         <header className={`${style.header}${isActive ? ` ${style.header__mobile}` : ''}`}>
             <Container>
@@ -33,7 +38,7 @@ export default function Header({ navigations }) {
                                 {!!link.show &&
                                     <li className={style.nav__item}>
                                         <Link href={link.url}>
-                                            <a className={`${style.nav__item__link}${router.pathname === link.url ? ` ${style.nav__item__link__active}` : ''}`}>
+                                            <a className={`${style.nav__item__link}${isActiveLink(link.url) ? ` ${style.nav__item__link__active}` : ''}`}>
                                                 {link.title}
                                             </a>
                                         </Link>
@@ -49,7 +54,7 @@ export default function Header({ navigations }) {
                             {!!link.show &&
                                 <li className={style.nav__item}>
                                     <Link href={link.url}>
-                                        <a className={`${style.nav__item__link}${router.pathname === link.url ? ` ${style.nav__item__link__active}` : ''}`}>
+                                        <a className={`${style.nav__item__link}${isActiveLink(link.url) ? ` ${style.nav__item__link__active}` : ''}`}>
                                             {link.title}
                                         </a>
                                     </Link>

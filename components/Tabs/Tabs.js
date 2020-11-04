@@ -5,23 +5,26 @@ import style from './Tabs.module.scss'
 
 
 
-export default function Tabs() {
+export default function Tabs({ array, customClass }) {
     const router = useRouter()
 
+    const isActiveTab = (url) => {
+        const result = router.pathname.search(url)
+        return result === -1 ? false : true
+    }
+
     return (
-        <div className={style.container}>
-            <div className={style.tabs}>
-                <Link href="/links">
-                    <a className={`${style.tabs__links}${router.pathname === '/links' ? ` ${style.tabs__links_active}` : ''}`}>
-                        Cсылки
+        <div className={`${style.tabs}${customClass ? ` ${customClass}` : ''}`}>
+            {array.map(item => 
+                <Link
+                    href={item.url}
+                    key={item.url}
+                >
+                    <a className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ''}`}>
+                        {item.title}
                     </a>
                 </Link>
-                <Link href="/selections">
-                    <a className={`${style.tabs__links}${router.pathname === '/selections' ? ` ${style.tabs__links_active}` : ''}`}>
-                        Подборки
-                    </a>
-                </Link>
-            </div>
+            )}
         </div>
     )
 }
