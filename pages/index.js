@@ -6,6 +6,7 @@ import {
 	PageHeadline,
 	Headline,
 	Blog,
+	Selections,
 	Links,
 	Container,
 } from '../components'
@@ -13,6 +14,7 @@ import {
 import {
 	pagesSerializer,
 	navigationsSerializer,
+	selectionsSerializer,
 	linksSerializer,
 	contactsSerializer,
 } from '../utils/Serializers'
@@ -25,6 +27,7 @@ const api = new API()
 export async function getStaticProps() {
 	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
+	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt', limit: 1 }) )
 	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8 }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
@@ -32,6 +35,7 @@ export async function getStaticProps() {
 		props: {
 			pageData: pageResult,
 			navigationsList: navigationsResult,
+			selectionsList: selectionsResult,
 			linksList: linksResult,
 			contactsList: contactsResult,
 		},
@@ -40,7 +44,7 @@ export async function getStaticProps() {
 
 
 
-export default function HomePage({ pageData, navigationsList, linksList, contactsList }) {
+export default function HomePage({ pageData, navigationsList, selectionsList, linksList, contactsList }) {
 	const router = useRouter()
 
 	return (
@@ -52,12 +56,27 @@ export default function HomePage({ pageData, navigationsList, linksList, contact
 			image="/sharing-index.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Container small>
-				<PageHeadline description={pageData.description}>
+			<Container
+				small
+				center
+			>
+				<PageHeadline
+					title={pageData.title}
+					description={pageData.description}
+				>
 					<Blog />
 				</PageHeadline>
 			</Container>
-			<Headline title="Последние ссылки" />
+			<Headline
+				title="Новая подборка"
+			/>
+			<Selections
+				array={selectionsList}
+				isShowTags={true}
+			/>
+			<Headline
+				title="Новые ссылки"
+			/>
 			<Links
 				array={linksList}
 				tags={true}
