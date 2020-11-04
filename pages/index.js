@@ -22,6 +22,24 @@ const api = new API()
 
 
 
+export async function getStaticProps() {
+	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
+	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
+	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8 }) )
+	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+
+	return {
+		props: {
+			pageData: pageResult,
+			navigationsList: navigationsResult,
+			linksList: linksResult,
+			contactsList: contactsResult,
+		},
+	}
+}
+
+
+
 export default function HomePage({ pageData, navigationsList, linksList, contactsList }) {
 	const router = useRouter()
 
@@ -47,22 +65,4 @@ export default function HomePage({ pageData, navigationsList, linksList, contact
 			/>
 		</MainWrapper>
 	)
-}
-
-
-
-export async function getStaticProps() {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
-	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8 }) )
-	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
-
-	return {
-		props: {
-			pageData: pageResult,
-			navigationsList: navigationsResult,
-			linksList: linksResult,
-			contactsList: contactsResult,
-		},
-	}
 }

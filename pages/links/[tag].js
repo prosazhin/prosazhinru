@@ -22,38 +22,6 @@ const api = new API()
 
 
 
-export default function LinksTagPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
-	const router = useRouter()
-
-	return (
-		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
-			image="/sharing-links.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
-		>
-			<PageHeadline
-				title={pageData.title}
-				description={pageData.description}
-			/>
-			<Tags
-				array={tagsList}
-				tagLinkTo="links"
-				customClass={style.tags}
-				clickable
-			/>
-			<Links
-				array={linksList}
-				isShowTags={true}
-			/>
-		</MainWrapper>
-	)
-}
-
-
-
 export async function getStaticPaths() {
     const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
 
@@ -84,4 +52,36 @@ export async function getStaticProps({ params }) {
 			contactsList: contactsResult,
 		},
 	}
+}
+
+
+
+export default function LinksTagPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
+	const router = useRouter()
+
+	return (
+		<MainWrapper
+			navigations={navigationsList}
+			contacts={contactsList}
+			title={pageData.metaTitle}
+			description={pageData.metaDescription}
+			image="/sharing-links.jpg"
+			url={`https://prosazhin.ru` + `${router.pathname}`}
+		>
+			<PageHeadline
+				title={pageData.title}
+				description={pageData.description}
+			/>
+			<Tags
+				array={tagsList}
+				tagLinkTo="links"
+				customClass={style.tags}
+				clickable
+			/>
+			<Links
+				array={linksList}
+				isShowTags={true}
+			/>
+		</MainWrapper>
+	)
 }

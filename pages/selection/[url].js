@@ -19,33 +19,6 @@ const api = new API()
 
 
 
-export default function SelectionPage({ navigationsList, selectionData, contactsList, }) {
-    const router = useRouter()
-
-    return (
-        <MainWrapper
-            navigations={navigationsList}
-            contacts={contactsList}
-            title={selectionData.title}
-            description={selectionData.description}
-            image="/sharing-selections.jpg"
-            url={`https://prosazhin.ru` + `${router.pathname}`}
-        >
-            <PageHeadline
-                title={selectionData.title}
-                description={selectionData.description}
-            />
-            <Links
-				array={selectionData.links}
-                tags={false}
-                customClass={style.links}
-			/>
-        </MainWrapper>
-    )
-}
-
-
-
 export async function getStaticPaths() {
     const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt' }) )
 
@@ -71,4 +44,31 @@ export async function getStaticProps({ params }) {
             contactsList: contactsResult,
         },
     }
+}
+
+
+
+export default function SelectionPage({ navigationsList, selectionData, contactsList, }) {
+    const router = useRouter()
+
+    return (
+        <MainWrapper
+            navigations={navigationsList}
+            contacts={contactsList}
+            title={selectionData.title}
+            description={selectionData.description}
+            image="/sharing-selections.jpg"
+            url={`https://prosazhin.ru` + `${router.pathname}`}
+        >
+            <PageHeadline
+                title={selectionData.title}
+                description={selectionData.description}
+            />
+            <Links
+				array={selectionData.links}
+                tags={false}
+                customClass={style.links}
+			/>
+        </MainWrapper>
+    )
 }

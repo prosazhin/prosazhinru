@@ -22,38 +22,6 @@ const api = new API()
 
 
 
-export default function SelectionsTagPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
-	const router = useRouter()
-
-	return (
-		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
-			image="/sharing-selections.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
-		>
-			<PageHeadline
-				title={pageData.title}
-				description={pageData.description}
-			/>
-			<Tags
-				array={tagsList}
-				tagLinkTo="selections"
-				customClass={style.tags}
-				clickable
-			/>
-			<Selections
-				array={selectionsList}
-				isShowTags={true}
-			/>
-		</MainWrapper>
-	)
-}
-
-
-
 export async function getStaticPaths() {
     const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
 
@@ -84,4 +52,36 @@ export async function getStaticProps({ params }) {
 			contactsList: contactsResult,
 		},
 	}
+}
+
+
+
+export default function SelectionsTagPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
+	const router = useRouter()
+
+	return (
+		<MainWrapper
+			navigations={navigationsList}
+			contacts={contactsList}
+			title={pageData.metaTitle}
+			description={pageData.metaDescription}
+			image="/sharing-selections.jpg"
+			url={`https://prosazhin.ru` + `${router.pathname}`}
+		>
+			<PageHeadline
+				title={pageData.title}
+				description={pageData.description}
+			/>
+			<Tags
+				array={tagsList}
+				tagLinkTo="selections"
+				customClass={style.tags}
+				clickable
+			/>
+			<Selections
+				array={selectionsList}
+				isShowTags={true}
+			/>
+		</MainWrapper>
+	)
 }
