@@ -12,8 +12,8 @@
     user-select: none;
     height: 3rem;
     padding: 0.5rem 1rem;
-    @include text-medium-lvl-5;
-    @include radius-6;
+    @include text_medium_lvl_5;
+    @include radius_6;
     @include animated;
     color: $clr-base-black;
 

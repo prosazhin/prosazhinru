@@ -1,7 +1,7 @@
 
-$font-normal: 400;
-$font-semi-bold: 600;
-$font-bold: 700;
+$font_normal: 400;
+$font_semi_bold: 600;
+$font_bold: 700;
 
 
 
@@ -11,26 +11,26 @@ $font-bold: 700;
 
 
 
-@mixin radius-4 {
+@mixin radius_4 {
     border-radius: 4px;
 }
 
-@mixin radius-6 {
+@mixin radius_6 {
     border-radius: 6px;
 }
 
-@mixin radius-8 {
+@mixin radius_8 {
     border-radius: 8px;
 }
 
-@mixin radius-12 {
+@mixin radius_12 {
     border-radius: 12px;
 }
 
-@mixin radius-16 {
+@mixin radius_16 {
     border-radius: 16px;
 }
 
-@mixin radius-24 {
+@mixin radius_24 {
     border-radius: 24px;
 }

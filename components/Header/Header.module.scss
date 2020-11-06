@@ -2,8 +2,7 @@
 @import '../../scss/base.scss';
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
-@import '../../scss/icons.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -39,7 +38,7 @@
         right: 2rem;
         width: 3rem;
         height: 3rem;
-        @include icon-lvl-4;
+        @include icon_lvl_4;
         border: none;
         color: $clr-base-black;
         text-align: center;
@@ -57,7 +56,7 @@
 .logo {
     display: inline-block;
     color: $clr-base-black;
-    @include text-medium-lvl-4;
+    @include text_medium_lvl_4;
     vertical-align: top;
     position: relative;
     padding-left: 4rem;
@@ -138,7 +137,7 @@
             display: inline-block;
             color: $clr-base-black;
             @include animated;
-            @include text-medium-lvl-4;
+            @include text_medium_lvl_4;
 
             &:hover {
                 color: $clr-base-black;

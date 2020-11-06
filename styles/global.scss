@@ -33,7 +33,7 @@ body {
     color: $clr-base-black;
     background-color: $clr-base-white;
     font-family: 'Source Sans Pro', sans-serif;
-    @include text-regular-lvl-4;
+    @include text_regular_lvl_4;
     overflow: auto;
 }
 

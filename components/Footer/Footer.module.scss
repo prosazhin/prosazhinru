@@ -1,7 +1,7 @@
 
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -23,13 +23,13 @@
     width: 100%;
     margin-top: 2rem;
     color: $clr-base-black;
-    @include text-regular-lvl-4;
+    @include text_regular_lvl_4;
 }
 
 .contacts {
     display: inline-block;
     width: 100%;
-    @include text-medium-lvl-4;
+    @include text_medium_lvl_4;
 
     &__item {
         display: inline-block;

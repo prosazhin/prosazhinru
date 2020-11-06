@@ -1,12 +1,75 @@
 
 @import './base.scss';
-@import './screens.scss';
+@import './screen.scss';
 
 
 
-@mixin text-regular-lvl-1 {
+
+
+@mixin headline_lvl_1 {
     font-style: normal;
-    font-weight: $font-normal;
+    font-weight: $font_bold;
+    font-size: 48px;
+    line-height: 56px;
+
+    @include for_not_small_screen {
+        font-size: 80px;
+        line-height: 88px;
+    }
+}
+
+@mixin headline_lvl_2 {
+    font-style: normal;
+    font-weight: $font_bold;
+    font-size: 48px;
+    line-height: 56px;
+
+    @include for_not_small_screen {
+        font-size: 64px;
+        line-height: 72px;
+    }
+}
+
+@mixin headline_lvl_3 {
+    font-style: normal;
+    font-weight: $font_bold;
+    font-size: 32px;
+    line-height: 40px;
+
+    @include for_not_small_screen {
+        font-size: 48px;
+        line-height: 56px;
+    }
+}
+
+@mixin headline_lvl_4 {
+    font-style: normal;
+    font-weight: $font_bold;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+@mixin headline_lvl_5 {
+    font-style: normal;
+    font-weight: $font_bold;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+@mixin headline_lvl_6 {
+    font-style: normal;
+    font-weight: $font_bold;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+
+
+
+
+@mixin text_regular_lvl_1 {
+    font-style: normal;
+    font-weight: $font_normal;
     font-size: 24px;
     line-height: 32px;
 
@@ -16,39 +79,41 @@
     }
 }
 
-@mixin text-regular-lvl-2 {
+@mixin text_regular_lvl_2 {
     font-style: normal;
-    font-weight: $font-normal;
+    font-weight: $font_normal;
     font-size: 24px;
     line-height: 32px;
 }
 
-@mixin text-regular-lvl-3 {
+@mixin text_regular_lvl_3 {
     font-style: normal;
-    font-weight: $font-normal;
+    font-weight: $font_normal;
     font-size: 20px;
     line-height: 28px;
 }
 
-@mixin text-regular-lvl-4 {
+@mixin text_regular_lvl_4 {
     font-style: normal;
-    font-weight: $font-normal;
+    font-weight: $font_normal;
     font-size: 16px;
     line-height: 24px;
 }
 
-@mixin text-regular-lvl-5 {
+@mixin text_regular_lvl_5 {
     font-style: normal;
-    font-weight: $font-normal;
+    font-weight: $font_normal;
     font-size: 12px;
     line-height: 16px;
 }
 
 
 
-@mixin text-medium-lvl-1 {
+
+
+@mixin text_medium_lvl_1 {
     font-style: normal;
-    font-weight: $font-semi-bold;
+    font-weight: $font_semi_bold;
     font-size: 24px;
     line-height: 32px;
 
@@ -58,30 +123,74 @@
     }
 }
 
-@mixin text-medium-lvl-2 {
+@mixin text_medium_lvl_2 {
     font-style: normal;
-    font-weight: $font-semi-bold;
+    font-weight: $font_semi_bold;
     font-size: 24px;
     line-height: 32px;
 }
 
-@mixin text-medium-lvl-3 {
+@mixin text_medium_lvl_3 {
     font-style: normal;
-    font-weight: $font-semi-bold;
+    font-weight: $font_semi_bold;
     font-size: 20px;
     line-height: 28px;
 }
 
-@mixin text-medium-lvl-4 {
+@mixin text_medium_lvl_4 {
     font-style: normal;
-    font-weight: $font-semi-bold;
+    font-weight: $font_semi_bold;
     font-size: 16px;
     line-height: 24px;
 }
 
-@mixin text-medium-lvl-5 {
+@mixin text_medium_lvl_5 {
     font-style: normal;
-    font-weight: $font-semi-bold;
+    font-weight: $font_semi_bold;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+
+
+
+@mixin icon_lvl_1 {
+    font-style: normal;
+    font-weight: $font_normal;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include for_not_small_screen {    
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+@mixin icon_lvl_2 {
+    font-style: normal;
+    font-weight: $font_normal;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+@mixin icon_lvl_3 {
+    font-style: normal;
+    font-weight: $font_normal;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+@mixin icon_lvl_4 {
+    font-style: normal;
+    font-weight: $font_normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin icon_lvl_5 {
+    font-style: normal;
+    font-weight: $font_normal;
     font-size: 12px;
     line-height: 16px;
 }

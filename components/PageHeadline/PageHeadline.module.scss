@@ -1,8 +1,7 @@
 
 @import '../../scss/colors.scss';
-@import '../../scss/headline.scss';
 @import '../../scss/text.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -16,7 +15,7 @@
     display: inline-block;
     width: 100%;
     color: $clr-base-black;
-    @include headline-lvl-2;
+    @include headline_lvl_2;
     margin-bottom: 2rem;
 }
 
@@ -24,7 +23,7 @@
     display: inline-block;
     width: 100%;
     color: $clr-base-black;
-    @include text-regular-lvl-1;
+    @include text_regular_lvl_1;
 
     p {
         display: inline-block;
@@ -48,7 +47,7 @@
         }
 
         strong {
-            @include text-medium-lvl-1;
+            @include text_medium_lvl_1;
         }
     }
 }

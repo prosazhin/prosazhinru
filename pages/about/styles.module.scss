@@ -1,8 +1,7 @@
 
 @import '../../scss/colors.scss';
-@import '../../scss/headline.scss';
 @import '../../scss/text.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -18,7 +17,7 @@
     &__description {
         display: inline-block;
         width: 100%;
-        @include text-regular-lvl-2;
+        @include text_regular_lvl_2;
 
         &_title {
             color: $clr-gray-dark;
@@ -98,7 +97,7 @@
         display: block;
         width: 100%;
         color: $clr-base-black;
-        @include headline-lvl-4;
+        @include headline_lvl_4;
         margin-bottom: 1rem;
     }
 
@@ -106,13 +105,13 @@
         display: block;
         width: 100%;
         color: $clr-gray-darken;
-        @include text-regular-lvl-4;
+        @include text_regular_lvl_4;
     }
 
     &__description {
         display: block;
         width: 100%;
         color: $clr-base-black;
-        @include text-regular-lvl-4;
+        @include text_regular_lvl_4;
     }
 }

@@ -1,7 +1,7 @@
 
 @import '../../scss/colors.scss';
-@import '../../scss/headline.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/text.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -12,7 +12,7 @@
     margin-top: 6rem;
     margin-bottom: 2rem;
     color: $clr-base-black;
-    @include headline-lvl-3;
+    @include headline_lvl_3;
 
     @include for_not_small_screen {    
         margin-top: 10rem;

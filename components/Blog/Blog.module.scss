@@ -2,7 +2,7 @@
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
 @import '../../scss/base.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -13,8 +13,8 @@
     margin-top: 4rem;
     background-color: $clr-blue-lighter;
     color: $clr-base-black;
-    @include text-regular-lvl-1;
-    @include radius-24;
+    @include text_regular_lvl_1;
+    @include radius_24;
 
     @include for_not_small_screen {
         padding: 3rem 4rem;

@@ -2,7 +2,7 @@
 @import '../../scss/base.scss';
 @import '../../scss/colors.scss';
 @import '../../scss/text.scss';
-@import '../../scss/screens.scss';
+@import '../../scss/screen.scss';
 
 
 
@@ -16,7 +16,7 @@
     overflow: hidden;
     position: relative;
     user-select: none;
-    @include radius-24;
+    @include radius_24;
     @include animated;
 
     &:hover {
@@ -37,12 +37,12 @@
         display: inline-block;
         width: 100%;
         color: $clr-base-black;
-        @include text-medium-lvl-2;
+        @include text_medium_lvl_2;
         @include animated;
         margin-bottom: 12px;
 
         &__state_big_size {
-            @include text-medium-lvl-1;
+            @include text_medium_lvl_1;
         }
     }
     
@@ -50,12 +50,12 @@
         display: inline-block;
         width: 100%;
         color: $clr-base-black;
-        @include text-regular-lvl-4;
+        @include text_regular_lvl_4;
         @include animated;
 
         &__state_big_size {
             @include for_not_small_screen {    
-                @include text-regular-lvl-3;
+                @include text_regular_lvl_3;
             }
         }
     }
