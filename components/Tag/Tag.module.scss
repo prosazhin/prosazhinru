@@ -15,39 +15,39 @@
     @include text_medium_lvl_5;
     @include radius_6;
     @include animated;
-    color: $clr-base-black;
+    color: $clr_base_black;
 
     &__clickable {
-        background-color: $clr-gray-light;
+        background-color: $clr_gray_light;
         cursor: pointer;
 
         &:hover {
-            color: $clr-blue-main;
-            background-color: $clr-blue-lighter;
+            color: $clr_blue_main;
+            background-color: $clr_blue_lighter;
         }
 
         &_active {
-            color: $clr-base-white;
-            background-color: $clr-blue-main;
+            color: $clr_base_white;
+            background-color: $clr_blue_main;
     
             &:hover,
             &:focus,
             &:active {
-                color: $clr-base-white;
-                background-color: $clr-blue-main;
+                color: $clr_base_white;
+                background-color: $clr_blue_main;
             }
         }
     }
 
     &__static {
         padding: 0.4rem 1rem;
-        border: 1px solid $clr-gray-dark;
+        border: 1px solid $clr_gray_dark;
         cursor: inherit;
 
         &_active {
-            color: $clr-base-white;
-            background-color: $clr-blue-main;
-            border-color: $clr-blue-main;
+            color: $clr_base_white;
+            background-color: $clr_blue_main;
+            border-color: $clr_blue_main;
         }
     }
 }

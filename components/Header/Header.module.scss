@@ -14,7 +14,7 @@
     height: 10rem;
     top: 0;
     text-align: left;
-    background-color: $clr-base-white;
+    background-color: $clr_base_white;
     padding-top: 3rem;
 
     @include for_small_screen {    
@@ -29,7 +29,7 @@
         width: 100%;
         display: block;
         padding-bottom: 2rem;
-        border-bottom: 1px solid $clr-gray-main;
+        border-bottom: 1px solid $clr_gray_main;
     }
 
     &__mobile_toogle {
@@ -40,7 +40,7 @@
         height: 3rem;
         @include icon_lvl_4;
         border: none;
-        color: $clr-base-black;
+        color: $clr_base_black;
         text-align: center;
         @include animated;
         cursor: pointer;
@@ -64,13 +64,13 @@
     &__title {
         display: block;
         @include headline_lvl_6;
-        color: $clr-base-black;
+        color: $clr_base_black;
     }
 
     &__description {
         display: block;
         @include text_regular_lvl_5;
-        color: $clr-black-light;
+        color: $clr_black_light;
     }
 }
 
@@ -82,10 +82,10 @@
 
     &:hover {
         .nav__item__link {
-            color: $clr-gray-darken;
+            color: $clr_gray_darken;
 
             &:hover {
-                color: $clr-base-black;
+                color: $clr_base_black;
             }
         }
     }
@@ -133,17 +133,17 @@
 
         &__link {
             display: inline-block;
-            color: $clr-base-black;
+            color: $clr_base_black;
             @include animated;
             @include text_medium_lvl_4;
 
             &:hover {
-                color: $clr-base-black;
+                color: $clr_base_black;
                 text-decoration: none;
             }
 
             &__active {
-                color: $clr-blue-main;
+                color: $clr_blue_main;
                 text-decoration: none;
             }
         }

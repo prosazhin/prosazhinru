@@ -20,7 +20,7 @@
         @include text_regular_lvl_2;
 
         &_title {
-            color: $clr-gray-dark;
+            color: $clr_gray_dark;
             margin-top: 2rem;
         }
     }
@@ -50,7 +50,7 @@
                 left: 7px;
                 width: 2px;
                 height: 100%;
-                background-color: $clr-gray-main;
+                background-color: $clr_gray_main;
             }
     
             &::after {
@@ -60,7 +60,7 @@
                 left: 7px;
                 width: 2px;
                 height: 4rem;
-                background-color: $clr-gray-main;
+                background-color: $clr_gray_main;
             }
     
             &:nth-last-child(1) {
@@ -81,11 +81,11 @@
         left: 0;
         width: 2rem;
         height: 2rem;
-        background-color: $clr-gray-main;
+        background-color: $clr_gray_main;
         border-radius: 100%;
 
         &_state_active {
-            background-color: $clr-blue-main;
+            background-color: $clr_blue_main;
         }
 
         @include for_small_screen {
@@ -96,7 +96,7 @@
     &__title {
         display: block;
         width: 100%;
-        color: $clr-base-black;
+        color: $clr_base_black;
         @include headline_lvl_4;
         margin-bottom: 1rem;
     }
@@ -104,14 +104,14 @@
     &__date {
         display: block;
         width: 100%;
-        color: $clr-gray-darken;
+        color: $clr_gray_darken;
         @include text_regular_lvl_4;
     }
 
     &__description {
         display: block;
         width: 100%;
-        color: $clr-base-black;
+        color: $clr_base_black;
         @include text_regular_lvl_4;
     }
 }

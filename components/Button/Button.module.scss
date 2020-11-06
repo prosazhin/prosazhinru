@@ -13,21 +13,21 @@
     width: auto;
     height: auto;
     border-radius: 4px;
-    color: $clr-white;
+    color: $clr_base_white;
     transition: all .2s ease;
     user-select: none;
     font-size: 2rem;
     line-height: 4rem;
     font-weight: $font_bold;
     padding: 1rem 4rem;
-    background-color: $clr-blue;
+    background-color: $clr_blue_main;
     text-decoration: none;
 
     &:hover, &:active, &:focus {
-        color: $clr-white;
+        color: $clr_base_white;
     }
 
     &:hover {
-        background-color: $clr-blue-dark;
+        background-color: $clr_blue_main;
     }
 }

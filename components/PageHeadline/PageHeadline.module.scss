@@ -14,7 +14,7 @@
 .title {
     display: inline-block;
     width: 100%;
-    color: $clr-base-black;
+    color: $clr_base_black;
     @include headline_lvl_2;
     margin-bottom: 2rem;
 }
@@ -22,7 +22,7 @@
 .description {
     display: inline-block;
     width: 100%;
-    color: $clr-base-black;
+    color: $clr_base_black;
     @include text_regular_lvl_1;
 
     p {
