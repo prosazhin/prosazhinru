@@ -20,10 +20,10 @@
     @include animated;
 
     &:hover {
-        border-color: $clr_black_main;
+        border-color: $clr_blue_main;
         
         .card__headline, .card__description {
-            color: $clr_black_main;
+            color: $clr_blue_main;
         }
     }
 

@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
 	const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt', 'fields.tags.sys.id[in]': activeTagId }) )
+	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: '-sys.createdAt', 'fields.tags.sys.id[in]': activeTagId }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
 	return {

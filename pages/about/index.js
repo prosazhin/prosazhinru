@@ -49,17 +49,10 @@ export default function AboutPage({ pageData, navigationsList, contactsList }) {
 			image="/sharing-about.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-            <Container
-                small
-                center
-            >
-				<PageHeadline
-                    title={pageData.title}
-					description={pageData.description}
-				>
-					<Blog />
-				</PageHeadline>
-
+            <PageHeadline
+                description={pageData.description}
+            />
+            <Container small>
                 <section className={style.section}>
                     <Headline
                         title="Дизайн"
