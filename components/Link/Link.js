@@ -1,12 +1,12 @@
 
-import Link from 'next/link'
+import NextLink from 'next/link'
 import style from './Link.module.scss'
 
 
 
-export default function LinkComponent({ item }) {
+export default function Link({ item }) {
     return (
-        <Link href={item.url}>
+        <NextLink href={item.url}>
             <a target="_blank" className={style.link}>
                 <span className={style.link__title}>
                     {item.title}
@@ -17,6 +17,6 @@ export default function LinkComponent({ item }) {
                     </span>
                 }
             </a>
-        </Link>
+        </NextLink>
     )
 }
