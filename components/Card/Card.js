@@ -12,16 +12,16 @@ export default function Card({ item, linkUrl, linkTarger, isShowTags, isBigSize 
                 <span className={`${style.card__headline}${isBigSize ? ` ${style.card__headline__state_big_size}` : ''}`}>
                     {item.title}
                 </span>
+                {item.description &&
+                    <span className={`${style.card__description}${isBigSize ? ` ${style.card__description__state_big_size}` : ''}`}>
+                        {item.description}
+                    </span>
+                }
                 {(isShowTags && item.tags.length) &&
                     <Tags
                         array={item.tags}
                         customClass={style.card__tags}
                     />
-                }
-                {item.description &&
-                    <span className={`${style.card__description}${isBigSize ? ` ${style.card__description__state_big_size}` : ''}`}>
-                        {item.description}
-                    </span>
                 }
             </a>
         </Link>

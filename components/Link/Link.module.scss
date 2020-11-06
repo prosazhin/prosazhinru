@@ -1,0 +1,39 @@
+
+@import '../../scss/base.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+@import '../../scss/screen.scss';
+
+
+
+.link {
+    display: block;
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    text-decoration: none;
+    grid-row-end: span 3;
+
+    &:hover {
+        .link__title {
+            color: $clr_red_main;
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        display: inline-block;
+        width: 100%;
+        @include text_medium_lvl_3;
+    }
+
+    &__description {
+        display: inline-block;
+        width: 100%;
+        color: $clr_base_black;
+        @include text_regular_lvl_4;
+        margin-top: 1rem;
+    }
+}

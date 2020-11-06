@@ -6,7 +6,6 @@ import {
     MainWrapper,
     PageHeadline,
     Headline,
-    Blog,
     Container,
 } from '../../components'
 

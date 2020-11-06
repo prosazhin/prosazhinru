@@ -1,20 +1,16 @@
 
-import { Card } from '../'
+import { LinkComponent } from '../'
 import style from './Links.module.scss'
 
 
 
-export default function Links({ array, isShowTags, customClass }) {
+export default function Links({ array, customClass }) {
     return (
         <div className={`${style.links}${customClass ? ` ${customClass}` : ''}`}>
             {array.map(item =>
-                <Card
+                <LinkComponent
                     key={item.id}
                     item={item}
-                    linkUrl={item.url}
-                    linkTarger="_blank"
-                    isShowTags={isShowTags}
-                    isBigSize={false}
                 />
             )}
         </div>

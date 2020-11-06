@@ -5,10 +5,8 @@ import {
 	MainWrapper,
 	PageHeadline,
 	Headline,
-	Blog,
 	Selections,
 	Links,
-	Container,
 } from '../components'
 
 import {
@@ -27,8 +25,8 @@ const api = new API()
 export async function getStaticProps() {
 	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
 	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt', limit: 1 }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 8, order: '-sys.createdAt' }) )
+	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: '-sys.createdAt', limit: 1 }) )
+	const linksResult = linksSerializer( await api.get({ content_type: 'links', order: '-sys.createdAt', limit: 10 }) )
 	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
 
 	return {
@@ -71,8 +69,6 @@ export default function HomePage({ pageData, navigationsList, selectionsList, li
 			/>
 			<Links
 				array={linksList}
-				tags={true}
-				tagLinkTo="links"
 			/>
 		</MainWrapper>
 	)

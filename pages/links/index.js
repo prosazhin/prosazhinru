@@ -72,7 +72,7 @@ export default function LinksPage({ pageData, navigationsList, tagsList, linksLi
 			/>
 			<Links
 				array={linksList}
-				isShowTags={true}
+				customClass={style.links}
 			/>
 		</MainWrapper>
 	)

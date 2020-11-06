@@ -37,12 +37,11 @@
         display: inline-block;
         width: 100%;
         color: $clr_base_black;
-        @include text_medium_lvl_2;
+        @include headline_lvl_5;
         @include animated;
-        margin-bottom: 12px;
 
         &__state_big_size {
-            @include text_medium_lvl_1;
+            @include headline_lvl_4;
         }
     }
     
@@ -52,6 +51,7 @@
         color: $clr_base_black;
         @include text_regular_lvl_4;
         @include animated;
+        margin-top: 1rem;
 
         &__state_big_size {
             @include for_not_small_screen {    
@@ -63,6 +63,6 @@
     &__tags {
         display: inline-block;
         width: 100%;
-        margin-bottom: 2rem;
+        margin-top: 2rem;
     }
 }
