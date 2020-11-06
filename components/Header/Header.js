@@ -23,13 +23,9 @@ export default function Header({ navigations }) {
             <Container>
                 <div className={style.header__wrapper}>
                     <Link href="/">
-                        <a className={style.logo}>
-                            <img
-                                src="/avatar.png"
-                                alt=""
-                                className={style.logo__image}
-                            />
-                            Евгений Сажин
+                        <a className={style.name}>
+                            <span className={style.name__title}>Евгений Сажин</span>
+                            <span className={style.name__description}>Дизайнер и фронтенд разработчик</span>
                         </a>
                     </Link>
                     <nav className={`${style.nav} ${style.nav__desktop}`}>

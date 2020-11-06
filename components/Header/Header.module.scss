@@ -15,7 +15,7 @@
     top: 0;
     text-align: left;
     background-color: $clr-base-white;
-    padding-top: 5rem;
+    padding-top: 3rem;
 
     @include for_small_screen {    
         @include animated;
@@ -34,7 +34,7 @@
 
     &__mobile_toogle {
         position: absolute;
-        top: 0;
+        top: 12px;
         right: 2rem;
         width: 3rem;
         height: 3rem;
@@ -53,28 +53,24 @@
 
 
 
-.logo {
+.name {
     display: inline-block;
-    color: $clr-base-black;
-    @include text_medium_lvl_4;
     vertical-align: top;
-    position: relative;
-    padding-left: 4rem;
 
     &:hover, &:focus, &:active {
-        color: $clr-base-black;
         text-decoration: none;
     }
 
-    &__image {
-        display: inline-block;
-        position: absolute;
-        height: 3rem;
-        width: 3rem;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        left: 0;
+    &__title {
+        display: block;
+        @include headline_lvl_6;
+        color: $clr-base-black;
+    }
+
+    &__description {
+        display: block;
+        @include text_regular_lvl_5;
+        color: $clr-black-light;
     }
 }
 
@@ -99,7 +95,9 @@
 
         @include for_not_small_screen {
             display: inline-block;
-            margin-left: 20rem;
+            margin-left: 10rem;
+            margin-bottom: 1rem;
+            vertical-align: bottom;
         }
     }
 
@@ -113,7 +111,7 @@
 
         &_active {
             display: inline-block;
-            margin-top: 10rem;
+            margin-top: 5rem;
         }
     }
 
@@ -121,7 +119,7 @@
         display: inline-block;
         width: 100%;
         height: auto;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
 
         @include for_not_small_screen {    
             width: auto;
