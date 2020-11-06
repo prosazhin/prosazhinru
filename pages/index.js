@@ -56,17 +56,9 @@ export default function HomePage({ pageData, navigationsList, selectionsList, li
 			image="/sharing-index.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Container
-				small
-				center
-			>
-				<PageHeadline
-					title={pageData.title}
-					description={pageData.description}
-				>
-					<Blog />
-				</PageHeadline>
-			</Container>
+			<PageHeadline
+				description={pageData.description}
+			/>
 			<Headline
 				title="Новая подборка"
 			/>
