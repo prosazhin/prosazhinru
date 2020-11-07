@@ -14,8 +14,12 @@ export default class API {
         })
     }
 
-    get(params) {
-        return this.client.getEntries(params).then(response => response)
+    get(contentType, params) {
+        return this.client.getEntries({
+            content_type: contentType,
+            order: '-sys.createdAt',
+            ...params,
+        }).then(response => response)
     }
 
     getOne(params) {

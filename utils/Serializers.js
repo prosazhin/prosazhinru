@@ -1,6 +1,5 @@
 
 export function pageSerializer(data) {
-    console.log(data)
     const result = {
         id: data.sys.id,
         title: data.fields.title,
@@ -51,15 +50,8 @@ export function linksSerializer(data) {
         return {
             id: item.sys.id,
             title: item.fields.title,
-            description: item.fields.description ? item.fields.description : null,
+            description: item.fields.description,
             url: item.fields.url,
-            tags: item.fields.tags.map(tag => {
-                return {
-                    id: tag.sys.id,
-                    title: tag.fields.title,
-                    url: tag.fields.url,
-                }
-            }),
         }
     })
 

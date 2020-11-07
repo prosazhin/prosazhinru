@@ -11,11 +11,9 @@ export default function Link({ item }) {
                 <span className={style.link__title}>
                     {item.title}
                 </span>
-                {item.description &&
-                    <span className={style.link__description}>
-                        {item.description}
-                    </span>
-                }
+                <span className={style.link__description}>
+                    {item.description}
+                </span>
             </a>
         </NextLink>
     )

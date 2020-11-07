@@ -23,19 +23,19 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'home' }) )[0]
-	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: '-sys.createdAt', limit: 1 }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', order: '-sys.createdAt', limit: 10 }) )
-	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'home' }))[0]
+	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const selectionsResult = selectionsSerializer(await api.get('selections', { limit: 1 }))
+	const linksResult = linksSerializer(await api.get('links', { limit: 10, include: 0 }))
 
 	return {
 		props: {
 			pageData: pageResult,
 			navigationsList: navigationsResult,
+			contactsList: contactsResult,
 			selectionsList: selectionsResult,
 			linksList: linksResult,
-			contactsList: contactsResult,
 		},
 	}
 }
@@ -44,6 +44,27 @@ export async function getStaticProps() {
 
 export default function HomePage({ pageData, navigationsList, selectionsList, linksList, contactsList }) {
 	const router = useRouter()
+
+	const data = [
+		{
+			year: '2020',
+			data: [],
+		},
+		{
+			year: '2019',
+			data: [],
+		},
+		{
+			year: '2018',
+			data: [],
+		},
+	]
+
+	// {data.map(item =>
+	// 	<Headline
+	// 		title={item.year}
+	// 	/>
+	// )}
 
 	return (
 		<MainWrapper

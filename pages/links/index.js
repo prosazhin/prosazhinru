@@ -25,19 +25,19 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'links' }) )[0]
-	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 500, order: '-sys.createdAt' }) )
-	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'links' }))[0]
+	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
 
 	return {
 		props: {
 			pageData: pageResult,
 			navigationsList: navigationsResult,
+			contactsList: contactsResult,
 			tagsList: tagsResult,
 			linksList: linksResult,
-			contactsList: contactsResult,
 		},
 	}
 }

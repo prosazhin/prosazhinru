@@ -21,9 +21,9 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'about' }) )[0]
-    const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+    const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'about' }))[0]
+    const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const contactsResult = contactsSerializer(await api.get('contacts'))
 
 	return {
 		props: {

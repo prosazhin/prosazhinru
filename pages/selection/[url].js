@@ -20,7 +20,7 @@ const api = new API()
 
 
 export async function getStaticPaths() {
-    const selectionsResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt' }) )
+    const selectionsResult = selectionsSerializer(await api.get('selections'))
 
     const paths = selectionsResult.map((selection) => ({
         params: { url: selection.url },
@@ -33,15 +33,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-    const selectionResult = selectionsSerializer( await api.get({ content_type: 'selections', order: 'sys.createdAt', 'fields.url': params.url }) )[0]
-    const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+    const navigationsResult = navigationsSerializer(await api.get('navigations'))
+    const contactsResult = contactsSerializer(await api.get('contacts'))
+    const selectionResult = selectionsSerializer(await api.get('selections', { 'fields.url': params.url }))[0]
 
     return {
         props: {
             navigationsList: navigationsResult,
-            selectionData: selectionResult,
             contactsList: contactsResult,
+            selectionData: selectionResult,
         },
     }
 }

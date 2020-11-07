@@ -25,7 +25,7 @@ const api = new API()
 
 
 export async function getStaticPaths() {
-    const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
+	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
 
     const paths = tagsResult.map((item) => ({
         params: { tag: item.url },
@@ -38,20 +38,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const pageResult = pagesSerializer( await api.get({ content_type: 'page', 'fields.slug': 'links' }) )[0]
-	const navigationsResult = navigationsSerializer( await api.get({ content_type: 'navigations' }) )
-	const tagsResult = tagsSerializer( await api.get({ content_type: 'tags', order: 'sys.createdAt' }) )
+	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'links' }))[0]
+	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const linksResult = linksSerializer( await api.get({ content_type: 'links', limit: 500, 'fields.tags.sys.id[in]': activeTagId, order: '-sys.createdAt' }) )
-	const contactsResult = contactsSerializer( await api.get({ content_type: 'contacts', order: 'sys.createdAt' }) )
+	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
 			pageData: pageResult,
 			navigationsList: navigationsResult,
+			contactsList: contactsResult,
 			tagsList: tagsResult,
 			linksList: linksResult,
-			contactsList: contactsResult,
 		},
 	}
 }
