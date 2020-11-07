@@ -44,7 +44,7 @@ export async function getStaticProps({ params }) {
 	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
 
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const selectionsResult = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
+	const selectionsResult = selectionsSerializer(await api.get('selections', { include: 1, 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {

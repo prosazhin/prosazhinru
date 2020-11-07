@@ -26,7 +26,7 @@ export async function getStaticProps() {
 	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'home' }))[0]
 	const navigationsResult = navigationsSerializer(await api.get('navigations'))
 	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const selectionsResult = selectionsSerializer(await api.get('selections', { limit: 1 }))
+	const selectionsResult = selectionsSerializer(await api.get('selections', { limit: 1, include: 0 }))
 	const linksResult = linksSerializer(await api.get('links', { limit: 10, include: 0 }))
 
 	return {

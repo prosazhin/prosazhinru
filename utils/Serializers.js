@@ -65,7 +65,7 @@ export function selectionsSerializer(data) {
         return {
             id: item.sys.id,
             title: item.fields.title,
-            description: item.fields.description ? item.fields.description : null,
+            description: item.fields.description,
             url: item.fields.url,
             big: item.fields.big,
             tags: item.fields.tags.map(tag => {
@@ -79,13 +79,8 @@ export function selectionsSerializer(data) {
                 return {
                     id: link.sys.id,
                     title: link.fields.title,
-                    description: link.fields.description ? link.fields.description : null,
+                    description: link.fields.description,
                     url: link.fields.url,
-                    tags: link.fields.tags.map(tag => {
-                        return {
-                            id: tag.sys.id,
-                        }
-                    }),
                 }
             }),
         }
