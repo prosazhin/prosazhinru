@@ -11,12 +11,12 @@ export default function Footer({ contacts }) {
             <Container>
                 <div className={style.footer}>
                     <ul className={style.contacts}>
-                        {contacts.map(contact =>
+                        {contacts.sort(( a, b ) => a.order - b.order).map(contact =>
                             <li className={style.contacts__item} key={contact.id}>
-                                {contact.type === 'link' ?
+                                {contact.link ?
                                     <a
                                         href={contact.url}
-                                        target={contact.target}
+                                        target="_blank"
                                     >
                                         {contact.title}
                                     </a>

@@ -33,8 +33,8 @@ export default function Header({ navigations }) {
                             <React.Fragment key={link.id}>
                                 {!!link.show &&
                                     <li className={style.nav__item}>
-                                        <Link href={link.url}>
-                                            <a className={`${style.nav__item__link}${isActiveLink(link.url) ? ` ${style.nav__item__link__active}` : ''}`}>
+                                        <Link href={`/${link.slug}`}>
+                                            <a className={`${style.nav__item__link}${isActiveLink(link.slug) ? ` ${style.nav__item__link__active}` : ''}`}>
                                                 {link.title}
                                             </a>
                                         </Link>
@@ -49,8 +49,8 @@ export default function Header({ navigations }) {
                         <React.Fragment key={link.id}>
                             {!!link.show &&
                                 <li className={style.nav__item}>
-                                    <Link href={link.url}>
-                                        <a className={`${style.nav__item__link}${isActiveLink(link.url) ? ` ${style.nav__item__link__active}` : ''}`}>
+                                    <Link href={`/${link.slug}`}>
+                                        <a className={`${style.nav__item__link}${isActiveLink(link.slug) ? ` ${style.nav__item__link__active}` : ''}`}>
                                             {link.title}
                                         </a>
                                     </Link>

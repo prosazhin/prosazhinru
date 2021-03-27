@@ -1,26 +1,27 @@
 
-export function pageSerializer(data) {
+export function pagesSerializer(data, pageName) {
     const result = {
-        id: data.sys.id,
-        title: data.fields.title,
-        description: data.fields.description,
-        metaTitle: data.fields.metaTitle,
-        metaDescription: data.fields.metaDescription,
+        page: {},
+        navigations: [],
     }
+    
+    result.navigations = data.items.map(item => {
+        if (pageName === item.fields.slug) {
+            result.page = {
+				id: item.sys.id,
+				title: item.fields.title,
+				description: item.fields.description,
+				metaTitle: item.fields.metaTitle,
+				metaDescription: item.fields.metaDescription,
+			}
+        }
 
-    return result
-}
-
-
-
-export function pagesSerializer(data) {
-    const result = data.items.map(item => {
         return {
             id: item.sys.id,
             title: item.fields.title,
-            description: item.fields.description,
-            metaTitle: item.fields.metaTitle,
-            metaDescription: item.fields.metaDescription,
+            slug: item.fields.slug,
+            show: item.fields.show,
+            order: item.fields.order,
         }
     })
 
@@ -29,14 +30,14 @@ export function pagesSerializer(data) {
 
 
 
-export function navigationsSerializer(data) {
+export function contactsSerializer(data) {
     const result = data.items.map(item => {
         return {
             id: item.sys.id,
             title: item.fields.title,
-            url: item.fields.url,
-            show: item.fields.show,
             order: item.fields.order,
+            link: item.fields.link,
+            url: item.fields.url,
         }
     })
 
@@ -52,6 +53,8 @@ export function linksSerializer(data) {
             title: item.fields.title,
             description: item.fields.description,
             url: item.fields.url,
+            create: item.sys.createdAt,
+            type: 'link',
         }
     })
 
@@ -66,8 +69,8 @@ export function selectionsSerializer(data) {
             id: item.sys.id,
             title: item.fields.title,
             description: item.fields.description,
-            url: item.fields.url,
-            big: item.fields.big,
+            create: item.fields.create,
+            type: 'selection',
             tags: item.fields.tags.map(tag => {
                 return {
                     id: tag.sys.id,
@@ -81,6 +84,7 @@ export function selectionsSerializer(data) {
                     title: link.fields.title,
                     description: link.fields.description,
                     url: link.fields.url,
+                    create: item.sys.createdAt,
                 }
             }),
         }
@@ -97,22 +101,6 @@ export function tagsSerializer(data) {
             id: item.sys.id,
             title: item.fields.title,
             url: item.fields.url,
-        }
-    })
-
-    return result
-}
-
-
-
-export function contactsSerializer(data) {
-    const result = data.items.map(item => {
-        return {
-            id: item.sys.id,
-            title: item.fields.title,
-            url: item.fields.url,
-            target: item.fields.target,
-            type: item.fields.type,
         }
     })
 

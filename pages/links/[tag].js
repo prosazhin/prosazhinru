@@ -13,7 +13,6 @@ import {
 
 import {
 	pagesSerializer,
-	navigationsSerializer,
 	tagsSerializer,
 	linksSerializer,
 	contactsSerializer,
@@ -38,18 +37,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'links' }))[0]
-	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const pagesResult = pagesSerializer(await api.get('pages'), 'links')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
 	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
-			pageData: pageResult,
-			navigationsList: navigationsResult,
+			pageData: pagesResult.page,
+			navigationsList: pagesResult.navigations,
 			contactsList: contactsResult,
 			tagsList: tagsResult,
 			linksList: linksResult,
@@ -59,7 +56,13 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function LinksTagPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
+export default function LinksTagPage({
+	pageData,
+	navigationsList,
+	tagsList,
+	linksList,
+	contactsList,
+}) {
 	const router = useRouter()
 
 	return (

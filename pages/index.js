@@ -7,11 +7,12 @@ import {
 	Headline,
 	Selections,
 	Links,
+	Link,
+	Card,
 } from '../components'
 
 import {
 	pagesSerializer,
-	navigationsSerializer,
 	selectionsSerializer,
 	linksSerializer,
 	contactsSerializer,
@@ -23,16 +24,15 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'home' }))[0]
-	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const pagesResult = pagesSerializer(await api.get('pages'), 'home')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const selectionsResult = selectionsSerializer(await api.get('selections', { limit: 1, include: 1 }))
 	const linksResult = linksSerializer(await api.get('links', { limit: 10, include: 0 }))
 
 	return {
 		props: {
-			pageData: pageResult,
-			navigationsList: navigationsResult,
+			pageData: pagesResult.page,
+			navigationsList: pagesResult.navigations,
 			contactsList: contactsResult,
 			selectionsList: selectionsResult,
 			linksList: linksResult,
@@ -42,13 +42,22 @@ export async function getStaticProps() {
 
 
 
-export default function HomePage({ pageData, navigationsList, selectionsList, linksList, contactsList }) {
+export default function HomePage({
+	pageData,
+	navigationsList,
+	selectionsList,
+	linksList,
+	contactsList,
+}) {
 	const router = useRouter()
 
 	const data = [
 		{
 			year: '2020',
-			data: [],
+			data: []
+				.concat(selectionsList.filter(item => item.type === 'selection'))
+				.concat(linksList.filter(item => item.type === 'link'))
+				.sort((a,b) => new Date(b.create) - new Date(a.create)),
 		},
 		{
 			year: '2019',
@@ -59,12 +68,6 @@ export default function HomePage({ pageData, navigationsList, selectionsList, li
 			data: [],
 		},
 	]
-
-	// {data.map(item =>
-	// 	<Headline
-	// 		title={item.year}
-	// 	/>
-	// )}
 
 	return (
 		<MainWrapper
@@ -78,6 +81,28 @@ export default function HomePage({ pageData, navigationsList, selectionsList, li
 			<PageHeadline
 				description={pageData.description}
 			/>
+			{/* {data.map(item =>
+				<React.Fragment key={item.year}>
+					<Headline title={item.year} />
+					{item.data.map(item =>
+						<React.Fragment key={item.id}>
+							{item.type === 'link' &&
+								<Link item={item} />
+							}
+							{item.type === 'selection' &&
+								<Card
+									key={item.id}
+									item={item}
+									linkUrl={`/selection/${item.url}`}
+									linkTarger="_self"
+									isShowTags={true}
+									isBigSize={item.big}
+								/>
+							}
+						</React.Fragment>
+					)}
+				</React.Fragment>
+			)} */}
 			<Headline
 				title="Новая подборка"
 			/>

@@ -13,7 +13,6 @@ import {
 
 import {
 	pagesSerializer,
-	navigationsSerializer,
 	tagsSerializer,
 	linksSerializer,
 	contactsSerializer,
@@ -25,16 +24,15 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'links' }))[0]
-	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const pagesResult = pagesSerializer(await api.get('pages'), 'links')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
 	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
 
 	return {
 		props: {
-			pageData: pageResult,
-			navigationsList: navigationsResult,
+			pageData: pagesResult.page,
+			navigationsList: pagesResult.navigations,
 			contactsList: contactsResult,
 			tagsList: tagsResult,
 			linksList: linksResult,
@@ -44,7 +42,13 @@ export async function getStaticProps() {
 
 
 
-export default function LinksPage({ pageData, navigationsList, tagsList, linksList, contactsList }) {
+export default function LinksPage({
+	pageData,
+	navigationsList,
+	tagsList,
+	linksList,
+	contactsList,
+}) {
 	const router = useRouter()
 
 	return (

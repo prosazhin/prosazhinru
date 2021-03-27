@@ -11,7 +11,6 @@ import {
 
 import {
     pagesSerializer,
-    navigationsSerializer,
     contactsSerializer,
 } from '../../utils/Serializers'
 
@@ -21,14 +20,13 @@ const api = new API()
 
 
 export async function getStaticProps() {
-    const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'about' }))[0]
-    const navigationsResult = navigationsSerializer(await api.get('navigations'))
+    const pagesResult = pagesSerializer(await api.get('pages'), 'about')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 
 	return {
 		props: {
-            pageData: pageResult,
-            navigationsList: navigationsResult,
+            pageData: pagesResult.page,
+            navigationsList: pagesResult.navigations,
             contactsList: contactsResult,
 		},
 	}
@@ -36,7 +34,11 @@ export async function getStaticProps() {
 
 
 
-export default function AboutPage({ pageData, navigationsList, contactsList }) {
+export default function AboutPage({
+    pageData,
+    navigationsList,
+    contactsList,
+}) {
     const router = useRouter()
 
 	return (

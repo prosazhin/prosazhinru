@@ -13,7 +13,6 @@ import {
 
 import {
 	pagesSerializer,
-	navigationsSerializer,
 	tagsSerializer,
 	selectionsSerializer,
 	contactsSerializer,
@@ -38,18 +37,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const pageResult = pagesSerializer(await api.get('page', { 'fields.slug': 'selections' }))[0]
-	const navigationsResult = navigationsSerializer(await api.get('navigations'))
+	const pagesResult = pagesSerializer(await api.get('pages'), 'selections')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
 	const selectionsResult = selectionsSerializer(await api.get('selections', { include: 1, 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
-			pageData: pageResult,
-			navigationsList: navigationsResult,
+			pageData: pagesResult.page,
+			navigationsList: pagesResult.navigations,
 			contactsList: contactsResult,
 			tagsList: tagsResult,
 			selectionsList: selectionsResult,
@@ -59,7 +56,13 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function SelectionsTagPage({ pageData, navigationsList, tagsList, selectionsList, contactsList }) {
+export default function SelectionsTagPage({
+	pageData,
+	navigationsList,
+	tagsList,
+	selectionsList,
+	contactsList,
+}) {
 	const router = useRouter()
 
 	return (
