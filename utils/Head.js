@@ -30,7 +30,8 @@ export default function Head({
 			<meta property="og:description" content={description} />
 			<meta property="og:url" content={url} />
 			<meta property="og:image" content={image} />
-			<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" /> 
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 			<meta name="yandex-verification" content="dd48801ed051b178" />
 			<meta name="google-site-verification" content="oXkccV9eEltz10YzICaE33ZUFtjof1E4fFLFE4EgW-0" />
 		</NextHead>
