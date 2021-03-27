@@ -1,5 +1,6 @@
 
 import React from 'react'
+import dayjs from 'dayjs'
 import { Container } from '../'
 import style from './Footer.module.scss'
 
@@ -29,7 +30,7 @@ export default function Footer({ contacts }) {
                         )}
                     </ul>
                     <span className={style.copyright}>
-                        © 2017 - 2020, Евгений Сажин
+                        © 2017 - {dayjs().format('YYYY')}, Евгений Сажин
                     </span>
                 </div>
             </Container>
