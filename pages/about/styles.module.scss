@@ -41,55 +41,10 @@
 
         @include for_not_small_screen {
             margin-bottom: 4rem;
-            padding-left: 6rem;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 12px;
-                left: 7px;
-                width: 2px;
-                height: 100%;
-                background-color: $clr_gray_main;
-            }
-    
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -44px;
-                left: 7px;
-                width: 2px;
-                height: 4rem;
-                background-color: $clr_gray_main;
-            }
-    
-            &:nth-last-child(1) {
-                &::before, &::after {
-                    content: none;
-                }
-            }
         }
 
         &:nth-last-child(1) {
             margin-bottom: 0;
-        }
-    }
-
-    &__icon {
-        position: absolute;
-        top: 12px;
-        left: 0;
-        width: 2rem;
-        height: 2rem;
-        background-color: $clr_gray_main;
-        border-radius: 100%;
-
-        &_state_active {
-            background-color: $clr_blue_main;
-        }
-
-        @include for_small_screen {
-            display: none;
         }
     }
 

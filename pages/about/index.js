@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import dayjs from 'dayjs'
 import style from './styles.module.scss'
 
 import {
@@ -12,22 +13,27 @@ import {
 import {
     pagesSerializer,
     contactsSerializer,
+    jobsSerializer,
 } from '../../utils/Serializers'
 
 import API from '../../utils/Api'
 const api = new API()
+
+import 'dayjs/locale/ru'
 
 
 
 export async function getStaticProps() {
     const pagesResult = pagesSerializer(await api.get('pages'), 'about')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const jobsResult = jobsSerializer(await api.get('jobs'))
 
 	return {
 		props: {
             pageData: pagesResult.page,
             navigationsList: pagesResult.navigations,
             contactsList: contactsResult,
+            jobsList: jobsResult,
 		},
 	}
 }
@@ -38,6 +44,7 @@ export default function AboutPage({
     pageData,
     navigationsList,
     contactsList,
+    jobsList,
 }) {
     const router = useRouter()
 
@@ -102,76 +109,28 @@ export default function AboutPage({
 
                 <Headline title="Где работал?" />
                 <article className={style.road}>
-                    <section className={style.road__item}>
-                        <span className={`${style.road__icon} ${style.road__icon_state_active}`}></span>
-                        <h3 className={style.road__title}>
-                            <a href="https://www.reg.ru/" target="_blank">reg.ru</a>
-                        </h3>
-                        <p className={style.road__date}>
-                            Октябрь 2018 — Сейчас
-                        </p>
-                        <p className={style.road__description}>
-                            UX дизайнер / фронтендер<br />
-                            Проектирование и разработка внутренних проектов.<br />
-                            Поддержка и развития сервиса.
-                        </p>
-                    </section>
-                    <section className={style.road__item}>
-                        <span className={style.road__icon}></span>
-                        <h3 className={style.road__title}>
-                            <a href="https://supl.biz/" target="_blank">supl.biz</a>
-                        </h3>
-                        <p className={style.road__date}>
-                            Октябрь 2016 — Октябрь 2018
-                        </p>
-                        <p className={style.road__description}>
-                            Дизайнер / фронтендер<br />
-                            Проектирование и разработка площадки<br />
-                            и внутренних проектов компании.
-                        </p>
-                    </section>
-                    <section className={style.road__item}>
-                        <span className={style.road__icon}></span>
-                        <h3 className={style.road__title}>
-                            <a href="http://franbazar.com/" target="_blank">franbazar.com</a>
-                        </h3>
-                        <p className={style.road__date}>
-                            Май 2016 — Октябрь 2016
-                        </p>
-                        <p className={style.road__description}>
-                            Дизайнер / верстальщик<br />
-                            Поддержка старых проектов.<br />
-                            Дизайн и верстка мобильных приложений на WebView.
-                        </p>
-                    </section>
-                    <section className={style.road__item}>
-                        <span className={style.road__icon}></span>
-                        <h3 className={style.road__title}>
-                            <a href="https://pixlpark.ru/" target="_blank">pixlpark.ru</a>
-                        </h3>
-                        <p className={style.road__date}>
-                            Ферваль 2014 — Май 2016
-                        </p>
-                        <p className={style.road__description}>
-                            Дизайнер / верстальщик<br />
-                            Поддержка демо сайта и админки.<br />
-                            Помощь новым и постоянным клиентам.
-                        </p>
-                    </section>
-                    <section className={style.road__item}>
-                        <span className={style.road__icon}></span>
-                        <h3 className={style.road__title}>
-                            Фриланс и типографии
-                        </h3>
-                        <p className={style.road__date}>
-                            2011 — 2014
-                        </p>
-                        <p className={style.road__description}>
-                            Дизайнер<br />
-                            Верстка книг, газет и журналов. Графический дизайн.<br />
-                            Рекламная полиграфия.
-                        </p>
-                    </section>
+                    {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
+                        <section className={style.road__item}>
+                            <h3 className={style.road__title}>
+                                {job.link ? 
+                                    <a href={job.url} target="_blank">
+                                        {job.title}
+                                    </a>
+                                    :
+                                    <React.Fragment>
+                                        {job.title}
+                                    </React.Fragment>
+                                }
+                            </h3>
+                            <p className={style.road__date}>
+                                {dayjs(job.recruited).locale('ru').format('MMMM YYYY')} — {job.dismissal === null ? 'Сейчас' : `${dayjs(job.dismissal).locale('ru').format('MMMM YYYY')}`}
+                            </p>
+                            <p className={style.road__description}>
+                                {job.position}
+                                {job.description}
+                            </p>
+                        </section>
+                    )}
                 </article>
 			</Container>
         </MainWrapper>
