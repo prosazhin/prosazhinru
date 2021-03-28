@@ -9,14 +9,10 @@
     display: inline-block;
     width: 100%;
     text-align: left;
-    margin-top: 6rem;
+    margin-top: 10rem;
     margin-bottom: 2rem;
-    color: $clr_base_black;
-    @include headline_lvl_3;
-
-    @include for_not_small_screen {    
-        margin-top: 10rem;
-    }
+    color: $black;
+    @include headline_lvl_1;
 
     &__no_margin_top {
         margin-top: 0px;

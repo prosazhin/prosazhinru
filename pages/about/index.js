@@ -15,6 +15,7 @@ import {
     pagesSerializer,
     contactsSerializer,
     jobsSerializer,
+    skillsSerializer,
 } from '../../utils/Serializers'
 
 import API from '../../utils/Api'
@@ -28,6 +29,7 @@ export async function getStaticProps() {
     const pagesResult = pagesSerializer(await api.get('pages'), 'about')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const jobsResult = jobsSerializer(await api.get('jobs'))
+	const skillsResult = skillsSerializer(await api.get('skills'))
 
 	return {
 		props: {
@@ -35,6 +37,7 @@ export async function getStaticProps() {
             navigationsList: pagesResult.navigations,
             contactsList: contactsResult,
             jobsList: jobsResult,
+            skillsList: skillsResult,
 		},
 	}
 }
@@ -46,6 +49,7 @@ export default function AboutPage({
     navigationsList,
     contactsList,
     jobsList,
+    skillsList,
 }) {
     const router = useRouter()
 
@@ -64,56 +68,31 @@ export default function AboutPage({
                 <PageHeadline
                     description={pageData.description}
                 />
-                <section className={style.section}>
-                    <Headline
-                        title="Дизайн"
-                    />
-                    <p className={style.section__description}>
-                        Проектирование и прототипирование интерфейсов 
-                        на основе анализа пользовательского опыта или гипотез. 
-                        Создание и поддержка дизайн системы.
-                    </p>
-                    <h5 className={`${style.section__description} ${style.section__description_title}`}>
-                        Инструменты
-                    </h5>
-                    <p className={style.section__description}>
-                        Figma, Abode CC, Miro, Notion, Jira, Trello
-                    </p>
-                </section>
-                <section className={style.section}>
-                    <Headline
-                        title="Фронтенд"
-                        hideMarginTop
-                    />
-                    <p className={style.section__description}>
-                        JavaScript, React / Redux, Vue, Angular. 
-                        Разработка и поддержка: логики на клиенте, 
-                        взаимодействия с api, библиотеки компонентов.
-                    </p>
-                    <h5 className={`${style.section__description} ${style.section__description_title}`}>
-                        Инструменты
-                    </h5>
-                    <p className={style.section__description}>
-                        Терминал, VSCode, Git, Npm, Yarn, NodeJS, 
-                        Webpack, Grunt, Gilp, Docker
-                    </p>
-                </section>
-                <section className={style.section}>
-                    <Headline
-                        title="Верстка"
-                        hideMarginTop
-                    />
-                    <p className={style.section__description}>
-                        HTML, Семантический HTML, BEM, 
-                        CSS, Less, SCSS, PostCSS, Mobile first. 
-                        Адаптивная / кроссбраузерная верстка.
-                    </p>
-                </section>
-
+                {skillsList.sort(( a, b ) => a.order - b.order).map(skill =>
+                    <section className={style.section} key={skill.id}>
+                        <Headline
+                            title={skill.title}
+                            hideMarginTop
+                        />
+                        <p className={style.section__description}>
+                            {skill.description}
+                        </p>
+                        {skill.tools &&
+                            <React.Fragment>
+                                <h5 className={`${style.section__description} ${style.section__description_title}`}>
+                                    Инструменты
+                                </h5>
+                                <p className={style.section__description}>
+                                    {skill.tools}
+                                </p>
+                            </React.Fragment>
+                        }
+                    </section>
+                )}
                 <Headline title="Где работал?" />
                 <article className={style.road}>
                     {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
-                        <section className={style.road__item}>
+                        <section className={style.road__item} key={job.id}>
                             <h3 className={style.road__title}>
                                 {job.link ? 
                                     <a href={job.url} target="_blank">
@@ -128,8 +107,10 @@ export default function AboutPage({
                             <p className={style.road__date}>
                                 {dayjs(job.recruited).locale('ru').format('MMMM YYYY')} — {job.dismissal === null ? 'Сейчас' : `${dayjs(job.dismissal).locale('ru').format('MMMM YYYY')}`}
                             </p>
-                            <p className={style.road__description}>
+                            <p className={style.road__position}>
                                 {job.position}
+                            </p>
+                            <p className={style.road__description}>
                                 {job.description}
                             </p>
                         </section>
