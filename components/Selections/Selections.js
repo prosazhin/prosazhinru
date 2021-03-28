@@ -1,22 +1,31 @@
 
-import { Card } from '../'
+import React from 'react'
+import { Card, Links, Tags } from '../'
 import style from './Selections.module.scss'
 
 
 
-export default function Selections({ array, isShowTags, customClass }) {
+export default function Selections({ array }) {
     return (
-        <div className={`${style.selections}${customClass ? ` ${customClass}` : ''}`}>
+        <ul className={style.selections}>
             {array.map(item =>
-                <Card
-                    key={item.id}
-                    item={item}
-                    linkUrl={`/selection/${item.url}`}
-                    linkTarger="_self"
-                    isShowTags={isShowTags}
-                    isBigSize={item.big}
-                />
+                <li className={style.selection} key={item.id}>
+                    <span className={style.selection__headline}>
+                        {item.title}
+                    </span>
+                    <span className={style.selection__description}>
+                        {item.description}
+                    </span>
+                    <Tags
+                        array={item.tags}
+                        customClass={style.selection__tags}
+                    />
+                    <Links
+                        array={item.links}
+                        customClass={style.links}
+                    />
+                </li>
             )}
-        </div>
+        </ul>
     )
 }

@@ -1,16 +1,47 @@
 
-@import '../../scss/screen.scss';
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
 
 
 
 .selections {
-    display: grid;
+    display: block;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    grid-gap: 2rem;
-    
-    @include for_not_small_screen {    
-        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
-        grid-gap: 2rem;
+}
+
+.selection {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid $blue_gray_100;
+
+    &:first-child {
+        margin-top: 0px;
+    }
+
+    &:last-child {
+        padding-bottom: 0px;
+        border-bottom: none;
+    }
+
+    &__headline {
+        display: inline-block;
+        width: 100%;
+        @include headline_lvl_2;
+        margin-bottom: 0.5rem;
+    }
+
+    &__description {
+        display: inline-block;
+        width: 100%;
+        @include text_regular_lvl_3;
+        margin-bottom: 2rem;
+    }
+
+    &__tags {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4rem;
     }
 }
