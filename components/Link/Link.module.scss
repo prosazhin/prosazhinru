@@ -17,7 +17,6 @@
 
     &:hover {
         .link__title {
-            color: $clr_red_main;
             text-decoration: underline;
         }
     }
@@ -25,14 +24,14 @@
     &__title {
         display: inline-block;
         width: 100%;
-        @include text_medium_lvl_3;
+        @include text_medium_lvl_2;
     }
 
     &__description {
         display: inline-block;
         width: 100%;
-        color: $clr_base_black;
-        @include text_regular_lvl_4;
+        color: $black;
+        @include text_regular_lvl_3;
         margin-top: 1rem;
     }
 }

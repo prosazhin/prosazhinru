@@ -11,6 +11,5 @@
 
     @include for_not_small_screen {    
         grid-template-columns: repeat(auto-fit, minmax(211px, 1fr));
-        grid-gap: 5rem 3rem;
     }
 }
