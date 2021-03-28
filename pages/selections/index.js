@@ -78,7 +78,6 @@ export default function SelectionsPage({
 				/>
 				<Selections
 					array={selectionsList}
-					isShowTags={true}
 				/>
 			</MainContainer>
 		</MainWrapper>
