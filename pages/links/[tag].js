@@ -74,13 +74,13 @@ export default function LinksTagPage({
 			image="/sharing-links.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<PageHeadline
-				title={pageData.title}
-				description={pageData.description}
-			/>
 			<Tabs
 				array={dataTabs}
 				customClass={style.tabs}
+			/>
+			<PageHeadline
+				title={pageData.title}
+				description={pageData.description}
 			/>
 			<Tags
 				array={tagsList}
