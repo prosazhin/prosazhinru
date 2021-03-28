@@ -30,15 +30,15 @@ body {
     height: 100%;
     position: relative;
     min-height: 100vh;
-    color: $clr_base_black;
-    background-color: $clr_base_white;
-    font-family: 'Inter', sans-serif;
-    @include text_regular_lvl_4;
+    color: $black;
+    background-color: $white;
+    font-family: $font_family;
+    @include text_regular_lvl_3;
     overflow: auto;
 }
 
 a {
-    color: $clr_blue_main;
+    color: $blue_a700;
     text-decoration: none;
     border: none;
     font-size: inherit;
@@ -47,11 +47,11 @@ a {
 
     &:active,
     &:focus {
-        color: $clr_blue_main;
+        color: $blue_a700;
     }
 
     &:hover {
-        color: $clr_red_main;
+        color: $red_a200;
         text-decoration: underline;
     }
 }
