@@ -81,6 +81,7 @@ export default function HomePage({
 			<PageHeadline
 				description={pageData.description}
 			/>
+			
 			{/* {data.map(item =>
 				<React.Fragment key={item.year}>
 					<Headline title={item.year} />
@@ -102,7 +103,7 @@ export default function HomePage({
 						</React.Fragment>
 					)}
 				</React.Fragment>
-			)} */}
+			)} 
 			<Headline
 				title="Новая подборка"
 			/>
@@ -116,6 +117,7 @@ export default function HomePage({
 			<Links
 				array={linksList}
 			/>
+			*/}
 		</MainWrapper>
 	)
 }

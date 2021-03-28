@@ -11,6 +11,10 @@ $font_bold: 700;
 
 
 
+@mixin radius_0 {
+    border-radius: 0px;
+}
+
 @mixin radius_4 {
     border-radius: 4px;
 }

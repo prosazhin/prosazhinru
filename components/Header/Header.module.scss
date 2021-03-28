@@ -63,13 +63,13 @@
 
     &__title {
         display: block;
-        @include headline_lvl_6;
+        @include headline_lvl_4;
         color: $clr_base_black;
     }
 
     &__description {
         display: block;
-        @include text_regular_lvl_5;
+        @include text_regular_lvl_4;
         color: $clr_black_light;
     }
 }
