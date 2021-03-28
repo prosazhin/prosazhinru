@@ -15,39 +15,37 @@
     @include text_medium_lvl_4;
     @include radius_6;
     @include animated;
-    color: $clr_base_black;
+    color: $black;
 
     &__clickable {
-        background-color: $clr_gray_light;
+        background-color: $blue_gray_50;
         cursor: pointer;
 
         &:hover {
-            color: $clr_blue_main;
-            background-color: $clr_blue_lighter;
+            color: $black;
+            background-color: $blue_gray_100;
         }
 
         &_active {
-            color: $clr_base_white;
-            background-color: $clr_blue_main;
+            color: $white;
+            background-color: $black;
     
             &:hover,
             &:focus,
             &:active {
-                color: $clr_base_white;
-                background-color: $clr_blue_main;
+                color: $white;
+                background-color: $black;
             }
         }
     }
 
     &__static {
         padding: 0.4rem 1rem;
-        border: 1px solid $clr_gray_dark;
+        border: 1px solid $blue_gray_100;
         cursor: inherit;
 
         &_active {
-            color: $clr_base_white;
-            background-color: $clr_blue_main;
-            border-color: $clr_blue_main;
+            border-color: $black;
         }
     }
 }
