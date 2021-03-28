@@ -14,15 +14,15 @@
 .title {
     display: inline-block;
     width: 100%;
-    color: $clr_base_black;
-    @include headline_lvl_2;
+    color: $black;
+    @include headline_lvl_1;
     margin-bottom: 2rem;
 }
 
 .description {
     display: inline-block;
     width: 100%;
-    color: $clr_base_black;
+    color: $black;
     @include text_regular_lvl_1;
 
     p {

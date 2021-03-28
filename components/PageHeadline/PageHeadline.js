@@ -13,18 +13,20 @@ export default function PageHeadline({ children, title, description }) {
                     {title}
                 </h1>
             }
-            <div className={style.description}>
-                <ReactMarkdown
-                    source={description}
-                    renderers={{
-                        link: props => props.href === '/links' || props.href === '/selections' ?
-                            <a href={props.href} target="_self">{props.children}</a>
-                            :
-                            <a href={props.href} target="_blank">{props.children}</a>
-                    }}
-                    skipHtml
-                />
-            </div>
+            {description &&
+                <div className={style.description}>
+                    <ReactMarkdown
+                        source={description}
+                        renderers={{
+                            link: props => props.href === '/links' || props.href === '/selections' ?
+                                <a href={props.href} target="_self">{props.children}</a>
+                                :
+                                <a href={props.href} target="_blank">{props.children}</a>
+                        }}
+                        skipHtml
+                    />
+                </div>
+            }
             {children}
         </div>
     )

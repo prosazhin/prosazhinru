@@ -9,8 +9,8 @@ export function pagesSerializer(data, pageName) {
         if (pageName === item.fields.slug) {
             result.page = {
 				id: item.sys.id,
-				title: item.fields.title,
-				description: item.fields.description,
+				title: item.fields.pageTitle ? item.fields.pageTitle : null,
+				description: item.fields.pageDescription ? item.fields.pageDescription : null,
 				metaTitle: item.fields.metaTitle,
 				metaDescription: item.fields.metaDescription,
 			}
