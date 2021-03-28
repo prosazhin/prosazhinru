@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import {
 	MainWrapper,
+	MainContainer,
 	PageHeadline,
 	Headline,
 	Selections,
@@ -78,9 +79,13 @@ export default function HomePage({
 			image="/sharing-index.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<PageHeadline
-				description={pageData.description}
-			/>
+			<MainContainer
+				small
+			>
+				<PageHeadline
+					description={pageData.description}
+				/>
+			</MainContainer>
 			
 			{/* {data.map(item =>
 				<React.Fragment key={item.year}>

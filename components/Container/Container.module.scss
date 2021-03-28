@@ -36,22 +36,16 @@
 
 .container__size_small {
     width: 100%;
+    margin: auto;
 
     @include for_not_small_screen {
         width: 736px;
+        margin: auto;
     }
-}
-
-.container__align_center {
-    margin: auto;
 }
 
 .main {
-    margin-top: 10rem;
+    margin-top: 9rem;
     margin-bottom: 10rem;
     padding-top: 6rem;
-
-    @include for_not_small_screen {
-        padding-top: 10rem;
-    }
 }

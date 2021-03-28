@@ -5,6 +5,7 @@ import { dataTabs } from '../../utils/Tabs'
 
 import {
 	MainWrapper,
+	MainContainer,
 	PageHeadline,
 	Tags,
 	Selections,
@@ -74,24 +75,26 @@ export default function SelectionsTagPage({
 			image="/sharing-selections.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Tabs
-				array={dataTabs}
-				customClass={style.tabs}
-			/>
-			<PageHeadline
-				title={pageData.title}
-				description={pageData.description}
-			/>
-			<Tags
-				array={tagsList}
-				tagLinkTo="selections"
-				customClass={style.tags}
-				clickable
-			/>
-			<Selections
-				array={selectionsList}
-				isShowTags={true}
-			/>
+			<MainContainer>
+				<Tabs
+					array={dataTabs}
+					customClass={style.tabs}
+				/>
+				<PageHeadline
+					title={pageData.title}
+					description={pageData.description}
+				/>
+				<Tags
+					array={tagsList}
+					tagLinkTo="selections"
+					customClass={style.tags}
+					clickable
+				/>
+				<Selections
+					array={selectionsList}
+					isShowTags={true}
+				/>
+			</MainContainer>
 		</MainWrapper>
 	)
 }

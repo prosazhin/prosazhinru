@@ -27,9 +27,7 @@ export default function MainWrapper({
 				url={url}
 			/>
 			<Header navigations={navigations} />
-			<MainContainer>
-                {children}
-			</MainContainer>
+            {children}
 			<Footer contacts={contacts} />
 		</React.Fragment>
 	)

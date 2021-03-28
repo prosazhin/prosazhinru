@@ -5,6 +5,7 @@ import { dataTabs } from '../../utils/Tabs'
 
 import {
 	MainWrapper,
+	MainContainer,
 	PageHeadline,
 	Tags,
 	Links,
@@ -60,24 +61,26 @@ export default function LinksPage({
 			image="/sharing-links.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-			<Tabs
-				array={dataTabs}
-				customClass={style.tabs}
-			/>
-			<PageHeadline
-				title={pageData.title}
-				description={pageData.description}
-			/>
-			<Tags
-				array={tagsList}
-				tagLinkTo="links"
-				customClass={style.tags}
-				clickable
-			/>
-			<Links
-				array={linksList}
-				customClass={style.links}
-			/>
+			<MainContainer>
+				<Tabs
+					array={dataTabs}
+					customClass={style.tabs}
+				/>
+				<PageHeadline
+					title={pageData.title}
+					description={pageData.description}
+				/>
+				<Tags
+					array={tagsList}
+					tagLinkTo="links"
+					customClass={style.tags}
+					clickable
+				/>
+				<Links
+					array={linksList}
+					customClass={style.links}
+				/>
+			</MainContainer>
 		</MainWrapper>
 	)
 }

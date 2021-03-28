@@ -4,22 +4,23 @@ import style from './Container.module.scss'
 
 
 
-export function Container({ children, small, center }) {
+export function Container({ children, small }) {
     return (
         <div className={
             `${style.container} `+
-            `${small ? style.container__size_small : style.container__size_normal}`+
-            `${(small && center) ? ` ${style.container__align_center}` : ''}`
+            `${small ? style.container__size_small : style.container__size_normal}`
         }>
             {children}
         </div>
     )
 }
 
-export function MainContainer({ children }) {
+export function MainContainer({ children, small }) {
     return (
-        <main className={`${style.container} ${style.container__size_normal} ${style.main}`}>
-            {children}
+        <main className={style.main}>
+            <Container small={small}>
+                {children}
+            </Container>
         </main>
     )
 }

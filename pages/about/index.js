@@ -5,6 +5,7 @@ import style from './styles.module.scss'
 
 import {
     MainWrapper,
+    MainContainer,
     PageHeadline,
     Headline,
     Container,
@@ -57,10 +58,12 @@ export default function AboutPage({
 			image="/sharing-about.jpg"
 			url={`https://prosazhin.ru` + `${router.pathname}`}
 		>
-            <PageHeadline
-                description={pageData.description}
-            />
-            <Container small>
+            <MainContainer
+				small
+			>
+                <PageHeadline
+                    description={pageData.description}
+                />
                 <section className={style.section}>
                     <Headline
                         title="Дизайн"
@@ -132,7 +135,7 @@ export default function AboutPage({
                         </section>
                     )}
                 </article>
-			</Container>
+            </MainContainer>
         </MainWrapper>
 	)
 }

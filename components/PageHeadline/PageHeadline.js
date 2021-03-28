@@ -5,7 +5,7 @@ import style from './PageHeadline.module.scss'
 
 
 
-export default function PageHeadline({ children, title, description }) {
+export default function PageHeadline({ title, description }) {
     return (
         <div className={style.headline}>
             {title &&
@@ -27,7 +27,6 @@ export default function PageHeadline({ children, title, description }) {
                     />
                 </div>
             }
-            {children}
         </div>
     )
 }
