@@ -27,9 +27,8 @@ html {
 
 body {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: relative;
-    min-height: 100vh;
     color: $black;
     background-color: $white;
     font-family: $font_family;
