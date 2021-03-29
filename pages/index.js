@@ -77,7 +77,7 @@ export default function HomePage({
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
 			image="/sharing-index.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
+			url={router.asPath}
 		>
 			<MainContainer
 				small

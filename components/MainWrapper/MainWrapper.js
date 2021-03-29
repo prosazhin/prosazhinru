@@ -4,7 +4,6 @@ import Head from '../../utils/Head'
 import {
     Header,
     Footer,
-    MainContainer,
 } from '..'
 
 
@@ -17,6 +16,7 @@ export default function MainWrapper({
     description,
     image,
     url,
+	canonical,
 }) {
 	return (
 		<React.Fragment>
@@ -25,6 +25,7 @@ export default function MainWrapper({
 				description={description}
 				image={image}
 				url={url}
+				canonical={canonical}
 			/>
 			<Header navigations={navigations} />
             {children}

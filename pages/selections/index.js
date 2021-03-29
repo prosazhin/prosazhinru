@@ -59,7 +59,7 @@ export default function SelectionsPage({
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
 			image="/sharing-selections.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
+			url={router.asPath}
 		>
 			<MainContainer>
 				<Tabs

@@ -6,8 +6,9 @@ import NextHead from 'next/head'
 export default function Head({
 	title,
 	description,
-	url,
 	image,
+	url,
+	canonical,
 }) {
 	return (
 		<NextHead>
@@ -28,12 +29,15 @@ export default function Head({
 			<meta name="description" content={description} />
 			<meta property="og:title" content={title} />
 			<meta property="og:description" content={description} />
-			<meta property="og:url" content={url} />
+			<meta property="og:url" content={`https://prosazhin.ru` + `${url}`} />
 			<meta property="og:image" content={image} />
 			<link rel="preconnect" href="https://fonts.gstatic.com" /> 
 			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 			<meta name="yandex-verification" content="dd48801ed051b178" />
 			<meta name="google-site-verification" content="oXkccV9eEltz10YzICaE33ZUFtjof1E4fFLFE4EgW-0" />
+			{canonical &&
+				<link rel="canonical" href={`https://prosazhin.ru/` + `${canonical}`} />
+			}
 		</NextHead>
 	)
 }

@@ -59,7 +59,7 @@ export default function LinksPage({
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
 			image="/sharing-links.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
+			url={router.asPath}
 		>
 			<MainContainer>
 				<Tabs

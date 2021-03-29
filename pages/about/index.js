@@ -60,7 +60,7 @@ export default function AboutPage({
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
 			image="/sharing-about.jpg"
-			url={`https://prosazhin.ru` + `${router.pathname}`}
+			url={router.asPath}
 		>
             <MainContainer
 				small
