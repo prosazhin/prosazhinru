@@ -37,10 +37,12 @@
 .container__size_small {
     width: 100%;
     margin: auto;
+    padding: 0px 2rem;
 
     @include for_not_small_screen {
         width: 736px;
         margin: auto;
+        padding: 0px;
     }
 }
 

@@ -1,5 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import dayjs from 'dayjs'
 import style from './styles.module.scss'
 
@@ -67,10 +70,27 @@ export default function AboutPage({
                 <PageHeadline
                     description={pageData.description}
                 />
+                <div className={style.competencies}>
+                    <Link href="/competencies">
+                        <a className={style.competencies__link}>
+                            <span className={style.competencies__title}>
+                                Матрица моих компетенций
+                            </span>
+                            <span className={style.competencies__description}>
+                                Для более полной и объективной оценки моих навыков, подготовил матрицу компетенций по материалам Юрия Ветрова.
+                            </span>
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                                className={style.competencies__icon}
+                            />
+                        </a>
+                    </Link>
+                </div>
                 {skillsList.sort(( a, b ) => a.order - b.order).map(skill =>
                     <section className={style.section} key={skill.id}>
                         <Headline
                             title={skill.title}
+                            size="1"
                             hideMarginTop
                         />
                         <p className={style.section__description}>
@@ -88,7 +108,10 @@ export default function AboutPage({
                         }
                     </section>
                 )}
-                <Headline title="Где работал?" />
+                <Headline
+                    title="Где работал?"
+                    size="1"
+                />
                 <article className={style.road}>
                     {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
                         <section className={style.road__item} key={job.id}>

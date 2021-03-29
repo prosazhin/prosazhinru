@@ -12,7 +12,22 @@
     margin-top: 10rem;
     margin-bottom: 2rem;
     color: $black;
-    @include headline_lvl_1;
+
+    &__lvl_1 {
+        @include headline_lvl_1;
+    }
+
+    &__lvl_2 {
+        @include headline_lvl_2;
+    }
+
+    &__lvl_3 {
+        @include headline_lvl_3;
+    }
+
+    &__lvl_4 {
+        @include headline_lvl_4;
+    }
 
     &__no_margin_top {
         margin-top: 0px;
