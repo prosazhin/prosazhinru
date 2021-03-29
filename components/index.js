@@ -8,7 +8,6 @@ import PageHeadline from './PageHeadline/PageHeadline'
 import { ClickableTag, StaticTag } from './Tag/Tag'
 import Tags from './Tags/Tags'
 import Tabs from './Tabs/Tabs'
-import Card from './Card/Card'
 import Link from './Link/Link'
 import Links from './Links/Links'
 import Selections from './Selections/Selections'
@@ -27,7 +26,6 @@ export {
     StaticTag,
     Tags,
     Tabs,
-    Card,
     Link,
     Links,
     Selections,
