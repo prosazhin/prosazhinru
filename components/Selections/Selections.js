@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Card, Links, Tags } from '../'
+import { Links, Tags } from '../'
 import style from './Selections.module.scss'
 
 

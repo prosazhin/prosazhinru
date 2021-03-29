@@ -9,8 +9,8 @@
 .card {
     display: block;
     width: 100%;
-    background-color: $clr_base_white;
-    border: 1px solid $clr_gray_dark;
+    background-color: $white;
+    border: 1px solid $black;
     padding: 3rem;
     word-wrap: break-word;
     overflow: hidden;
@@ -20,10 +20,10 @@
     @include animated;
 
     &:hover {
-        border-color: $clr_blue_main;
+        border-color: $blue_a700;
         
         .card__headline, .card__description {
-            color: $clr_blue_main;
+            color: $blue_a700;
         }
     }
 
@@ -36,7 +36,7 @@
     &__headline {
         display: inline-block;
         width: 100%;
-        color: $clr_base_black;
+        color: $black;
         @include headline_lvl_4;
         @include animated;
 
@@ -48,7 +48,7 @@
     &__description {
         display: inline-block;
         width: 100%;
-        color: $clr_base_black;
+        color: $black;
         @include text_regular_lvl_4;
         @include animated;
         margin-top: 1rem;
