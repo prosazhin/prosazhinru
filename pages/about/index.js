@@ -8,7 +8,6 @@ import {
     MainContainer,
     PageHeadline,
     Headline,
-    Container,
 } from '../../components'
 
 import {
