@@ -11,6 +11,7 @@ import Tabs from './Tabs/Tabs'
 import Link from './Link/Link'
 import Links from './Links/Links'
 import Selections from './Selections/Selections'
+import Posts from './Posts/Posts'
 
 
 
@@ -29,4 +30,5 @@ export {
     Link,
     Links,
     Selections,
+    Posts,
 }

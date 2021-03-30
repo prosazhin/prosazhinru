@@ -5,7 +5,6 @@ import {
     MainWrapper,
     MainContainer,
     PageHeadline,
-    Posts,
 } from '../../components'
 
 import {
@@ -19,17 +18,32 @@ const api = new API()
 
 
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
+    const postsResult = postsSerializer(await api.get('posts'))
+
+    const paths = postsResult.map((post) => ({
+        params: { slug: post.slug },
+    }))
+
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+
+
+export async function getStaticProps({ params }) {
     const pagesResult = pagesSerializer(await api.get('pages'), 'posts')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const postsResult = postsSerializer(await api.get('posts'))
+	const postResult = postsSerializer(await api.get('posts', { 'fields.slug': params.slug }))[0]
 
 	return {
 		props: {
             pageData: pagesResult.page,
             navigationsList: pagesResult.navigations,
             contactsList: contactsResult,
-            postsList: postsResult,
+            postData: postResult,
 		},
 	}
 }
@@ -40,7 +54,7 @@ export default function PostsPage({
     pageData,
     navigationsList,
     contactsList,
-    postsList,
+    postData,
 }) {
     const router = useRouter()
 
@@ -57,11 +71,8 @@ export default function PostsPage({
 				small
 			>
                 <PageHeadline
-                    title={pageData.title}
-                    description={pageData.description}
-                />
-                <Posts
-                    array={postsList}
+                    title={postData.title}
+                    description={postData.description}
                 />
             </MainContainer>
         </MainWrapper>
