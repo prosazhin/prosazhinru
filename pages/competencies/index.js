@@ -12,6 +12,7 @@ import {
 import {
     pagesSerializer,
     contactsSerializer,
+    competenciesCategoriesSerializer,
 } from '../../utils/Serializers'
 
 import API from '../../utils/Api'
@@ -22,12 +23,15 @@ const api = new API()
 export async function getStaticProps() {
     const pagesResult = pagesSerializer(await api.get('pages'), 'competencies')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const competenciesCategoriesResult = competenciesCategoriesSerializer(await api.get('competencies-categories'))
+    
 
 	return {
 		props: {
             pageData: pagesResult.page,
             navigationsList: pagesResult.navigations,
             contactsList: contactsResult,
+            competenciesCategoriesList: competenciesCategoriesResult,
 		},
 	}
 }
@@ -38,6 +42,7 @@ export default function CompetenciesPage({
     pageData,
     navigationsList,
     contactsList,
+    competenciesCategoriesList,
 }) {
     const router = useRouter()
 
@@ -96,6 +101,27 @@ export default function CompetenciesPage({
                                 Способность передать экспертизу другим участникам команды. Помощь в обучении и профессиональном росте коллег, развитии инструментария и методов работы, повышении общей дизайн-культуры. Возможность указать на проблемную ситуацию в проекте или процессе и помочь в её решении.
                             </span>
                         </li>
+                    </ul>
+                    <ul className={style.category}>
+                        {competenciesCategoriesList.sort(( a, b ) => a.order - b.order).map(category =>
+                            <li className={style.category__item} key={category.id}>
+                                <span className={style.category__item__title}>
+                                    {category.title}
+                                </span>
+                                <ul className={style.competencies}>
+                                    {category.competencies.sort(( a, b ) => a.order - b.order).map(item =>
+                                        <li className={style.competencies__item} key={item.id}>
+                                            <span className={style.competencies__item__title}>
+                                                {item.title}
+                                            </span>
+                                            <span className={style.competencies__item__rating}>
+                                                {item.rating}
+                                            </span>
+                                        </li>
+                                    )}
+                                </ul>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </MainContainer>
