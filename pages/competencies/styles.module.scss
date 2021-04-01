@@ -26,9 +26,33 @@
             display: inline-block;
             width: 100%;
             margin-bottom: 3rem;
+            position: relative;
+
+            @include for_not_small_screen {    
+                padding-left: 8rem + 3rem;
+            }
 
             &:last-child {
                 margin-bottom: 0px;
+            }
+
+            &__icon {
+                display: inline-block;
+                width: 8rem;
+                height: 8rem;
+                @include headline_lvl_2;
+                background-color: $blue_gray_50;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 8rem;
+                margin-bottom: 2rem;
+
+                @include for_not_small_screen {    
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    margin-bottom: 0px;
+                }
             }
 
             &__title {

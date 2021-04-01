@@ -70,6 +70,7 @@ export default function CompetenciesPage({
                     />
                     <ul className={style.about__list}>
                         <li className={style.about__list__item}>
+                            <span className={style.about__list__item__icon}>1</span>
                             <span className={style.about__list__item__title}>
                                 Осведомлённость
                             </span>
@@ -78,6 +79,7 @@ export default function CompetenciesPage({
                             </span>
                         </li>
                         <li className={style.about__list__item}>
+                            <span className={style.about__list__item__icon}>2</span>
                             <span className={style.about__list__item__title}>
                                 Умение
                             </span>
@@ -86,6 +88,7 @@ export default function CompetenciesPage({
                             </span>
                         </li>
                         <li className={style.about__list__item}>
+                            <span className={style.about__list__item__icon}>3</span>
                             <span className={style.about__list__item__title}>
                                 Экспертиза
                             </span>
@@ -94,6 +97,7 @@ export default function CompetenciesPage({
                             </span>
                         </li>
                         <li className={style.about__list__item}>
+                            <span className={style.about__list__item__icon}>4</span>
                             <span className={style.about__list__item__title}>
                                 Лидерство
                             </span>
