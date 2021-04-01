@@ -11,7 +11,7 @@ import 'dayjs/locale/ru'
 export default function Posts({ array }) {
     return (
         <ul className={style.posts}>
-            {array.map(post =>
+            {array.sort(( a, b ) => new Date(b.create) - new Date(a.create)).map(post =>
                 <li className={style.post} key={post.id}>
                     <Link href={`/posts/${post.slug}`}>
                         <a className={style.post__link}>
