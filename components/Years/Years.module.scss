@@ -1,0 +1,35 @@
+
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+
+
+
+.years {
+    display: block;
+    width: 100%;
+    margin-top: 6rem;
+}
+
+.year {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid $blue_gray_100;
+
+    &:first-child {
+        margin-top: 0px;
+    }
+
+    &:last-child {
+        padding-bottom: 0px;
+        border-bottom: none;
+    }
+
+    &__headline {
+        display: inline-block;
+        width: 100%;
+        @include headline_lvl_1;
+        margin-bottom: 1rem;
+    }
+}
