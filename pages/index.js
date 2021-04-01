@@ -20,12 +20,16 @@ const api = new API()
 export async function getStaticProps() {
 	const pagesResult = pagesSerializer(await api.get('pages'), 'home')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
+	const selectionsResult = selectionsSerializer(await api.get('selections'))
+	const postsResult = postsSerializer(await api.get('posts'))
 
 	return {
 		props: {
 			pageData: pagesResult.page,
 			navigationsList: pagesResult.navigations,
 			contactsList: contactsResult,
+			selectionsList: selectionsResult,
+			postsList: postsResult,
 		},
 	}
 }
@@ -36,6 +40,8 @@ export default function HomePage({
 	pageData,
 	navigationsList,
 	contactsList,
+	selectionsList,
+	postsList,
 }) {
 	const router = useRouter()
 
