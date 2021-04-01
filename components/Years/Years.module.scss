@@ -33,3 +33,35 @@
         margin-bottom: 1rem;
     }
 }
+
+
+
+.logs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-gap: 2rem;
+
+    @include for_not_small_screen {    
+        grid-template-columns: repeat(auto-fit, 172px);
+    }
+}
+
+.log {
+    display: inline-block;
+    width: 100%;
+
+    &__title {
+        display: inline-block;
+        width: 100%;
+        @include text_regular_lvl_3;
+        color: $blue_gray_400;
+    }
+
+    &__value {
+        display: inline-block;
+        width: 100%;
+        @include text_medium_lvl_1;
+        color: $black;
+    }
+}
