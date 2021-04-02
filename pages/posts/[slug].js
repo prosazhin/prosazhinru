@@ -66,7 +66,6 @@ export default function PostsPage({
     const router = useRouter()
 
     // console.log(postData)
-
     // 0 {nodeType: "embedded-asset-block", content: [], data: Object}
     // 1 {nodeType: "paragraph", content: Array, data: {}}
     // 2 {nodeType: "blockquote", content: Array, data: {}}
@@ -82,7 +81,7 @@ export default function PostsPage({
 
     function getType(item, count, index) {
         if (item.nodeType === 'heading-2') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container small>
@@ -94,7 +93,7 @@ export default function PostsPage({
         }
 
         if (item.nodeType === 'paragraph') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container small>
@@ -106,7 +105,7 @@ export default function PostsPage({
         }
 
         if (item.nodeType === 'blockquote') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container small>
@@ -123,7 +122,7 @@ export default function PostsPage({
         }
 
         if (item.nodeType === 'ordered-list') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container small>
@@ -142,7 +141,7 @@ export default function PostsPage({
         }
 
         if (item.nodeType === 'unordered-list') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container small>
@@ -161,7 +160,7 @@ export default function PostsPage({
         }
 
         if (item.nodeType === 'embedded-asset-block') {
-            console.log(item.nodeType, item)
+            // console.log(item.nodeType, item)
 
             return (
                 <Container>
