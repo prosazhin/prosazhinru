@@ -169,7 +169,7 @@ export function postSerializer(data) {
             slug: item.fields.slug,
             title: item.fields.title,
             description: item.fields.description,
-            content: item.fields.content,
+            content: item.fields.content.content,
             tags: item.fields.tags,
             create: item.fields.create,
         }
