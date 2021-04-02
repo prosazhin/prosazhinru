@@ -53,7 +53,7 @@ export function linksSerializer(data) {
             title: item.fields.title,
             description: item.fields.description,
             url: item.fields.url,
-            create: item.sys.createdAt,
+            create: item.fields.create ? item.fields.create : null,
             type: 'link',
         }
     })
