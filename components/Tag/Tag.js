@@ -18,11 +18,11 @@ export function ClickableTag({ title, url, tagLinkTo }) {
     )
 }
 
-export function StaticTag({ title, url }) {
+export function StaticTag({ title, url, notActive }) {
     const router = useRouter()
 
     return (
-        <span className={`${style.tag} ${style.tag__static}${router.query.tag === url ? ` ${style.tag__static_active}` : ''}`}>
+        <span className={`${style.tag} ${style.tag__static}${(!notActive && router.query.tag === url) ? ` ${style.tag__static_active}` : ''}`}>
             {title}
         </span>
     )
