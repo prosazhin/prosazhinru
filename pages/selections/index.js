@@ -52,6 +52,16 @@ export default function SelectionsPage({
 }) {
 	const router = useRouter()
 
+	const activeTagsList = []
+
+	selectionsList.forEach(selection => {
+		selection.tags.forEach(tag => {
+			if (activeTagsList.every(item => item.url !== tag.url)) {
+				activeTagsList.push(tag)
+			}
+		})
+	})
+
 	return (
 		<MainWrapper
 			navigations={navigationsList}
@@ -71,7 +81,7 @@ export default function SelectionsPage({
 					description={pageData.description}
 				/>
 				<Tags
-					array={tagsList}
+					array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
 					tagLinkTo="selections"
 					customClass={style.tags}
 					clickable

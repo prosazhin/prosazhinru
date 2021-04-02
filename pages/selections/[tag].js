@@ -41,8 +41,9 @@ export async function getStaticProps({ params }) {
 	const pagesResult = pagesSerializer(await api.get('pages'), 'selections')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
 	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+	const selectionsResult = selectionsSerializer(await api.get('selections'))
 	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const selectionsResult = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
+	const activeSelectionsResult = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
@@ -51,6 +52,7 @@ export async function getStaticProps({ params }) {
 			contactsList: contactsResult,
 			tagsList: tagsResult,
 			selectionsList: selectionsResult,
+			activeSelectionsList: activeSelectionsResult,
 		},
 	}
 }
@@ -62,9 +64,20 @@ export default function SelectionsTagPage({
 	navigationsList,
 	tagsList,
 	selectionsList,
+	activeSelectionsList,
 	contactsList,
 }) {
 	const router = useRouter()
+
+	const activeTagsList = []
+
+	selectionsList.forEach(selection => {
+		selection.tags.forEach(tag => {
+			if (activeTagsList.every(item => item.url !== tag.url)) {
+				activeTagsList.push(tag)
+			}
+		})
+	})
 
 	return (
 		<MainWrapper
@@ -86,13 +99,13 @@ export default function SelectionsTagPage({
 					description={pageData.description}
 				/>
 				<Tags
-					array={tagsList}
+					array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
 					tagLinkTo="selections"
 					customClass={style.tags}
 					clickable
 				/>
 				<Selections
-					array={selectionsList}
+					array={activeSelectionsList}
 				/>
 			</MainContainer>
 		</MainWrapper>
