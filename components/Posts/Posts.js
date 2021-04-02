@@ -29,7 +29,7 @@ export default function Posts({ array }) {
                                     >
                                         <StaticTag
                                             title={tag}
-                                            url={false}
+                                            url='bfskbfbksbdkfhbskd'
                                         />
                                     </li>
                                 )}
