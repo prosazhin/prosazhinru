@@ -15,12 +15,10 @@ export function Container({ children, small }) {
     )
 }
 
-export function MainContainer({ children, small }) {
+export function MainContainer({ children }) {
     return (
         <main className={style.main}>
-            <Container small={small}>
-                {children}
-            </Container>
+            {children}
         </main>
     )
 }

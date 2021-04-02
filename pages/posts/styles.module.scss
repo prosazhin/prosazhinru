@@ -1,0 +1,30 @@
+
+@import '../../scss/colors.scss';
+@import '../../scss/text.scss';
+
+
+
+.tags {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+
+    &__item {
+        display: inline-block;
+        text-align: left;
+        margin-right: 0.5rem;
+
+        &:nth-last-child(1) {
+            margin-right: 0;
+        }
+    }
+}
+
+.date {
+    display: inline-block;
+    width: 100%;
+    @include text_regular_lvl_4;
+    color: $blue_gray_400;
+}

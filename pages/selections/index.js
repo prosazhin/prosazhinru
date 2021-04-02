@@ -6,6 +6,7 @@ import { dataTabs } from '../../utils/Tabs'
 import {
 	MainWrapper,
 	MainContainer,
+	Container,
 	PageHeadline,
 	Tags,
 	Selections,
@@ -72,23 +73,25 @@ export default function SelectionsPage({
 			url={router.asPath}
 		>
 			<MainContainer>
-				<Tabs
-					array={dataTabs}
-					customClass={style.tabs}
-				/>
-				<PageHeadline
-					title={pageData.title}
-					description={pageData.description}
-				/>
-				<Tags
-					array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
-					tagLinkTo="selections"
-					customClass={style.tags}
-					clickable
-				/>
-				<Selections
-					array={selectionsList}
-				/>
+				<Container>
+					<Tabs
+						array={dataTabs}
+						customClass={style.tabs}
+					/>
+					<PageHeadline
+						title={pageData.title}
+						description={pageData.description}
+					/>
+					<Tags
+						array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
+						tagLinkTo="selections"
+						customClass={style.tags}
+						clickable
+					/>
+					<Selections
+						array={selectionsList}
+					/>
+				</Container>
 			</MainContainer>
 		</MainWrapper>
 	)

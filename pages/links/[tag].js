@@ -6,6 +6,7 @@ import { dataTabs } from '../../utils/Tabs'
 import {
 	MainWrapper,
 	MainContainer,
+	Container,
 	PageHeadline,
 	Tags,
 	Links,
@@ -77,24 +78,26 @@ export default function LinksTagPage({
 			canonical="links"
 		>
 			<MainContainer>
-				<Tabs
-					array={dataTabs}
-					customClass={style.tabs}
-				/>
-				<PageHeadline
-					title={pageData.title}
-					description={pageData.description}
-				/>
-				<Tags
-					array={tagsList}
-					tagLinkTo="links"
-					customClass={style.tags}
-					clickable
-				/>
-				<Links
-					array={linksList}
-					customClass={style.links}
-				/>
+				<Container>
+					<Tabs
+						array={dataTabs}
+						customClass={style.tabs}
+					/>
+					<PageHeadline
+						title={pageData.title}
+						description={pageData.description}
+					/>
+					<Tags
+						array={tagsList}
+						tagLinkTo="links"
+						customClass={style.tags}
+						clickable
+					/>
+					<Links
+						array={linksList}
+						customClass={style.links}
+					/>
+				</Container>
 			</MainContainer>
 		</MainWrapper>
 	)

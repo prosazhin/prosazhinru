@@ -9,6 +9,7 @@ import style from './styles.module.scss'
 import {
     MainWrapper,
     MainContainer,
+    Container,
     PageHeadline,
     Headline,
 } from '../../components'
@@ -64,80 +65,80 @@ export default function AboutPage({
 			image="/sharing-about.jpg"
 			url={router.asPath}
 		>
-            <MainContainer
-				small
-			>
-                <PageHeadline
-                    description={pageData.description}
-                />
-                <div className={style.competencies}>
-                    <Link href="/competencies">
-                        <a className={style.competencies__link}>
-                            <span className={style.competencies__title}>
-                                Матрица моих компетенций
-                            </span>
-                            <span className={style.competencies__description}>
-                                Для более полной и объективной оценки моих навыков, подготовил матрицу компетенций по материалам Юрия Ветрова.
-                            </span>
-                            <FontAwesomeIcon
-                                icon={faArrowRight}
-                                className={style.competencies__icon}
+            <MainContainer>
+                <Container small>
+                    <PageHeadline
+                        description={pageData.description}
+                    />
+                    <div className={style.competencies}>
+                        <Link href="/competencies">
+                            <a className={style.competencies__link}>
+                                <span className={style.competencies__title}>
+                                    Матрица моих компетенций
+                                </span>
+                                <span className={style.competencies__description}>
+                                    Для более полной и объективной оценки моих навыков, подготовил матрицу компетенций по материалам Юрия Ветрова.
+                                </span>
+                                <FontAwesomeIcon
+                                    icon={faArrowRight}
+                                    className={style.competencies__icon}
+                                />
+                            </a>
+                        </Link>
+                    </div>
+                    {skillsList.sort(( a, b ) => a.order - b.order).map(skill =>
+                        <section className={style.section} key={skill.id}>
+                            <Headline
+                                title={skill.title}
+                                size="1"
+                                hideMarginTop
                             />
-                        </a>
-                    </Link>
-                </div>
-                {skillsList.sort(( a, b ) => a.order - b.order).map(skill =>
-                    <section className={style.section} key={skill.id}>
-                        <Headline
-                            title={skill.title}
-                            size="1"
-                            hideMarginTop
-                        />
-                        <p className={style.section__description}>
-                            {skill.description}
-                        </p>
-                        {skill.tools &&
-                            <React.Fragment>
-                                <h5 className={`${style.section__description} ${style.section__description_title}`}>
-                                    Инструменты
-                                </h5>
-                                <p className={style.section__description}>
-                                    {skill.tools}
-                                </p>
-                            </React.Fragment>
-                        }
-                    </section>
-                )}
-                <Headline
-                    title="Где работал?"
-                    size="1"
-                />
-                <article className={style.road}>
-                    {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
-                        <section className={style.road__item} key={job.id}>
-                            <h3 className={style.road__title}>
-                                {job.link ? 
-                                    <a href={job.url} target="_blank">
-                                        {job.title}
-                                    </a>
-                                    :
-                                    <React.Fragment>
-                                        {job.title}
-                                    </React.Fragment>
-                                }
-                            </h3>
-                            <p className={style.road__date}>
-                                {dayjs(job.recruited).locale('ru').format('MMMM YYYY')} — {job.dismissal === null ? 'Сейчас' : `${dayjs(job.dismissal).locale('ru').format('MMMM YYYY')}`}
+                            <p className={style.section__description}>
+                                {skill.description}
                             </p>
-                            <p className={style.road__position}>
-                                {job.position}
-                            </p>
-                            <p className={style.road__description}>
-                                {job.description}
-                            </p>
+                            {skill.tools &&
+                                <React.Fragment>
+                                    <h5 className={`${style.section__description} ${style.section__description_title}`}>
+                                        Инструменты
+                                    </h5>
+                                    <p className={style.section__description}>
+                                        {skill.tools}
+                                    </p>
+                                </React.Fragment>
+                            }
                         </section>
                     )}
-                </article>
+                    <Headline
+                        title="Где работал?"
+                        size="1"
+                    />
+                    <article className={style.road}>
+                        {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
+                            <section className={style.road__item} key={job.id}>
+                                <h3 className={style.road__title}>
+                                    {job.link ? 
+                                        <a href={job.url} target="_blank">
+                                            {job.title}
+                                        </a>
+                                        :
+                                        <React.Fragment>
+                                            {job.title}
+                                        </React.Fragment>
+                                    }
+                                </h3>
+                                <p className={style.road__date}>
+                                    {dayjs(job.recruited).locale('ru').format('MMMM YYYY')} — {job.dismissal === null ? 'Сейчас' : `${dayjs(job.dismissal).locale('ru').format('MMMM YYYY')}`}
+                                </p>
+                                <p className={style.road__position}>
+                                    {job.position}
+                                </p>
+                                <p className={style.road__description}>
+                                    {job.description}
+                                </p>
+                            </section>
+                        )}
+                    </article>
+                </Container>
             </MainContainer>
         </MainWrapper>
 	)

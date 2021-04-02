@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import {
     MainWrapper,
     MainContainer,
+    Container,
     PageHeadline,
     Posts,
 } from '../../components'
@@ -53,16 +54,16 @@ export default function PostsPage({
 			image="/sharing-about.jpg"
 			url={router.asPath}
 		>
-            <MainContainer
-				small
-			>
-                <PageHeadline
-                    title={pageData.title}
-                    description={pageData.description}
-                />
-                <Posts
-                    array={postsList}
-                />
+            <MainContainer>
+                <Container small>
+                    <PageHeadline
+                        title={pageData.title}
+                        description={pageData.description}
+                    />
+                    <Posts
+                        array={postsList}
+                    />
+                </Container>
             </MainContainer>
         </MainWrapper>
 	)

@@ -1,20 +1,27 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import dayjs from 'dayjs'
+import style from './styles.module.scss'
 
 import {
     MainWrapper,
     MainContainer,
+    Container,
     PageHeadline,
+    StaticTag,
 } from '../../components'
 
 import {
     pagesSerializer,
     contactsSerializer,
     postsSerializer,
+    postSerializer,
 } from '../../utils/Serializers'
 
 import API from '../../utils/Api'
 const api = new API()
+
+import 'dayjs/locale/ru'
 
 
 
@@ -36,7 +43,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     const pagesResult = pagesSerializer(await api.get('pages'), 'posts')
 	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const postResult = postsSerializer(await api.get('posts', { 'fields.slug': params.slug }))[0]
+	const postResult = postSerializer(await api.get('posts', { 'fields.slug': params.slug }))[0]
 
 	return {
 		props: {
@@ -58,6 +65,8 @@ export default function PostsPage({
 }) {
     const router = useRouter()
 
+    console.log(postData)
+
 	return (
         <MainWrapper
             navigations={navigationsList}
@@ -67,13 +76,30 @@ export default function PostsPage({
 			image="/sharing-about.jpg"
 			url={router.asPath}
 		>
-            <MainContainer
-				small
-			>
-                <PageHeadline
-                    title={postData.title}
-                    description={postData.description}
-                />
+            <MainContainer>
+                <Container small>
+                    <PageHeadline
+                        title={postData.title}
+                    />
+                </Container>
+                <Container small>
+                    <ul className={style.tags}>
+                        {postData.tags.map(tag =>
+                            <li
+                                className={style.tags__item}
+                                key={tag}
+                            >
+                                <StaticTag
+                                    title={tag}
+                                    url={false}
+                                />
+                            </li>
+                        )}
+                    </ul>
+                    <span className={style.date}>
+                        {dayjs(postData.create).locale('ru').format('DD MMMM YYYY')}
+                    </span>
+                </Container>
             </MainContainer>
         </MainWrapper>
 	)

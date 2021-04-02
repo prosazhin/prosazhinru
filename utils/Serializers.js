@@ -162,6 +162,24 @@ export function postsSerializer(data) {
 
 
 
+export function postSerializer(data) {
+    const result = data.items.map(item => {
+        return {
+            id: item.sys.id,
+            slug: item.fields.slug,
+            title: item.fields.title,
+            description: item.fields.description,
+            content: item.fields.content,
+            tags: item.fields.tags,
+            create: item.fields.create,
+        }
+    })
+
+    return result
+}
+
+
+
 export function competenciesCategoriesSerializer(data) {
     const result = data.items.map(item => {
         return {
