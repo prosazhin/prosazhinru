@@ -90,7 +90,6 @@ export default function PostsPage({
                     <Container small>
                         <span className={
                             `${style.content__heading}`+
-                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value}
@@ -103,7 +102,9 @@ export default function PostsPage({
                     <Container small>
                         <p className={
                             `${style.content__paragraph}`+
-                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${((count - 1) > index && postData.content[index + 1].type === 'unordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
+                            `${((count - 1) > index && postData.content[index + 1].type === 'ordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
+                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__paragraph_above}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value}
@@ -116,7 +117,6 @@ export default function PostsPage({
                     <Container small>
                         <p className={
                             `${style.content__code}`+
-                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value}
@@ -127,14 +127,19 @@ export default function PostsPage({
             case 'blockquote':
                 return (
                     <Container small>
-                        {item.value.map((valueItem, valueIndex) =>
-                            <span
-                                key={`${item.type}__${valueIndex}`}
-                                className={style.content__blockquote}
-                            >
-                                {valueItem}
-                            </span>
-                        )}
+                        <ul className={
+                            `${style.content__blockquote}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value.map((valueItem, valueIndex) =>
+                                <li
+                                    key={`${item.type}__${valueIndex}`}
+                                    className={style.content__blockquote__item}
+                                >
+                                    {valueItem}
+                                </li>
+                            )}
+                        </ul>
                     </Container>
                 )
 
@@ -144,7 +149,7 @@ export default function PostsPage({
                         <ol type="1" className={
                             `${style.content__list} `+
                             `${style.content__list_ordered}`+
-                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value.map((valueItem, valueIndex) =>
@@ -165,7 +170,7 @@ export default function PostsPage({
                         <ul className={
                             `${style.content__list} `+
                             `${style.content__list_unordered}`+
-                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value.map((valueItem, valueIndex) =>
