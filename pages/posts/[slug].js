@@ -65,126 +65,128 @@ export default function PostsPage({
 }) {
     const router = useRouter()
 
-    // console.log(postData)
-    // 0 {nodeType: "embedded-asset-block", content: [], data: Object}
-    // 1 {nodeType: "paragraph", content: Array, data: {}}
-    // 2 {nodeType: "blockquote", content: Array, data: {}}
-    // 3 {nodeType: "heading-2", content: Array, data: {}}
-    // 4 {nodeType: "paragraph", content: Array, data: {}}
-    // 5 {nodeType: "heading-2", content: Array, data: {}}
-    // 6 {nodeType: "unordered-list", content: Array, data: {}}
-    // 7 {nodeType: "paragraph", content: Array, data: {}}
-    // 8 {nodeType: "heading-2", content: Array, data: {}}
-    // 9 {nodeType: "ordered-list", content: Array, data: {}}
-    // 10 {nodeType: "heading-2", content: Array, data: {}}
-    // 11 {nodeType: "paragraph", content: Array, data: {}}
-
     function getType(item, count, index) {
-        if (item.nodeType === 'heading-2') {
-            // console.log(item.nodeType, item)
-
-            return (
-                <Container small>
-                    <span className={style.content__heading}>
-                        {item.content[0].value}
-                    </span>
-                </Container>
-            )
-        }
-
-        if (item.nodeType === 'paragraph') {
-            // console.log(item.nodeType, item)
-
-            return (
-                <Container small>
-                    <p className={`${style.content__paragraph}${(count - 1) === index ? ` ${style.content__paragraph_nomargin}` : ''}`}>
-                        {item.content[0].value}
-                    </p>
-                </Container>
-            )
-        }
-
-        if (item.nodeType === 'blockquote') {
-            // console.log(item.nodeType, item)
-
-            return (
-                <Container small>
-                    {item.content.map((blockquote, blockquoteIndex) =>
-                        <span
-                            key={`${blockquote.nodeType}__${blockquoteIndex}`}
-                            className={style.content__blockquote}
-                        >
-                            {blockquote.content[0].value}
+        switch(item.type) {
+            case 'image':
+                return (
+                    <Container>
+                        <img
+                            className={
+                                `${style.content__image}`+
+                                `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                                `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                            }
+                            src={item.url}
+                            alt={item.description}
+                        />
+                        <span className={style.content__image__description}>
+                            {item.description}
                         </span>
-                    )}
-                </Container>
-            )
-        }
+                    </Container>
+                )
 
-        if (item.nodeType === 'ordered-list') {
-            // console.log(item.nodeType, item)
+            case 'heading':
+                return (
+                    <Container small>
+                        <span className={
+                            `${style.content__heading}`+
+                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value}
+                        </span>
+                    </Container>
+                )
 
-            return (
-                <Container small>
-                    <ol type="1" className={`${style.content__list} ${style.content__list_ordered}`}>
-                        {item.content.map((listItem, listIndex) =>
-                            <li
-                                key={`${listItem.nodeType}__${listIndex}`}
-                                className={style.content__list__item}
+            case 'paragraph':
+                return (
+                    <Container small>
+                        <p className={
+                            `${style.content__paragraph}`+
+                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value}
+                        </p>
+                    </Container>
+                )
+
+            case 'code':
+                return (
+                    <Container small>
+                        <p className={
+                            `${style.content__code}`+
+                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value}
+                        </p>
+                    </Container>
+                )
+
+            case 'blockquote':
+                return (
+                    <Container small>
+                        {item.value.map((valueItem, valueIndex) =>
+                            <span
+                                key={`${item.type}__${valueIndex}`}
+                                className={style.content__blockquote}
                             >
-                                {listItem.content[0].content[0].value}
-                            </li>
+                                {valueItem}
+                            </span>
                         )}
-                    </ol>
-                </Container>
-            )
+                    </Container>
+                )
+
+            case 'ordered-list':
+                return (
+                    <Container small>
+                        <ol type="1" className={
+                            `${style.content__list} `+
+                            `${style.content__list_ordered}`+
+                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value.map((valueItem, valueIndex) =>
+                                <li
+                                    key={`${item.type}__${valueIndex}`}
+                                    className={style.content__list__item}
+                                >
+                                    {valueItem}
+                                </li>
+                            )}
+                        </ol>
+                    </Container>
+                )
+
+            case 'unordered-list':
+                return (
+                    <Container small>
+                        <ul className={
+                            `${style.content__list} `+
+                            `${style.content__list_unordered}`+
+                            `${index === 0 ? ` ${style.content__first_type}` : ''}`+
+                            `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
+                        }>
+                            {item.value.map((valueItem, valueIndex) =>
+                                <li 
+                                    key={`${item.type}__${valueIndex}`}
+                                    className={style.content__list__item}
+                                >
+                                    {valueItem}
+                                </li>
+                            )}
+                        </ul>
+                    </Container>
+                )
         }
-
-        if (item.nodeType === 'unordered-list') {
-            // console.log(item.nodeType, item)
-
-            return (
-                <Container small>
-                    <ul className={`${style.content__list} ${style.content__list_unordered}`}>
-                        {item.content.map((listItem, listIndex) =>
-                            <li 
-                                key={`${listItem.nodeType}__${listIndex}`}
-                                className={style.content__list__item}
-                            >
-                                {listItem.content[0].content[0].value}
-                            </li>
-                        )}
-                    </ul>
-                </Container>
-            )
-        }
-
-        if (item.nodeType === 'embedded-asset-block') {
-            // console.log(item.nodeType, item)
-
-            return (
-                <Container>
-                    <img
-                        className={style.content__image}
-                        src={item.data.target.fields.file.url}
-                        alt={item.data.target.fields.description}
-                    />
-                    <span className={style.content__image__description}>
-                        {item.data.target.fields.description}
-                    </span>
-                </Container>
-            )
-        }
-
-        return true
     }
-
 
 	return (
         <MainWrapper
             navigations={navigationsList}
 			contacts={contactsList}
-			title={pageData.metaTitle}
+			title={postData.title}
 			description={pageData.metaDescription}
 			image="/sharing-about.jpg"
 			url={router.asPath}
@@ -197,7 +199,7 @@ export default function PostsPage({
                 </Container>
                 <div className={style.content}>
                     {postData.content.map((item, index) =>
-                        <React.Fragment key={`${item.nodeType}__${index}`}>
+                        <React.Fragment key={`${item.type}__${index}`}>
                             {getType(item, postData.content.length, index)}
                         </React.Fragment>
                     )}
