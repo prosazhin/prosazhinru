@@ -8,7 +8,7 @@ import {
 	MainContainer,
 	Container,
 	PageHeadline,
-	Tags,
+	ClickableTagsList,
 	Selections,
 	Tabs,
 } from '../../components'
@@ -82,11 +82,10 @@ export default function SelectionsPage({
 						title={pageData.title}
 						description={pageData.description}
 					/>
-					<Tags
+					<ClickableTagsList
 						array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
 						tagLinkTo="selections"
 						customClass={style.tags}
-						clickable
 					/>
 					<Selections
 						array={selectionsList}

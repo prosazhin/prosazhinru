@@ -44,14 +44,13 @@ export function StaticActiveTagsList({ array, customClass }) {
 export function StaticTagsList({ array, customClass }) {
     return (
         <ul className={`${style.tags}${customClass ? ` ${customClass}` : ''}`}>
-            {array.map(item =>
+            {array.map((item, index) =>
                 <li
                     className={style.tags__item}
-                    key={item.id}
+                    key={`tag_${index}`}
                 >
                     <StaticTag
-                        title={item.title}
-                        url={item.url}
+                        title={item}
                     />
                 </li>
             )}

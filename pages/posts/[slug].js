@@ -8,7 +8,7 @@ import {
     MainContainer,
     Container,
     PageHeadline,
-    StaticTag,
+    StaticTagsList,
 } from '../../components'
 
 import {
@@ -210,18 +210,10 @@ export default function PostsPage({
                     )}
                 </div>
                 <Container small>
-                    <ul className={style.tags}>
-                        {postData.tags.map(tag =>
-                            <li
-                                className={style.tags__item}
-                                key={tag}
-                            >
-                                <StaticTag
-                                    title={tag}
-                                />
-                            </li>
-                        )}
-                    </ul>
+                    <StaticTagsList
+                        array={postData.tags}
+                        customClass={style.tags}
+                    />
                     <span className={style.date}>
                         {dayjs(postData.create).locale('ru').format('DD MMMM YYYY')}
                     </span>

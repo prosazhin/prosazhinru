@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { StaticTag } from '../'
+import { StaticTagsList } from '../'
 import dayjs from 'dayjs'
 import style from './Posts.module.scss'
 import 'dayjs/locale/ru'
@@ -21,18 +21,10 @@ export default function Posts({ array }) {
                             <span className={style.post__description}>
                                 {post.description}
                             </span>
-                            <ul className={style.post__tags}>
-                                {post.tags.map(tag =>
-                                    <li
-                                        className={style.post__tags__item}
-                                        key={tag}
-                                    >
-                                        <StaticTag
-                                            title={tag}
-                                        />
-                                    </li>
-                                )}
-                            </ul>
+                            <StaticTagsList
+                                array={post.tags}
+                                customClass={style.post__tags}
+                            />
                             <span className={style.post__date}>
                                 {dayjs(post.create).locale('ru').format('DD MMMM YYYY')}
                             </span>

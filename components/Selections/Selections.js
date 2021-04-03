@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Links, Tags } from '../'
+import { Links, StaticActiveTagsList } from '../'
 import style from './Selections.module.scss'
 
 
@@ -16,7 +16,7 @@ export default function Selections({ array }) {
                     <span className={style.selection__description}>
                         {item.description}
                     </span>
-                    <Tags
+                    <StaticActiveTagsList
                         array={item.tags}
                         customClass={style.selection__tags}
                     />

@@ -8,7 +8,7 @@ import {
 	MainContainer,
 	Container,
 	PageHeadline,
-	Tags,
+	ClickableTagsList,
 	Links,
 	Tabs,
 } from '../../components'
@@ -87,11 +87,10 @@ export default function LinksTagPage({
 						title={pageData.title}
 						description={pageData.description}
 					/>
-					<Tags
+					<ClickableTagsList
 						array={tagsList}
 						tagLinkTo="links"
 						customClass={style.tags}
-						clickable
 					/>
 					<Links
 						array={linksList}

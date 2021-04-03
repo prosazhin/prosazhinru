@@ -54,20 +54,7 @@
     }
 
     &__tags {
-        display: block;
-        width: 100%;
-        text-align: left;
         margin-bottom: 1rem;
-
-        &__item {
-            display: inline-block;
-            text-align: left;
-            margin-right: 0.5rem;
-    
-            &:nth-last-child(1) {
-                margin-right: 0;
-            }
-        }
     }
 
     &__date {
