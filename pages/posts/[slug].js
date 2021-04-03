@@ -212,7 +212,6 @@ export default function PostsPage({
                 <Container small>
                     <StaticTagsList
                         array={postData.tags}
-                        customClass={style.tags}
                     />
                     <span className={style.date}>
                         {dayjs(postData.create).locale('ru').format('DD MMMM YYYY')}
