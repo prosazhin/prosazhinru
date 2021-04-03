@@ -86,7 +86,7 @@ export default function SelectionsTagPage({
 			contacts={contactsList}
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
-			image="/sharing-selections.jpg"
+			image="/sharing-links.jpg"
 			url={router.asPath}
 			canonical="selections"
 		>

@@ -53,7 +53,7 @@ export default function CompetenciesPage({
 			contacts={contactsList}
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
-			image="/sharing-about.jpg"
+			image="/sharing-competencies.jpg"
 			url={router.asPath}
 		>
             <MainContainer>

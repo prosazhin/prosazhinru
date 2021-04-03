@@ -51,7 +51,7 @@ export default function PostsPage({
 			contacts={contactsList}
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
-			image="/sharing-about.jpg"
+			image="/sharing-posts.jpg"
 			url={router.asPath}
 		>
             <MainContainer>

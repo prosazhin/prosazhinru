@@ -69,7 +69,7 @@ export default function SelectionsPage({
 			contacts={contactsList}
 			title={pageData.metaTitle}
 			description={pageData.metaDescription}
-			image="/sharing-selections.jpg"
+			image="/sharing-links.jpg"
 			url={router.asPath}
 		>
 			<MainContainer>
