@@ -29,8 +29,6 @@ export default function Posts({ array }) {
                                     >
                                         <StaticTag
                                             title={tag}
-                                            url={false}
-                                            notActive
                                         />
                                     </li>
                                 )}

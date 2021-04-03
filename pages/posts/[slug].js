@@ -218,7 +218,6 @@ export default function PostsPage({
                             >
                                 <StaticTag
                                     title={tag}
-                                    url={false}
                                 />
                             </li>
                         )}
