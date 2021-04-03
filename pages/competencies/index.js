@@ -64,7 +64,7 @@ export default function CompetenciesPage({
                     />
                     <div className={style.about}>
                         <Headline
-                            title="Четыре уровня оценки навыков"
+                            title="Уровни оценки навыков"
                             size="2"
                             hideMarginTop
                         />
