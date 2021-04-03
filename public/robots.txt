@@ -1,2 +1,4 @@
 User-agent: *
 Host: http://prosazhin.ru
+Disallow: /_next
+Sitemap: https://prosazhin.ru/sitemap.xml
