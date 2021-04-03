@@ -9,147 +9,127 @@
 
 <url>
   <loc>https://prosazhin.ru/</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/selections</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://prosazhin.ru/posts</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/about</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selection/figma-plugins</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/design</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/html-coding</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/frontend</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/react</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/nodejs</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/mongodb</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/docker</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/tooling</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/links/my-posts</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/figma</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/links/things</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/selections/design</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/selections/html-coding</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/selections/frontend</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/react</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/nodejs</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/mongodb</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/docker</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/tooling</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://prosazhin.ru/selections/my-posts</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://prosazhin.ru/selections/figma</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://prosazhin.ru/selections/things</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <loc>https://prosazhin.ru/posts/nado-li-delat-maket-esli-mozhno-ne-delat</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://prosazhin.ru/selection/animation-and-preloading</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <loc>https://prosazhin.ru/posts/ozhidaniya-ot-figma</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://prosazhin.ru/selection/near-at-hand</loc>
-  <lastmod>2020-11-07T20:30:53+00:00</lastmod>
+  <loc>https://prosazhin.ru/posts/nestydnaya-registraciya</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://prosazhin.ru/posts/chistota-adresnoj-stroki</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://prosazhin.ru/posts/kak-ne-nado-podcherkivat-ssylki</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://prosazhin.ru/competencies</loc>
+  <lastmod>2021-04-03T22:14:27+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
