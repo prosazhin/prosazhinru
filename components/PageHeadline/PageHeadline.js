@@ -18,7 +18,7 @@ export default function PageHeadline({ title, description }) {
                     <ReactMarkdown
                         source={description}
                         renderers={{
-                            link: props => props.href === '/links' || props.href === '/selections' || props.href === '/about' ?
+                            link: props => props.href === '/links' || props.href === '/selections' || props.href === '/about' || props.href === '/posts' ?
                                 <a href={props.href} target="_self">{props.children}</a>
                                 :
                                 <a href={props.href} target="_blank">{props.children}</a>
