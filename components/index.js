@@ -12,6 +12,7 @@ import Link from './Link/Link'
 import Links from './Links/Links'
 import Selections from './Selections/Selections'
 import Posts from './Posts/Posts'
+import Projects from './Projects/Projects'
 import Years from './Years/Years'
 
 
@@ -35,5 +36,6 @@ export {
     Links,
     Selections,
     Posts,
+    Projects,
     Years,
 }
