@@ -25,22 +25,22 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pagesResult = pagesSerializer(await api.get('pages'), 'home')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const jobsResult = jobsSerializer(await api.get('jobs'))
-	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
-	const selectionsResult = selectionsSerializer(await api.get('selections'))
-	const postsResult = postsSerializer(await api.get('posts'))
+	const pages = pagesSerializer(await api.get('pages'), 'home')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const jobs = jobsSerializer(await api.get('jobs'))
+	const links = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
+	const selections = selectionsSerializer(await api.get('selections'))
+	const posts = postsSerializer(await api.get('posts'))
 
 	return {
 		props: {
-			pageData: pagesResult.page,
-			navigationsList: pagesResult.navigations,
-			contactsList: contactsResult,
-			jobsList: jobsResult,
-			linksList: linksResult,
-			selectionsList: selectionsResult,
-			postsList: postsResult,
+			page: pages.page,
+			navigations: pages.navigations,
+			contacts: contacts,
+			jobs: jobs,
+			links: links,
+			selections: selections,
+			posts: posts,
 		},
 	}
 }
@@ -48,13 +48,13 @@ export async function getStaticProps() {
 
 
 export default function HomePage({
-	pageData,
-	navigationsList,
-	contactsList,
-	jobsList,
-	linksList,
-	selectionsList,
-	postsList,
+	page,
+	navigations,
+	contacts,
+	jobs,
+	links,
+	selections,
+	posts,
 }) {
 	const router = useRouter()
 
@@ -95,29 +95,29 @@ export default function HomePage({
 
 	yearsList.forEach(year => {
 		year.job = {
-			hired: jobsList.filter(item => dayjs(item.recruited).format('YYYY') === year.titleString)[0] || false,
-			fired: jobsList.filter(item => dayjs(item.dismissal).format('YYYY') === year.titleString)[0] || false,
-			work: jobsList.filter(item => workNow(item, year.titleString))[0] || false,
+			hired: jobs.filter(item => dayjs(item.recruited).format('YYYY') === year.titleString)[0] || false,
+			fired: jobs.filter(item => dayjs(item.dismissal).format('YYYY') === year.titleString)[0] || false,
+			work: jobs.filter(item => workNow(item, year.titleString))[0] || false,
 		}
 
-		year.links = linksList.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
-		year.selections = selectionsList.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
-		year.posts = postsList.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
+		year.links = links.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
+		year.selections = selections.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
+		year.posts = posts.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 	})
 
 	return (
 		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+			navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-index.jpg"
 			url={router.asPath}
 		>
 			<MainContainer>
 				<Container small>
 					<PageHeadline
-						description={pageData.description}
+						description={page.description}
 					/>
 					<Years
 						array={yearsList}

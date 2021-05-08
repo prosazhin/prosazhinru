@@ -21,16 +21,16 @@ const api = new API()
 
 
 export async function getStaticProps() {
-    const pagesResult = pagesSerializer(await api.get('pages'), 'posts')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const postsResult = postsSerializer(await api.get('posts'))
+    const pages = pagesSerializer(await api.get('pages'), 'posts')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const posts = postsSerializer(await api.get('posts'))
 
 	return {
 		props: {
-            pageData: pagesResult.page,
-            navigationsList: pagesResult.navigations,
-            contactsList: contactsResult,
-            postsList: postsResult,
+            page: pages.page,
+            navigations: pages.navigations,
+            contacts: contacts,
+            posts: posts,
 		},
 	}
 }
@@ -38,30 +38,30 @@ export async function getStaticProps() {
 
 
 export default function PostsPage({
-    pageData,
-    navigationsList,
-    contactsList,
-    postsList,
+    page,
+    navigations,
+    contacts,
+    posts,
 }) {
     const router = useRouter()
 
 	return (
         <MainWrapper
-            navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+            navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-posts.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
                 <Container small>
                     <PageHeadline
-                        title={pageData.title}
-                        description={pageData.description}
+                        title={page.title}
+                        description={page.description}
                     />
                     <Posts
-                        array={postsList}
+                        array={posts}
                     />
                 </Container>
             </MainContainer>

@@ -39,19 +39,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const pagesResult = pagesSerializer(await api.get('pages'), 'links')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const linksResult = linksSerializer(await api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }))
+	const pages = pagesSerializer(await api.get('pages'), 'links')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const tags = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+	const activeTagId = tags.filter(item => item.url === params.tag)[0].id
+	const links = linksSerializer(await api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
-			pageData: pagesResult.page,
-			navigationsList: pagesResult.navigations,
-			contactsList: contactsResult,
-			tagsList: tagsResult,
-			linksList: linksResult,
+			page: pages.page,
+			navigations: pages.navigations,
+			contacts: contacts,
+			tags: tags,
+			links: links,
 		},
 	}
 }
@@ -59,20 +59,20 @@ export async function getStaticProps({ params }) {
 
 
 export default function LinksTagPage({
-	pageData,
-	navigationsList,
-	tagsList,
-	linksList,
-	contactsList,
+	page,
+	navigations,
+	tags,
+	links,
+	contacts,
 }) {
 	const router = useRouter()
 
 	return (
 		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+			navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-links.jpg"
 			url={router.asPath}
 			canonical="links"
@@ -84,16 +84,16 @@ export default function LinksTagPage({
 						customClass={style.tabs}
 					/>
 					<PageHeadline
-						title={pageData.title}
-						description={pageData.description}
+						title={page.title}
+						description={page.description}
 					/>
 					<ClickableTagsList
-						array={tagsList}
+						array={tags}
 						tagLinkTo="links"
 						customClass={style.tags}
 					/>
 					<Links
-						array={linksList}
+						array={links}
 						customClass={style.links}
 					/>
 				</Container>

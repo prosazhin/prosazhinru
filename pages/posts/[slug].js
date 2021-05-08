@@ -41,16 +41,16 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-    const pagesResult = pagesSerializer(await api.get('pages'), 'posts')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const postResult = postSerializer(await api.get('posts', { 'fields.slug': params.slug }))[0]
+    const pages = pagesSerializer(await api.get('pages'), 'posts')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const post = postSerializer(await api.get('posts', { 'fields.slug': params.slug }))[0]
 
 	return {
 		props: {
-            pageData: pagesResult.page,
-            navigationsList: pagesResult.navigations,
-            contactsList: contactsResult,
-            postData: postResult,
+            page: pages.page,
+            navigations: pages.navigations,
+            contacts: contacts,
+            post: post,
 		},
 	}
 }
@@ -58,10 +58,10 @@ export async function getStaticProps({ params }) {
 
 
 export default function PostPage({
-    pageData,
-    navigationsList,
-    contactsList,
-    postData,
+    page,
+    navigations,
+    contacts,
+    post,
 }) {
     const router = useRouter()
 
@@ -102,9 +102,9 @@ export default function PostPage({
                     <Container small>
                         <p className={
                             `${style.content__paragraph}`+
-                            `${((count - 1) > index && postData.content[index + 1].type === 'unordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
-                            `${((count - 1) > index && postData.content[index + 1].type === 'ordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
-                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__paragraph_above}` : ''}`+
+                            `${((count - 1) > index && post.content[index + 1].type === 'unordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
+                            `${((count - 1) > index && post.content[index + 1].type === 'ordered-list') ? ` ${style.content__paragraph_above}` : ''}`+
+                            `${((count - 1) > index && post.content[index + 1].type === 'paragraph') ? ` ${style.content__paragraph_above}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value}
@@ -149,7 +149,7 @@ export default function PostPage({
                         <ol type="1" className={
                             `${style.content__list} `+
                             `${style.content__list_ordered}`+
-                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
+                            `${((count - 1) > index && post.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value.map((valueItem, valueIndex) =>
@@ -170,7 +170,7 @@ export default function PostPage({
                         <ul className={
                             `${style.content__list} `+
                             `${style.content__list_unordered}`+
-                            `${((count - 1) > index && postData.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
+                            `${((count - 1) > index && post.content[index + 1].type === 'paragraph') ? ` ${style.content__list_above_paragraph}` : ''}`+
                             `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                         }>
                             {item.value.map((valueItem, valueIndex) =>
@@ -189,33 +189,33 @@ export default function PostPage({
 
 	return (
         <MainWrapper
-            navigations={navigationsList}
-			contacts={contactsList}
-			title={postData.title}
-			description={pageData.metaDescription}
+            navigations={navigations}
+			contacts={contacts}
+			title={post.title}
+			description={page.metaDescription}
 			image="/sharing-posts.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
                 <Container small>
                     <PageHeadline
-                        title={postData.title}
+                        title={post.title}
                     />
                 </Container>
                 <div className={style.content}>
-                    {postData.content.map((item, index) =>
+                    {post.content.map((item, index) =>
                         <React.Fragment key={`${item.type}__${index}`}>
-                            {getType(item, postData.content.length, index)}
+                            {getType(item, post.content.length, index)}
                         </React.Fragment>
                     )}
                 </div>
                 <Container small>
                     <StaticTagsList
-                        array={postData.tags}
+                        array={post.tags}
                         customClass={style.tags}
                     />
                     <span className={style.date}>
-                        {dayjs(postData.create).locale('ru').format('DD MMMM YYYY')}
+                        {dayjs(post.create).locale('ru').format('DD MMMM YYYY')}
                     </span>
                 </Container>
             </MainContainer>

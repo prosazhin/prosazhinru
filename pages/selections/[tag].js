@@ -39,21 +39,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const pagesResult = pagesSerializer(await api.get('pages'), 'selections')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-	const selectionsResult = selectionsSerializer(await api.get('selections'))
-	const activeTagId = tagsResult.filter(item => item.url === params.tag)[0].id
-	const activeSelectionsResult = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
+	const pages = pagesSerializer(await api.get('pages'), 'selections')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const tags = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+	const selections = selectionsSerializer(await api.get('selections'))
+	const activeTagId = tags.filter(item => item.url === params.tag)[0].id
+	const activeSelections = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
 
 	return {
 		props: {
-			pageData: pagesResult.page,
-			navigationsList: pagesResult.navigations,
-			contactsList: contactsResult,
-			tagsList: tagsResult,
-			selectionsList: selectionsResult,
-			activeSelectionsList: activeSelectionsResult,
+			page: pages.page,
+			navigations: pages.navigations,
+			contacts: contacts,
+			tags: tags,
+			selections: selections,
+			activeSelections: activeSelections,
 		},
 	}
 }
@@ -61,18 +61,18 @@ export async function getStaticProps({ params }) {
 
 
 export default function SelectionsTagPage({
-	pageData,
-	navigationsList,
-	tagsList,
-	selectionsList,
-	activeSelectionsList,
-	contactsList,
+	page,
+	navigations,
+	tags,
+	selections,
+	activeSelections,
+	contacts,
 }) {
 	const router = useRouter()
 
 	const activeTagsList = []
 
-	selectionsList.forEach(selection => {
+	selections.forEach(selection => {
 		selection.tags.forEach(tag => {
 			if (activeTagsList.every(item => item.url !== tag.url)) {
 				activeTagsList.push(tag)
@@ -82,10 +82,10 @@ export default function SelectionsTagPage({
 
 	return (
 		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+			navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-links.jpg"
 			url={router.asPath}
 			canonical="selections"
@@ -97,16 +97,16 @@ export default function SelectionsTagPage({
 						customClass={style.tabs}
 					/>
 					<PageHeadline
-						title={pageData.title}
-						description={pageData.description}
+						title={page.title}
+						description={page.description}
 					/>
 					<ClickableTagsList
-						array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
+						array={tags.filter(item => activeTagsList.some(tag => item.url === tag.url))}
 						tagLinkTo="selections"
 						customClass={style.tags}
 					/>
 					<Selections
-						array={activeSelectionsList}
+						array={activeSelections}
 					/>
 				</Container>
 			</MainContainer>

@@ -26,18 +26,18 @@ const api = new API()
 
 
 export async function getStaticProps() {
-	const pagesResult = pagesSerializer(await api.get('pages'), 'selections')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-	const selectionsResult = selectionsSerializer(await api.get('selections'))
+	const pages = pagesSerializer(await api.get('pages'), 'selections')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const tags = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+	const selections = selectionsSerializer(await api.get('selections'))
 
 	return {
 		props: {
-			pageData: pagesResult.page,
-			navigationsList: pagesResult.navigations,
-			contactsList: contactsResult,
-			tagsList: tagsResult,
-			selectionsList: selectionsResult,
+			page: pages.page,
+			navigations: pages.navigations,
+			contacts: contacts,
+			tags: tags,
+			selections: selections,
 		},
 	}
 }
@@ -45,17 +45,17 @@ export async function getStaticProps() {
 
 
 export default function SelectionsPage({
-	pageData,
-	navigationsList,
-	tagsList,
-	selectionsList,
-	contactsList,
+	page,
+	navigations,
+	contacts,
+	tags,
+	selections,
 }) {
 	const router = useRouter()
 
 	const activeTagsList = []
 
-	selectionsList.forEach(selection => {
+	selections.forEach(selection => {
 		selection.tags.forEach(tag => {
 			if (activeTagsList.every(item => item.url !== tag.url)) {
 				activeTagsList.push(tag)
@@ -65,10 +65,10 @@ export default function SelectionsPage({
 
 	return (
 		<MainWrapper
-			navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+			navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-links.jpg"
 			url={router.asPath}
 		>
@@ -79,16 +79,16 @@ export default function SelectionsPage({
 						customClass={style.tabs}
 					/>
 					<PageHeadline
-						title={pageData.title}
-						description={pageData.description}
+						title={page.title}
+						description={page.description}
 					/>
 					<ClickableTagsList
-						array={tagsList.filter(item => activeTagsList.some(tag => item.url === tag.url))}
+						array={tags.filter(item => activeTagsList.some(tag => item.url === tag.url))}
 						tagLinkTo="selections"
 						customClass={style.tags}
 					/>
 					<Selections
-						array={selectionsList}
+						array={selections}
 					/>
 				</Container>
 			</MainContainer>
