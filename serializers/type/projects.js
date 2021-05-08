@@ -1,3 +1,4 @@
+import { contentSerializer } from './content'
 
 export function projectsSerializer(data) {
     const result = data.items.map(item => {
@@ -22,6 +23,7 @@ export function projectSerializer(data) {
             title: item.fields.title,
             tags: item.fields.tags,
             create: item.fields.create,
+            content: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.content))),
         }
     })
 
