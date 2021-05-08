@@ -15,14 +15,14 @@ export default function Projects({ array }) {
                 <li className={style.project} key={project.id}>
                     <Link href={`/projects/${project.slug}`}>
                         <a className={style.project__link}>
+                            <span className={style.project__headline}>
+                                {project.title}
+                            </span>
                             <img
                                 className={style.project__cover}
                                 src={project.cover}
                                 alt={project.title}
                             />
-                            <span className={style.project__headline}>
-                                {project.title}
-                            </span>
                             <StaticTagsList
                                 array={project.tags}
                             />
