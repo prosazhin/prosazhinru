@@ -46,14 +46,6 @@
         display: inline-block;
         width: 100%;
         @include text_medium_lvl_1;
-        margin-bottom: 1rem;
-        color: $black;
-    }
-
-    &__description {
-        display: inline-block;
-        width: 100%;
-        @include text_regular_lvl_3;
         margin-bottom: 2rem;
         color: $black;
     }

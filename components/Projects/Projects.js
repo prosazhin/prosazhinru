@@ -23,9 +23,6 @@ export default function Projects({ array }) {
                             <span className={style.project__headline}>
                                 {project.title}
                             </span>
-                            <span className={style.project__description}>
-                                {project.description}
-                            </span>
                             <StaticTagsList
                                 array={project.tags}
                             />
