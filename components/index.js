@@ -14,6 +14,7 @@ import Selections from './Selections'
 import Posts from './Posts'
 import Projects from './Projects'
 import Years from './Years'
+import Content from './Content'
 
 
 
@@ -38,4 +39,5 @@ export {
     Posts,
     Projects,
     Years,
+    Content,
 }

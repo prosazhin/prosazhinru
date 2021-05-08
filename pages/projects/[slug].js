@@ -9,6 +9,7 @@ import {
     Container,
     PageHeadline,
     StaticTagsList,
+    Content,
 } from '../../components'
 
 import {
@@ -80,6 +81,9 @@ export default function ProjectPage({
                         title={project.title}
                     />
                 </Container>
+                <Content
+                    data={project}
+                />
                 <Container small>
                     <StaticTagsList
                         array={project.tags}
