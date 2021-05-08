@@ -15,6 +15,36 @@ export function contentSerializer(data) {
                     value: item.content[0].value,
                 }
 
+            case 'heading-2':
+                return {
+                    type: 'heading',
+                    value: item.content[0].value,
+                }
+
+            case 'heading-3':
+                return {
+                    type: 'heading',
+                    value: item.content[0].value,
+                }
+            
+            case 'heading-4':
+                return {
+                    type: 'heading',
+                    value: item.content[0].value,
+                }
+
+            case 'heading-5':
+                return {
+                    type: 'heading',
+                    value: item.content[0].value,
+                }
+
+            case 'heading-6':
+                return {
+                    type: 'heading',
+                    value: item.content[0].value,
+                }
+
             case 'paragraph':
                 if (!item.content[0].value.length) {
                     return { type: 'empty' }
