@@ -58,6 +58,7 @@ export default function ProjectsPage({
                 <Container small>
                     <PageHeadline
                         title={pageData.title}
+                        description={pageData.description}
                     />
                     <Projects
                         array={projectsList}
