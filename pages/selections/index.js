@@ -18,7 +18,7 @@ import {
 	tagsSerializer,
 	selectionsSerializer,
 	contactsSerializer,
-} from '../../utils/Serializers'
+} from '../../serializers'
 
 import API from '../../utils/Api'
 const api = new API()

@@ -14,7 +14,7 @@ import {
     pagesSerializer,
     contactsSerializer,
     competenciesCategoriesSerializer,
-} from '../../utils/Serializers'
+} from '../../serializers'
 
 import API from '../../utils/Api'
 const api = new API()
