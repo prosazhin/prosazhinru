@@ -22,17 +22,17 @@ const api = new API()
 
 
 export async function getStaticProps() {
-    const pagesResult = pagesSerializer(await api.get('pages'), 'competencies')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const competenciesCategoriesResult = competenciesCategoriesSerializer(await api.get('competencies-categories'))
+    const pages = pagesSerializer(await api.get('pages'), 'competencies')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const competenciesCategories = competenciesCategoriesSerializer(await api.get('competencies-categories'))
     
 
 	return {
 		props: {
-            pageData: pagesResult.page,
-            navigationsList: pagesResult.navigations,
-            contactsList: contactsResult,
-            competenciesCategoriesList: competenciesCategoriesResult,
+            page: pages.page,
+            navigations: pages.navigations,
+            contacts: contacts,
+            competenciesCategories: competenciesCategories,
 		},
 	}
 }
@@ -40,27 +40,27 @@ export async function getStaticProps() {
 
 
 export default function CompetenciesPage({
-    pageData,
-    navigationsList,
-    contactsList,
-    competenciesCategoriesList,
+    page,
+    navigations,
+    contacts,
+    competenciesCategories,
 }) {
     const router = useRouter()
 
 	return (
         <MainWrapper
-            navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+            navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-competencies.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
                 <Container small>
                     <PageHeadline
-                        title={pageData.title}
-                        description={pageData.description}
+                        title={page.title}
+                        description={page.description}
                     />
                     <div className={style.about}>
                         <Headline
@@ -107,7 +107,7 @@ export default function CompetenciesPage({
                             </li>
                         </ul>
                         <ul className={style.category}>
-                            {competenciesCategoriesList.sort(( a, b ) => a.order - b.order).map(category =>
+                            {competenciesCategories.sort(( a, b ) => a.order - b.order).map(category =>
                                 <li className={style.category__item} key={category.id}>
                                     <span className={style.category__item__title}>
                                         {category.title}

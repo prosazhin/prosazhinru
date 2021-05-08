@@ -26,9 +26,9 @@ const api = new API()
 
 
 export async function getStaticPaths() {
-    const tagsResult = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+    const result = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
 
-    const paths = tagsResult.map((item) => ({
+    const paths = result.map((item) => ({
         params: { tag: item.url },
     }))
 

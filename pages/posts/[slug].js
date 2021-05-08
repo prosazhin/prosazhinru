@@ -26,10 +26,10 @@ import 'dayjs/locale/ru'
 
 
 export async function getStaticPaths() {
-    const postsResult = postsSerializer(await api.get('posts'))
+    const result = postsSerializer(await api.get('posts'))
 
-    const paths = postsResult.map((post) => ({
-        params: { slug: post.slug },
+    const paths = result.map((item) => ({
+        params: { slug: item.slug },
     }))
 
     return {
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
 
 
 
-export default function PostsPage({
+export default function PostPage({
     pageData,
     navigationsList,
     contactsList,

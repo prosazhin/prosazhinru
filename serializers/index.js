@@ -2,7 +2,7 @@
 import { tagsSerializer } from './type/tags'
 import { linksSerializer } from './type/links'
 import { selectionsSerializer } from './type/selections'
-import { projectsSerializer } from './type/projects'
+import { projectsSerializer, projectSerializer } from './type/projects'
 import { postsSerializer, postSerializer, contentSerializer } from './type/posts'
 import { competenciesCategoriesSerializer } from './type/competencies'
 import { jobsSerializer } from './type/jobs'
@@ -18,6 +18,7 @@ export {
     linksSerializer,
     selectionsSerializer,
     projectsSerializer,
+    projectSerializer,
     postsSerializer,
     postSerializer,
     contentSerializer,

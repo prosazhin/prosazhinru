@@ -29,18 +29,18 @@ import 'dayjs/locale/ru'
 
 
 export async function getStaticProps() {
-    const pagesResult = pagesSerializer(await api.get('pages'), 'about')
-	const contactsResult = contactsSerializer(await api.get('contacts'))
-	const jobsResult = jobsSerializer(await api.get('jobs'))
-	const skillsResult = skillsSerializer(await api.get('skills'))
+    const pages = pagesSerializer(await api.get('pages'), 'about')
+	const contacts = contactsSerializer(await api.get('contacts'))
+	const jobs = jobsSerializer(await api.get('jobs'))
+	const skills = skillsSerializer(await api.get('skills'))
 
 	return {
 		props: {
-            pageData: pagesResult.page,
-            navigationsList: pagesResult.navigations,
-            contactsList: contactsResult,
-            jobsList: jobsResult,
-            skillsList: skillsResult,
+            page: pages.page,
+            navigations: pages.navigations,
+            contacts: contacts,
+            jobs: jobs,
+            skills: skills,
 		},
 	}
 }
@@ -48,27 +48,27 @@ export async function getStaticProps() {
 
 
 export default function AboutPage({
-    pageData,
-    navigationsList,
-    contactsList,
-    jobsList,
-    skillsList,
+    page,
+    navigations,
+    contacts,
+    jobs,
+    skills,
 }) {
     const router = useRouter()
 
 	return (
         <MainWrapper
-            navigations={navigationsList}
-			contacts={contactsList}
-			title={pageData.metaTitle}
-			description={pageData.metaDescription}
+            navigations={navigations}
+			contacts={contacts}
+			title={page.metaTitle}
+			description={page.metaDescription}
 			image="/sharing-index.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
                 <Container small>
                     <PageHeadline
-                        description={pageData.description}
+                        description={page.description}
                     />
                     <div className={style.competencies}>
                         <Link href="/competencies">
@@ -86,7 +86,7 @@ export default function AboutPage({
                             </a>
                         </Link>
                     </div>
-                    {skillsList.sort(( a, b ) => a.order - b.order).map(skill =>
+                    {skills.sort(( a, b ) => a.order - b.order).map(skill =>
                         <section className={style.section} key={skill.id}>
                             <Headline
                                 title={skill.title}
@@ -113,7 +113,7 @@ export default function AboutPage({
                         size="1"
                     />
                     <article className={style.road}>
-                        {jobsList.sort(( a, b ) => b.order - a.order).map(job =>
+                        {jobs.sort(( a, b ) => b.order - a.order).map(job =>
                             <section className={style.road__item} key={job.id}>
                                 <h3 className={style.road__title}>
                                     {job.link ? 
