@@ -17,6 +17,7 @@ import {
 	linksSerializer,
 	selectionsSerializer,
 	postsSerializer,
+	projectsSerializer,
 } from '../serializers'
 
 import API from '../utils/Api'
@@ -31,6 +32,7 @@ export async function getStaticProps() {
 	const links = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
 	const selections = selectionsSerializer(await api.get('selections'))
 	const posts = postsSerializer(await api.get('posts'))
+	const projects = projectsSerializer(await api.get('projects'))
 
 	return {
 		props: {
@@ -41,6 +43,7 @@ export async function getStaticProps() {
 			links: links,
 			selections: selections,
 			posts: posts,
+			projects: projects,
 		},
 	}
 }
@@ -55,6 +58,7 @@ export default function HomePage({
 	links,
 	selections,
 	posts,
+	projects,
 }) {
 	const router = useRouter()
 
@@ -103,6 +107,7 @@ export default function HomePage({
 		year.links = links.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 		year.selections = selections.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 		year.posts = posts.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
+		year.projects = projects.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 	})
 
 	return (

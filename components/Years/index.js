@@ -48,7 +48,7 @@ export default function Years({ array }) {
                             <li className={style.log}>
                                 <span className={style.log__title}>Добавил</span>
                                 <span className={style.log__value}>
-                                    {item.links.length} {numeralize.pluralize(item.links.length, 'ссылка', 'ссылки', 'ссылок')}
+                                    {item.links.length} {numeralize.pluralize(item.links.length, 'ссылку', 'ссылки', 'ссылок')}
                                 </span>
                             </li>
                         }
@@ -56,7 +56,7 @@ export default function Years({ array }) {
                             <li className={style.log}>
                                 <span className={style.log__title}>Составил</span>
                                 <span className={style.log__value}>
-                                    {item.selections.length} {numeralize.pluralize(item.selections.length, 'подборка', 'подборки', 'подборок')}
+                                    {item.selections.length} {numeralize.pluralize(item.selections.length, 'подборку', 'подборки', 'подборок')}
                                 </span>
                             </li>
                         }
@@ -64,7 +64,15 @@ export default function Years({ array }) {
                             <li className={style.log}>
                                 <span className={style.log__title}>Написал</span>
                                 <span className={style.log__value}>
-                                    {item.posts.length} {numeralize.pluralize(item.posts.length, 'заметка', 'заметки', 'заметок')}
+                                    {item.posts.length} {numeralize.pluralize(item.posts.length, 'заметку', 'заметки', 'заметок')}
+                                </span>
+                            </li>
+                        }
+                        {!!item.projects.length &&
+                            <li className={style.log}>
+                                <span className={style.log__title}>Сделал</span>
+                                <span className={style.log__value}>
+                                    {item.projects.length} {numeralize.pluralize(item.projects.length, 'проект', 'проекта', 'проектов')}
                                 </span>
                             </li>
                         }
