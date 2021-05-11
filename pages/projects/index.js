@@ -51,7 +51,7 @@ export default function ProjectsPage({
 			contacts={contacts}
 			title={page.metaTitle}
 			description={page.metaDescription}
-			image="/sharing-posts.jpg"
+			image="/sharing-projects.jpg"
 			url={router.asPath}
 		>
             <MainContainer>

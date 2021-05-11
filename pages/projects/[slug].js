@@ -72,7 +72,7 @@ export default function ProjectPage({
 			contacts={contacts}
 			title={project.title}
 			description={page.metaDescription}
-			image="/sharing-posts.jpg"
+			image="/sharing-projects.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
