@@ -62,7 +62,6 @@ export default function HomePage({
 }) {
 	const router = useRouter()
 	
-
 	function workNow(item, year) {
 		if (!item.dismissal && dayjs(item.recruited).format('YYYY') < year) {
 			return true
