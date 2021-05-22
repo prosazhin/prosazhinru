@@ -118,9 +118,9 @@
   integrity sha512-LSoKnM+fI9MHHew+mBg1w2e4/gjwPQsI+mDTzmfwdBwje+j9U2Int6XOZftMqBPXSlL04vjC9SRBkp0+3h8cNA==
 
 "@notionhq/client@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@notionhq/client/-/client-0.1.3.tgz#077a5d4a11d331b32596e1255b926153190c27ea"
-  integrity sha512-k6xMGsCWJZgRbHKEjFjkrRNACswGz180sUiUU3zig9vgEubaJE0D+5X3LZgbetelmh6lR5YFgS1EFTqNr0nCnA==
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@notionhq/client/-/client-0.1.6.tgz#99c942d043027f9246b5e92e2ca733d264117313"
+  integrity sha512-mV8/6s//aGr6jUTIqcjyKIm3arZ+ZfR8odjFvwaKXC8GSdvM7FyxTEeSwnXlcm1U7o9ZLnuMf5W/C567DzvBBA==
   dependencies:
     got "^11.8.2"
 
@@ -178,9 +178,9 @@
     "@types/unist" "*"
 
 "@types/node@*":
-  version "15.3.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.3.0.tgz#d6fed7d6bc6854306da3dea1af9f874b00783e26"
-  integrity sha512-8/bnjSZD86ZfpBsDlCIkNXIvm+h6wi9g7IqL+kmFkQ+Wvu3JrasgLElfiPgoo8V8vVfnEi0QVS12gbl94h9YsQ==
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.0.tgz#f0ddca5a61e52627c9dcb771a6039d44694597bc"
+  integrity sha512-gCYSfQpy+LYhOFTKAeE8BkyGqaxmlFxe+n4DKM6DR0wzw/HISUE/hAmkC/KT8Sw5PCJblqg062b3z9gucv3k0A==
 
 "@types/responselike@*", "@types/responselike@^1.0.0":
   version "1.0.0"
