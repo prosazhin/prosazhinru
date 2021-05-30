@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import dayjs from 'dayjs'
 import style from './styles.module.scss'
 
 import {
@@ -20,8 +19,6 @@ import {
     getJobs,
     getSkills,
 } from '../../api/actions'
-
-import 'dayjs/locale/ru'
 
 
 
@@ -124,7 +121,7 @@ export default function AboutPage({
                                     }
                                 </h3>
                                 <p className={style.road__date}>
-                                    {dayjs(job.recruited).locale('ru').format('MMMM YYYY')} — {job.dismissal === null ? 'Сейчас' : `${dayjs(job.dismissal).locale('ru').format('MMMM YYYY')}`}
+                                    {job.date}
                                 </p>
                                 <p className={style.road__position}>
                                     {job.position}
