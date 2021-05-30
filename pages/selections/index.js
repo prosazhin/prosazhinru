@@ -20,7 +20,7 @@ import {
 	contactsSerializer,
 } from '../../serializers'
 
-import API from '../../utils/Api'
+import API from '../api/contentful'
 const api = new API()
 
 

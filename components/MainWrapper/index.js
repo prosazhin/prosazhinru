@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Head from '../../utils/Head'
+import Head from '../../utils/head'
 import {
     Header,
     Footer,
