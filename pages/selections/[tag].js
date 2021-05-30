@@ -14,19 +14,17 @@ import {
 } from '../../components'
 
 import {
-	pagesSerializer,
-	tagsSerializer,
-	selectionsSerializer,
-	contactsSerializer,
-} from '../../serializers'
-
-import API from '../api/contentful'
-const api = new API()
+    getPages,
+    getContacts,
+    getTags,
+    getSelections,
+	getSelectionsWithTag,
+} from '../../api/actions'
 
 
 
 export async function getStaticPaths() {
-    const result = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
+    const result = await getTags()
 
     const paths = result.map((item) => ({
         params: { tag: item.url },
@@ -38,13 +36,14 @@ export async function getStaticPaths() {
     }
 }
 
+
+
 export async function getStaticProps({ params }) {
-	const pages = pagesSerializer(await api.get('pages'), 'selections')
-	const contacts = contactsSerializer(await api.get('contacts'))
-	const tags = tagsSerializer(await api.get('tags', { order: 'sys.createdAt' }))
-	const selections = selectionsSerializer(await api.get('selections'))
-	const activeTagId = tags.filter(item => item.url === params.tag)[0].id
-	const activeSelections = selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
+	const pages = await getPages('selections')
+	const contacts = await getContacts()
+	const tags = await getTags()
+	const selections = await getSelections()
+	const activeSelections = await getSelectionsWithTag(tags.filter(item => item.url === params.tag)[0].id)
 
 	return {
 		props: {

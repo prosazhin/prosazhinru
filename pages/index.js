@@ -20,6 +20,8 @@ import {
 	projectsSerializer,
 } from '../serializers'
 
+import { getContacts, getPages } from '../api/actions'
+
 import API from '../api/contentful'
 const api = new API()
 
@@ -33,6 +35,8 @@ export async function getStaticProps() {
 	const selections = selectionsSerializer(await api.get('selections'))
 	const posts = postsSerializer(await api.get('posts'))
 	const projects = projectsSerializer(await api.get('projects'))
+
+	const qwer = await getPages('home')
 
 	return {
 		props: {

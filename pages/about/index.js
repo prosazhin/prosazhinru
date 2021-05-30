@@ -15,24 +15,21 @@ import {
 } from '../../components'
 
 import {
-    pagesSerializer,
-    contactsSerializer,
-    jobsSerializer,
-    skillsSerializer,
-} from '../../serializers'
-
-import API from '../api/contentful'
-const api = new API()
+    getPages,
+    getContacts,
+    getJobs,
+    getSkills,
+} from '../../api/actions'
 
 import 'dayjs/locale/ru'
 
 
 
 export async function getStaticProps() {
-    const pages = pagesSerializer(await api.get('pages'), 'about')
-	const contacts = contactsSerializer(await api.get('contacts'))
-	const jobs = jobsSerializer(await api.get('jobs'))
-	const skills = skillsSerializer(await api.get('skills'))
+    const pages = await getPages('about')
+	const contacts = await getContacts()
+	const jobs = await getJobs()
+	const skills = await getSkills()
 
 	return {
 		props: {

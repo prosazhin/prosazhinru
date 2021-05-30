@@ -13,21 +13,18 @@ import {
 } from '../../components'
 
 import {
-    pagesSerializer,
-    contactsSerializer,
-    projectsSerializer,
-    projectSerializer,
-} from '../../serializers'
-
-import API from '../api/contentful'
-const api = new API()
+    getPages,
+    getContacts,
+    getProjects,
+    getProject,
+} from '../../api/actions'
 
 import 'dayjs/locale/ru'
 
 
 
 export async function getStaticPaths() {
-    const result = projectsSerializer(await api.get('projects'))
+    const result = await getProjects()
 
     const paths = result.map((item) => ({
         params: { slug: item.slug },
@@ -42,9 +39,9 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-    const pages = pagesSerializer(await api.get('pages'), 'projects')
-	const contacts = contactsSerializer(await api.get('contacts'))
-	const project = projectSerializer(await api.get('projects', { 'fields.slug': params.slug }))[0]
+    const pages = await getPages('projects')
+	const contacts = await getContacts()
+	const project = await getProject(params.slug)
 
 	return {
 		props: {

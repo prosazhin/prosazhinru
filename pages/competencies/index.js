@@ -11,20 +11,17 @@ import {
 } from '../../components'
 
 import {
-    pagesSerializer,
-    contactsSerializer,
-    competenciesCategoriesSerializer,
-} from '../../serializers'
-
-import API from '../api/contentful'
-const api = new API()
+    getPages,
+    getContacts,
+    getCompetencies,
+} from '../../api/actions'
 
 
 
 export async function getStaticProps() {
-    const pages = pagesSerializer(await api.get('pages'), 'competencies')
-	const contacts = contactsSerializer(await api.get('contacts'))
-	const competenciesCategories = competenciesCategoriesSerializer(await api.get('competencies-categories'))
+    const pages = await getPages('competencies')
+	const contacts = await getContacts()
+	const competenciesCategories = await getCompetencies()
     
 
 	return {
