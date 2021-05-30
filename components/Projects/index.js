@@ -27,7 +27,7 @@ export default function Projects({ array }) {
                                 array={project.tags}
                             />
                             <span className={style.project__date}>
-                                {dayjs(project.create).locale('ru').format('DD MMMM YYYY')}
+                                {project.createString}
                             </span>
                         </a>
                     </Link>

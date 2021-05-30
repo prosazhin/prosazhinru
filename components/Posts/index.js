@@ -25,7 +25,7 @@ export default function Posts({ array }) {
                                 array={post.tags}
                             />
                             <span className={style.post__date}>
-                                {dayjs(post.create).locale('ru').format('DD MMMM YYYY')}
+                                {post.createString}
                             </span>
                         </a>
                     </Link>
