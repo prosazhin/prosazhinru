@@ -11,32 +11,25 @@ import {
 } from '../components'
 
 import {
-	pagesSerializer,
-	contactsSerializer,
-	jobsSerializer,
-	linksSerializer,
-	selectionsSerializer,
-	postsSerializer,
-	projectsSerializer,
-} from '../serializers'
-
-import { getContacts, getPages } from '../api/actions'
-
-import API from '../api/contentful'
-const api = new API()
+    getPages,
+    getContacts,
+    getJobs,
+    getLinks,
+	getSelections,
+	getPosts,
+	getProjects,
+} from '../api/actions'
 
 
 
 export async function getStaticProps() {
-	const pages = pagesSerializer(await api.get('pages'), 'home')
-	const contacts = contactsSerializer(await api.get('contacts'))
-	const jobs = jobsSerializer(await api.get('jobs'))
-	const links = linksSerializer(await api.get('links', { limit: 500, include: 0 }))
-	const selections = selectionsSerializer(await api.get('selections'))
-	const posts = postsSerializer(await api.get('posts'))
-	const projects = projectsSerializer(await api.get('projects'))
-
-	const qwer = await getPages('home')
+	const pages = await getPages('home')
+	const contacts = await getContacts()
+	const jobs = await getJobs()
+	const links = await getLinks()
+	const selections = await getSelections()
+	const posts = await getPosts()
+	const projects = await getProjects()
 
 	return {
 		props: {
