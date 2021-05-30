@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import dayjs from 'dayjs'
 import style from './styles.module.scss'
 
 import {
@@ -18,8 +17,6 @@ import {
     getProjects,
     getProject,
 } from '../../api/actions'
-
-import 'dayjs/locale/ru'
 
 
 
@@ -87,7 +84,7 @@ export default function ProjectPage({
                         customClass={style.tags}
                     />
                     <span className={style.date}>
-                        {dayjs(project.create).locale('ru').format('DD MMMM YYYY')}
+                        {project.createString}
                     </span>
                 </Container>
             </MainContainer>

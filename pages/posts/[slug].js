@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import dayjs from 'dayjs'
 import style from './styles.module.scss'
 
 import {
@@ -18,8 +17,6 @@ import {
     getPosts,
     getPost,
 } from '../../api/actions'
-
-import 'dayjs/locale/ru'
 
 
 
@@ -87,7 +84,7 @@ export default function PostPage({
                         customClass={style.tags}
                     />
                     <span className={style.date}>
-                        {dayjs(post.create).locale('ru').format('DD MMMM YYYY')}
+                        {post.createString}
                     </span>
                 </Container>
             </MainContainer>
