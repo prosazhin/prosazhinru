@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
-import { dataTabs } from '../../utils/tabs.js'
 
 import {
 	MainWrapper,
@@ -49,6 +48,17 @@ export default function LinksPage({
 	contacts,
 }) {
 	const router = useRouter()
+
+	const dataTabs = [
+		{
+			title: 'Ссылки',
+			url: '/links',
+		},
+		{
+			title: 'Подборки',
+			url: '/selections',
+		},
+	]
 
 	return (
 		<MainWrapper
