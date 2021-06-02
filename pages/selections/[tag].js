@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
+import { useAppContext } from '../../context'
 
 import {
 	MainWrapper,
@@ -67,17 +68,7 @@ export default function SelectionsTagPage({
 	contacts,
 }) {
 	const router = useRouter()
-
-	const dataTabs = [
-		{
-			title: 'Ссылки',
-			url: '/links',
-		},
-		{
-			title: 'Подборки',
-			url: '/selections',
-		},
-	]
+	const context = useAppContext()
 
 	const activeTagsList = []
 
@@ -102,7 +93,7 @@ export default function SelectionsTagPage({
 			<MainContainer>
 				<Container>
 					<Tabs
-						array={dataTabs}
+						array={context.tabs}
 						customClass={style.tabs}
 					/>
 					<PageHeadline
