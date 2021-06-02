@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
-import { dataTabs } from '../../utils/tabs'
+import { dataTabs } from '../../utils/tabs.js'
 
 import {
 	MainWrapper,
