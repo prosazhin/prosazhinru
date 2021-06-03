@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
-import Mixpanel from '../utils/Mixpanel'
+import Mixpanel from '../../utils/Mixpanel'
 
 import {
 	MainWrapper,

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.scss'
-import Mixpanel from '../utils/Mixpanel'
+import Mixpanel from '../../utils/Mixpanel'
 
 import {
     MainWrapper,
