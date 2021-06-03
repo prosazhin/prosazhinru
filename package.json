@@ -17,6 +17,7 @@
 		"@fortawesome/react-fontawesome": "^0.1.8",
 		"contentful": "^8.3.7",
 		"dayjs": "^1.10.4",
+		"mixpanel-browser": "^2.41.0",
 		"next": "^10.0.0",
 		"numeralize-ru": "^1.0.1",
 		"react": "^17.0.1",

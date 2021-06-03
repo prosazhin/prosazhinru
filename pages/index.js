@@ -1,6 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
+import Mixpanel from '../utils/Mixpanel'
 
 import {
 	MainWrapper,
@@ -57,6 +58,8 @@ export default function HomePage({
 	posts,
 	projects,
 }) {
+	Mixpanel.event('Load_Index_Page')
+
 	const router = useRouter()
 	
 	function workNow(item, year) {
