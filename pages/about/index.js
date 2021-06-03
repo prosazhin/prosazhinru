@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.scss'
+import Mixpanel from '../utils/Mixpanel'
 
 import {
     MainWrapper,
@@ -49,6 +50,9 @@ export default function AboutPage({
     skills,
 }) {
     const router = useRouter()
+
+    // Отправляю событие про отправку страницы
+	Mixpanel.event('LOADING_ABOUT_PAGE')
 
 	return (
         <MainWrapper

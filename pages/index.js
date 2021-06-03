@@ -58,8 +58,6 @@ export default function HomePage({
 	posts,
 	projects,
 }) {
-	Mixpanel.event('Load_Index_Page')
-
 	const router = useRouter()
 	
 	function workNow(item, year) {
@@ -109,6 +107,9 @@ export default function HomePage({
 		year.posts = posts.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 		year.projects = projects.filter(item => dayjs(item.create).format('YYYY') === year.titleString)
 	})
+
+	// Отправляю событие про отправку страницы
+	Mixpanel.event('LOADING_MAIN_PAGE')
 
 	return (
 		<MainWrapper

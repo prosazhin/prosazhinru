@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
+import Mixpanel from '../utils/Mixpanel'
 
 import {
 	MainWrapper,
@@ -50,6 +51,9 @@ export default function LinksPage({
 }) {
 	const router = useRouter()
 	const context = useAppContext()
+
+	// Отправляю событие про отправку страницы
+	Mixpanel.event('LOADING_LINKS_PAGE')
 
 	return (
 		<MainWrapper

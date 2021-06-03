@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import Mixpanel from '../utils/Mixpanel'
 
 import {
     MainWrapper,
@@ -41,6 +42,9 @@ export default function PostsPage({
     posts,
 }) {
     const router = useRouter()
+
+    // Отправляю событие про отправку страницы
+	Mixpanel.event('LOADING_POSTS_PAGE')
 
 	return (
         <MainWrapper

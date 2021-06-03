@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
+import Mixpanel from '../utils/Mixpanel'
 
 import {
 	MainWrapper,
@@ -79,6 +80,9 @@ export default function SelectionsTagPage({
 			}
 		})
 	})
+
+	// Отправляю событие про отправку страницы
+	Mixpanel.event('LOADING_SELECTIONS_PAGE')
 
 	return (
 		<MainWrapper
