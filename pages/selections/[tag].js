@@ -20,7 +20,7 @@ import {
     getTags,
     getSelections,
 	getSelectionsWithTag,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 

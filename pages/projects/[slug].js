@@ -17,7 +17,7 @@ import {
     getContacts,
     getProjects,
     getProject,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 

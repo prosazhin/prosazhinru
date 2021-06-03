@@ -19,7 +19,7 @@ import {
     getContacts,
     getTags,
     getLinks,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 

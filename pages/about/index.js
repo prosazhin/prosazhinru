@@ -19,7 +19,7 @@ import {
     getContacts,
     getJobs,
     getSkills,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 

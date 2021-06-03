@@ -1,9 +1,9 @@
 
 import {
     selectionsSerializer,
-} from '../../serializers'
+} from '../serializers'
 
-import CONTENTFULAPI from '../../contentful'
+import CONTENTFULAPI from '../contentful'
 const api = new CONTENTFULAPI()
 
 

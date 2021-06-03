@@ -15,7 +15,7 @@ import {
     getPages,
     getContacts,
     getCompetencies,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 

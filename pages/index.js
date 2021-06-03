@@ -19,12 +19,12 @@ import {
 	getSelections,
 	getPosts,
 	getProjects,
-} from '../api/actions'
+} from '../api/methods'
 
 
 
 export async function getStaticProps() {
-	const pages = await getPages('home')
+	const pages = getPages.serializer(await getPages.fetch, 'home')
 	const contacts = await getContacts()
 	const jobs = await getJobs()
 	const links = await getLinks()

@@ -17,7 +17,7 @@ import {
     getContacts,
     getPosts,
     getPost,
-} from '../../api/actions'
+} from '../../api/methods'
 
 
 
