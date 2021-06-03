@@ -19,7 +19,7 @@ export default function MainWrapper({
 	canonical,
 }) {
 	return (
-		<React.Fragment>
+		<>
 			<Head
 				title={title}
 				description={description}
@@ -28,8 +28,8 @@ export default function MainWrapper({
 				canonical={canonical}
 			/>
 			<Header navigations={navigations} />
-            {children}
+			{children}
 			<Footer contacts={contacts} />
-		</React.Fragment>
+		</>
 	)
 }
