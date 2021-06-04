@@ -4,8 +4,8 @@ const api = new CONTENTFULAPI()
 
 
 
-export const getPages = {
-    fetch: api.get('pages'),
+export const pages = {
+    get: api.get('pages'),
 
     serializer(data, pageName) {
         const result = {

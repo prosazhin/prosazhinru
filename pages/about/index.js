@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
+import method from '../../api/methods'
 
 import {
     MainWrapper,
@@ -13,13 +14,6 @@ import {
     PageHeadline,
     Headline,
 } from '../../components'
-
-import {
-    getPages,
-    getContacts,
-    getJobs,
-    getSkills,
-} from '../../api/methods'
 
 
 

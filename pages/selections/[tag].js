@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
 import Mixpanel from '../../utils/Mixpanel'
+import method from '../../api/methods'
 
 import {
 	MainWrapper,
@@ -13,14 +14,6 @@ import {
 	Selections,
 	Tabs,
 } from '../../components'
-
-import {
-    getPages,
-    getContacts,
-    getTags,
-    getSelections,
-	getSelectionsWithTag,
-} from '../../api/methods'
 
 
 

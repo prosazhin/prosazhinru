@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
+import method from '../../api/methods'
 
 import {
     MainWrapper,
@@ -10,12 +11,6 @@ import {
     PageHeadline,
     Headline,
 } from '../../components'
-
-import {
-    getPages,
-    getContacts,
-    getCompetencies,
-} from '../../api/methods'
 
 
 

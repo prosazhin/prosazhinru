@@ -2,6 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import Mixpanel from '../utils/Mixpanel'
+import method from '../api/methods'
 
 import {
 	MainWrapper,
@@ -10,16 +11,6 @@ import {
 	PageHeadline,
 	Years,
 } from '../components'
-
-import {
-    getPages,
-    getContacts,
-    getJobs,
-    getLinks,
-	getSelections,
-	getPosts,
-	getProjects,
-} from '../api/methods'
 
 
 

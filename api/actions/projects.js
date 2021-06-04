@@ -1,11 +1,11 @@
+import { checkValue } from '../../utils/Functions'
+import CONTENTFULAPI from '../contentful'
+const api = new CONTENTFULAPI()
 
 import {
     projectsSerializer,
     projectSerializer,
 } from '../serializers'
-
-import CONTENTFULAPI from '../contentful'
-const api = new CONTENTFULAPI()
 
 
 
