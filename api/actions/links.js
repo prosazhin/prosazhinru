@@ -2,16 +2,23 @@ import { checkValue } from '../../utils/Functions'
 import CONTENTFULAPI from '../contentful'
 const api = new CONTENTFULAPI()
 
-import {
-    linksSerializer,
-} from '../serializers'
 
 
+export const links = {
+    get: api.get('links', { limit: 500, include: 0 }),
+    // getLinksWithTag: api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }),
 
-export async function getLinks() {
-    return linksSerializer(await api.get('links', { limit: 500, include: 0 }))
-}
-
-export async function getLinksWithTag(activeTagId) {
-    return linksSerializer(await api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }))
+    serializer(data) {
+        const result = data.items.map(item => {
+            return {
+                id: item.sys.id,
+                title: item.fields.title,
+                description: item.fields.description,
+                url: item.fields.url,
+                create: item.fields.create ? item.fields.create : null,
+            }
+        })
+    
+        return result
+    }
 }
