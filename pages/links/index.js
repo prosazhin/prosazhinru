@@ -3,7 +3,9 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
 import Mixpanel from '../../utils/Mixpanel'
-import method from '../../api/methods'
+import serializer from '../../api/serializer'
+import CONTENTFULAPI from '../../api/contentful'
+const api = new CONTENTFULAPI()
 
 import {
 	MainWrapper,
@@ -14,9 +16,6 @@ import {
 	Links,
 	Tabs,
 } from '../../components'
-
-import CONTENTFULAPI from '../../api/contentful'
-const api = new CONTENTFULAPI()
 
 
 

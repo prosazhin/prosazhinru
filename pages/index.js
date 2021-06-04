@@ -2,7 +2,9 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import Mixpanel from '../utils/Mixpanel'
-import method from '../api/methods'
+import serializer from '../api/serializer'
+import CONTENTFULAPI from '../api/contentful'
+const api = new CONTENTFULAPI()
 
 import {
 	MainWrapper,
@@ -11,9 +13,6 @@ import {
 	PageHeadline,
 	Years,
 } from '../components'
-
-import CONTENTFULAPI from '../api/contentful'
-const api = new CONTENTFULAPI()
 
 
 

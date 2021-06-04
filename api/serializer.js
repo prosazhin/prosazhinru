@@ -11,7 +11,7 @@ import { jobs } from './serializers/jobs'
 
 
 
-const method = {
+const serializer = {
     pages,
     contacts,
     tags,
@@ -26,4 +26,4 @@ const method = {
     jobs,
 }
 
-export default method
+export default serializer
