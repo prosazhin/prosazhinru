@@ -18,7 +18,7 @@ import {
 
 
 export async function getStaticPaths() {
-    const result = method.projects.serializer(await method.projects.getList())
+    const result = serializer.projects(await method.projects.getList())
 
     const paths = result.map((item) => ({
         params: { slug: item.slug },
@@ -33,9 +33,9 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-    const pages = method.pages.serializer(await method.pages.getList(), 'projects')
-	const contacts = method.contacts.serializer(await method.contacts.getList())
-	const project = method.project.serializer(await method.project.getItem(params.slug))
+    const pages = serializer.pages(await method.pages.getList(), 'projects')
+	const contacts = serializer.contacts(await method.contacts.getList())
+	const project = serializer.project(await method.project.getItem(params.slug))
 
 	return {
 		props: {
