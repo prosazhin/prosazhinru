@@ -20,10 +20,10 @@ import {
 
 
 export async function getStaticProps() {
-	const pages = serializer.pages(await method.pages.getList(), 'selections')
-	const contacts = serializer.contacts(await method.contacts.getList())
-	const tags = serializer.tags(await method.tags.getList())
-	const selections = serializer.selections(await method.selections.getList())
+	const pages = serializer.pages(await api.get('pages'), 'selections')
+	const contacts = serializer.contacts(await api.get('contacts'))
+	const tags = serializer.tags(await api.get('tags', { order: 'sys.createdAt' }))
+	const selections = serializer.selections(await api.get('selections'))
 
 	return {
 		props: {

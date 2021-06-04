@@ -20,7 +20,7 @@ import {
 
 
 export async function getStaticPaths() {
-    const result = serializer.tags(await method.tags.getList())
+    const result = serializer.tags(await api.get('tags', { order: 'sys.createdAt' }))
 
     const paths = result.map((item) => ({
         params: { tag: item.url },
@@ -35,12 +35,12 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-	const pages = serializer.pages(await method.pages.getList(), 'selections')
-	const contacts = serializer.contacts(await method.contacts.getList())
-	const tags = serializer.tags(await method.tags.getList())
+	const pages = serializer.pages(await api.get('pages'), 'selections')
+	const contacts = serializer.contacts(await api.get('contacts'))
+	const tags = serializer.tags(await api.get('tags', { order: 'sys.createdAt' }))
 	const activeTag = tags.filter(item => item.url === params.tag)[0]
-	const selections = serializer.selections(await method.selections.getList())
-	const activeSelections = serializer.selections(await method.selections.getListWithTag(activeTag.id))
+	const selections = serializer.selections(await api.get('selections'))
+	const activeSelections = serializer.selections(await api.get('selections', { 'fields.tags.sys.id[in]': activeTag.id }))
 
 	return {
 		props: {
