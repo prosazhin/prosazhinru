@@ -11,11 +11,11 @@ export const links = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                title: item.fields.title,
-                description: item.fields.description,
-                url: item.fields.url,
-                create: item.fields.create ? item.fields.create : null,
+                id: checkValue(item.sys.id),
+                title: checkValue(item.fields.title),
+                description: checkValue(item.fields.description),
+                url: checkValue(item.fields.url),
+                create: checkValue(item.fields.create),
             }
         })
     

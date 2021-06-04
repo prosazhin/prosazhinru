@@ -14,12 +14,12 @@ export const posts = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                slug: item.fields.slug,
-                title: item.fields.title,
-                description: item.fields.description,
-                tags: item.fields.tags,
-                create: item.fields.create,
+                id: checkValue(item.sys.id),
+                slug: checkValue(item.fields.slug),
+                title: checkValue(item.fields.title),
+                description: checkValue(item.fields.description),
+                tags: checkValue(item.fields.tags),
+                create: checkValue(item.fields.create),
                 createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
             }
         })
@@ -36,13 +36,13 @@ export const post = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                slug: item.fields.slug,
-                title: item.fields.title,
-                description: item.fields.description,
+                id: checkValue(item.sys.id),
+                slug: checkValue(item.fields.slug),
+                title: checkValue(item.fields.title),
+                description: checkValue(item.fields.description),
                 content: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.content))),
-                tags: item.fields.tags,
-                create: item.fields.create,
+                tags: checkValue(item.fields.tags),
+                create: checkValue(item.fields.create),
                 createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
             }
         })

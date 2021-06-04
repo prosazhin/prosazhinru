@@ -10,9 +10,9 @@ export const tags = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                title: item.fields.title,
-                url: item.fields.url,
+                id: checkValue(item.sys.id),
+                title: checkValue(item.fields.title),
+                url: checkValue(item.fields.url),
             }
         })
     

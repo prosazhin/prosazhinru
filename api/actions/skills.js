@@ -10,11 +10,11 @@ export const skills = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                title: item.fields.title,
-                order: item.fields.order,
-                description: item.fields.description,
-                tools: item.fields.tools ? item.fields.tools : null,
+                id: checkValue(item.sys.id),
+                title: checkValue(item.fields.title),
+                order: checkValue(item.fields.order),
+                description: checkValue(item.fields.description),
+                tools: checkValue(item.fields.tools),
             }
         })
     

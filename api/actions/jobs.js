@@ -12,15 +12,15 @@ export const jobs = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                title: item.fields.title,
-                link: item.fields.link,
-                url: item.fields.url ? item.fields.url : null,
-                position: item.fields.position,
-                description: item.fields.description,
-                order: item.fields.order,
-                recruited: item.fields.recruited,
-                dismissal: item.fields.dismissal ? item.fields.dismissal : null,
+                id: checkValue(item.sys.id),
+                title: checkValue(item.fields.title),
+                link: checkValue(item.fields.link),
+                url: checkValue(item.fields.url),
+                position: checkValue(item.fields.position),
+                description: checkValue(item.fields.description),
+                order: checkValue(item.fields.order),
+                recruited: checkValue(item.fields.recruited),
+                dismissal: checkValue(item.fields.dismissal),
                 date: `${dayjs(item.fields.recruited).locale('ru').format('MMMM YYYY')} — ${item.fields.dismissal === null ? 'Сейчас' : `${dayjs(item.fields.dismissal).locale('ru').format('MMMM YYYY')}`}`,
             }
         })

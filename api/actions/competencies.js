@@ -10,15 +10,15 @@ export const competencies = {
     serializer(data) {
         const result = data.items.map(item => {
             return {
-                id: item.sys.id,
-                title: item.fields.title,
-                order: item.fields.order,
+                id: checkValue(item.sys.id),
+                title: checkValue(item.fields.title),
+                order: checkValue(item.fields.order),
                 competencies: item.fields.competencies.map(competence => {
                     return {
-                        id: competence.sys.id,
-                        title: competence.fields.title,
-                        rating: competence.fields.rating,
-                        order: competence.fields.order,
+                        id: checkValue(competence.sys.id),
+                        title: checkValue(competence.fields.title),
+                        rating: checkValue(competence.fields.rating),
+                        order: checkValue(competence.fields.order),
                     }
                 }),
             }
