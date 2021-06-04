@@ -12,6 +12,9 @@ import {
 	Years,
 } from '../components'
 
+import CONTENTFULAPI from '../api/contentful'
+const api = new CONTENTFULAPI()
+
 
 
 export async function getStaticProps() {
