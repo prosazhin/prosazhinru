@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 
-import { contentSerializer } from '../serializers'
+import { contentSerializer } from '../serializers/content'
 
 
 
