@@ -16,12 +16,12 @@ import {
 
 export async function getStaticProps() {
 	const pages = method.pages.serializer(await method.pages.getList(), 'home')
-	const contacts = method.contacts.serializer(await method.contacts.get)
-	const jobs = method.jobs.serializer(await method.jobs.get)
-	const links = method.links.serializer(await method.links.get)
-	const selections = method.selections.serializer(await method.selections.get)
-	const posts = method.posts.serializer(await method.posts.get)
-	const projects = method.projects.serializer(await method.projects.get)
+	const contacts = method.contacts.serializer(await method.contacts.getList())
+	const jobs = method.jobs.serializer(await method.jobs.getList())
+	const links = method.links.serializer(await method.links.getList())
+	const selections = method.selections.serializer(await method.selections.getList())
+	const posts = method.posts.serializer(await method.posts.getList())
+	const projects = method.projects.serializer(await method.projects.getList())
 
 	return {
 		props: {

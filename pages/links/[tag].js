@@ -18,7 +18,7 @@ import {
 
 
 export async function getStaticPaths() {
-	const result = await getTags()
+	const result = method.tags.serializer(await method.tags.getList())
 
     const paths = result.map((item) => ({
         params: { tag: item.url },
@@ -33,10 +33,11 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({ params }) {
-	const pages = await getPages('links')
-	const contacts = await getContacts()
-	const tags = await getTags()
-	const links = await getLinksWithTag(tags.filter(item => item.url === params.tag)[0].id)
+	const pages = method.pages.serializer(await method.pages.getList(), 'links')
+	const contacts = method.contacts.serializer(await method.contacts.getList())
+	const tags = method.tags.serializer(await method.tags.getList())
+	const activeTag = tags.filter(item => item.url === params.tag)[0]
+	const links = method.links.serializer(await method.links.getListWithTag(activeTag.id))
 
 	return {
 		props: {
@@ -44,6 +45,7 @@ export async function getStaticProps({ params }) {
 			navigations: pages.navigations,
 			contacts: contacts,
 			tags: tags,
+			activeTag: activeTag,
 			links: links,
 		},
 	}
@@ -55,6 +57,7 @@ export default function LinksTagPage({
 	page,
 	navigations,
 	tags,
+	activeTag,
 	links,
 	contacts,
 }) {
