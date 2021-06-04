@@ -5,8 +5,8 @@ const api = new CONTENTFULAPI()
 
 
 export const links = {
-    get: api.get('links', { limit: 500, include: 0 }),
-    // getLinksWithTag: api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }),
+    getList: () => api.get('links', { limit: 500, include: 0 }),
+    getListWithTag: (activeTagId) => api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }),
 
     serializer(data) {
         const result = data.items.map(item => {

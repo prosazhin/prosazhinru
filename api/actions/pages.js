@@ -5,7 +5,7 @@ const api = new CONTENTFULAPI()
 
 
 export const pages = {
-    get: api.get('pages'),
+    getList: () => api.get('pages'),
 
     serializer(data, pageName) {
         const result = {

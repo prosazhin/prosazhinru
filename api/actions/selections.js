@@ -4,17 +4,9 @@ const api = new CONTENTFULAPI()
 
 
 
-// export async function getSelections() {
-//     return selectionsSerializer(await api.get('selections'))
-// }
-
-// export async function getSelectionsWithTag(activeTagId) {
-//     return selectionsSerializer(await api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }))
-// }
-
 export const selections = {
-    get: api.get('selections'),
-    // get: api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }),
+    getList: () => api.get('selections'),
+    getListWithTag: (activeTagId) => api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }),
 
     serializer(data) {
         const result = data.items.map(item => {

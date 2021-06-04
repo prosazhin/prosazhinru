@@ -5,7 +5,7 @@ const api = new CONTENTFULAPI()
 
 
 export const contacts = {
-    get: api.get('contacts'),
+    getList: () => api.get('contacts'),
 
     serializer(data) {
         const result = data.items.map(item => {

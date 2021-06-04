@@ -1,8 +1,7 @@
-import dayjs from 'dayjs'
 import { checkValue } from '../../utils/Functions'
 import CONTENTFULAPI from '../contentful'
 const api = new CONTENTFULAPI()
-
+import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 
 import {
@@ -14,7 +13,7 @@ import {
 
 
 export const posts = {
-    get: api.get('posts'),
+    getList: () => api.get('posts'),
 
     serializer(data) {
         const result = data.items.map(item => {

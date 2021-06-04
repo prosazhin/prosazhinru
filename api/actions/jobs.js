@@ -1,14 +1,13 @@
-import dayjs from 'dayjs'
 import { checkValue } from '../../utils/Functions'
 import CONTENTFULAPI from '../contentful'
 const api = new CONTENTFULAPI()
-
+import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 
 
 
 export const jobs = {
-    get: api.get('jobs'),
+    getList: () => api.get('jobs'),
 
     serializer(data) {
         const result = data.items.map(item => {
