@@ -1,4 +1,3 @@
-
 export function contentSerializer(data) {
     const result = data.map(item => {
         switch(item.nodeType) {
