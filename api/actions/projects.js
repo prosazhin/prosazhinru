@@ -4,21 +4,7 @@ const api = new CONTENTFULAPI()
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 
-import {
-    projectsSerializer,
-    projectSerializer,
-    contentSerializer
-} from '../serializers'
-
-
-
-// export async function getProjects() {
-//     return projectsSerializer(await api.get('projects'))
-// }
-
-// export async function getProject(slug) {
-//     return projectSerializer(await api.get('projects', { 'fields.slug': slug }))[0]
-// }
+import { contentSerializer } from '../serializers'
 
 
 
@@ -53,13 +39,13 @@ export const project = {
                 id: item.sys.id,
                 slug: item.fields.slug,
                 title: item.fields.title,
+                content: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.content))),
                 tags: item.fields.tags,
-                cover: item.fields.cover.fields.file.url,
                 create: item.fields.create,
                 createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
             }
         })
     
-        return result
+        return result[0]
     }
 }
