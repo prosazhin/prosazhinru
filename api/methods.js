@@ -8,7 +8,7 @@ import { contentSerializer } from './serializers/content'
 
 
 
-export const pages = {
+const pages = {
     getList: () => api.get('pages'),
 
     serializer(data, pageName) {
@@ -43,7 +43,7 @@ export const pages = {
 
 
 
-export const contacts = {
+const contacts = {
     getList: () => api.get('contacts'),
 
     serializer(data) {
@@ -63,7 +63,7 @@ export const contacts = {
 
 
 
-export const tags = {
+const tags = {
     getList: () => api.get('tags', { order: 'sys.createdAt' }),
 
     serializer(data) {
@@ -81,7 +81,7 @@ export const tags = {
 
 
 
-export const links = {
+const links = {
     getList: () => api.get('links', { limit: 500, include: 0 }),
     getListWithTag: (activeTagId) => api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }),
 
@@ -102,7 +102,7 @@ export const links = {
 
 
 
-export const selections = {
+const selections = {
     getList: () => api.get('selections'),
     getListWithTag: (activeTagId) => api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }),
 
@@ -138,7 +138,7 @@ export const selections = {
 
 
 
-export const posts = {
+const posts = {
     getList: () => api.get('posts'),
 
     serializer(data) {
@@ -160,7 +160,7 @@ export const posts = {
 
 
 
-export const post = {
+const post = {
     getItem: (slug) => api.get('posts', { 'fields.slug': slug }),
 
     serializer(data) {
@@ -183,7 +183,7 @@ export const post = {
 
 
 
-export const projects = {
+const projects = {
     getList: () => api.get('projects'),
 
     serializer(data) {
@@ -205,7 +205,7 @@ export const projects = {
 
 
 
-export const project = {
+const project = {
     getItem: (slug) => api.get('projects', { 'fields.slug': slug }),
 
     serializer(data) {
@@ -227,7 +227,7 @@ export const project = {
 
 
 
-export const skills = {
+const skills = {
     getList: () => api.get('skills'),
 
     serializer(data) {
@@ -247,7 +247,7 @@ export const skills = {
 
 
 
-export const jobs = {
+const jobs = {
     getList: () => api.get('jobs'),
 
     serializer(data) {
@@ -272,7 +272,7 @@ export const jobs = {
 
 
 
-export const competencies = {
+const competencies = {
     getList: () => api.get('competencies-categories'),
 
     serializer(data) {
@@ -295,3 +295,22 @@ export const competencies = {
         return result
     }
 }
+
+
+
+const method = {
+    pages,
+    contacts,
+    tags,
+    links,
+    selections,
+    posts,
+    post,
+    projects,
+    project,
+    competencies,
+    skills,
+    jobs,
+}
+
+export default method
