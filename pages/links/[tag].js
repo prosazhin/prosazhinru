@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import { useAppContext } from '../../context'
 import Mixpanel from '../../utils/Mixpanel'
-import serializer from '../../serializer'
+import serializer from '../../serializers'
 import CONTENTFULAPI from '../../methods/contentful'
 const api = new CONTENTFULAPI()
 
