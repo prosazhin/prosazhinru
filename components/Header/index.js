@@ -1,7 +1,8 @@
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useAppContext } from '../../context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
 import { Container } from '../'
@@ -10,8 +11,8 @@ import style from './Header.module.scss'
 
 
 export default function Header({ navigations }) {
-    const [isActive, setIsActive] = useState(false)
     const router = useRouter()
+    const context = useAppContext()
 
     const isActiveLink = (url) => {
         const result = router.pathname.search(url)
@@ -19,7 +20,7 @@ export default function Header({ navigations }) {
     }
 
     return (
-        <header className={`${style.header}${isActive ? ` ${style.header__mobile}` : ''}`}>
+        <header className={`${style.header}${context.isActiveMenu ? ` ${style.header__mobile}` : ''}`}>
             <Container>
                 <div className={style.header__wrapper}>
                     <Link href="/">
@@ -44,7 +45,7 @@ export default function Header({ navigations }) {
                         )}
                     </nav>
                 </div>
-                <nav className={`${style.nav} ${style.nav__mobile}${isActive ? ` ${style.nav__mobile_active}` : ''}`}>
+                <nav className={`${style.nav} ${style.nav__mobile}${context.isActiveMenu ? ` ${style.nav__mobile_active}` : ''}`}>
                     {navigations.sort(( a, b ) => a.order - b.order).map(link =>
                         <React.Fragment key={link.id}>
                             {!!link.show &&
@@ -59,17 +60,17 @@ export default function Header({ navigations }) {
                         </React.Fragment>
                     )}
                 </nav>
-                {isActive ?
+                {context.isActiveMenu ?
                     <span
                         className={style.header__mobile_toogle}
-                        onClick={() => setIsActive(!isActive)}
+                        onClick={context.toggleActiveMenu}
                     >
                         <FontAwesomeIcon icon={faTimes} />
                     </span>
                     :
                     <span
                         className={style.header__mobile_toogle}
-                        onClick={() => setIsActive(!isActive)}
+                        onClick={context.toggleActiveMenu}
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </span>

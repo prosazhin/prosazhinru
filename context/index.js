@@ -1,12 +1,13 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 const AppContext = createContext()
 
 
 
 export function ContextProvider({ children }) {
+    const [isActiveMenu, toggleActiveMenu] = useState(false)
 
-    let state = {
+    const state = {
         tabs: [
             {
                 title: 'Ссылки',
@@ -17,6 +18,8 @@ export function ContextProvider({ children }) {
                 url: '/selections',
             },
         ],
+        isActiveMenu: isActiveMenu,
+        toggleActiveMenu: () => toggleActiveMenu(!isActiveMenu),
     }
 
     return (

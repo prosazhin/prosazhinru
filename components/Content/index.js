@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Container } from '../'
 import style from './Content.module.scss'
