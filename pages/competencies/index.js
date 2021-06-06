@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
-import serializer from '../../api/serializer'
+import serializer from '../../serializer'
 import CONTENTFULAPI from '../../api/contentful'
 const api = new CONTENTFULAPI()
 
