@@ -6,7 +6,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
 import serializer from '../../serializer'
-import CONTENTFULAPI from '../../api/contentful'
+import CONTENTFULAPI from '../../methods/contentful'
 const api = new CONTENTFULAPI()
 
 import {
