@@ -1,11 +1,15 @@
 
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import showdown from 'showdown'
 import style from './PageHeadline.module.scss'
 
 
 
 export default function PageHeadline({ title, description }) {
+
+    const converter = new showdown.Converter({ openLinksInNewWindow: true })
+    const html = converter.makeHtml(description)
+
     return (
         <div className={style.headline}>
             {title &&
@@ -14,13 +18,10 @@ export default function PageHeadline({ title, description }) {
                 </h1>
             }
             {description &&
-                <div className={style.description}>
-                    <ReactMarkdown
-                        children={description}
-                        linkTarget="_blank"
-                        skipHtml
-                    />
-                </div>
+                <div
+                    className={style.description}
+                    dangerouslySetInnerHTML={{ __html: html }}
+                />
             }
         </div>
     )
