@@ -1,13 +1,13 @@
-import { pages } from './type/pages'
-import { contacts } from './type/contacts'
-import { tags } from './type/tags'
-import { links } from './type/links'
-import { selections } from './type/selections'
-import { posts, post } from './type/posts'
-import { projects, project } from './type/projects'
-import { competencies } from './type/competencies'
-import { skills } from './type/skills'
-import { jobs } from './type/jobs'
+import { pages } from './actions/pages'
+import { contacts } from './actions/contacts'
+import { tags } from './actions/tags'
+import { links } from './actions/links'
+import { selections } from './actions/selections'
+import { posts, post } from './actions/posts'
+import { projects, project } from './actions/projects'
+import { competencies } from './actions/competencies'
+import { skills } from './actions/skills'
+import { jobs } from './actions/jobs'
 
 
 
