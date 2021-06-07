@@ -18,10 +18,10 @@ import {
 
 
 export async function getStaticProps() {
-    const pages = serializer.pages(await api.get('pages'), 'about')
-	const contacts = serializer.contacts(await api.get('contacts'))
-	const jobs = serializer.jobs(await api.get('jobs'))
-	const skills = serializer.skills(await api.get('skills'))
+    const pages = method.pages.serializer(await method.pages.getList(), 'about')
+	const contacts = method.contacts.serializer(await method.contacts.getList())
+	const jobs = method.jobs.serializer(await method.jobs.getList())
+	const skills = method.skills.serializer(await method.skills.getList())
 
 	return {
 		props: {
