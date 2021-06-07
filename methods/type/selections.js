@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 
 
 
-const selections = {
+export const selections = {
     getList: () => api.get('selections'),
     getListWithTag: (activeTagId) => api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }),
 

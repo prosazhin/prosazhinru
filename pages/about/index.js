@@ -5,9 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
-import serializer from '../../serializers'
-import CONTENTFULAPI from '../../methods/contentful'
-const api = new CONTENTFULAPI()
+import method from '../../methods'
 
 import {
     MainWrapper,

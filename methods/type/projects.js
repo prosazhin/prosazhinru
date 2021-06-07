@@ -8,7 +8,7 @@ import { contentSerializer } from '../../serializers/type/content'
 
 
 
-const projects = {
+export const projects = {
     getList: () => api.get('projects'),
 
     serializer(data) {
@@ -30,7 +30,7 @@ const projects = {
 
 
 
-const project = {
+export const project = {
     getItem: (slug) => api.get('projects', { 'fields.slug': slug }),
 
     serializer(data) {

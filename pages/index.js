@@ -2,9 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import Mixpanel from '../utils/Mixpanel'
-import serializer from '../serializers'
-import CONTENTFULAPI from '../methods/contentful'
-const api = new CONTENTFULAPI()
+import method from '../methods'
 
 import {
 	MainWrapper,
@@ -17,13 +15,13 @@ import {
 
 
 export async function getStaticProps() {
-	const pages = serializer.pages(await api.get('pages'), 'home')
-	const contacts = serializer.contacts(await api.get('contacts'))
-	const jobs = serializer.jobs(await api.get('jobs'))
-	const links = serializer.links(await api.get('links', { limit: 500, include: 0 }))
-	const selections = serializer.selections(await api.get('selections'))
-	const posts = serializer.posts(await api.get('posts'))
-	const projects = serializer.projects(await api.get('projects'))
+	const pages = method.pages.serializer(await method.pages.getList(), 'home')
+	const contacts = method.contacts.serializer(await method.contacts.getList())
+	const jobs = method.jobs.serializer(await method.jobs.getList())
+	const links = method.links.serializer(await method.links.getList())
+	const selections = method.selections.serializer(await method.selections.getList())
+	const posts = method.posts.serializer(await method.posts.getList())
+	const projects = method.projects.serializer(await method.projects.getList())
 
 	return {
 		props: {

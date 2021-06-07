@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 
 
 
-const skills = {
+export const skills = {
     getList: () => api.get('skills'),
 
     serializer(data) {

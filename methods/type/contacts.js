@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 
 
 
-const contacts = {
+export const contacts = {
     getList: () => api.get('contacts'),
 
     serializer(data) {

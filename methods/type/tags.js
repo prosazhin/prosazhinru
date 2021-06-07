@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 
 
 
-const tags = {
+export const tags = {
     getList: () => api.get('tags', { order: 'sys.createdAt' }),
 
     serializer(data) {

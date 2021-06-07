@@ -4,7 +4,7 @@ const api = new CONTENTFULAPI()
 
 
 
-const links = {
+export const links = {
     getList: () => api.get('links', { limit: 500, include: 0 }),
     getListWithTag: (activeTagId) => api.get('links', { limit: 500, include: 0, 'fields.tags.sys.id[in]': activeTagId }),
 

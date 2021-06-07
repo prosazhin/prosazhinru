@@ -6,7 +6,7 @@ import 'dayjs/locale/ru'
 
 
 
-const jobs = {
+export const jobs = {
     getList: () => api.get('jobs'),
 
     serializer(data) {
