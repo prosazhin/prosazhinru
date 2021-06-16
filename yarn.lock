@@ -1482,10 +1482,10 @@ prop-types@15.7.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-prosazhin-base-styles@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/prosazhin-base-styles/-/prosazhin-base-styles-1.0.4.tgz#533ba68779258197fe520bcffd2d4b642d874070"
-  integrity sha512-QADulsQNTohr6WqHSMrU5bFwj+ONfEfPV+zB+fNA9lDLZdB0yuBSqag2kIqYk8mlLtDKRtQGNeCFEr7chTxvLQ==
+prosazhin-base-styles@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/prosazhin-base-styles/-/prosazhin-base-styles-1.0.6.tgz#c4475d2769ac1d01014b5e4561dcd8d694de2aae"
+  integrity sha512-FXB+KcfI97ZoCtAXj/5i9YYsgU8RUfR0kwebw7p7p6IocOrE40BiSAk1mnMwMN5XZgrtYBcXljaYnWy7652fTQ==
 
 public-encrypt@^4.0.0:
   version "4.0.3"
