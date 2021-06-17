@@ -66,7 +66,7 @@ export default function AboutPage({
                         <Link href="/competencies">
                             <a className={style.competencies__link}>
                                 <span className={style.competencies__title}>
-                                    Матрица моих компетенций
+                                    Матрица компетенций продуктового дизайнера
                                 </span>
                                 <span className={style.competencies__description}>
                                     Для более полной и объективной оценки моих навыков, подготовил матрицу компетенций по материалам Юрия Ветрова.
