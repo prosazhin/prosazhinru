@@ -82,7 +82,7 @@ export default function AboutPage({
                         <section className={style.section} key={skill.id}>
                             <Headline
                                 title={skill.title}
-                                size="1"
+                                size="2"
                                 hideMarginTop
                             />
                             <p className={style.section__description}>
