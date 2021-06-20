@@ -78,7 +78,7 @@ export default function SelectionsTagPage({
 			<MainContainer>
 				<Container>
 					<Tabs
-						array={context.tabs}
+						array={context.linksTabs}
 						customClass={style.tabs}
 					/>
 					<PageHeadline

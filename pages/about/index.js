@@ -1,8 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { useAppContext } from '../../context'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
 import method from '../../methods'
@@ -13,6 +11,7 @@ import {
     Container,
     PageHeadline,
     Headline,
+	Tabs,
 } from '../../components'
 
 
@@ -20,7 +19,6 @@ import {
 export async function getServerSideProps(context) {
     const pages = method.pages.serializer(await method.pages.getList(), 'about')
 	const contacts = method.contacts.serializer(await method.contacts.getList())
-	const jobs = method.jobs.serializer(await method.jobs.getList())
 	const skills = method.skills.serializer(await method.skills.getList())
 
 	return {
@@ -28,9 +26,8 @@ export async function getServerSideProps(context) {
             page: pages.page,
             navigations: pages.navigations,
             contacts: contacts,
-            jobs: jobs,
             skills: skills,
-		},
+		}
 	}
 }
 
@@ -40,10 +37,10 @@ export default function AboutPage({
     page,
     navigations,
     contacts,
-    jobs,
     skills,
 }) {
     const router = useRouter()
+    const context = useAppContext()
 
     // Отправляю событие про отправку страницы
 	Mixpanel.event('LOADING_ABOUT_PAGE')
@@ -59,25 +56,14 @@ export default function AboutPage({
 		>
             <MainContainer>
                 <Container small>
+                    <Tabs
+						array={context.aboutTabs}
+						customClass={style.tabs}
+					/>
                     <PageHeadline
+                        title={page.title}
                         description={page.description}
                     />
-                    <div className={style.competencies}>
-                        <Link href="/competencies">
-                            <a className={style.competencies__link}>
-                                <span className={style.competencies__title}>
-                                    Матрица компетенций продуктового дизайнера
-                                </span>
-                                <span className={style.competencies__description}>
-                                    Для более полной и объективной оценки моих навыков, подготовил матрицу компетенций по материалам Юрия Ветрова.
-                                </span>
-                                <FontAwesomeIcon
-                                    icon={faArrowRight}
-                                    className={style.competencies__icon}
-                                />
-                            </a>
-                        </Link>
-                    </div>
                     {skills.sort(( a, b ) => a.order - b.order).map(skill =>
                         <section className={style.section} key={skill.id}>
                             <Headline
@@ -100,36 +86,6 @@ export default function AboutPage({
                             }
                         </section>
                     )}
-                    <Headline
-                        title="Где работал?"
-                        size="1"
-                    />
-                    <article className={style.road}>
-                        {jobs.sort(( a, b ) => b.order - a.order).map(job =>
-                            <section className={style.road__item} key={job.id}>
-                                <h3 className={style.road__title}>
-                                    {job.link ? 
-                                        <a href={job.url} target="_blank">
-                                            {job.title}
-                                        </a>
-                                        :
-                                        <React.Fragment>
-                                            {job.title}
-                                        </React.Fragment>
-                                    }
-                                </h3>
-                                <p className={style.road__date}>
-                                    {job.date}
-                                </p>
-                                <p className={style.road__position}>
-                                    {job.position}
-                                </p>
-                                <p className={style.road__description}>
-                                    {job.description}
-                                </p>
-                            </section>
-                        )}
-                    </article>
                 </Container>
             </MainContainer>
         </MainWrapper>

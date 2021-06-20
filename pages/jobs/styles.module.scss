@@ -1,0 +1,59 @@
+@import 'prosazhin-base-styles';
+
+.tabs {
+    margin-bottom: 3rem;
+}
+
+.road {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+
+    &__item {
+        display: block;
+        width: 100%;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid $blue_gray_100;
+
+        &:first-child {
+            padding-top: 0px;
+        }
+    
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    &__title {
+        display: block;
+        width: 100%;
+        color: $black;
+        @include headline_lvl_2;
+        margin-bottom: 1rem;
+    }
+
+    &__date {
+        display: block;
+        width: 100%;
+        color: $blue_gray_400;
+        @include text_regular_lvl_3;
+        margin-bottom: 1rem;
+    }
+
+    &__position {
+        display: block;
+        width: 100%;
+        color: $black;
+        @include text_medium_lvl_2;
+        margin-bottom: 0.5rem;
+    }
+
+    &__description {
+        display: block;
+        width: 100%;
+        color: $black;
+        @include text_regular_lvl_3;
+    }
+}

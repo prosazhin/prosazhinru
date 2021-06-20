@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { useAppContext } from '../../context'
 import style from './styles.module.scss'
 import Mixpanel from '../../utils/Mixpanel'
 import method from '../../methods'
@@ -10,6 +11,7 @@ import {
     Container,
     PageHeadline,
     Headline,
+    Tabs,
 } from '../../components'
 
 
@@ -25,7 +27,7 @@ export async function getServerSideProps(context) {
             navigations: pages.navigations,
             contacts: contacts,
             competenciesCategories: competenciesCategories,
-		},
+		}
 	}
 }
 
@@ -38,6 +40,7 @@ export default function CompetenciesPage({
     competenciesCategories,
 }) {
     const router = useRouter()
+    const context = useAppContext()
 
     // Отправляю событие про отправку страницы
 	Mixpanel.event('LOADING_COMPETENCIES_PAGE')
@@ -53,6 +56,10 @@ export default function CompetenciesPage({
 		>
             <MainContainer>
                 <Container small>
+                    <Tabs
+						array={context.aboutTabs}
+						customClass={style.tabs}
+					/>
                     <PageHeadline
                         title={page.title}
                         description={page.description}

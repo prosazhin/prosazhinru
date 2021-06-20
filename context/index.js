@@ -8,7 +8,7 @@ export function ContextProvider({ children }) {
     const [isActiveMenu, toggleActiveMenu] = useState(false)
 
     const state = {
-        tabs: [
+        linksTabs: [
             {
                 title: 'Ссылки',
                 url: '/links',
@@ -16,6 +16,20 @@ export function ContextProvider({ children }) {
             {
                 title: 'Подборки',
                 url: '/selections',
+            },
+        ],
+        aboutTabs: [
+            {
+                title: 'О себе',
+                url: '/about',
+            },
+            {
+                title: 'Компетенции',
+                url: '/competencies',
+            },
+            {
+                title: 'Работал',
+                url: '/jobs',
             },
         ],
         isActiveMenu: isActiveMenu,
