@@ -44,6 +44,12 @@ export async function getServerSideProps(context) {
 			changefreq: 'daily',
 			priority: 0.8,
 		},
+		{
+			loc: 'https://prosazhin.ru/jobs',
+			lastmod: new Date().toISOString(),
+			changefreq: 'daily',
+			priority: 0.8,
+		},
 	]
 
 	return getServerSideSitemap(context, fields)
