@@ -1,4 +1,10 @@
+# *
 User-agent: *
-Host: http://prosazhin.ru
+Allow: /
 Disallow: /_next
+
+# Host
+Host: https://prosazhin.ru
+
+# Sitemaps
 Sitemap: https://prosazhin.ru/sitemap.xml
