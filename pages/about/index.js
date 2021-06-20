@@ -51,7 +51,7 @@ export default function AboutPage({
 			contacts={contacts}
 			title={page.metaTitle}
 			description={page.metaDescription}
-			image="/sharing-index.jpg"
+			image="/sharing-about.jpg"
 			url={router.asPath}
 		>
             <MainContainer>
