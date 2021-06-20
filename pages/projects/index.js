@@ -13,20 +13,37 @@ import {
 
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const pages = method.pages.serializer(await method.pages.getList(), 'projects')
-	const contacts = method.contacts.serializer(await method.contacts.getList())
-	const projects = method.projects.serializer(await method.projects.getList())
+    const contacts = method.contacts.serializer(await method.contacts.getList())
+    const projects = method.projects.serializer(await method.projects.getList())
 
-	return {
-		props: {
+    return {
+        props: {
             page: pages.page,
             navigations: pages.navigations,
             contacts: contacts,
             projects: projects,
-		},
-	}
+        }
+    }
 }
+
+
+
+// export async function getStaticProps() {
+//     const pages = method.pages.serializer(await method.pages.getList(), 'projects')
+//     const contacts = method.contacts.serializer(await method.contacts.getList())
+//     const projects = method.projects.serializer(await method.projects.getList())
+
+//     return {
+//         props: {
+//             page: pages.page,
+//             navigations: pages.navigations,
+//             contacts: contacts,
+//             projects: projects,
+//         }
+//     }
+// }
 
 
 
@@ -39,17 +56,17 @@ export default function ProjectsPage({
     const router = useRouter()
 
     // Отправляю событие про отправку страницы
-	Mixpanel.event('LOADING_PROJECTS_PAGE')
+    Mixpanel.event('LOADING_PROJECTS_PAGE')
 
-	return (
+    return (
         <MainWrapper
             navigations={navigations}
-			contacts={contacts}
-			title={page.metaTitle}
-			description={page.metaDescription}
-			image="/sharing-projects.jpg"
-			url={router.asPath}
-		>
+            contacts={contacts}
+            title={page.metaTitle}
+            description={page.metaDescription}
+            image="/sharing-projects.jpg"
+            url={router.asPath}
+        >
             <MainContainer>
                 <Container small>
                     <PageHeadline
@@ -62,5 +79,5 @@ export default function ProjectsPage({
                 </Container>
             </MainContainer>
         </MainWrapper>
-	)
+    )
 }
