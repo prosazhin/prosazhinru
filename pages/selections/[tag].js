@@ -17,26 +17,11 @@ import {
 
 
 
-export async function getStaticPaths() {
-    const result = method.tags.serializer(await method.tags.getList())
-
-    const paths = result.map((item) => ({
-        params: { tag: item.url },
-    }))
-
-    return {
-        paths,
-        fallback: false,
-    }
-}
-
-
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps(context) {
 	const pages = method.pages.serializer(await method.pages.getList(), 'selections')
 	const contacts = method.contacts.serializer(await method.contacts.getList())
 	const tags = method.tags.serializer(await method.tags.getList())
-	const activeTag = tags.filter(item => item.url === params.tag)[0]
+	const activeTag = tags.filter(item => item.url === context.params.tag)[0]
 	const selections = method.selections.serializer(await method.selections.getList())
 	const activeSelections = method.selections.serializer(await method.selections.getListWithTag(activeTag.id))
 
