@@ -13,7 +13,7 @@ import {
 
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     const pages = method.pages.serializer(await method.pages.getList(), 'projects')
     const contacts = method.contacts.serializer(await method.contacts.getList())
     const projects = method.projects.serializer(await method.projects.getList())
@@ -27,23 +27,6 @@ export async function getServerSideProps() {
         }
     }
 }
-
-
-
-// export async function getStaticProps() {
-//     const pages = method.pages.serializer(await method.pages.getList(), 'projects')
-//     const contacts = method.contacts.serializer(await method.contacts.getList())
-//     const projects = method.projects.serializer(await method.projects.getList())
-
-//     return {
-//         props: {
-//             page: pages.page,
-//             navigations: pages.navigations,
-//             contacts: contacts,
-//             projects: projects,
-//         }
-//     }
-// }
 
 
 

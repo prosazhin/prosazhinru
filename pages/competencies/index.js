@@ -14,7 +14,7 @@ import {
 
 
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
     const pages = method.pages.serializer(await method.pages.getList(), 'competencies')
 	const contacts = method.contacts.serializer(await method.contacts.getList())
 	const competenciesCategories = method.competencies.serializer(await method.competencies.getList())
