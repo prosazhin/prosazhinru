@@ -44,6 +44,7 @@ export default function AboutPage({
 
     // Отправляю событие про отправку страницы
 	Mixpanel.event('LOADING_ABOUT_PAGE')
+    
 
 	return (
         <MainWrapper
