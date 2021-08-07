@@ -13,7 +13,6 @@ export const projects = {
 
     serializer(data) {
         const result = data.items.map(item => {
-            console.log(item.fields.cover.fields.file.details.image.width)
             return {
                 id: checkValue(item.sys.id),
                 slug: checkValue(item.fields.slug),

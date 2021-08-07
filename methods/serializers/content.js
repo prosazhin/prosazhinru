@@ -6,6 +6,8 @@ export function contentSerializer(data) {
                     type: 'image',
                     url: item.data.target.fields.file.url,
                     description: item.data.target.fields.description,
+                    width: item.data.target.fields.file.details.image.width,
+                    height: item.data.target.fields.file.details.image.height,
                 }
 
             case 'heading-1':

@@ -12,14 +12,17 @@ export default function Content({ data }) {
             case 'image':
                 return (
                     <Container>
-                        <img
+                        <Image
                             className={
                                 `${style.content__image}`+
                                 `${index === 0 ? ` ${style.content__first_type}` : ''}`+
                                 `${(count - 1) === index ? ` ${style.content__last_type}` : ''}`
                             }
-                            src={item.url}
+                            src={`https:` + item.url}
                             alt={item.description}
+                            layout="responsive"
+                            width={item.width}
+                            height={item.height}
                         />
                         <span className={style.content__image__description}>
                             {item.description}
