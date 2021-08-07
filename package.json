@@ -10,7 +10,9 @@
 		"dev": "next",
 		"build": "next build",
 		"start": "next start",
-		"postbuild": "next-sitemap"
+		"postbuild": "next-sitemap",
+		"lint": "next lint",
+		"lint-fix": "next lint --fix"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -28,6 +30,8 @@
 		"showdown": "^1.9.1"
 	},
 	"devDependencies": {
+		"eslint": "^7.32.0",
+		"eslint-config-next": "^11.0.1",
 		"next-sitemap": "^1.6.116"
 	}
 }

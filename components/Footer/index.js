@@ -17,7 +17,7 @@ export default function Footer({ contacts }) {
                                 {contact.link ?
                                     <a
                                         href={contact.url}
-                                        target="_blank"
+                                        target="_blank" rel="noreferrer"
                                     >
                                         {contact.title}
                                     </a>

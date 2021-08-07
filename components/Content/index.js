@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Container } from '../'
 import style from './Content.module.scss'
 

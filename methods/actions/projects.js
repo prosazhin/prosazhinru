@@ -13,12 +13,17 @@ export const projects = {
 
     serializer(data) {
         const result = data.items.map(item => {
+            console.log(item.fields.cover.fields.file.details.image.width)
             return {
                 id: checkValue(item.sys.id),
                 slug: checkValue(item.fields.slug),
                 title: checkValue(item.fields.title),
                 tags: checkValue(item.fields.tags),
-                cover: checkValue(item.fields.cover.fields.file.url),
+                cover: {
+                    url: checkValue(item.fields.cover.fields.file.url),
+                    width: checkValue(item.fields.cover.fields.file.details.image.width),
+                    height: checkValue(item.fields.cover.fields.file.details.image.height),
+                },
                 create: checkValue(item.fields.create),
                 createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
             }

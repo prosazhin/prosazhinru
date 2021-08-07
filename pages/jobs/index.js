@@ -67,7 +67,7 @@ export default function AboutPage({
                             <section className={style.road__item} key={job.id}>
                                 <h3 className={style.road__title}>
                                     {job.link ? 
-                                        <a href={job.url} target="_blank">
+                                        <a href={job.url} target="_blank" rel="noreferrer">
                                             {job.title}
                                         </a>
                                         :

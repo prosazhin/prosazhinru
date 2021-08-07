@@ -36,10 +36,13 @@
     }
 
     &__cover {
+        @include radius_8;
+    }
+
+    &__tags {
         display: inline-block;
         width: 100%;
-        @include radius_8;
-        margin-bottom: 2rem;
+        margin-top: 2rem;
     }
 
     &__headline {
