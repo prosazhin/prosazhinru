@@ -23,6 +23,8 @@ export default function Content({ data }) {
                             layout="responsive"
                             width={item.width}
                             height={item.height}
+                            priority="true"
+                            unoptimized="true"
                         />
                         <span className={style.content__image__description}>
                             {item.description}

@@ -24,6 +24,8 @@ export default function Projects({ array }) {
                                 layout="responsive"
                                 width={project.cover.width}
                                 height={project.cover.height}
+                                priority="true"
+                                unoptimized="true"
                             />
                             <div className={style.project__tags}>
                                 <StaticTagsList
