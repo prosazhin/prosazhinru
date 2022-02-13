@@ -14,19 +14,19 @@
     margin: auto;
     padding: 0px 2rem;
 
-    @include for_middle_screen {    
+    @include for_middle_screen {
         width: 736px;
         margin: auto;
         padding: 0px;
     }
 
-    @include for_large_screen {    
+    @include for_large_screen {
         width: 80%;
         margin: auto;
         padding: 0px;
     }
 
-    @include for_big_screen {    
+    @include for_big_screen {
         width: 1152px;
         margin: auto;
         padding: 0px;
