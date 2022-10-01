@@ -1,59 +1,59 @@
-@import 'prosazhin-base-styles';
+@import 'pbstyles/styles/scss';
 
 .tabs {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .road {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+
+  &__item {
     display: block;
     width: 100%;
-    margin-top: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid $color_palette_blue_gray_100;
 
-    &__item {
-        display: block;
-        width: 100%;
-        padding-top: 3rem;
-        padding-bottom: 4rem;
-        border-bottom: 1px solid $blue_gray_100;
-
-        &:first-child {
-            padding-top: 0px;
-        }
-    
-        &:last-child {
-            padding-bottom: 0;
-            border-bottom: none;
-        }
+    &:first-child {
+      padding-top: 0px;
     }
 
-    &__title {
-        display: block;
-        width: 100%;
-        color: $black;
-        @include headline_lvl_2;
-        margin-bottom: 1rem;
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
     }
+  }
 
-    &__date {
-        display: block;
-        width: 100%;
-        color: $blue_gray_400;
-        @include text_regular_lvl_3;
-        margin-bottom: 1rem;
-    }
+  &__title {
+    display: block;
+    width: 100%;
+    color: $color_palette_black;
+    @include headline_2;
+    margin-bottom: 1rem;
+  }
 
-    &__position {
-        display: block;
-        width: 100%;
-        color: $black;
-        @include text_medium_lvl_2;
-        margin-bottom: 0.5rem;
-    }
+  &__date {
+    display: block;
+    width: 100%;
+    color: $color_palette_blue_gray_400;
+    @include text_3;
+    margin-bottom: 1rem;
+  }
 
-    &__description {
-        display: block;
-        width: 100%;
-        color: $black;
-        @include text_regular_lvl_3;
-    }
+  &__position {
+    display: block;
+    width: 100%;
+    color: $color_palette_black;
+    @include text_2;
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    display: block;
+    width: 100%;
+    color: $color_palette_black;
+    @include text_3;
+  }
 }

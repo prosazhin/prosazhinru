@@ -1,50 +1,48 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .headline {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
 }
 
 .title {
-    display: inline-block;
-    width: 100%;
-    color: $black;
-    @include headline_lvl_1;
-    margin-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
+  color: $color_palette_black;
+  @include headline_1;
+  margin-bottom: 2rem;
 }
 
 .description {
+  display: inline-block;
+  width: 100%;
+  color: $color_palette_black;
+  @include text_1;
+
+  p {
     display: inline-block;
     width: 100%;
-    color: $black;
-    @include text_regular_lvl_1;
+    margin-top: 2rem;
 
-    p {
-        display: inline-block;
-        width: 100%;
-        margin-top: 2rem;
-
-        @include for_not_small_screen {    
-            margin-top: 3rem;
-        }
-
-        &:nth-child(1) {
-            margin-top: 0;
-        }
-    
-        br {
-            display: none;
-
-            @include for_not_small_screen {
-                display: inline-block;
-            }
-        }
-
-        strong {
-            @include text_medium_lvl_1;
-        }
+    @include not_small_screen {
+      margin-top: 3rem;
     }
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    br {
+      display: none;
+
+      @include not_small_screen {
+        display: inline-block;
+      }
+    }
+
+    strong {
+      @include text_1;
+    }
+  }
 }

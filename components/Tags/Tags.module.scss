@@ -1,16 +1,15 @@
-
 .tags {
-    display: block;
+  display: block;
+  text-align: left;
+
+  &__item {
+    display: inline-block;
     text-align: left;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
 
-    &__item {
-        display: inline-block;
-        text-align: left;
-        margin-bottom: 0.5rem;
-        margin-right: 0.5rem;
-
-        &:nth-last-child(1) {
-            margin-right: 0;
-        }
+    &:nth-last-child(1) {
+      margin-right: 0;
     }
+  }
 }

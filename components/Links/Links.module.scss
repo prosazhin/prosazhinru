@@ -1,14 +1,12 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .links {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    grid-gap: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-gap: 3rem;
 
-    @include for_not_small_screen {    
-        grid-template-columns: repeat(auto-fit, minmax(211px, 1fr));
-    }
+  @include not_small_screen {
+    grid-template-columns: repeat(auto-fit, minmax(211px, 1fr));
+  }
 }

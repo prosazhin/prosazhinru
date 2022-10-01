@@ -1,145 +1,142 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .header {
-    display: block;
-    position: fixed;
-    z-index: 100;
+  display: block;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  text-align: left;
+  background-color: $color_palette_white;
+  border-bottom: 1px solid $color_palette_blue_gray_50;
+  padding: 2rem 0px;
+
+  @include small_screen {
+    @include animated;
+  }
+
+  &__mobile {
+    height: 100vh;
+  }
+
+  &__wrapper {
     width: 100%;
-    top: 0;
-    text-align: left;
-    background-color: $white;
-    border-bottom: 1px solid $blue_gray_50;
-    padding: 2rem 0px;
+    display: block;
+  }
 
-    @include for_small_screen {    
-        @include animated;
-    }
+  &__mobile_toogle {
+    position: absolute;
+    top: 6px;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    @include text_3;
+    border: none;
+    color: $color_palette_black;
+    text-align: center;
+    @include animated;
+    cursor: pointer;
 
-    &__mobile {
-        height: 100vh;
+    @include not_small_screen {
+      display: none;
     }
-
-    &__wrapper {
-        width: 100%;
-        display: block;
-    }
-
-    &__mobile_toogle {
-        position: absolute;
-        top: 6px;
-        right: 2rem;
-        width: 3rem;
-        height: 3rem;
-        @include icon_lvl_3;
-        border: none;
-        color: $black;
-        text-align: center;
-        @include animated;
-        cursor: pointer;
-    
-        @include for_not_small_screen {    
-            display: none;
-        }
-    }
+  }
 }
-
-
 
 .name {
-    display: inline-block;
-    vertical-align: top;
+  display: inline-block;
+  vertical-align: top;
 
-    &:hover, &:focus, &:active {
-        text-decoration: none;
-    }
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
 
-    &__title {
-        display: block;
-        @include headline_lvl_4;
-        color: $black;
-    }
+  &__title {
+    display: block;
+    @include headline_4;
+    color: $color_palette_black;
+  }
 
-    &__description {
-        display: block;
-        @include text_regular_lvl_4;
-        color: $blue_gray_400;
-    }
+  &__description {
+    display: block;
+    @include text_4;
+    color: $color_palette_blue_gray_400;
+  }
 }
 
-
-
 .nav {
+  height: auto;
+  vertical-align: top;
+
+  &:hover {
+    .nav__item__link {
+      color: $color_palette_blue_gray_400;
+
+      &:hover {
+        color: $color_palette_black;
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include not_small_screen {
+      display: inline-block;
+      margin-left: 10rem;
+      margin-bottom: 1rem;
+      vertical-align: bottom;
+    }
+  }
+
+  &__mobile {
+    display: none;
+    width: 100%;
+
+    @include not_small_screen {
+      display: none;
+    }
+
+    &_active {
+      display: inline-block;
+      margin-top: 5rem;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100%;
     height: auto;
-    vertical-align: top;
+    margin-bottom: 3rem;
 
-    &:hover {
-        .nav__item__link {
-            color: $blue_gray_400;
+    @include not_small_screen {
+      width: auto;
+      margin-right: 4rem;
+      margin-bottom: 0px;
 
-            &:hover {
-                color: $black;
-            }
-        }
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
     }
 
-    &__desktop {
-        display: none;
+    &__link {
+      display: inline-block;
+      color: $color_palette_black;
+      @include animated;
+      @include text_3;
+      font-weight: $font_weight_medium;
 
-        @include for_not_small_screen {
-            display: inline-block;
-            margin-left: 10rem;
-            margin-bottom: 1rem;
-            vertical-align: bottom;
-        }
+      &:hover {
+        color: $color_palette_black;
+        text-decoration: none;
+      }
+
+      &__active {
+        color: $color_palette_blue_accent_400;
+        text-decoration: none;
+      }
     }
-
-    &__mobile {
-        display: none;
-        width: 100%;
-
-        @include for_not_small_screen {
-            display: none;
-        }
-
-        &_active {
-            display: inline-block;
-            margin-top: 5rem;
-        }
-    }
-
-    &__item {
-        display: inline-block;
-        width: 100%;
-        height: auto;
-        margin-bottom: 3rem;
-
-        @include for_not_small_screen {    
-            width: auto;
-            margin-right: 4rem;
-            margin-bottom: 0px;
-
-            &:nth-last-child(1) {
-                margin-right: 0;
-            }
-        }
-
-        &__link {
-            display: inline-block;
-            color: $black;
-            @include animated;
-            @include text_medium_lvl_3;
-
-            &:hover {
-                color: $black;
-                text-decoration: none;
-            }
-
-            &__active {
-                color: $blue_a700;
-                text-decoration: none;
-            }
-        }
-    }
+  }
 }

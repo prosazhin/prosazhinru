@@ -1,20 +1,13 @@
-import React from "react";
-import { useRouter } from "next/router";
-import { useAppContext } from "../../context";
-import style from "./styles.module.scss";
-import Mixpanel from "../../utils/Mixpanel";
-import method from "../../methods";
-
-import {
-  MainWrapper,
-  MainContainer,
-  Container,
-  PageHeadline,
-  Tabs,
-} from "../../components";
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useAppContext } from '../../context';
+import style from './styles.module.scss';
+import Mixpanel from '../../utils/Mixpanel';
+import method from '../../methods';
+import { MainWrapper, MainContainer, Container, PageHeadline, Tabs } from '../../components';
 
 export async function getServerSideProps(context) {
-  const pages = method.pages.serializer(await method.pages.getList(), "jobs");
+  const pages = method.pages.serializer(await method.pages.getList(), 'jobs');
   const contacts = method.contacts.serializer(await method.contacts.getList());
   const jobs = method.jobs.serializer(await method.jobs.getList());
 
@@ -33,17 +26,10 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
   const context = useAppContext();
 
   // Отправляю событие про отправку страницы
-  Mixpanel.event("LOADING_JOBS_PAGE");
+  Mixpanel.event('LOADING_JOBS_PAGE');
 
   return (
-    <MainWrapper
-      navigations={navigations}
-      contacts={contacts}
-      title={page.metaTitle}
-      description={page.metaDescription}
-      image="/sharing-jobs.jpg"
-      url={router.asPath}
-    >
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-jobs.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <Tabs array={context.aboutTabs} customClass={style.tabs} />
@@ -65,9 +51,7 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
                   <p className={style.road__date}>{job.date}</p>
                   <p className={style.road__position}>{job.position}</p>
                   <p className={style.road__description}>{job.description}</p>
-                  {Boolean(job.stack) && (
-                    <p className={style.road__description}>{job.stack}</p>
-                  )}
+                  {Boolean(job.stack) && <p className={style.road__description}>{job.stack}</p>}
                 </section>
               ))}
           </article>

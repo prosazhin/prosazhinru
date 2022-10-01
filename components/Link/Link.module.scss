@@ -1,33 +1,32 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .link {
-    display: block;
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+
+  &:hover {
+    .link__title {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    display: inline-block;
     width: 100%;
-    word-wrap: break-word;
-    overflow: hidden;
-    position: relative;
-    user-select: none;
-    text-decoration: none;
+    @include text_2;
+    font-weight: $font_weight_medium;
+  }
 
-    &:hover {
-        .link__title {
-            text-decoration: underline;
-        }
-    }
-
-    &__title {
-        display: inline-block;
-        width: 100%;
-        @include text_medium_lvl_2;
-    }
-
-    &__description {
-        display: inline-block;
-        width: 100%;
-        color: $black;
-        @include text_regular_lvl_3;
-        margin-top: 1rem;
-    }
+  &__description {
+    display: inline-block;
+    width: 100%;
+    color: $color_palette_black;
+    @include text_3;
+    margin-top: 1rem;
+  }
 }

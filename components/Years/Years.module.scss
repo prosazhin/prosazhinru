@@ -1,65 +1,62 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .years {
-    display: block;
-    width: 100%;
-    margin-top: 6rem;
+  display: block;
+  width: 100%;
+  margin-top: 6rem;
 }
 
 .year {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid $color_palette_blue_gray_100;
+
+  &:first-child {
+    margin-top: 0px;
+  }
+
+  &:last-child {
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
+
+  &__headline {
     display: inline-block;
     width: 100%;
-    margin-top: 5rem;
-    padding-bottom: 6rem;
-    border-bottom: 1px solid $blue_gray_100;
-
-    &:first-child {
-        margin-top: 0px;
-    }
-
-    &:last-child {
-        padding-bottom: 0px;
-        border-bottom: none;
-    }
-
-    &__headline {
-        display: inline-block;
-        width: 100%;
-        @include headline_lvl_1;
-        margin-bottom: 1rem;
-    }
+    @include headline_1;
+    margin-bottom: 1rem;
+  }
 }
 
-
-
 .logs {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    grid-gap: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-gap: 2rem;
 
-    @include for_not_small_screen {    
-        grid-template-columns: repeat(auto-fit, 172px);
-    }
+  @include not_small_screen {
+    grid-template-columns: repeat(auto-fit, 172px);
+  }
 }
 
 .log {
+  display: inline-block;
+  width: 100%;
+
+  &__title {
     display: inline-block;
     width: 100%;
+    @include text_3;
+    color: $color_palette_blue_gray_400;
+  }
 
-    &__title {
-        display: inline-block;
-        width: 100%;
-        @include text_regular_lvl_3;
-        color: $blue_gray_400;
-    }
-
-    &__value {
-        display: inline-block;
-        width: 100%;
-        @include text_medium_lvl_1;
-        color: $black;
-    }
+  &__value {
+    display: inline-block;
+    width: 100%;
+    @include text_1;
+    font-weight: $font_weight_medium;
+    color: $color_palette_black;
+  }
 }

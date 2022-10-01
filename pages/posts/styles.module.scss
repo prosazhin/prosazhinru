@@ -1,14 +1,12 @@
-@import 'prosazhin-base-styles';
-
-
+@import 'pbstyles/styles/scss';
 
 .tags {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .date {
-    display: inline-block;
-    width: 100%;
-    @include text_regular_lvl_4;
-    color: $blue_gray_400;
+  display: inline-block;
+  width: 100%;
+  @include text_4;
+  color: $color_palette_blue_gray_400;
 }
