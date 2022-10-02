@@ -31,7 +31,7 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
       <MainContainer>
         <Container small>
           <PageHeadline title={project.title} />
-          <StaticTagsList array={project.tags} />
+          <StaticTagsList array={project.tags} customClass={style.tags} />
           <span className={style.date}>{project.createString}</span>
         </Container>
         <Content data={project} />

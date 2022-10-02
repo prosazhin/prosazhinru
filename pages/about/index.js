@@ -33,7 +33,7 @@ export default function AboutPage({ page, navigations, contacts, skills }) {
       <MainContainer>
         <Container small>
           <Tabs array={context.aboutTabs} customClass={style.tabs} />
-          <PageHeadline title={page.title} description={page.description} />
+          <PageHeadline description={page.description} />
           {skills
             .sort((a, b) => a.order - b.order)
             .map((skill) => (
