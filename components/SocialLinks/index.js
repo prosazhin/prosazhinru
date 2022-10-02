@@ -10,6 +10,7 @@ export default function SocialLinks({ data, small, customClass }) {
     <div className={`${style.wrapper}${customClass ? ` ${customClass}` : ''}`}>
       {filteredData.map((item) => (
         <span
+          key={item.url}
           className={`${style.link}${small ? ` ${style.link__small}` : ''}`}
           onClick={(event) => {
             event.preventDefault();
