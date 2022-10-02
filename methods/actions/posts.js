@@ -19,6 +19,8 @@ export const posts = {
         tags: checkValue(item.fields.tags),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
+        dzenUrl: checkValue(item.fields.dzenUrl),
+        mediumUrl: checkValue(item.fields.mediumUrl),
       };
     });
 
@@ -40,6 +42,8 @@ export const post = {
         tags: checkValue(item.fields.tags),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
+        dzenUrl: checkValue(item.fields.dzenUrl),
+        mediumUrl: checkValue(item.fields.mediumUrl),
       };
     });
 

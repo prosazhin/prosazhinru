@@ -1,0 +1,35 @@
+@import 'pbstyles/styles/scss';
+
+.wrapper {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.link {
+  display: inline-flex;
+  width: auto;
+  @include text_3;
+  margin-right: 1rem;
+  color: $color_palette_black;
+  font-weight: $font_weight_medium;
+  border-radius: $size_radius_2;
+  background-color: $color_bg_primary;
+  padding: 1rem 2rem;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $color_font_accent;
+    text-decoration: none;
+    background-color: $color_palette_blue_50;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+  }
+}

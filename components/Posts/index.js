@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { StaticTagsList } from '../';
+import { StaticTagsList, SocialLinks } from '../';
 import style from './Posts.module.scss';
 
 export default function Posts({ array }) {
@@ -14,8 +14,10 @@ export default function Posts({ array }) {
               <a className={style.post__link}>
                 <span className={style.post__headline}>{post.title}</span>
                 <span className={style.post__description}>{post.description}</span>
-                <StaticTagsList array={post.tags} />
-                <span className={style.post__date}>{post.createString}</span>
+                <div className={style.post__wrapper}>
+                  <StaticTagsList array={post.tags} />
+                  <span className={style.post__date}>{post.createString}</span>
+                </div>
               </a>
             </Link>
           </li>

@@ -10,9 +10,33 @@ import Tabs from './Tabs';
 import Link from './Link';
 import Links from './Links';
 import Selections from './Selections';
+import SocialLinks from './SocialLinks';
 import Posts from './Posts';
 import Projects from './Projects';
 import Years from './Years';
 import Content from './Content';
 
-export { Header, Footer, Container, MainContainer, MainWrapper, Headline, PageHeadline, ClickableTag, StaticActiveTag, StaticTag, ClickableTagsList, StaticActiveTagsList, StaticTagsList, Tabs, Link, Links, Selections, Posts, Projects, Years, Content };
+export {
+  Header,
+  Footer,
+  Container,
+  MainContainer,
+  MainWrapper,
+  Headline,
+  PageHeadline,
+  ClickableTag,
+  StaticActiveTag,
+  StaticTag,
+  ClickableTagsList,
+  StaticActiveTagsList,
+  StaticTagsList,
+  Tabs,
+  Link,
+  Links,
+  Selections,
+  Posts,
+  Projects,
+  Years,
+  Content,
+  SocialLinks,
+};

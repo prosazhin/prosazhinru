@@ -50,6 +50,12 @@
     color: $color_palette_black;
   }
 
+  &__wrapper {
+    display: inline-block;
+    width: 100%;
+    margin-top: 0rem;
+  }
+
   &__date {
     display: inline-block;
     width: 100%;

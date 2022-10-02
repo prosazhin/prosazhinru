@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAppContext } from '../../context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { XMarkIcon, Bars2Icon } from '@heroicons/react/24/solid';
 import { Container } from '../';
 import style from './Header.module.scss';
 
@@ -57,11 +56,11 @@ export default function Header({ navigations }) {
         </nav>
         {context.isActiveMenu ? (
           <span className={style.header__mobile_toogle} onClick={context.toggleActiveMenu}>
-            <FontAwesomeIcon icon={faTimes} />
+            <XMarkIcon />
           </span>
         ) : (
           <span className={style.header__mobile_toogle} onClick={context.toggleActiveMenu}>
-            <FontAwesomeIcon icon={faBars} />
+            <Bars2Icon />
           </span>
         )}
       </Container>

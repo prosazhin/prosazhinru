@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content, SocialLinks } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'posts');
@@ -31,8 +31,11 @@ export default function PostPage({ page, navigations, contacts, post }) {
       <MainContainer>
         <Container small>
           <PageHeadline title={post.title} />
-          <StaticTagsList array={post.tags} customClass={style.tags} />
-          <span className={style.date}>{post.createString}</span>
+          <div className={style.wrapper}>
+            <StaticTagsList array={post.tags} />
+            <span className={style.date}>{post.createString}</span>
+            <SocialLinks data={[post.dzenUrl ? { title: 'Дзен', url: post.dzenUrl } : null, post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]} />
+          </div>
         </Container>
         <Content data={post} />
       </MainContainer>
