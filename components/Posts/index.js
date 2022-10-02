@@ -1,9 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { StaticTagsList } from '../';
-import dayjs from 'dayjs';
 import style from './Posts.module.scss';
-import 'dayjs/locale/ru';
 
 export default function Posts({ array }) {
   return (

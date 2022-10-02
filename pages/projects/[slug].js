@@ -31,12 +31,10 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
       <MainContainer>
         <Container small>
           <PageHeadline title={project.title} />
-        </Container>
-        <Content data={project} />
-        <Container small>
-          <StaticTagsList array={project.tags} customClass={style.tags} />
+          <StaticTagsList array={project.tags} />
           <span className={style.date}>{project.createString}</span>
         </Container>
+        <Content data={project} />
       </MainContainer>
     </MainWrapper>
   );

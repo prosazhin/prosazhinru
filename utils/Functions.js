@@ -1,4 +1,3 @@
-
 export function checkValue(value) {
-	return value ? value : null
+  return value ? value : null;
 }

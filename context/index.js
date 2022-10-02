@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext();
 
@@ -8,26 +8,26 @@ export function ContextProvider({ children }) {
   const state = {
     linksTabs: [
       {
-        title: "Ссылки",
-        url: "/links",
+        title: 'Ссылки',
+        url: '/links',
       },
       {
-        title: "Подборки",
-        url: "/selections",
+        title: 'Подборки',
+        url: '/selections',
       },
     ],
     aboutTabs: [
       {
-        title: "О себе",
-        url: "/about",
+        title: 'О себе',
+        url: '/about',
       },
       {
-        title: "Компетенции",
-        url: "/competencies",
+        title: 'Компетенции',
+        url: '/competencies',
       },
       {
-        title: "Работал",
-        url: "/jobs",
+        title: 'Работал',
+        url: '/jobs',
       },
     ],
     isActiveMenu: isActiveMenu,

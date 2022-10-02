@@ -1,11 +1,11 @@
-import { checkValue } from "../../utils/Functions";
-import CONTENTFULAPI from "../contentful";
+import { checkValue } from '../../utils/Functions';
+import CONTENTFULAPI from '../contentful';
 const api = new CONTENTFULAPI();
-import dayjs from "dayjs";
-import "dayjs/locale/ru";
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
 
 export const jobs = {
-  getList: () => api.get("jobs"),
+  getList: () => api.get('jobs'),
 
   serializer(data) {
     const result = data.items.map((item) => {
@@ -20,13 +20,7 @@ export const jobs = {
         order: checkValue(item.fields.order),
         recruited: checkValue(item.fields.recruited),
         dismissal: checkValue(item.fields.dismissal),
-        date: `${dayjs(item.fields.recruited)
-          .locale("ru")
-          .format("MMMM YYYY")} — ${
-          item.fields.dismissal === null
-            ? "Сейчас"
-            : `${dayjs(item.fields.dismissal).locale("ru").format("MMMM YYYY")}`
-        }`,
+        date: `${dayjs(item.fields.recruited).locale('ru').format('MMMM YYYY')} — ${item.fields.dismissal === null ? 'Сейчас' : `${dayjs(item.fields.dismissal).locale('ru').format('MMMM YYYY')}`}`,
       };
     });
 

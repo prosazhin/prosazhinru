@@ -31,12 +31,10 @@ export default function PostPage({ page, navigations, contacts, post }) {
       <MainContainer>
         <Container small>
           <PageHeadline title={post.title} />
-        </Container>
-        <Content data={post} />
-        <Container small>
-          <StaticTagsList array={post.tags} customClass={style.tags} />
+          <StaticTagsList array={post.tags} />
           <span className={style.date}>{post.createString}</span>
         </Container>
+        <Content data={post} />
       </MainContainer>
     </MainWrapper>
   );

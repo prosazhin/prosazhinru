@@ -1,12 +1,9 @@
 @import 'pbstyles/styles/scss';
 
-.tags {
-  margin-top: 5rem;
-}
-
 .date {
   display: inline-block;
   width: 100%;
   @include text_4;
   color: $color_palette_blue_gray_400;
+  margin-bottom: 3rem;
 }
