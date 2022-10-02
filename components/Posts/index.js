@@ -17,6 +17,11 @@ export default function Posts({ array }) {
                 <div className={style.post__wrapper}>
                   <StaticTagsList array={post.tags} />
                   <span className={style.post__date}>{post.createString}</span>
+                  <SocialLinks
+                    data={[post.dzenUrl ? { title: 'Дзен', url: post.dzenUrl } : null, post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]}
+                    small={true}
+                    customClass={style.post__social_link}
+                  />
                 </div>
               </a>
             </Link>

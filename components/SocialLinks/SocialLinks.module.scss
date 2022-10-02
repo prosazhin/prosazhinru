@@ -4,7 +4,6 @@
   display: inline-flex;
   width: 100%;
   align-items: center;
-  margin-top: 3rem;
 }
 
 .link {
@@ -20,16 +19,33 @@
   align-items: center;
   user-select: none;
   cursor: pointer;
+  text-decoration: none !important;
 
   &:hover {
     color: $color_font_accent;
-    text-decoration: none;
+    text-decoration: none !important;
     background-color: $color_palette_blue_50;
+  }
+
+  &__title {
+    text-decoration: none !important;
   }
 
   &__icon {
     width: 3rem;
     height: 3rem;
     margin-left: 1rem;
+  }
+
+  &__small {
+    padding: 0.5rem 1rem;
+    @include text_4;
+    border-radius: $size_radius_1;
+    margin-right: 0.5rem;
+
+    .link__icon {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 }

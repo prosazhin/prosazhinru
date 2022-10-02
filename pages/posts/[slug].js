@@ -34,7 +34,7 @@ export default function PostPage({ page, navigations, contacts, post }) {
           <div className={style.wrapper}>
             <StaticTagsList array={post.tags} />
             <span className={style.date}>{post.createString}</span>
-            <SocialLinks data={[post.dzenUrl ? { title: 'Дзен', url: post.dzenUrl } : null, post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]} />
+            <SocialLinks data={[post.dzenUrl ? { title: 'Дзен', url: post.dzenUrl } : null, post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]} customClass={style.social_link} />
           </div>
         </Container>
         <Content data={post} />
