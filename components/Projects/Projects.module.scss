@@ -37,12 +37,6 @@
     border-radius: $size_radius_2;
   }
 
-  &__tags {
-    display: inline-block;
-    width: 100%;
-    margin-top: 2rem;
-  }
-
   &__headline {
     display: inline-block;
     width: 100%;
@@ -52,10 +46,21 @@
     color: $color_palette_black;
   }
 
+  &__wrapper {
+    display: inline-block;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
   &__date {
     display: inline-block;
     width: 100%;
     @include text_4;
     color: $color_palette_blue_gray_400;
+    margin-top: 1rem;
+  }
+
+  &__social_link {
+    margin-bottom: 1rem;
   }
 }

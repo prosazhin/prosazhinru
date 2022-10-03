@@ -51,7 +51,8 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
                   <p className={style.road__date}>{job.date}</p>
                   <p className={style.road__position}>{job.position}</p>
                   <p className={style.road__description}>{job.description}</p>
-                  {Boolean(job.stack) && <p className={style.road__description}>{job.stack}</p>}
+                  {Boolean(job.devStack) && <p className={style.road__description}>{job.devStack}</p>}
+                  {Boolean(job.designStack) && <p className={style.road__description}>{job.designStack}</p>}
                 </section>
               ))}
           </article>

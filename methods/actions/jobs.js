@@ -17,6 +17,8 @@ export const jobs = {
         position: checkValue(item.fields.position),
         description: checkValue(item.fields.description),
         stack: checkValue(item.fields.stack),
+        devStack: checkValue(item.fields.devStack),
+        designStack: checkValue(item.fields.designStack),
         order: checkValue(item.fields.order),
         recruited: checkValue(item.fields.recruited),
         dismissal: checkValue(item.fields.dismissal),

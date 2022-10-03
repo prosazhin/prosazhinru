@@ -1,4 +1,5 @@
 export function contentSerializer(data) {
+  if (!data) return null;
   const result = data.map((item) => {
     switch (item.nodeType) {
       case 'embedded-asset-block':
