@@ -16,7 +16,6 @@ export const jobs = {
         url: checkValue(item.fields.url),
         position: checkValue(item.fields.position),
         description: checkValue(item.fields.description),
-        stack: checkValue(item.fields.stack),
         devStack: checkValue(item.fields.devStack),
         designStack: checkValue(item.fields.designStack),
         order: checkValue(item.fields.order),
