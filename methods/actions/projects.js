@@ -52,8 +52,8 @@ export const project = {
         figmaUrl: checkValue(item.fields.figmaUrl),
         projectUrl: checkValue(item.fields.projectUrl),
         content: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.content))),
-        designContent: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.designContent))),
-        devContent: JSON.parse(JSON.stringify(contentSerializer(item.fields.content.devContent))),
+        designContent: checkValue(item.fields.designContent) ? JSON.parse(JSON.stringify(contentSerializer(item.fields.designContent.content))) : null,
+        devContent: checkValue(item.fields.devContent) ? JSON.parse(JSON.stringify(contentSerializer(item.fields.devContent.content))) : null,
       };
     });
 

@@ -44,7 +44,8 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
             />
           </div>
         </Container>
-        <Content data={project} />
+        {project.designContent && <Content data={project.designContent} />}
+        {project.devContent && <Content data={project.devContent} />}
       </MainContainer>
     </MainWrapper>
   );

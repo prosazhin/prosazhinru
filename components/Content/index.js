@@ -36,9 +36,9 @@ export default function Content({ data }) {
             <p
               className={
                 `${style.content__paragraph}` +
-                `${count - 1 > index && data.content[index + 1].type === 'unordered-list' ? ` ${style.content__paragraph_above}` : ''}` +
-                `${count - 1 > index && data.content[index + 1].type === 'ordered-list' ? ` ${style.content__paragraph_above}` : ''}` +
-                `${count - 1 > index && data.content[index + 1].type === 'paragraph' ? ` ${style.content__paragraph_above}` : ''}` +
+                `${count - 1 > index && data[index + 1].type === 'unordered-list' ? ` ${style.content__paragraph_above}` : ''}` +
+                `${count - 1 > index && data[index + 1].type === 'ordered-list' ? ` ${style.content__paragraph_above}` : ''}` +
+                `${count - 1 > index && data[index + 1].type === 'paragraph' ? ` ${style.content__paragraph_above}` : ''}` +
                 `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
               }
             >
@@ -70,7 +70,15 @@ export default function Content({ data }) {
       case 'ordered-list':
         return (
           <Container small>
-            <ol type="1" className={`${style.content__list} ` + `${style.content__list_ordered}` + `${count - 1 > index && data.content[index + 1].type === 'paragraph' ? ` ${style.content__list_above_paragraph}` : ''}` + `${count - 1 === index ? ` ${style.content__last_type}` : ''}`}>
+            <ol
+              type="1"
+              className={
+                `${style.content__list} ` +
+                `${style.content__list_ordered}` +
+                `${count - 1 > index && data[index + 1].type === 'paragraph' ? ` ${style.content__list_above_paragraph}` : ''}` +
+                `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
+              }
+            >
               {item.value.map((valueItem, valueIndex) => (
                 <li key={`${item.type}__${valueIndex}`} className={style.content__list__item}>
                   {valueItem}
@@ -83,7 +91,14 @@ export default function Content({ data }) {
       case 'unordered-list':
         return (
           <Container small>
-            <ul className={`${style.content__list} ` + `${style.content__list_unordered}` + `${count - 1 > index && data.content[index + 1].type === 'paragraph' ? ` ${style.content__list_above_paragraph}` : ''}` + `${count - 1 === index ? ` ${style.content__last_type}` : ''}`}>
+            <ul
+              className={
+                `${style.content__list} ` +
+                `${style.content__list_unordered}` +
+                `${count - 1 > index && data[index + 1].type === 'paragraph' ? ` ${style.content__list_above_paragraph}` : ''}` +
+                `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
+              }
+            >
               {item.value.map((valueItem, valueIndex) => (
                 <li key={`${item.type}__${valueIndex}`} className={style.content__list__item}>
                   {valueItem}
@@ -97,8 +112,8 @@ export default function Content({ data }) {
 
   return (
     <div className={style.content}>
-      {data.content.map((item, index) => (
-        <React.Fragment key={`${item.type}__${index}`}>{getType(item, data.content.length, index)}</React.Fragment>
+      {data.map((item, index) => (
+        <React.Fragment key={`${item.type}__${index}`}>{getType(item, data.length, index)}</React.Fragment>
       ))}
     </div>
   );
