@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content, SocialLinks } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'projects');
@@ -31,8 +31,18 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
       <MainContainer>
         <Container small>
           <PageHeadline title={project.title} />
-          <StaticTagsList array={project.tags} customClass={style.tags} />
-          <span className={style.date}>{project.createString}</span>
+          <div className={style.wrapper}>
+            <StaticTagsList array={project.tags} customClass={style.tags} />
+            <span className={style.date}>{project.createString}</span>
+            <SocialLinks
+              data={[
+                project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
+                project.figmaUrl ? { title: 'Figma', url: project.figmaUrl } : null,
+                project.projectUrl ? { title: 'Site', url: project.projectUrl } : null,
+              ]}
+              customClass={style.social_link}
+            />
+          </div>
         </Container>
         <Content data={project} />
       </MainContainer>

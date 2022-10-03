@@ -1,7 +1,14 @@
 @import 'pbstyles/styles/scss';
 
-.tags {
+.wrapper {
+  display: inline-block;
+  width: 100%;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.social_link {
+  margin-top: 3rem;
 }
 
 .date {
@@ -10,7 +17,6 @@
   @include text_4;
   color: $color_palette_blue_gray_400;
   margin-top: 1rem;
-  margin-bottom: 3rem;
 }
 
 .content {
