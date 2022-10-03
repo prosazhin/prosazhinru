@@ -34,7 +34,7 @@
   }
 
   &__cover {
-    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
   }
 
   &__headline {
@@ -50,13 +50,13 @@
     display: inline-block;
     width: 100%;
     @include text_3;
-    margin-bottom: 2rem;
     color: $color_palette_black;
   }
 
   &__wrapper {
     display: inline-block;
     width: 100%;
+    margin-top: 3rem;
   }
 
   &__date {
