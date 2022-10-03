@@ -14,6 +14,7 @@ export const projects = {
         id: checkValue(item.sys.id),
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
+        description: checkValue(item.fields.description),
         tags: checkValue(item.fields.tags),
         cover: {
           url: checkValue(item.fields.cover.fields.file.url),
@@ -41,6 +42,7 @@ export const project = {
         id: checkValue(item.sys.id),
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
+        description: checkValue(item.fields.description),
         tags: checkValue(item.fields.tags),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),

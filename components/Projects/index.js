@@ -14,6 +14,7 @@ export default function Projects({ array }) {
             <Link href={`/projects/${project.slug}`}>
               <a className={style.project__link}>
                 <span className={style.project__headline}>{project.title}</span>
+                {project.description && <span className={style.project__description}>{project.description}</span>}
                 <Image
                   className={style.project__cover}
                   src={`https:` + project.cover.url}
