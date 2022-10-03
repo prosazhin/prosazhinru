@@ -47,6 +47,7 @@
     width: 100%;
     color: $color_palette_black;
     @include text_2;
+    font-weight: $font_weight_medium;
     margin-bottom: 0.5rem;
   }
 
