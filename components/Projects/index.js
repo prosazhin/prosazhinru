@@ -8,6 +8,7 @@ export default function Projects({ array }) {
   return (
     <ul className={style.projects}>
       {array
+        .filter((item) => item.show)
         .sort((a, b) => new Date(b.create) - new Date(a.create))
         .map((project) => (
           <li className={style.project} key={project.id}>

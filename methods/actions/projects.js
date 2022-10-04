@@ -28,6 +28,7 @@ export const projects = {
         gitUrl: checkValue(item.fields.gitUrl),
         figmaUrl: checkValue(item.fields.figmaUrl),
         projectUrl: checkValue(item.fields.projectUrl),
+        show: checkValue(item.fields.show),
       };
     });
 
@@ -53,6 +54,7 @@ export const project = {
         projectUrl: checkValue(item.fields.projectUrl),
         designContent: checkValue(item.fields.designContent) ? JSON.parse(JSON.stringify(contentSerializer(item.fields.designContent.content))) : null,
         devContent: checkValue(item.fields.devContent) ? JSON.parse(JSON.stringify(contentSerializer(item.fields.devContent.content))) : null,
+        show: checkValue(item.fields.show),
       };
     });
 
