@@ -17,16 +17,9 @@ export default function Projects({ array }) {
                 <span className={style.project__headline}>{project.title}</span>
                 {project.description && <span className={style.project__description}>{project.description}</span>}
                 {project.cover && (
-                  <Image
-                    className={style.project__cover}
-                    src={`https:` + project.cover.url}
-                    alt={project.title}
-                    layout="responsive"
-                    width={project.cover.width}
-                    height={project.cover.height}
-                    priority="true"
-                    unoptimized="true"
-                  />
+                  <div className={style.project__cover_wrapper}>
+                    <Image src={`https:` + project.cover.url} alt={project.title} layout="responsive" width={project.cover.width} height={project.cover.height} priority="true" unoptimized="true" />
+                  </div>
                 )}
                 <div className={style.project__wrapper}>
                   <SocialLinks
