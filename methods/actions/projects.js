@@ -7,7 +7,6 @@ import { contentSerializer } from '../serializers/content';
 
 export const projects = {
   getList: () => api.get('projects'),
-
   serializer(data) {
     const result = data.items.map((item) => {
       return {
