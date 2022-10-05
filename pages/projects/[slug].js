@@ -39,7 +39,8 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
               data={[
                 project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
                 project.figmaUrl ? { title: 'Figma', url: project.figmaUrl } : null,
-                project.projectUrl ? { title: 'Site', url: project.projectUrl } : null,
+                project.behanceUrl ? { title: 'Behance', url: project.behanceUrl } : null,
+                project.projectUrl ? { title: project.projectUrl, url: project.projectUrl } : null,
               ]}
               customClass={style.social_link}
             />
