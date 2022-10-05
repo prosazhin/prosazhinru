@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import style from './Tabs.module.scss';
 
-export default function Tabs({ array, customClass }) {
+export function LinkTabs({ array, customClass }) {
   const router = useRouter();
 
   const isActiveTab = (url) => {
@@ -17,6 +17,18 @@ export default function Tabs({ array, customClass }) {
         <Link href={item.url} key={item.url}>
           <a className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ''}`}>{item.title}</a>
         </Link>
+      ))}
+    </div>
+  );
+}
+
+export function StateTabs({ array, active, onChange, customClass }) {
+  return (
+    <div className={`${style.tabs}${customClass ? ` ${customClass}` : ''}`}>
+      {array.map((item, index) => (
+        <span key={index} className={`${style.tabs__links}${active === index ? ` ${style.tabs__links_active}` : ''}`} onClick={() => onChange(index)}>
+          {item}
+        </span>
       ))}
     </div>
   );

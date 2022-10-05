@@ -14,6 +14,7 @@
     @include animated;
     font-weight: $font_weight_medium;
     text-decoration: none;
+    cursor: pointer;
 
     &:nth-last-child(1) {
       margin-right: 0;

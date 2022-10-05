@@ -4,7 +4,7 @@ import { useAppContext } from '../../context';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, Headline, Tabs } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, Headline, LinkTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'competencies');
@@ -32,7 +32,7 @@ export default function CompetenciesPage({ page, navigations, contacts, competen
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-competencies.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
-          <Tabs array={context.aboutTabs} customClass={style.tabs} />
+          <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
           <PageHeadline title={page.title} description={page.description} />
           <div className={style.about}>
             <Headline title="Уровни оценки навыков" size="2" hideMarginTop />
@@ -40,23 +40,32 @@ export default function CompetenciesPage({ page, navigations, contacts, competen
               <li className={style.about__list__item}>
                 <span className={style.about__list__item__icon}>1</span>
                 <span className={style.about__list__item__title}>Осведомлённость</span>
-                <span className={style.about__list__item__description}>Понимание того, как работает специалист в этой области. Какие задачи выполняет, каков рабочий процесс и инструментарий, методы и практики, какие особенности и ограничения накладываются на него.</span>
+                <span className={style.about__list__item__description}>
+                  Понимание того, как работает специалист в этой области. Какие задачи выполняет, каков рабочий процесс и инструментарий, методы и практики, какие особенности и ограничения
+                  накладываются на него.
+                </span>
               </li>
               <li className={style.about__list__item}>
                 <span className={style.about__list__item__icon}>2</span>
                 <span className={style.about__list__item__title}>Умение</span>
-                <span className={style.about__list__item__description}>Способность решать базовые задачи в области. Доделать не очень важный кусок работ за ведущим специалистом, собрать макет или прототип на основе чужих наработок, внести осмысленные доработки в существующий документ и т.п.</span>
+                <span className={style.about__list__item__description}>
+                  Способность решать базовые задачи в области. Доделать не очень важный кусок работ за ведущим специалистом, собрать макет или прототип на основе чужих наработок, внести осмысленные
+                  доработки в существующий документ и т.п.
+                </span>
               </li>
               <li className={style.about__list__item}>
                 <span className={style.about__list__item__icon}>3</span>
                 <span className={style.about__list__item__title}>Экспертиза</span>
-                <span className={style.about__list__item__description}>Выполнение большинства задач в области знаний. От начала до конца и, зачастую, самостоятельно. Способность разобраться в нетипичной ситуации.</span>
+                <span className={style.about__list__item__description}>
+                  Выполнение большинства задач в области знаний. От начала до конца и, зачастую, самостоятельно. Способность разобраться в нетипичной ситуации.
+                </span>
               </li>
               <li className={style.about__list__item}>
                 <span className={style.about__list__item__icon}>4</span>
                 <span className={style.about__list__item__title}>Лидерство</span>
                 <span className={style.about__list__item__description}>
-                  Способность передать экспертизу другим участникам команды. Помощь в обучении и профессиональном росте коллег, развитии инструментария и методов работы, повышении общей дизайн-культуры. Возможность указать на проблемную ситуацию в проекте или процессе и помочь в её решении.
+                  Способность передать экспертизу другим участникам команды. Помощь в обучении и профессиональном росте коллег, развитии инструментария и методов работы, повышении общей
+                  дизайн-культуры. Возможность указать на проблемную ситуацию в проекте или процессе и помочь в её решении.
                 </span>
               </li>
             </ul>

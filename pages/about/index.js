@@ -4,7 +4,7 @@ import { useAppContext } from '../../context';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, Headline, Tabs } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, Headline, LinkTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'about');
@@ -32,7 +32,7 @@ export default function AboutPage({ page, navigations, contacts, skills }) {
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-about.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
-          <Tabs array={context.aboutTabs} customClass={style.tabs} />
+          <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
           <PageHeadline description={page.description} />
           {skills
             .sort((a, b) => a.order - b.order)

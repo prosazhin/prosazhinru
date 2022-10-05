@@ -4,7 +4,7 @@ import style from './styles.module.scss';
 import { useAppContext } from '../../context';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, ClickableTagsList, Links, Tabs } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, ClickableTagsList, Links, LinkTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'links');
@@ -36,7 +36,7 @@ export default function LinksTagPage({ page, navigations, tags, activeTag, links
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-links.jpg" url={router.asPath} canonical="links">
       <MainContainer>
         <Container>
-          <Tabs array={context.linksTabs} customClass={style.tabs} />
+          <LinkTabs array={context.linksTabs} customClass={style.tabs} />
           <PageHeadline title={page.title} description={page.description} />
           <ClickableTagsList array={tags} tagLinkTo="links" customClass={style.tags} />
           <Links array={links} customClass={style.links} />

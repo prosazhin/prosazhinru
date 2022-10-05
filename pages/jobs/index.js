@@ -4,7 +4,7 @@ import { useAppContext } from '../../context';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, Tabs } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, LinkTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'jobs');
@@ -32,7 +32,7 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-jobs.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
-          <Tabs array={context.aboutTabs} customClass={style.tabs} />
+          <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
           <PageHeadline title={page.title} />
           <article className={style.road}>
             {jobs

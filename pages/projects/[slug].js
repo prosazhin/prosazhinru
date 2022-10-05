@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content, SocialLinks } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content, SocialLinks, StateTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'projects');
@@ -22,6 +22,7 @@ export async function getServerSideProps(context) {
 
 export default function ProjectPage({ page, navigations, contacts, project }) {
   const router = useRouter();
+  const [activeTab, setActiveTab] = useState(0);
 
   // Отправляю событие про отправку страницы
   Mixpanel.event('LOADING_PROJECT_PAGE');
@@ -43,9 +44,16 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
               customClass={style.social_link}
             />
           </div>
+          {project.designContent && project.devContent && <StateTabs array={['Дизайн', 'Разработка']} active={activeTab} onChange={setActiveTab} customClass={style.tabs} />}
         </Container>
-        {project.designContent && <Content data={project.designContent} />}
-        {project.devContent && <Content data={project.devContent} />}
+        {project.designContent && !project.devContent && <Content data={project.designContent} />}
+        {project.devContent && !project.designContent && <Content data={project.devContent} />}
+        {project.designContent && project.devContent && (
+          <>
+            {activeTab === 0 && <Content data={project.designContent} />}
+            {activeTab === 1 && <Content data={project.devContent} />}
+          </>
+        )}
       </MainContainer>
     </MainWrapper>
   );
