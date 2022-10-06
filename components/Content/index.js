@@ -10,9 +10,12 @@ export default function Content({ data }) {
         return (
           <Container>
             <div
-              className={`${data[index + 1].type !== 'image' ? ` ${style.content__image__wrapper}` : ''}${index === 0 ? ` ${style.content__first_type}` : ''}${
-                count - 1 === index ? ` ${style.content__last_type}` : ''
-              }`}
+              className={
+                `${style.content__image__wrapper}` +
+                `${index === 0 ? ` ${style.content__first_type}` : ''}` +
+                `${count - 1 > index && data[index + 1].type === 'image' ? ` ${style.content__image__wrapper_no_padding}` : ''}` +
+                `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
+              }
             >
               <Image className={style.content__image} src={`https:` + item.url} alt={item.description} layout="responsive" width={item.width} height={item.height} priority="true" unoptimized="true" />
               {item.description && <span className={style.content__image__description}>{item.description}</span>}
