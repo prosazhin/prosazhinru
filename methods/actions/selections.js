@@ -4,6 +4,7 @@ const api = new CONTENTFULAPI();
 
 export const selections = {
   getList: () => api.get('selections'),
+
   getListWithTag: (activeTagId) => api.get('selections', { 'fields.tags.sys.id[in]': activeTagId }),
 
   serializer(data) {

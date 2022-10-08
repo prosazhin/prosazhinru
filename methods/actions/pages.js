@@ -19,6 +19,7 @@ export const pages = {
           description: checkValue(item.fields.pageDescription),
           metaTitle: checkValue(item.fields.metaTitle),
           metaDescription: checkValue(item.fields.metaDescription),
+          active: checkValue(item.fields.active),
         };
       }
 
@@ -28,6 +29,7 @@ export const pages = {
         slug: checkValue(item.fields.slug),
         show: checkValue(item.fields.show),
         order: checkValue(item.fields.order),
+        active: checkValue(item.fields.active),
       };
     });
 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
 import method from '../../methods';
-import { MainWrapper, MainContainer, Container, PageHeadline, StaticTagsList, Content, SocialLinks, StateTabs } from '../../components';
+import { MainWrapper, MainContainer, Container, PageHeadline, StaticActiveTagsList, Content, SocialLinks, StateTabs } from '../../components';
 
 export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'projects');
@@ -33,18 +33,18 @@ export default function ProjectPage({ page, navigations, contacts, project }) {
         <Container small>
           <PageHeadline title={project.title} />
           <div className={style.wrapper}>
-            <StaticTagsList array={project.tags} customClass={style.tags} />
+            <StaticActiveTagsList array={project.tags} />
             <span className={style.date}>{project.createString}</span>
-            <SocialLinks
-              data={[
-                project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
-                project.figmaUrl ? { title: 'Figma', url: project.figmaUrl } : null,
-                project.behanceUrl ? { title: 'Behance', url: project.behanceUrl } : null,
-                project.projectUrl ? { title: project.projectUrl, url: project.projectUrl } : null,
-              ]}
-              customClass={style.social_link}
-            />
           </div>
+          <SocialLinks
+            data={[
+              project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
+              project.figmaUrl ? { title: 'Figma', url: project.figmaUrl } : null,
+              project.behanceUrl ? { title: 'Behance', url: project.behanceUrl } : null,
+              project.projectUrl ? { title: project.projectUrl, url: project.projectUrl } : null,
+            ]}
+            customClass={style.social_link}
+          />
           {project.designContent && project.devContent && <StateTabs array={['Дизайн', 'Разработка']} active={activeTab} onChange={setActiveTab} customClass={style.tabs} />}
         </Container>
         {project.designContent && !project.devContent && <Content data={project.designContent} />}

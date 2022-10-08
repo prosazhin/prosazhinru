@@ -27,6 +27,16 @@ export default function LinksPage({ page, navigations, tags, links, contacts }) 
   const router = useRouter();
   const context = useAppContext();
 
+  const activeTagsList = [];
+
+  links.forEach((link) => {
+    link.tags.forEach((tag) => {
+      if (activeTagsList.every((item) => item.url !== tag.url)) {
+        activeTagsList.push(tag);
+      }
+    });
+  });
+
   // Отправляю событие про отправку страницы
   Mixpanel.event('LOADING_LINKS_PAGE');
 
@@ -36,7 +46,7 @@ export default function LinksPage({ page, navigations, tags, links, contacts }) 
         <Container>
           <LinkTabs array={context.linksTabs} customClass={style.tabs} />
           <PageHeadline title={page.title} description={page.description} />
-          <ClickableTagsList array={tags} tagLinkTo="links" customClass={style.tags} />
+          <ClickableTagsList array={tags.filter((item) => activeTagsList.some((tag) => item.url === tag.url))} tagLinkTo="links" customClass={style.tags} />
           <Links array={links} customClass={style.links} />
         </Container>
       </MainContainer>

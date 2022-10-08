@@ -1,20 +1,21 @@
 @import 'pbstyles/styles/scss';
 
 .wrapper {
-  display: inline-block;
+  display: inline-flex;
   width: 100%;
   margin-top: 2rem;
-  margin-bottom: 4.5rem;
+  align-items: center;
 }
 
 .social_link {
   margin-top: 2.5rem;
+  margin-bottom: 4.5rem;
 }
 
 .date {
   display: inline-block;
-  width: 100%;
+  width: auto;
   @include text_4;
   color: $color_palette_blue_gray_400;
-  margin-top: 1rem;
+  margin-left: 2rem;
 }

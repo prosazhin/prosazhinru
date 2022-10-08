@@ -11,7 +11,8 @@ export async function getServerSideProps(context) {
   const contacts = method.contacts.serializer(await method.contacts.getList());
   const tags = method.tags.serializer(await method.tags.getList());
   const activeTag = tags.filter((item) => item.url === context.params.tag)[0];
-  const links = method.links.serializer(await method.links.getListWithTag(activeTag.id));
+  const links = method.links.serializer(await method.links.getList());
+  const activeLinks = method.links.serializer(await method.links.getListWithTag(activeTag.id));
 
   return {
     props: {
@@ -21,13 +22,24 @@ export async function getServerSideProps(context) {
       tags: tags,
       activeTag: activeTag,
       links: links,
+      activeLinks: activeLinks,
     },
   };
 }
 
-export default function LinksTagPage({ page, navigations, tags, activeTag, links, contacts }) {
+export default function LinksTagPage({ page, navigations, tags, activeTag, links, activeLinks, contacts }) {
   const router = useRouter();
   const context = useAppContext();
+
+  const activeTagsList = [];
+
+  links.forEach((link) => {
+    link.tags.forEach((tag) => {
+      if (activeTagsList.every((item) => item.url !== tag.url)) {
+        activeTagsList.push(tag);
+      }
+    });
+  });
 
   // Отправляю событие про отправку страницы
   Mixpanel.event('LOADING_LINKS_PAGE');
@@ -38,8 +50,8 @@ export default function LinksTagPage({ page, navigations, tags, activeTag, links
         <Container>
           <LinkTabs array={context.linksTabs} customClass={style.tabs} />
           <PageHeadline title={page.title} description={page.description} />
-          <ClickableTagsList array={tags} tagLinkTo="links" customClass={style.tags} />
-          <Links array={links} customClass={style.links} />
+          <ClickableTagsList array={tags.filter((item) => activeTagsList.some((tag) => item.url === tag.url))} tagLinkTo="links" customClass={style.tags} />
+          <Links array={activeLinks} customClass={style.links} />
         </Container>
       </MainContainer>
     </MainWrapper>

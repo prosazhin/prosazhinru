@@ -15,8 +15,8 @@ export default function Posts({ array }) {
                 <span className={style.post__headline}>{post.title}</span>
                 <span className={style.post__description}>{post.description}</span>
                 <div className={style.post__wrapper}>
-                  <SocialLinks data={[post.mediumUrl ? { title: 'То же самое на Medium', url: post.mediumUrl } : null]} small={true} customClass={style.post__social_link} />
-                  <StaticTagsList array={post.tags} />
+                  <StaticTagsList array={post.tags} customClass={style.post__tags} />
+                  <SocialLinks data={[post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]} small={true} customClass={style.post__social_link} />
                   <span className={style.post__date}>{post.createString}</span>
                 </div>
               </a>

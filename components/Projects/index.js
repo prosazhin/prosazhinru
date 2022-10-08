@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { StaticTagsList, SocialLinks } from '../';
+import { StaticActiveTagsList, SocialLinks } from '../';
 import style from './Projects.module.scss';
 
 export default function Projects({ array }) {
@@ -12,7 +12,7 @@ export default function Projects({ array }) {
         .sort((a, b) => new Date(b.create) - new Date(a.create))
         .map((project) => (
           <li className={style.project} key={project.id}>
-            <Link href={`/projects/${project.slug}`}>
+            <Link href={`/project/${project.slug}`}>
               <a className={style.project__link}>
                 <span className={style.project__headline}>{project.title}</span>
                 {project.description && <span className={style.project__description}>{project.description}</span>}
@@ -22,6 +22,7 @@ export default function Projects({ array }) {
                   </div>
                 )}
                 <div className={style.project__wrapper}>
+                  <StaticActiveTagsList array={project.tags} customClass={style.project__tags} />
                   <SocialLinks
                     data={[
                       project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
@@ -32,7 +33,6 @@ export default function Projects({ array }) {
                     small={true}
                     customClass={style.project__social_link}
                   />
-                  <StaticTagsList array={project.tags} />
                   <span className={style.project__date}>{project.createString}</span>
                 </div>
               </a>

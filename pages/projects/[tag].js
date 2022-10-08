@@ -9,7 +9,9 @@ export async function getServerSideProps(context) {
   const pages = method.pages.serializer(await method.pages.getList(), 'projects');
   const contacts = method.contacts.serializer(await method.contacts.getList());
   const tags = method.tags.serializer(await method.tags.getList());
+  const activeTag = tags.filter((item) => item.url === context.params.tag)[0];
   const projects = method.projects.serializer(await method.projects.getList());
+  const activeProjects = method.projects.serializer(await method.projects.getListWithTag(activeTag.id));
 
   return {
     props: {
@@ -17,12 +19,14 @@ export async function getServerSideProps(context) {
       navigations: pages.navigations,
       contacts: contacts,
       tags: tags,
+      activeTag: activeTag,
       projects: projects,
+      activeProjects: activeProjects,
     },
   };
 }
 
-export default function ProjectsPage({ page, navigations, contacts, tags, projects }) {
+export default function ProjectsPage({ page, navigations, contacts, tags, activeTag, projects, activeProjects }) {
   const router = useRouter();
 
   const activeTagsList = [];
@@ -44,7 +48,7 @@ export default function ProjectsPage({ page, navigations, contacts, tags, projec
         <Container small>
           <PageHeadline title={page.title} description={page.description} />
           <ClickableTagsList array={tags.filter((item) => activeTagsList.some((tag) => item.url === tag.url))} tagLinkTo="projects" customClass={style.tags} />
-          <Projects array={projects} />
+          <Projects array={activeProjects} />
         </Container>
       </MainContainer>
     </MainWrapper>

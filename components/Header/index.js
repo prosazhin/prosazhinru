@@ -10,9 +10,8 @@ export default function Header({ navigations }) {
   const router = useRouter();
   const context = useAppContext();
 
-  const isActiveLink = (url) => {
-    const result = router.pathname.search(url);
-    return result === -1 ? false : true;
+  const isActiveLink = (urls) => {
+    return urls.some((item) => (router.pathname.search(item) === -1 ? false : true));
   };
 
   const navArr = navigations.sort((a, b) => a.order - b.order);
@@ -33,7 +32,7 @@ export default function Header({ navigations }) {
                 {!!link.show && (
                   <li className={style.nav__item}>
                     <Link href={`/${link.slug}`}>
-                      <a className={`${style.nav__item__link}${isActiveLink(link.slug) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
+                      <a className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
                     </Link>
                   </li>
                 )}
@@ -47,7 +46,7 @@ export default function Header({ navigations }) {
               {!!link.show && (
                 <li className={style.nav__item}>
                   <Link href={`/${link.slug}`}>
-                    <a className={`${style.nav__item__link}${isActiveLink(link.slug) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
+                    <a className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
                   </Link>
                 </li>
               )}
