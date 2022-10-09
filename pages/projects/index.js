@@ -41,7 +41,7 @@ export default function ProjectsPage({ page, navigations, contacts, tags, projec
   return (
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-projects.jpg" url={router.asPath}>
       <MainContainer>
-        <Container small>
+        <Container>
           <PageHeadline title={page.title} description={page.description} />
           <ClickableTagsList array={tags.filter((item) => activeTagsList.some((tag) => item.url === tag.url))} tagLinkTo="projects" customClass={style.tags} />
           <Projects array={projects} />

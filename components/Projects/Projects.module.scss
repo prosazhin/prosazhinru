@@ -1,24 +1,73 @@
 @import 'pbstyles/styles/scss';
 
 .projects {
-  display: block;
+  display: grid;
   width: 100%;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 4rem;
+  row-gap: 6rem;
+  align-content: flex-start;
+
+  @include not_small_screen {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
 .project {
   display: inline-block;
   width: 100%;
-  margin-top: 5rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid $color_palette_blue_gray_100;
 
-  &:first-child {
-    margin-top: 0px;
+  &__xs,
+  &__s {
+    .project__link {
+      background-color: $color_bg_secondary;
+      border-radius: $size_radius_2;
+      padding: 2rem 3rem;
+    }
+
+    .project__description {
+      min-height: 6rem;
+    }
   }
 
-  &:last-child {
-    padding-bottom: 0px;
-    border-bottom: none;
+  &__xs {
+    grid-column: span 6 / span 6;
+
+    @include not_small_screen {
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  &__s {
+    grid-column: span 6 / span 6;
+
+    @include not_small_screen {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  &__m {
+    grid-column: span 6 / span 6;
+
+    @include not_small_screen {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  &__l {
+    grid-column: span 6 / span 6;
+
+    @include not_small_screen {
+      grid-column: span 4 / span 4;
+    }
+  }
+
+  &__xl {
+    grid-column: span 6 / span 6;
+
+    @include not_small_screen {
+      grid-column: span 6 / span 6;
+    }
   }
 
   &__link {

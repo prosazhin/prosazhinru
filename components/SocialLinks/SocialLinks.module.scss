@@ -1,9 +1,10 @@
 @import 'pbstyles/styles/scss';
 
 .wrapper {
-  display: inline-flex;
-  width: 100%;
+  display: flex;
+  width: auto;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .link {

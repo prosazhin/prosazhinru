@@ -6,7 +6,7 @@ export default function PostInfoBar({ data, customClass }) {
   return (
     <div className={`${style.post_info_bar}${customClass ? ` ${customClass}` : ''}`}>
       <div className={style.post_info_bar__inline_wrapper}>
-        <StaticActiveTagsList array={data.tags} customClass={style.post_info_bar__tags} />
+        <StaticActiveTagsList array={data.tags} />
         <SocialLinks
           data={[
             data.gitUrl ? { title: 'GitHub', url: data.gitUrl } : null,
