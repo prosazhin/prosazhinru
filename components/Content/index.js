@@ -12,7 +12,6 @@ export default function Content({ data }) {
             <div
               className={
                 `${style.content__image__wrapper}` +
-                `${index === 0 ? ` ${style.content__first_type}` : ''}` +
                 `${count - 1 > index && data[index + 1].type === 'image' ? ` ${style.content__image__wrapper_no_padding}` : ''}` +
                 `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
               }

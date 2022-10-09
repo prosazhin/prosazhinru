@@ -3,7 +3,6 @@
 .posts {
   display: block;
   width: 100%;
-  margin-top: 3rem;
 }
 
 .post {
@@ -28,11 +27,8 @@
     text-decoration: none !important;
 
     &:hover {
-      text-decoration: none !important;
-
       .post__headline {
         color: $color_palette_blue_accent_400;
-        text-decoration: none !important;
       }
     }
   }
@@ -51,33 +47,5 @@
     width: 100%;
     @include text_3;
     color: $color_palette_black;
-  }
-
-  &__wrapper {
-    display: inline-flex;
-    width: 100%;
-    margin-top: 3rem;
-    align-items: center;
-  }
-
-  &__date {
-    display: inline-block;
-    width: auto;
-    @include text_4;
-    color: $color_palette_blue_gray_400;
-    text-decoration: none !important;
-    text-align: left;
-    margin-left: 2rem;
-  }
-
-  &__tags {
-    display: inline-flex;
-    width: auto;
-    align-items: center;
-  }
-
-  &__social_link {
-    width: auto;
-    margin-left: 2rem;
   }
 }

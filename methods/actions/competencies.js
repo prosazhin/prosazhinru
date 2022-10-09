@@ -11,14 +11,12 @@ export const competencies = {
         id: checkValue(item.sys.id),
         title: checkValue(item.fields.title),
         order: checkValue(item.fields.order),
-        competencies: item.fields.competencies.map((competence) => {
-          return {
-            id: checkValue(competence.sys.id),
-            title: checkValue(competence.fields.title),
-            rating: checkValue(competence.fields.rating),
-            order: checkValue(competence.fields.order),
-          };
-        }),
+        competencies: item.fields.competencies.map((competence) => ({
+          id: checkValue(competence.sys.id),
+          title: checkValue(competence.fields.title),
+          rating: checkValue(competence.fields.rating),
+          order: checkValue(competence.fields.order),
+        })),
       };
     });
 

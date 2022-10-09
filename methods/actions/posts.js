@@ -8,6 +8,8 @@ import { contentSerializer } from '../serializers/content';
 export const posts = {
   getList: () => api.get('posts'),
 
+  getListWithTag: (activeTagId) => api.get('posts', { 'fields.tags.sys.id[in]': activeTagId }),
+
   serializer(data) {
     const result = data.items.map((item) => {
       return {
@@ -15,7 +17,11 @@ export const posts = {
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
         description: checkValue(item.fields.description),
-        tags: checkValue(item.fields.tags),
+        tags: item.fields.tags.map((tag) => ({
+          id: checkValue(tag.sys.id),
+          title: checkValue(tag.fields.title),
+          url: checkValue(tag.fields.url),
+        })),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
         mediumUrl: checkValue(item.fields.mediumUrl),
@@ -36,7 +42,11 @@ export const post = {
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
         description: checkValue(item.fields.description),
-        tags: checkValue(item.fields.tags),
+        tags: item.fields.tags.map((tag) => ({
+          id: checkValue(tag.sys.id),
+          title: checkValue(tag.fields.title),
+          url: checkValue(tag.fields.url),
+        })),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
         mediumUrl: checkValue(item.fields.mediumUrl),

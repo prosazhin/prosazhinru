@@ -17,13 +17,11 @@ export const projects = {
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
         description: checkValue(item.fields.description),
-        tags: item.fields.tags.map((tag) => {
-          return {
-            id: checkValue(tag.sys.id),
-            title: checkValue(tag.fields.title),
-            url: checkValue(tag.fields.url),
-          };
-        }),
+        tags: item.fields.tags.map((tag) => ({
+          id: checkValue(tag.sys.id),
+          title: checkValue(tag.fields.title),
+          url: checkValue(tag.fields.url),
+        })),
         cover: checkValue(item.fields.cover)
           ? {
               url: checkValue(item.fields.cover.fields.file.url),
@@ -55,13 +53,11 @@ export const project = {
         slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
         description: checkValue(item.fields.description),
-        tags: item.fields.tags.map((tag) => {
-          return {
-            id: checkValue(tag.sys.id),
-            title: checkValue(tag.fields.title),
-            url: checkValue(tag.fields.url),
-          };
-        }),
+        tags: item.fields.tags.map((tag) => ({
+          id: checkValue(tag.sys.id),
+          title: checkValue(tag.fields.title),
+          url: checkValue(tag.fields.url),
+        })),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
         gitUrl: checkValue(item.fields.gitUrl),

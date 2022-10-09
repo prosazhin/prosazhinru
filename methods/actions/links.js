@@ -15,13 +15,11 @@ export const links = {
         description: checkValue(item.fields.description),
         url: checkValue(item.fields.url),
         create: checkValue(item.fields.create),
-        tags: item.fields.tags.map((tag) => {
-          return {
-            id: checkValue(tag.sys.id),
-            title: checkValue(tag.fields.title),
-            url: checkValue(tag.fields.url),
-          };
-        }),
+        tags: item.fields.tags.map((tag) => ({
+          id: checkValue(tag.sys.id),
+          title: checkValue(tag.fields.title),
+          url: checkValue(tag.fields.url),
+        })),
       };
     });
 

@@ -15,6 +15,7 @@ import Posts from './Posts';
 import Projects from './Projects';
 import Years from './Years';
 import Content from './Content';
+import PostInfoBar from './PostInfoBar';
 
 export {
   Header,
@@ -40,4 +41,5 @@ export {
   Years,
   Content,
   SocialLinks,
+  PostInfoBar,
 };

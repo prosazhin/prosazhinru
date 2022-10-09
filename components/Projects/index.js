@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { StaticActiveTagsList, SocialLinks } from '../';
+import { PostInfoBar } from '../';
 import style from './Projects.module.scss';
 
 export default function Projects({ array }) {
@@ -21,20 +21,7 @@ export default function Projects({ array }) {
                     <Image src={`https:` + project.cover.url} alt={project.title} layout="responsive" width={project.cover.width} height={project.cover.height} priority="true" unoptimized="true" />
                   </div>
                 )}
-                <div className={style.project__wrapper}>
-                  <StaticActiveTagsList array={project.tags} customClass={style.project__tags} />
-                  <SocialLinks
-                    data={[
-                      project.gitUrl ? { title: 'GitHub', url: project.gitUrl } : null,
-                      project.figmaUrl ? { title: 'Figma', url: project.figmaUrl } : null,
-                      project.behanceUrl ? { title: 'Behance', url: project.behanceUrl } : null,
-                      project.projectUrl ? { title: project.projectUrl, url: project.projectUrl } : null,
-                    ]}
-                    small={true}
-                    customClass={style.project__social_link}
-                  />
-                  <span className={style.project__date}>{project.createString}</span>
-                </div>
+                <PostInfoBar data={project} />
               </a>
             </Link>
           </li>

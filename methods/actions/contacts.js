@@ -6,15 +6,13 @@ export const contacts = {
   getList: () => api.get('contacts'),
 
   serializer(data) {
-    const result = data.items.map((item) => {
-      return {
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        order: checkValue(item.fields.order),
-        link: checkValue(item.fields.link),
-        url: checkValue(item.fields.url),
-      };
-    });
+    const result = data.items.map((item) => ({
+      id: checkValue(item.sys.id),
+      title: checkValue(item.fields.title),
+      order: checkValue(item.fields.order),
+      link: checkValue(item.fields.link),
+      url: checkValue(item.fields.url),
+    }));
 
     return result;
   },

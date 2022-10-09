@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { StaticTagsList, SocialLinks } from '../';
+import { PostInfoBar } from '../';
 import style from './Posts.module.scss';
 
 export default function Posts({ array }) {
@@ -10,15 +10,11 @@ export default function Posts({ array }) {
         .sort((a, b) => new Date(b.create) - new Date(a.create))
         .map((post) => (
           <li className={style.post} key={post.id}>
-            <Link href={`/posts/${post.slug}`}>
+            <Link href={`/post/${post.slug}`}>
               <a className={style.post__link}>
                 <span className={style.post__headline}>{post.title}</span>
                 <span className={style.post__description}>{post.description}</span>
-                <div className={style.post__wrapper}>
-                  <StaticTagsList array={post.tags} customClass={style.post__tags} />
-                  <SocialLinks data={[post.mediumUrl ? { title: 'Medium', url: post.mediumUrl } : null]} small={true} customClass={style.post__social_link} />
-                  <span className={style.post__date}>{post.createString}</span>
-                </div>
+                <PostInfoBar data={post} />
               </a>
             </Link>
           </li>

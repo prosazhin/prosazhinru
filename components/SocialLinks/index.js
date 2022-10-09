@@ -2,7 +2,7 @@ import React from 'react';
 import style from './SocialLinks.module.scss';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
-export default function SocialLinks({ data, small, customClass }) {
+export default function SocialLinks({ data, customClass }) {
   const filteredData = data.filter((item) => item !== null);
   if (filteredData.length === 0) return null;
 
@@ -11,7 +11,7 @@ export default function SocialLinks({ data, small, customClass }) {
       {filteredData.map((item) => (
         <span
           key={item.url}
-          className={`${style.link}${small ? ` ${style.link__small}` : ''}`}
+          className={style.link}
           onClick={(event) => {
             event.preventDefault();
             event.stopPropagation();
