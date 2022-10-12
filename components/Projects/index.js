@@ -13,7 +13,7 @@ export default function Projects({ array, tag }) {
     4: ['l', 'xs'],
     5: ['xl'],
   };
-  const orderLines = tag === 'dev' ? [0] : [3, 1, 5];
+  const orderLines = tag === 'dev' ? [0] : [3, 0, 4];
   const filteredArray = array.filter((item) => item.show).sort((a, b) => new Date(b.create) - new Date(a.create));
   const sortedArray = [];
 
