@@ -1,29 +1,11 @@
-![Next.js Logo](../../packages/frameworks/logos/next.svg)
+# prosazhin.ru
 
-# Next.js Example
+Стек технологий: React, Next, SCSS, pbstyles, Vercel, Contentful (Headless CMS).
 
-This directory is a brief example of a [Next.js](https://nextjs.org) app that can be deployed with ZEIT Now and zero configuration.
+Фронтенд устроен достаточно просто. Все данные из Contentful получаются при загрузке страницы во время SSR на стороне Next.
 
-## Deploy Your Own
+Интерактив сделан через страницы, например, фильтрация по тегам, просто отправляет на новую страницу с новыми данными.
 
-Deploy your own Next.js project with ZEIT Now.
+Верстка сделана с помощью моей библиотеки стилей pbstyles. Библиотека содержит SCSS переменные и миксины, подключается через import.
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/zeit/now/tree/master/examples/nextjs)
-
-_Live Example: https://nextjs.now-examples.now.sh_
-
-### How We Created This Example
-
-To get started with Next.js deployed with ZEIT Now, you can use [npm create](https://www.npmjs.com/package/create-next-app) to initialize the project:
-
-```shell
-$ npm create next-app my-app
-```
-
-### Deploying From Your Terminal
-
-You can deploy your new Next.js project with a single command from your terminal using [Now CLI](https://zeit.co/download):
-
-```shell
-$ now
-```
+Весь проект храниться и работает в облаке. В качестве хостинга для фронтенда выступает Vercel, а для api Contentful (Headless CMS).
