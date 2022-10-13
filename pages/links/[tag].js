@@ -45,7 +45,7 @@ export default function LinksTagPage({ page, navigations, tags, activeTag, links
   Mixpanel.event('LOADING_LINKS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-links.jpg" url={router.asPath} canonical="links">
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/links.jpg" url={router.asPath} canonical="links">
       <MainContainer>
         <Container>
           <LinkTabs array={context.linksTabs} customClass={style.tabs} />

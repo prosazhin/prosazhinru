@@ -71,7 +71,7 @@ export default function HomePage({ page, navigations, contacts, jobs, links, sel
   Mixpanel.event('LOADING_MAIN_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-index.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/index.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <PageHeadline description={page.description} />

@@ -39,7 +39,7 @@ export default function PostsPage({ page, navigations, contacts, tags, posts }) 
   Mixpanel.event('LOADING_POSTS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-posts.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/posts.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <PageHeadline title={page.title} description={page.description} />

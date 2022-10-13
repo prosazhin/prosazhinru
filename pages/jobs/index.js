@@ -29,7 +29,7 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
   Mixpanel.event('LOADING_JOBS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-jobs.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/jobs.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <LinkTabs array={context.aboutTabs} customClass={style.tabs} />

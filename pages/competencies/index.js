@@ -29,7 +29,7 @@ export default function CompetenciesPage({ page, navigations, contacts, competen
   Mixpanel.event('LOADING_COMPETENCIES_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-competencies.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/competencies.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <LinkTabs array={context.aboutTabs} customClass={style.tabs} />

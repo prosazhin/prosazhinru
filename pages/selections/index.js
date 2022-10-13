@@ -41,7 +41,7 @@ export default function SelectionsPage({ page, navigations, contacts, tags, sele
   Mixpanel.event('LOADING_SELECTIONS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-links.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/links.jpg" url={router.asPath}>
       <MainContainer>
         <Container>
           <LinkTabs array={context.linksTabs} customClass={style.tabs} />

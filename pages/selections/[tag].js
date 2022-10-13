@@ -45,7 +45,7 @@ export default function SelectionsTagPage({ page, navigations, tags, activeTag, 
   Mixpanel.event('LOADING_SELECTIONS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-links.jpg" url={router.asPath} canonical="selections">
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/links.jpg" url={router.asPath} canonical="selections">
       <MainContainer>
         <Container>
           <LinkTabs array={context.linksTabs} customClass={style.tabs} />

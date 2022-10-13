@@ -43,7 +43,7 @@ export default function ProjectsPage({ page, navigations, contacts, tags, active
   Mixpanel.event('LOADING_PROJECTS_PAGE');
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing-projects.jpg" url={router.asPath}>
+    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/projects.jpg" url={router.asPath}>
       <MainContainer>
         <Container>
           <PageHeadline title={page.title} description={page.description} />
