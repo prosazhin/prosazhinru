@@ -1,0 +1,73 @@
+@import 'pbstyles/styles/scss';
+
+.tabs {
+  margin-bottom: 4rem;
+}
+
+.contacts {
+  display: inline-block;
+  width: 100%;
+  margin-top: 3rem;
+
+  &__item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  width: 100%;
+  color: $color_palette_black;
+  background-color: $color_bg_secondary;
+  border-radius: $size_radius_2;
+  align-items: center;
+  padding: 2rem 3rem;
+
+  &__wrapper {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include text_3;
+    font-weight: $font_weight_medium;
+  }
+
+  &__description {
+    @include text_4;
+    font-weight: $font_weight_regular;
+  }
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &:hover {
+    color: $color_font_accent;
+    text-decoration: none !important;
+    background-color: $color_palette_blue_50;
+
+    .link__icon {
+      color: $color_font_accent;
+    }
+  }
+
+  &__title {
+    text-decoration: none !important;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    color: $color_palette_gray_300;
+  }
+}

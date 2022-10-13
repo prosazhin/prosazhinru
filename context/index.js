@@ -22,12 +22,16 @@ export function ContextProvider({ children }) {
         url: '/about',
       },
       {
-        title: 'Компетенции',
-        url: '/competencies',
+        title: 'Контакты',
+        url: '/contacts',
       },
       {
         title: 'Работал',
         url: '/jobs',
+      },
+      {
+        title: 'Компетенции',
+        url: '/competencies',
       },
     ],
     isActiveMenu: isActiveMenu,
