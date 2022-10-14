@@ -5,10 +5,19 @@ export function contentSerializer(data) {
       case 'embedded-asset-block':
         return {
           type: 'image',
-          url: item.data.target.fields.file.url,
+          url: `https:${item.data.target.fields.file.url}`,
           description: item.data.target.fields.description,
           width: item.data.target.fields.file.details.image.width,
           height: item.data.target.fields.file.details.image.height,
+        };
+
+      case 'embedded-entry-block':
+        return {
+          type: 'image',
+          url: item.data.target.fields.url,
+          description: item.data.target.fields.title,
+          width: item.data.target.fields.width,
+          height: item.data.target.fields.height,
         };
 
       case 'heading-1':
