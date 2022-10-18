@@ -29,10 +29,6 @@ export function ContextProvider({ children }) {
         title: 'Работал',
         url: '/jobs',
       },
-      {
-        title: 'Компетенции',
-        url: '/competencies',
-      },
     ],
     isActiveMenu: isActiveMenu,
     toggleActiveMenu: () => toggleActiveMenu(!isActiveMenu),
