@@ -32,7 +32,6 @@ export default function ContactsPage({ page, navigations, contacts }) {
       <MainContainer>
         <Container small>
           <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
-          <PageHeadline title={page.title} description={page.description} />
           <ul className={style.contacts}>
             {contacts
               .sort((a, b) => a.order - b.order)

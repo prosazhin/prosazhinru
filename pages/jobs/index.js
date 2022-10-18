@@ -33,7 +33,6 @@ export default function AboutPage({ page, navigations, contacts, jobs }) {
       <MainContainer>
         <Container small>
           <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
-          <PageHeadline title={page.title} />
           <article className={style.road}>
             {jobs
               .sort((a, b) => b.order - a.order)

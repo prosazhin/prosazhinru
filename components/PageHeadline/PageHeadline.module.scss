@@ -11,6 +11,10 @@
   width: 100%;
   color: $color_palette_black;
   @include headline_1;
+
+  & + .description {
+    margin-top: 2rem;
+  }
 }
 
 .description {
@@ -18,19 +22,17 @@
   width: 100%;
   color: $color_palette_black;
   @include text_1;
-  margin-top: 2rem;
 
   p {
     display: inline-block;
     width: 100%;
-    margin-top: 2rem;
 
-    @include not_small_screen {
-      margin-top: 3rem;
-    }
+    & + p {
+      margin-top: 2rem;
 
-    &:nth-child(1) {
-      margin-top: 0;
+      @include not_small_screen {
+        margin-top: 3rem;
+      }
     }
 
     br {
