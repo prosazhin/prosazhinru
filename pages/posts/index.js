@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import style from './styles.module.scss';
 import Mixpanel from '../../utils/Mixpanel';
@@ -17,34 +17,47 @@ export async function getServerSideProps(context) {
       navigations: pages.navigations,
       contacts: contacts,
       tags: tags,
+      query: context.query,
       posts: posts,
     },
   };
 }
 
-export default function PostsPage({ page, navigations, contacts, tags, posts }) {
+export default function PostsPage({ page, navigations, contacts, tags, query, posts }) {
   const router = useRouter();
+  const [tagList, setTagList] = useState([]);
+  const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
 
-  const activeTagsList = [];
+  useEffect(() => {
+    const activeTagsList = [];
 
-  posts.forEach((post) => {
-    post.tags.forEach((tag) => {
-      if (activeTagsList.every((item) => item.url !== tag.url)) {
-        activeTagsList.push(tag);
-      }
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        if (activeTagsList.every((item) => item.url !== tag.url)) {
+          activeTagsList.push(tag);
+        }
+      });
     });
-  });
 
-  // Отправляю событие про отправку страницы
-  Mixpanel.event('LOADING_POSTS_PAGE');
+    setTagList(activeTagsList);
+
+    // Отправляю событие про отправку страницы
+    Mixpanel.event('LOADING_POSTS_PAGE');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setActiveTag(tags.filter((item) => item.url === router.query.tag)[0]);
+  }, [router.query.tag, tags]);
 
   return (
     <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/posts.jpg" url={router.asPath}>
       <MainContainer>
         <Container small>
           <PageHeadline title={page.title} description={page.description} />
-          <ClickableTagsList array={tags.filter((item) => activeTagsList.some((tag) => item.url === tag.url))} tagLinkTo="posts" customClass={style.tags} />
-          <Posts array={posts} />
+          <ClickableTagsList array={tags.filter((item) => tagList.some((tag) => item.url === tag.url))} pageLink="posts" activeTag={activeTag} customClass={style.tags} />
+          <Posts array={activeTag !== undefined ? posts.filter((post) => post.tags.some((tag) => tag.url === activeTag.url)) : posts} />
         </Container>
       </MainContainer>
     </MainWrapper>
