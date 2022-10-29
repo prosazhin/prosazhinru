@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Image from 'next/image';
 import { Container } from '../';
 import style from './Content.module.scss';
 
@@ -16,8 +16,8 @@ export default function Content({ data }) {
                 `${count - 1 === index ? ` ${style.content__last_type}` : ''}`
               }
             >
-              <Image className={style.content__image} src={item.url} alt={item.description} width={item.width} height={item.height} layout="intrinsic" priority="true" unoptimized="true" />
-              {item.description && <span className={style.content__image__description}>{item.description}</span>}
+              <img className={style.content__image} src={item.url} alt={item.description} />
+              {item.description && item.showDescription && <span className={style.content__image__description}>{item.description}</span>}
             </div>
           </Container>
         );

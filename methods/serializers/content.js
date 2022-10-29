@@ -16,6 +16,7 @@ export function contentSerializer(data) {
           type: 'image',
           url: item.data.target.fields.url,
           description: item.data.target.fields.title,
+          showDescription: item.data.target.fields.showDescription,
           width: item.data.target.fields.width,
           height: item.data.target.fields.height,
         };
