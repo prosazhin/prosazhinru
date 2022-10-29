@@ -22,13 +22,7 @@ export const projects = {
           title: checkValue(tag.fields.title),
           url: checkValue(tag.fields.url),
         })),
-        cover: checkValue(item.fields.cover)
-          ? {
-              url: checkValue(item.fields.cover.fields.file.url),
-              width: checkValue(item.fields.cover.fields.file.details.image.width),
-              height: checkValue(item.fields.cover.fields.file.details.image.height),
-            }
-          : null,
+        cover: checkValue(item.fields.cover),
         create: checkValue(item.fields.create),
         createString: dayjs(item.fields.create).locale('ru').format('DD MMMM YYYY'),
         gitUrl: checkValue(item.fields.gitUrl),

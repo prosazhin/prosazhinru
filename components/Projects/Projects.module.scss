@@ -82,8 +82,13 @@
     }
   }
 
-  &__cover_wrapper {
-    margin-top: 2rem !important;
+  &__cover {
+    display: block;
+    width: 100%;
+
+    &_wrapper {
+      margin-top: 2rem !important;
+    }
   }
 
   &__headline {

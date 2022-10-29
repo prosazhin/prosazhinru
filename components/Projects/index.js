@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { PostInfoBar } from '../';
 import style from './Projects.module.scss';
 
@@ -13,7 +13,7 @@ export default function Projects({ array, tag }) {
     4: ['l', 'xs'],
     5: ['xl'],
   };
-  const orderLines = tag === 'dev' ? [1, 0] : [3, 0, 4];
+  const orderLines = tag === 'dev' ? [1, 0] : [2, 0, 4];
   const filteredArray = array.filter((item) => item.show).sort((a, b) => new Date(b.create) - new Date(a.create));
   const sortedArray = [];
 
@@ -42,7 +42,7 @@ export default function Projects({ array, tag }) {
               {project.description && <span className={style.project__description}>{project.description}</span>}
               {project.cover && (
                 <div className={style.project__cover_wrapper}>
-                  <Image src={`https:` + project.cover.url} alt={project.title} layout="responsive" width={project.cover.width} height={project.cover.height} priority="true" unoptimized="true" />
+                  <img className={style.project__cover} src={project.cover} alt={project.title} />
                 </div>
               )}
               <PostInfoBar data={project} />
