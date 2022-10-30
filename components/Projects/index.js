@@ -38,13 +38,13 @@ export default function Projects({ array, tag }) {
         <li key={project.id} className={project.className}>
           <Link href={`/project/${project.slug}`}>
             <a className={style.project__link}>
-              <span className={style.project__headline}>{project.title}</span>
-              {project.description && <span className={style.project__description}>{project.description}</span>}
               {project.cover && (
                 <div className={style.project__cover_wrapper}>
                   <img className={style.project__cover} src={project.cover} alt={project.title} />
                 </div>
               )}
+              {!project.cover && <span className={style.project__headline}>{project.title}</span>}
+              {project.description && !project.cover && <span className={style.project__description}>{project.description}</span>}
               <PostInfoBar data={project} />
             </a>
           </Link>
