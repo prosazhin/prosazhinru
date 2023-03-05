@@ -14,9 +14,9 @@ export const projects = {
     const result = data.items.map((item) => {
       return {
         id: checkValue(item.sys.id),
-        slug: checkValue(item.fields.slug),
         title: checkValue(item.fields.title),
         description: checkValue(item.fields.description),
+        url: checkValue(item.fields.url),
         tags: item.fields.tags.map((tag) => ({
           id: checkValue(tag.sys.id),
           title: checkValue(tag.fields.title),
