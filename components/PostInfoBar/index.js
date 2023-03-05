@@ -16,6 +16,7 @@ export default function PostInfoBar({ data, customClass }) {
           data={[
             data.gitUrl ? { title: 'GitHub', url: data.gitUrl } : null,
             data.figmaUrl ? { title: 'Figma', url: data.figmaUrl } : null,
+            data.figmaCommunityUrl ? { title: 'Figma Community', url: data.figmaCommunityUrl } : null,
             data.behanceUrl ? { title: 'Behance', url: data.behanceUrl } : null,
             data.projectUrl ? { title: parseProjectUrl(data.projectUrl), url: data.projectUrl } : null,
             data.mediumUrl ? { title: 'Medium', url: data.mediumUrl } : null,

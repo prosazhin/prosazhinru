@@ -14,7 +14,7 @@ export default function Projects({ array, tag }) {
     5: ['xl'],
   };
   const orderLines = tag !== null ? (tag === 'dev' ? [4, 1] : [2, 5]) : [2, 0, 5];
-  const filteredArray = array.filter((item) => item.show).sort((a, b) => new Date(b.create) - new Date(a.create));
+  const filteredArray = array.sort((a, b) => new Date(b.create) - new Date(a.create));
   const sortedArray = [];
 
   orderLines.forEach((line) => {
