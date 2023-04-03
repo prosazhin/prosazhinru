@@ -10,12 +10,10 @@ export default function Posts({ array }) {
         .sort((a, b) => new Date(b.create) - new Date(a.create))
         .map((post) => (
           <li className={style.post} key={post.id}>
-            <Link href={`/post/${post.slug}`}>
-              <a className={style.post__link}>
-                <span className={style.post__headline}>{post.title}</span>
-                <span className={style.post__description}>{post.description}</span>
-                <PostInfoBar data={post} />
-              </a>
+            <Link href={`/post/${post.slug}`} className={style.post__link}>
+              <span className={style.post__headline}>{post.title}</span>
+              <span className={style.post__description}>{post.description}</span>
+              <PostInfoBar data={post} />
             </Link>
           </li>
         ))}

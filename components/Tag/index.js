@@ -4,8 +4,8 @@ import style from './Tag.module.scss';
 
 export function ClickableTag({ title, active, pageLink, url }) {
   return (
-    <Link href={active ? `/${pageLink}` : `/${pageLink}?tag=${url}`}>
-      <a className={`${style.tag} ${style.tag__clickable}${active ? ` ${style.tag__clickable_active}` : ''}`}>{title}</a>
+    <Link href={active ? `/${pageLink}` : `/${pageLink}?tag=${url}`} className={`${style.tag} ${style.tag__clickable}${active ? ` ${style.tag__clickable_active}` : ''}`}>
+      {title}
     </Link>
   );
 }

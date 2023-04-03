@@ -20,19 +20,17 @@ export default function Header({ navigations }) {
     <header className={`${style.header}${context.isActiveMenu ? ` ${style.header__mobile}` : ''}`}>
       <Container>
         <div className={style.header__wrapper}>
-          <Link href="/">
-            <a className={style.name}>
-              <span className={style.name__title}>Евгений Сажин</span>
-              <span className={style.name__description}>Дизайнер и фронтенд разработчик</span>
-            </a>
+          <Link href="/" className={style.name}>
+            <span className={style.name__title}>Евгений Сажин</span>
+            <span className={style.name__description}>Дизайнер и фронтенд разработчик</span>
           </Link>
           <nav className={`${style.nav} ${style.nav__desktop}`}>
             {navArr.map((link) => (
               <React.Fragment key={link.id}>
                 {!!link.show && (
                   <li className={style.nav__item}>
-                    <Link href={`/${link.slug}`}>
-                      <a className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
+                    <Link href={`/${link.slug}`} className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>
+                      {link.title}
                     </Link>
                   </li>
                 )}
@@ -45,8 +43,8 @@ export default function Header({ navigations }) {
             <React.Fragment key={link.id}>
               {!!link.show && (
                 <li className={style.nav__item}>
-                  <Link href={`/${link.slug}`}>
-                    <a className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>{link.title}</a>
+                  <Link href={`/${link.slug}`} className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>
+                    {link.title}
                   </Link>
                 </li>
               )}

@@ -14,8 +14,8 @@ export function LinkTabs({ array, customClass }) {
   return (
     <div className={`${style.tabs}${customClass ? ` ${customClass}` : ''}`}>
       {array.map((item) => (
-        <Link href={item.url} key={item.url}>
-          <a className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ''}`}>{item.title}</a>
+        <Link href={item.url} key={item.url} className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ''}`}>
+          {item.title}
         </Link>
       ))}
     </div>
