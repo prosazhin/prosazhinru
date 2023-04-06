@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import { PostInfoBar } from '../';
-import style from './Posts.module.scss';
+import React from "react";
+import Link from "next/link";
+import PostInfoBar from "@/components/PostInfoBar";
+import style from "./Posts.module.scss";
 
 export default function Posts({ array }) {
   return (

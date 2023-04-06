@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import style from './Tabs.module.scss';
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import style from "./Tabs.module.scss";
 
 export function LinkTabs({ array, customClass }) {
   const router = useRouter();
@@ -12,9 +12,9 @@ export function LinkTabs({ array, customClass }) {
   };
 
   return (
-    <div className={`${style.tabs}${customClass ? ` ${customClass}` : ''}`}>
+    <div className={`${style.tabs}${customClass ? ` ${customClass}` : ""}`}>
       {array.map((item) => (
-        <Link href={item.url} key={item.url} className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ''}`}>
+        <Link href={item.url} key={item.url} className={`${style.tabs__links}${isActiveTab(item.url) ? ` ${style.tabs__links_active}` : ""}`}>
           {item.title}
         </Link>
       ))}
@@ -24,9 +24,9 @@ export function LinkTabs({ array, customClass }) {
 
 export function StateTabs({ array, active, onChange, customClass }) {
   return (
-    <div className={`${style.tabs}${customClass ? ` ${customClass}` : ''}`}>
+    <div className={`${style.tabs}${customClass ? ` ${customClass}` : ""}`}>
       {array.map((item, index) => (
-        <span key={index} className={`${style.tabs__links}${active === index ? ` ${style.tabs__links_active}` : ''}`} onClick={() => onChange(index)}>
+        <span key={index} className={`${style.tabs__links}${active === index ? ` ${style.tabs__links_active}` : ""}`} onClick={() => onChange(index)}>
           {item}
         </span>
       ))}

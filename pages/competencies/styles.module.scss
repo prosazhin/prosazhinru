@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .tabs {
   margin-bottom: 4rem;
@@ -27,7 +27,7 @@
       margin-bottom: 3rem;
       position: relative;
 
-      @include not_small_screen {
+      @include desktop {
         padding-left: 8rem + 3rem;
       }
 
@@ -39,14 +39,14 @@
         display: inline-block;
         width: 8rem;
         height: 8rem;
-        @include headline_2;
-        background-color: $color_palette_blue_gray_50;
+        @include h2;
+        background-color: $color_blue_gray_50;
         border-radius: 100%;
         text-align: center;
         line-height: 8rem;
         margin-bottom: 2rem;
 
-        @include not_small_screen {
+        @include desktop {
           position: absolute;
           top: 0px;
           left: 0px;
@@ -57,14 +57,13 @@
       &__title {
         display: inline-block;
         width: 100%;
-        @include text_2;
-        font-weight: $font_weight_medium;
+        @include tm2;
       }
 
       &__description {
         display: inline-block;
         width: 100%;
-        @include text_3;
+        @include t3;
         margin-top: 0.5rem;
       }
     }
@@ -73,10 +72,10 @@
   &__description {
     display: inline-block;
     width: 100%;
-    @include text_2;
+    @include t2;
 
     &_title {
-      @include text_2;
+      @include t2;
       margin-bottom: 0.5rem;
       margin-top: 2rem;
     }
@@ -100,8 +99,7 @@
     &__title {
       display: inline-block;
       width: 100%;
-      @include text_2;
-      font-weight: $font_weight_medium;
+      @include tm2;
       padding: 0px 1rem;
     }
   }
@@ -116,32 +114,31 @@
     display: block;
     width: 100%;
     padding: 1rem 5rem 1rem 1rem;
-    border-bottom: 1px solid $color_palette_blue_gray_50;
+    border-bottom: 1px solid $color_blue_gray_50;
     position: relative;
 
     &:nth-of-type(1) {
-      border-top: 1px solid $color_palette_blue_gray_50;
+      border-top: 1px solid $color_blue_gray_50;
     }
 
     &__title {
       display: inline-block;
       width: 100%;
-      @include text_3;
+      @include t3;
     }
 
     &__rating {
       display: block;
       width: 3rem;
       height: 3rem;
-      background-color: $color_palette_blue_gray_50;
+      background-color: $color_blue_gray_50;
       border-radius: 100%;
       position: absolute;
       top: 0px;
       bottom: 0px;
       right: 1rem;
       margin: auto;
-      @include text_3;
-      font-weight: $font_weight_medium;
+      @include tm3;
       text-align: center;
     }
   }

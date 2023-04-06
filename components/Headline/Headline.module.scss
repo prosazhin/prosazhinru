@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .headline {
   display: inline-block;
@@ -6,22 +6,22 @@
   text-align: left;
   margin-top: 10rem;
   margin-bottom: 2rem;
-  color: $color_palette_black;
+  color: $color_black;
 
   &__lvl_1 {
-    @include headline_1;
+    @include h1;
   }
 
   &__lvl_2 {
-    @include headline_2;
+    @include h2;
   }
 
   &__lvl_3 {
-    @include headline_3;
+    @include h3;
   }
 
   &__lvl_4 {
-    @include headline_4;
+    @include h4;
   }
 
   &__no_margin_top {

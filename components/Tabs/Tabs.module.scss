@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .tabs {
   display: block;
@@ -9,10 +9,9 @@
     width: auto;
     padding-bottom: 1rem;
     margin-right: 2rem;
-    color: $color_palette_black;
-    @include text_3;
+    color: $color_black;
+    @include tm3;
     @include animated;
-    font-weight: $font_weight_medium;
     text-decoration: none;
     cursor: pointer;
 
@@ -23,13 +22,13 @@
     &:hover,
     &:focus,
     &:active {
-      color: $color_palette_blue_accent_400;
+      color: $color_blue_accent_400;
       text-decoration: none;
     }
 
     &_active {
-      color: $color_palette_blue_accent_400;
-      box-shadow: 0px 2px 0px 0px $color_palette_blue_accent_400;
+      color: $color_blue_accent_400;
+      box-shadow: 0px 2px 0px 0px $color_blue_accent_400;
     }
   }
 }

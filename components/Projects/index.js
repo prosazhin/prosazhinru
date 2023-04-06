@@ -1,19 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import Link from 'next/link';
-import { PostInfoBar } from '../';
-import style from './Projects.module.scss';
+import React from "react";
+import Link from "next/link";
+import PostInfoBar from "@/components/PostInfoBar";
+import style from "./Projects.module.scss";
 
 export default function Projects({ array, tag }) {
   const lineTypes = {
-    0: ['xs', 'xs', 'xs'],
-    1: ['s', 's'],
-    2: ['m', 'm'],
-    3: ['xs', 'l'],
-    4: ['l', 'xs'],
-    5: ['xl'],
+    0: ["xs", "xs", "xs"],
+    1: ["s", "s"],
+    2: ["m", "m"],
+    3: ["xs", "l"],
+    4: ["l", "xs"],
+    5: ["xl"],
   };
-  const orderLines = tag !== null ? (tag === 'dev' ? [4, 1] : [2, 2]) : [2, 4, 1, 5];
+  const orderLines = tag !== null ? (tag === "dev" ? [4, 1] : [2, 2]) : [2, 4, 1, 5];
   const filteredArray = array.sort((a, b) => new Date(b.create) - new Date(a.create));
   const sortedArray = [];
 
@@ -21,8 +21,8 @@ export default function Projects({ array, tag }) {
     lineTypes[line].forEach((type) => {
       const result = filteredArray.find((item) => {
         if (sortedArray.some((i) => i.id === item.id)) return false;
-        if (item.cover !== null && (type === 'm' || type === 'l' || type === 'xl')) return true;
-        if (item.cover === null && (type === 'xs' || type === 's')) return true;
+        if (item.cover !== null && (type === "m" || type === "l" || type === "xl")) return true;
+        if (item.cover === null && (type === "xs" || type === "s")) return true;
       });
       if (result === undefined) return;
       sortedArray.push({

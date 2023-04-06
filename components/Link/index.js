@@ -1,5 +1,5 @@
-import NextLink from 'next/link';
-import style from './Link.module.scss';
+import NextLink from "next/link";
+import style from "./Link.module.scss";
 
 export default function Link({ item }) {
   return (

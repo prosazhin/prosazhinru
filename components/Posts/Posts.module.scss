@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .posts {
   display: block;
@@ -10,7 +10,7 @@
   width: 100%;
   margin-top: 5rem;
   padding-bottom: 6rem;
-  border-bottom: 1px solid $color_palette_blue_gray_100;
+  border-bottom: 1px solid $color_blue_gray_100;
 
   &:first-child {
     margin-top: 0px;
@@ -28,7 +28,7 @@
 
     &:hover {
       .post__headline {
-        color: $color_palette_blue_accent_400;
+        color: $color_blue_accent_400;
       }
     }
   }
@@ -36,16 +36,15 @@
   &__headline {
     display: inline-block;
     width: 100%;
-    @include text_1;
-    font-weight: $font_weight_medium;
+    @include tm1;
     margin-bottom: 1rem;
-    color: $color_palette_black;
+    color: $color_black;
   }
 
   &__description {
     display: inline-block;
     width: 100%;
-    @include text_3;
-    color: $color_palette_black;
+    @include t3;
+    color: $color_black;
   }
 }

@@ -1,39 +1,84 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
+const theme = require("pbstyles/styles/tailwindcss");
 
 module.exports = {
+  mode: "jit",
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   future: {
     hoverOnlyWhenSupported: true,
   },
   theme: {
+    ...theme,
     extend: {
-      fontFamily: {
-        display: ["var(--font-sf)", "system-ui", "sans-serif"],
-        default: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
+      ...theme.extend,
       animation: {
-        // Tooltip
-        "slide-up-fade": "slide-up-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-down-fade": "slide-down-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+        show: "show 200ms ease-out",
+        hide: "hide 200ms ease-in",
+        "modal-show": "modal-show 200ms ease-out",
+        "modal-hide": "modal-hide 200ms ease-in",
+        "slide-up": "slide-up 200ms ease-out",
+        "slide-down": "slide-down 200ms ease-in",
       },
       keyframes: {
-        // Tooltip
-        "slide-up-fade": {
-          "0%": { opacity: 0, transform: "translateY(6px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
+        show: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
         },
-        "slide-down-fade": {
-          "0%": { opacity: 0, transform: "translateY(-6px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
+        hide: {
+          "0%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0,
+          },
+        },
+        "modal-show": {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0%)",
+            opacity: 1,
+          },
+        },
+        "modal-hide": {
+          "0%": {
+            transform: "translateY(0%)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(100%)",
+            opacity: 0,
+          },
+        },
+        "slide-up": {
+          "0%": {
+            transform: "translateY(24px)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0px)",
+            opacity: 1,
+          },
+        },
+        "slide-down": {
+          "0%": {
+            transform: "translateY(0px)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(24px)",
+            opacity: 0,
+          },
         },
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
-    require('@tailwindcss/aspect-ratio'),
-  ],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")],
 };

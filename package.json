@@ -26,7 +26,7 @@
     "next": "^13.2.4",
     "next-translate": "^2.0.4",
     "numeralize-ru": "^1.0.1",
-    "pbstyles": "1.0.3",
+    "pbstyles": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.60.0",
@@ -36,7 +36,6 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.15.11",
     "autoprefixer": "^10.4.14",

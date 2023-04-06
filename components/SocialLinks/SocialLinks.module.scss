@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .wrapper {
   display: flex;
@@ -10,12 +10,11 @@
 .link {
   display: inline-flex;
   width: auto;
-  @include text_4;
+  @include tm4;
   margin-right: 0.5rem;
-  color: $color_palette_black;
-  font-weight: $font_weight_medium;
-  border-radius: $size_radius_1;
-  background-color: $color_bg_primary;
+  color: $color_black;
+  border-radius: $radius_sm;
+  background-color: $color_secondary_lighter;
   padding: 0.5rem 1rem;
   align-items: center;
   user-select: none;
@@ -23,9 +22,9 @@
   text-decoration: none !important;
 
   &:hover {
-    color: $color_font_accent;
+    color: $color_primary_main;
     text-decoration: none !important;
-    background-color: $color_palette_blue_50;
+    background-color: $color_blue_50;
   }
 
   &__title {

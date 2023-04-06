@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .tag {
   display: inline-block;
@@ -7,41 +7,40 @@
   user-select: none;
   height: 3rem;
   padding: 0.5rem 1rem;
-  @include text_4;
+  @include tm4;
   @include animated;
-  font-weight: $font_weight_medium;
-  border-radius: $size_radius_1;
-  color: $color_palette_black;
+  border-radius: $radius_sm;
+  color: $color_black;
 
   &__clickable {
-    background-color: $color_palette_blue_gray_50;
+    background-color: $color_blue_gray_50;
     cursor: pointer;
 
     &:hover {
-      color: $color_palette_black;
-      background-color: $color_palette_blue_gray_100;
+      color: $color_black;
+      background-color: $color_blue_gray_100;
     }
 
     &_active {
-      color: $color_palette_white;
-      background-color: $color_palette_black;
+      color: $color_white;
+      background-color: $color_black;
 
       &:hover,
       &:focus,
       &:active {
-        color: $color_palette_white;
-        background-color: $color_palette_black;
+        color: $color_white;
+        background-color: $color_black;
       }
     }
   }
 
   &__static {
     padding: 0.4rem 1rem;
-    border: 1px solid $color_palette_blue_gray_100;
+    border: 1px solid $color_blue_gray_100;
     cursor: inherit;
 
     &_active {
-      border-color: $color_palette_black;
+      border-color: $color_black;
     }
   }
 }

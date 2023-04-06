@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .projects {
   display: grid;
@@ -8,7 +8,7 @@
   row-gap: 6rem;
   align-content: flex-start;
 
-  @include not_small_screen {
+  @include desktop {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
@@ -20,8 +20,8 @@
   &__xs,
   &__s {
     .project__link {
-      background-color: $color_bg_secondary;
-      border-radius: $size_radius_2;
+      background-color: $color_base_lightest;
+      border-radius: $radius_md;
       padding: 2rem 3rem;
     }
 
@@ -33,7 +33,7 @@
   &__xs {
     grid-column: span 6 / span 6;
 
-    @include not_small_screen {
+    @include desktop {
       grid-column: span 2 / span 2;
     }
   }
@@ -41,7 +41,7 @@
   &__s {
     grid-column: span 6 / span 6;
 
-    @include not_small_screen {
+    @include desktop {
       grid-column: span 3 / span 3;
     }
   }
@@ -49,7 +49,7 @@
   &__m {
     grid-column: span 6 / span 6;
 
-    @include not_small_screen {
+    @include desktop {
       grid-column: span 3 / span 3;
     }
   }
@@ -57,7 +57,7 @@
   &__l {
     grid-column: span 6 / span 6;
 
-    @include not_small_screen {
+    @include desktop {
       grid-column: span 4 / span 4;
     }
   }
@@ -65,7 +65,7 @@
   &__xl {
     grid-column: span 6 / span 6;
 
-    @include not_small_screen {
+    @include desktop {
       grid-column: span 6 / span 6;
     }
   }
@@ -79,7 +79,7 @@
     &:hover {
       .project__headline,
       .project__description {
-        color: $color_palette_blue_accent_400;
+        color: $color_blue_accent_400;
       }
 
       .project__cover {
@@ -91,31 +91,30 @@
   &__cover {
     display: block;
     width: 100%;
-    border-radius: $size_radius_2;
+    border-radius: $radius_md;
     opacity: 1;
     @include animated;
 
     &_wrapper {
-      background-color: $color_palette_blue_gray_50;
-      border-radius: $size_radius_2;
+      background-color: $color_blue_gray_50;
+      border-radius: $radius_md;
     }
   }
 
   &__headline {
     display: inline-block;
     width: 100%;
-    @include text_1;
-    font-weight: $font_weight_medium;
+    @include tm1;
     margin-bottom: 1rem;
-    color: $color_palette_black;
+    color: $color_black;
     @include animated;
   }
 
   &__description {
     display: inline-block;
     width: 100%;
-    @include text_3;
-    color: $color_palette_black;
+    @include t3;
+    color: $color_black;
     @include animated;
   }
 }

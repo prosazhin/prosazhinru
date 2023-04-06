@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .post_info_bar {
   display: inline-block;
@@ -17,8 +17,8 @@
   &__date {
     display: inline-block;
     width: auto;
-    @include text_4;
-    color: $color_palette_blue_gray_400;
+    @include t4;
+    color: $color_blue_gray_400;
     text-decoration: none !important;
     text-align: left;
     margin-top: 1rem;

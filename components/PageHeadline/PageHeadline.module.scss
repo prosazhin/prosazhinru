@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .headline {
   display: inline-block;
@@ -9,8 +9,8 @@
 .title {
   display: inline-block;
   width: 100%;
-  color: $color_palette_black;
-  @include headline_1;
+  color: $color_black;
+  @include h1;
 
   & + .description {
     margin-top: 2rem;
@@ -20,8 +20,8 @@
 .description {
   display: inline-block;
   width: 100%;
-  color: $color_palette_black;
-  @include text_1;
+  color: $color_black;
+  @include t1;
 
   p {
     display: inline-block;
@@ -30,7 +30,7 @@
     & + p {
       margin-top: 2rem;
 
-      @include not_small_screen {
+      @include desktop {
         margin-top: 3rem;
       }
     }
@@ -38,13 +38,13 @@
     br {
       display: none;
 
-      @include not_small_screen {
+      @include desktop {
         display: inline-block;
       }
     }
 
     strong {
-      @include text_1;
+      @include t1;
     }
   }
 }

@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .link {
   display: block;
@@ -18,15 +18,14 @@
   &__title {
     display: inline-block;
     width: 100%;
-    @include text_2;
-    font-weight: $font_weight_medium;
+    @include tm2;
   }
 
   &__description {
     display: inline-block;
     width: 100%;
-    color: $color_palette_black;
-    @include text_3;
+    color: $color_black;
+    @include t3;
     margin-top: 1rem;
   }
 }

@@ -1,23 +1,21 @@
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useAppContext } from '../../context';
-import { XMarkIcon, Bars2Icon } from '@heroicons/react/24/solid';
-import { Container } from '../';
-import style from './Header.module.scss';
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useAppContext } from "@/lib/context";
+import { XMarkIcon, Bars2Icon } from "@heroicons/react/24/solid";
+import Container from "@/components/Container";
+import style from "./Header.module.scss";
 
-export default function Header({ navigations }) {
+export default function Header() {
   const router = useRouter();
-  const context = useAppContext();
+  const { nav, isActiveMenu, toggleActiveMenu } = useAppContext();
 
   const isActiveLink = (urls) => {
     return urls.some((item) => (router.pathname.search(item) === -1 ? false : true));
   };
 
-  const navArr = navigations.sort((a, b) => a.order - b.order);
-
   return (
-    <header className={`${style.header}${context.isActiveMenu ? ` ${style.header__mobile}` : ''}`}>
+    <header className={`${style.header}${isActiveMenu ? ` ${style.header__mobile}` : ""}`}>
       <Container>
         <div className={style.header__wrapper}>
           <Link href="/" className={style.name}>
@@ -25,38 +23,30 @@ export default function Header({ navigations }) {
             <span className={style.name__description}>Дизайнер и фронтенд разработчик</span>
           </Link>
           <nav className={`${style.nav} ${style.nav__desktop}`}>
-            {navArr.map((link) => (
-              <React.Fragment key={link.id}>
-                {!!link.show && (
-                  <li className={style.nav__item}>
-                    <Link href={`/${link.slug}`} className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>
-                      {link.title}
-                    </Link>
-                  </li>
-                )}
-              </React.Fragment>
+            {nav.map((link) => (
+              <li className={style.nav__item} key={link.url}>
+                <Link href={`/${link.url}`} className={`${style.nav__item__link}${isActiveLink(link.active) ? ` ${style.nav__item__link__active}` : ""}`}>
+                  {link.title}
+                </Link>
+              </li>
             ))}
           </nav>
         </div>
-        <nav className={`${style.nav} ${style.nav__mobile}${context.isActiveMenu ? ` ${style.nav__mobile_active}` : ''}`}>
-          {navArr.map((link) => (
-            <React.Fragment key={link.id}>
-              {!!link.show && (
-                <li className={style.nav__item}>
-                  <Link href={`/${link.slug}`} className={`${style.nav__item__link}${isActiveLink(link.active !== null ? link.active : [link.slug]) ? ` ${style.nav__item__link__active}` : ''}`}>
-                    {link.title}
-                  </Link>
-                </li>
-              )}
-            </React.Fragment>
+        <nav className={`${style.nav} ${style.nav__mobile}${isActiveMenu ? ` ${style.nav__mobile_active}` : ""}`}>
+          {nav.map((link) => (
+            <li className={style.nav__item} key={link.url}>
+              <Link href={`/${link.url}`} className={`${style.nav__item__link}${isActiveLink(link.active) ? ` ${style.nav__item__link__active}` : ""}`}>
+                {link.title}
+              </Link>
+            </li>
           ))}
         </nav>
-        {context.isActiveMenu ? (
-          <span className={style.header__mobile_toogle} onClick={context.toggleActiveMenu}>
+        {isActiveMenu ? (
+          <span className={style.header__mobile_toogle} onClick={toggleActiveMenu}>
             <XMarkIcon />
           </span>
         ) : (
-          <span className={style.header__mobile_toogle} onClick={context.toggleActiveMenu}>
+          <span className={style.header__mobile_toogle} onClick={toggleActiveMenu}>
             <Bars2Icon />
           </span>
         )}

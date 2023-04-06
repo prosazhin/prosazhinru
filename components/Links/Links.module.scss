@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .links {
   width: 100%;
@@ -6,7 +6,7 @@
   grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   grid-gap: 3rem;
 
-  @include not_small_screen {
+  @include desktop {
     grid-template-columns: repeat(auto-fit, minmax(211px, 1fr));
   }
 }

@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 * {
   box-sizing: border-box;
@@ -24,15 +24,15 @@ body {
   width: 100%;
   height: auto;
   position: relative;
-  color: $color_palette_black;
-  background-color: $color_palette_white;
+  color: $color_black;
+  background-color: $color_white;
   font-family: $font_family;
-  @include text_3;
+  @include t3;
   overflow: auto;
 }
 
 a {
-  color: $color_palette_blue_accent_400;
+  color: $color_blue_accent_400;
   text-decoration: none;
   border: none;
   font-size: inherit;
@@ -41,11 +41,11 @@ a {
 
   &:active,
   &:focus {
-    color: $color_palette_blue_accent_400;
+    color: $color_blue_accent_400;
   }
 
   &:hover {
-    color: $color_palette_red_accent_200;
+    color: $color_red_accent_200;
     text-decoration: underline;
   }
 }

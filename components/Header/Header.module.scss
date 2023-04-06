@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .header {
   display: block;
@@ -7,11 +7,11 @@
   width: 100%;
   top: 0;
   text-align: left;
-  background-color: $color_palette_white;
-  border-bottom: 1px solid $color_palette_blue_gray_50;
+  background-color: $color_white;
+  border-bottom: 1px solid $color_blue_gray_50;
   padding: 2rem 0px;
 
-  @include small_screen {
+  @include sm {
     @include animated;
   }
 
@@ -30,14 +30,14 @@
     right: 2rem;
     width: 3rem;
     height: 3rem;
-    @include text_3;
+    @include t3;
     border: none;
-    color: $color_palette_black;
+    color: $color_black;
     text-align: center;
     @include animated;
     cursor: pointer;
 
-    @include not_small_screen {
+    @include desktop {
       display: none;
     }
   }
@@ -55,14 +55,14 @@
 
   &__title {
     display: block;
-    @include headline_4;
-    color: $color_palette_black;
+    @include h4;
+    color: $color_black;
   }
 
   &__description {
     display: block;
-    @include text_4;
-    color: $color_palette_blue_gray_400;
+    @include t4;
+    color: $color_blue_gray_400;
   }
 }
 
@@ -72,10 +72,10 @@
 
   &:hover {
     .nav__item__link {
-      color: $color_palette_blue_gray_400;
+      color: $color_blue_gray_400;
 
       &:hover {
-        color: $color_palette_black;
+        color: $color_black;
       }
     }
   }
@@ -83,7 +83,7 @@
   &__desktop {
     display: none;
 
-    @include not_small_screen {
+    @include desktop {
       display: inline-block;
       margin-left: 10rem;
       margin-bottom: 1rem;
@@ -95,7 +95,7 @@
     display: none;
     width: 100%;
 
-    @include not_small_screen {
+    @include desktop {
       display: none;
     }
 
@@ -111,7 +111,7 @@
     height: auto;
     margin-bottom: 3rem;
 
-    @include not_small_screen {
+    @include desktop {
       width: auto;
       margin-right: 4rem;
       margin-bottom: 0px;
@@ -123,18 +123,17 @@
 
     &__link {
       display: inline-block;
-      color: $color_palette_black;
+      color: $color_black;
       @include animated;
-      @include text_3;
-      font-weight: $font_weight_medium;
+      @include tm3;
 
       &:hover {
-        color: $color_palette_black;
+        color: $color_black;
         text-decoration: none;
       }
 
       &__active {
-        color: $color_palette_blue_accent_400;
+        color: $color_blue_accent_400;
         text-decoration: none;
       }
     }

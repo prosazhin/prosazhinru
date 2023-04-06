@@ -1,4 +1,4 @@
-@import 'pbstyles/styles/scss';
+@import "pbstyles/styles/scss";
 
 .selections {
   display: block;
@@ -10,7 +10,7 @@
   width: 100%;
   margin-top: 5rem;
   padding-bottom: 6rem;
-  border-bottom: 1px solid $color_palette_blue_gray_100;
+  border-bottom: 1px solid $color_blue_gray_100;
 
   &:first-child {
     margin-top: 0px;
@@ -24,14 +24,14 @@
   &__headline {
     display: inline-block;
     width: 100%;
-    @include headline_2;
+    @include h2;
     margin-bottom: 0.5rem;
   }
 
   &__description {
     display: inline-block;
     width: 100%;
-    @include text_3;
+    @include t3;
     margin-bottom: 2rem;
   }
 

@@ -6,7 +6,7 @@ module.exports = nextTranslate({
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
-    dirs: ["components", "context", "methods", "pages", "utils"],
+    dirs: ["components", "lib", "pages"],
   },
   sassOptions: {
     fiber: false,
@@ -18,5 +18,8 @@ module.exports = nextTranslate({
   optimizeFonts: true,
   i18n: {
     localeDetection: false,
+  },
+  experimental: {
+    largePageDataBytes: 128 * 100000,
   },
 });

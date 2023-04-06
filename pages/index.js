@@ -1,85 +1,58 @@
-import React from "react";
-import dayjs from "dayjs";
+import React, { useEffect } from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import Mixpanel from "../utils/Mixpanel";
-import method from "../methods";
-import { MainWrapper, MainContainer, Container, PageHeadline, Years } from "../components";
+import { useAppContext } from "@/lib/context";
+import Mixpanel from "@/lib/mixpanel";
+import { getSkills } from "@/lib/api";
+import Layout from "@/components/Layout";
+import Container from "@/components/Container";
+import Headline from "@/components/Headline";
+import { LinkTabs } from "@/components/Tabs";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps(context) {
-  const pages = method.pages.serializer(await method.pages.getList(), "home");
-  const contacts = method.contacts.serializer(await method.contacts.getList());
-  const jobs = method.jobs.serializer(await method.jobs.getList());
-  const links = method.links.serializer(await method.links.getList());
-  const selections = method.selections.serializer(await method.selections.getList());
-  const posts = method.posts.serializer(await method.posts.getList());
-  const projects = method.projects.serializer(await method.projects.getList());
+export async function getServerSideProps() {
+  const skills = await getSkills.getList();
 
   return {
     props: {
-      page: pages.page,
-      navigations: pages.navigations,
-      contacts: contacts,
-      jobs: jobs,
-      links: links,
-      selections: selections,
-      posts: posts,
-      projects: projects,
+      skills,
     },
   };
 }
 
-export default function HomePage({ page, navigations, contacts, jobs, links, selections, posts, projects }) {
+export default function HomePage({ skills }) {
+  const { t } = useTranslation();
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const context = useAppContext();
 
-  function workNow(item, year) {
-    if (!item.dismissal && dayjs(item.recruited).format("YYYY") < year) {
-      return true;
-    }
-
-    if (dayjs(item.dismissal).format("YYYY") > year && dayjs(item.recruited).format("YYYY") < year) {
-      return true;
-    }
-
-    return false;
-  }
-
-  const yearsList = [];
-
-  const nowYear = dayjs().format("YYYY");
-
-  for (let i = 2017; i <= nowYear; i++) {
-    yearsList.push({
-      title: i,
-      titleString: `${i}`,
-    });
-  }
-
-  yearsList.forEach((year) => {
-    year.job = {
-      hired: jobs.filter((item) => dayjs(item.recruited).format("YYYY") === year.titleString)[0] || false,
-      fired: jobs.filter((item) => dayjs(item.dismissal).format("YYYY") === year.titleString)[0] || false,
-      work: jobs.filter((item) => workNow(item, year.titleString))[0] || false,
-    };
-
-    year.links = links.filter((item) => dayjs(item.create).format("YYYY") === year.titleString);
-    year.selections = selections.filter((item) => dayjs(item.create).format("YYYY") === year.titleString);
-    year.posts = posts.filter((item) => dayjs(item.create).format("YYYY") === year.titleString);
-    year.projects = projects.filter((item) => dayjs(item.create).format("YYYY") === year.titleString);
-  });
-
-  // Отправляю событие про отправку страницы
-  Mixpanel.event("LOADING_MAIN_PAGE");
+  useEffect(() => {
+    Mixpanel.event("LOADING_MAIN_PAGE");
+  }, []);
 
   return (
-    <MainWrapper navigations={navigations} contacts={contacts} title={page.metaTitle} description={page.metaDescription} image="/sharing/index.jpg" url={router.asPath}>
-      <MainContainer>
-        <Container small>
-          <PageHeadline description={page.description} />
-          <Years array={yearsList} />
-        </Container>
-      </MainContainer>
-    </MainWrapper>
+    <Layout>
+      <Head>
+        <title>{t("common:metaTitle")}</title>
+        <meta property="og:title" content={t("common:metaTitle")} key="title" />
+        <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
+      </Head>
+      <Container small>
+        <LinkTabs array={context.aboutTabs} />
+        {skills
+          .sort((a, b) => a.order - b.order)
+          .map((skill) => (
+            <section key={skill.id}>
+              <Headline title={skill.title} size="2" hideMarginTop />
+              <p>{skill.description}</p>
+              {skill.tools && (
+                <React.Fragment>
+                  <h5>Инструменты</h5>
+                  <p>{skill.tools}</p>
+                </React.Fragment>
+              )}
+            </section>
+          ))}
+      </Container>
+    </Layout>
   );
 }
