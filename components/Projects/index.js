@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Link from "next/link";
 import PostInfoBar from "@/components/PostInfoBar";
 import style from "./Projects.module.scss";
 

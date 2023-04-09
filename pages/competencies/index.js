@@ -4,20 +4,18 @@ import { useRouter } from "next/router";
 import { useAppContext } from "@/lib/context";
 import style from "./styles.module.scss";
 import Mixpanel from "@/lib/mixpanel";
-import { getCompetencies } from "@/lib/api";
+import { competenciesMethods } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
-import PageHeadline from "@/components/PageHeadline";
 import Headline from "@/components/Headline";
-import LinkTabs from "@/components/LinkTabs";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps() {
-  const competenciesCategories = getCompetencies.serializer(await getCompetencies.getList());
+  const competenciesCategories = await competenciesMethods.getList();
 
   return {
     props: {
-      competenciesCategories: competenciesCategories,
+      competenciesCategories,
     },
   };
 }
@@ -34,15 +32,12 @@ export default function CompetenciesPage({ competenciesCategories }) {
   return (
     <Layout>
       <Head>
-        <title>
-          {t("pages:competencies.title")} | {t("common:metaTitle")}
-        </title>
+        <title>{`${t("pages:competencies.title")} | ${t("common:metaTitle")}`}</title>
         <meta property="og:title" content={`${t("pages:competencies.title")} | ${t("common:metaTitle")}`} key="title" />
         <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
       </Head>
       <Container small>
-        <LinkTabs array={context.aboutTabs} customClass={style.tabs} />
-        <PageHeadline title={t("pages:competencies.title")} />
+        <h1 className="w-full text-h1 text-base-main">{t("pages:competencies.title")}</h1>
         <div className={style.about}>
           <Headline title="Уровни оценки навыков" size="2" hideMarginTop />
           <ul className={style.about__list}>

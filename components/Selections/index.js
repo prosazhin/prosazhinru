@@ -1,6 +1,7 @@
-import React from 'react';
-import { Links, StaticActiveTagsList } from '../';
-import style from './Selections.module.scss';
+import React from "react";
+import Links from "@/components/Links";
+import { StaticActiveTagsList } from "@/components/Tags";
+import style from "./Selections.module.scss";
 
 export default function Selections({ array }) {
   return (

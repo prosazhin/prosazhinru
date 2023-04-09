@@ -9,7 +9,7 @@
   padding: 0.5rem 1rem;
   @include tm4;
   @include animated;
-  border-radius: $radius_sm;
+  border-radius: $rounded_sm;
   color: $color_black;
 
   &__clickable {

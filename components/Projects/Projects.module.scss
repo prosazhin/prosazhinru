@@ -21,7 +21,7 @@
   &__s {
     .project__link {
       background-color: $color_base_lightest;
-      border-radius: $radius_md;
+      border-radius: $rounded_md;
       padding: 2rem 3rem;
     }
 
@@ -91,13 +91,13 @@
   &__cover {
     display: block;
     width: 100%;
-    border-radius: $radius_md;
+    border-radius: $rounded_md;
     opacity: 1;
     @include animated;
 
     &_wrapper {
       background-color: $color_blue_gray_50;
-      border-radius: $radius_md;
+      border-radius: $rounded_md;
     }
   }
 

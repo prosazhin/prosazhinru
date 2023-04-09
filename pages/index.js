@@ -1,29 +1,21 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAppContext } from "@/lib/context";
 import Mixpanel from "@/lib/mixpanel";
-import { getSkills } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
-import Headline from "@/components/Headline";
-import { LinkTabs } from "@/components/Tabs";
+import Tabs from "@/components/Tabs";
+import Badge from "@/components/Badge";
+import NewTag from "@/components/NewTag";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps() {
-  const skills = await getSkills.getList();
-
-  return {
-    props: {
-      skills,
-    },
-  };
-}
-
-export default function HomePage({ skills }) {
+export default function HomePage() {
   const { t } = useTranslation();
   const router = useRouter();
-  const context = useAppContext();
+  const { contacts, aboutTabs, skills } = useAppContext();
 
   useEffect(() => {
     Mixpanel.event("LOADING_MAIN_PAGE");
@@ -37,21 +29,47 @@ export default function HomePage({ skills }) {
         <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
       </Head>
       <Container small>
-        <LinkTabs array={context.aboutTabs} />
-        {skills
-          .sort((a, b) => a.order - b.order)
-          .map((skill) => (
-            <section key={skill.id}>
-              <Headline title={skill.title} size="2" hideMarginTop />
-              <p>{skill.description}</p>
-              {skill.tools && (
-                <React.Fragment>
-                  <h5>Инструменты</h5>
-                  <p>{skill.tools}</p>
-                </React.Fragment>
+        <h1 className="text-t1 text-base-main">{t("common:index.headline.1")}</h1>
+        <p className="mt-[16px] text-t1 text-base-main" dangerouslySetInnerHTML={{ __html: t("common:index.headline.2") }} />
+        <ul className="mt-[24px] flex w-full flex-row flex-wrap">
+          {contacts.map((contact) => (
+            <li className="mr-[8px] mt-[8px]" key={contact.url}>
+              {contact.link ? (
+                <NewTag title={contact.title} size="s" theme="border" place="right" clickHandler={() => window.open(contact.url, "_blank")}>
+                  <ArrowRightIcon className="h-[16px] w-[16px]" />
+                </NewTag>
+              ) : (
+                <Badge title={contact.title} size="s" color="secondary" theme="border" />
               )}
-            </section>
+            </li>
           ))}
+        </ul>
+        <Tabs data={aboutTabs} keyName="url" display="title" selected="/" setSelected={(value) => router.push(value.url)} customClass="mt-[80px]" />
+        <ul className="mt-[40px] flex flex-col space-y-[40px]">
+          {skills.map((skill, index) => (
+            <li className="flex w-full flex-col" key={index}>
+              {skill.title.length > 0 && <h2 className="w-full text-tm1 text-base-main">{skill.title}</h2>}
+              <p className="mt-[4px] w-full text-t2 text-base-main">{skill.description}</p>
+              {skill.tools.length > 0 && (
+                <ul className="mt-[12px] flex w-full flex-row flex-wrap">
+                  {skill.tools.map((tool) => (
+                    <li className="mr-[4px] mt-[4px]" key={tool}>
+                      <Badge title={tool} size="xs" color="secondary" theme="light" />
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {skill.matrix && (
+                <Link href={skill.matrix.url} target="_self" className="mt-[24px] bg-white text-tm2 text-base-main !no-underline hover:text-primary-main">
+                  <div className="flex w-full flex-row items-center rounded-md border border-secondary-lighter px-[24px] py-[16px] hover:border-primary-main">
+                    <span className="flex-1">{skill.matrix.title}</span>
+                    <ArrowRightIcon className="h-[24px] w-[24px]" />
+                  </div>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
       </Container>
     </Layout>
   );
