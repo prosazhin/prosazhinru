@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useAppContext } from "@/lib/context";
 import Mixpanel from "@/lib/mixpanel";
-import { jobsMethods } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
 import Tabs from "@/components/Tabs";
@@ -12,20 +11,10 @@ import Badge from "@/components/Badge";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps() {
-  const jobs = await jobsMethods.getList();
-
-  return {
-    props: {
-      jobs,
-    },
-  };
-}
-
-export default function AboutPage({ jobs }) {
+export default function CareerPage() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { contacts, aboutTabs } = useAppContext();
+  const { contacts, aboutTabs, career } = useAppContext();
 
   useEffect(() => {
     Mixpanel.event("LOADING_JOBS_PAGE");
@@ -56,24 +45,40 @@ export default function AboutPage({ jobs }) {
         </ul>
         <Tabs data={aboutTabs} keyName="url" display="title" selected="/career" setSelected={(value) => router.push(value.url)} customClass="mt-[80px]" />
         <article className="mt-[40px] flex w-full flex-col space-y-[40px]">
-          {jobs
-            .sort((a, b) => b.order - a.order)
-            .map((job) => (
-              <section className="flex w-full flex-col" key={job.id}>
-                <h3 className="w-full text-h2 text-base-main">
-                  {job.link ? (
-                    <a href={job.url} target="_blank" rel="noreferrer" className="!no-underline">
-                      {job.title}
-                    </a>
-                  ) : (
-                    <>{job.title}</>
-                  )}
-                </h3>
-                <span className="mt-[8px] w-full text-t3 text-base-light">{job.date}</span>
-                <span className="mt-[16px] w-full text-tm2 text-base-main">{job.position}</span>
-                <span className="mt-[4px] w-full text-t3 text-base-main">{job.description}</span>
-              </section>
-            ))}
+          {career.map((job) => (
+            <section className="flex flex-col w-full" key={job.url}>
+              <h3 className="w-full text-h2 text-base-main">
+                {job.link ? (
+                  <a href={job.url} target="_blank" rel="noreferrer" className="!no-underline">
+                    {job.title}
+                  </a>
+                ) : (
+                  <>{job.title}</>
+                )}
+              </h3>
+              <span className="mt-[8px] w-full text-t3 text-base-light">{job.date}</span>
+              <span className="mt-[16px] w-full text-tm2 text-base-main">{job.position}</span>
+              <span className="mb-[12px] mt-[4px] w-full text-t3 text-base-main">{job.description}</span>
+              {job.devStack.length > 0 && (
+                <ul className="flex flex-row flex-wrap w-full">
+                  {job.devStack.map((tool) => (
+                    <li className="mr-[4px] mt-[4px]" key={tool}>
+                      <Badge title={tool} size="xs" color="secondary" theme="light" />
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {job.designStack.length > 0 && (
+                <ul className="flex flex-row flex-wrap w-full">
+                  {job.designStack.map((tool) => (
+                    <li className="mr-[4px] mt-[4px]" key={tool}>
+                      <Badge title={tool} size="xs" color="secondary" theme="light" />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
         </article>
       </Container>
     </Layout>
