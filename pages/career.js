@@ -46,7 +46,7 @@ export default function CareerPage() {
         <Tabs data={aboutTabs} keyName="url" display="title" selected="/career" setSelected={(value) => router.push(value.url)} customClass="mt-[80px]" />
         <article className="mt-[40px] flex w-full flex-col space-y-[40px]">
           {career.map((job) => (
-            <section className="flex flex-col w-full" key={job.url}>
+            <section className="flex w-full flex-col" key={job.url}>
               <h3 className="w-full text-h2 text-base-main">
                 {job.link ? (
                   <a href={job.url} target="_blank" rel="noreferrer" className="!no-underline">
@@ -60,7 +60,7 @@ export default function CareerPage() {
               <span className="mt-[16px] w-full text-tm2 text-base-main">{job.position}</span>
               <span className="mb-[12px] mt-[4px] w-full text-t3 text-base-main">{job.description}</span>
               {job.devStack.length > 0 && (
-                <ul className="flex flex-row flex-wrap w-full">
+                <ul className="flex w-full flex-row flex-wrap">
                   {job.devStack.map((tool) => (
                     <li className="mr-[4px] mt-[4px]" key={tool}>
                       <Badge title={tool} size="xs" color="secondary" theme="light" />
@@ -69,7 +69,7 @@ export default function CareerPage() {
                 </ul>
               )}
               {job.designStack.length > 0 && (
-                <ul className="flex flex-row flex-wrap w-full">
+                <ul className="flex w-full flex-row flex-wrap">
                   {job.designStack.map((tool) => (
                     <li className="mr-[4px] mt-[4px]" key={tool}>
                       <Badge title={tool} size="xs" color="secondary" theme="light" />

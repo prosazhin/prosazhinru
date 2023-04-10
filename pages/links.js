@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
 export default function LinksPage({ query, tags, links }) {
   const { t } = useTranslation();
   const router = useRouter();
-  const context = useAppContext();
+  const { linksTabs } = useAppContext();
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
 
@@ -78,7 +78,7 @@ export default function LinksPage({ query, tags, links }) {
               </li>
             ))}
         </ul>
-        <Tabs data={context.linksTabs} keyName="url" display="title" selected="/links" setSelected={(value) => router.push(value.url)} customClass="mb-[32px]" />
+        <Tabs data={linksTabs} keyName="url" display="title" selected="/links" setSelected={(value) => router.push(value.url)} customClass="mb-[32px]" />
         <Links array={activeTag !== undefined ? links.filter((link) => link.tags.some((tag) => tag.url === activeTag.url)) : links} />
       </Container>
     </Layout>

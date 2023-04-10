@@ -8,7 +8,7 @@ import Container from "@/components/Container";
 
 export default function Header() {
   const router = useRouter();
-  const { nav, toggleActiveMenu } = useAppContext();
+  const { nav, setIsActiveMenu } = useAppContext();
 
   const isActiveLink = (urls) => {
     return urls.some((item) => {
@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 z-50 block h-[72px] w-full border-b border-secondary-lighter bg-white py-[16px]">
+    <header className="fixed top-0 z-40 block h-[72px] w-full border-b border-secondary-lighter bg-white py-[16px]">
       <Container>
         <div className="flex w-full flex-row items-center space-x-[24px]">
           <div className="inline-flex h-[40px] flex-1 items-center justify-start">
@@ -29,7 +29,11 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex flex-row space-x-[24px]">
-            <button type="button" className="inline-flex h-[32px] w-[32px] items-center justify-center rounded-sm bg-white hover:bg-secondary-lighter desktop:hidden" onClick={toggleActiveMenu}>
+            <button
+              type="button"
+              className="inline-flex h-[32px] w-[32px] items-center justify-center rounded-sm bg-white hover:bg-secondary-lighter desktop:hidden"
+              onClick={() => setIsActiveMenu(true)}
+            >
               <Bars2Icon className="h-[16px] w-[16px]" />
             </button>
           </div>
