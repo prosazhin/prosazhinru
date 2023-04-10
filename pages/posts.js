@@ -40,9 +40,9 @@ export default function PostsPage({ posts }) {
             .sort((a, b) => new Date(b.create) - new Date(a.create))
             .map((post) => (
               <li className="w-full" key={post.id}>
-                <a href={post.url} target="_blank" className="group w-full !no-underline">
-                  <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[24px] py-[20px] group-hover:border-primary-main">
-                    <span className="w-full text-tm1 text-base-main group-hover:text-primary-main">{post.title}</span>
+                <a href={post.url} target="_blank" className="group w-full !no-underline transition">
+                  <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[24px] py-[20px] transition group-hover:border-primary-main">
+                    <span className="w-full text-tm1 text-base-main transition group-hover:text-primary-main">{post.title}</span>
                     <span className="mt-[8px] w-full text-t3 text-base-main">{post.description}</span>
                     {post.tags.length > 0 && (
                       <ul className="mt-[12px] flex w-full flex-row flex-wrap">

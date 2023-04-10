@@ -60,10 +60,10 @@ export default function HomePage() {
                 </ul>
               )}
               {skill.matrix && (
-                <Link href={skill.matrix.url} target="_self" className="mt-[24px] bg-white text-tm2 text-base-main !no-underline hover:text-primary-main">
-                  <div className="flex w-full flex-row items-center rounded-md border border-secondary-lighter px-[24px] py-[16px] hover:border-primary-main">
-                    <span className="flex-1">{skill.matrix.title}</span>
-                    <ArrowRightIcon className="h-[24px] w-[24px]" />
+                <Link href={skill.matrix.url} target="_self" className="group mt-[24px] bg-white text-tm2 text-base-main !no-underline transition">
+                  <div className="flex w-full flex-row items-center rounded-md border border-secondary-lighter px-[24px] py-[16px] transition group-hover:border-primary-main">
+                    <span className="flex-1 group-hover:text-primary-main">{skill.matrix.title}</span>
+                    <ArrowRightIcon className="h-[24px] w-[24px] group-hover:text-primary-main" />
                   </div>
                 </Link>
               )}

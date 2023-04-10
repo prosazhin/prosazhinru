@@ -49,7 +49,7 @@ export default function CareerPage() {
             <section className="flex w-full flex-col" key={job.url}>
               <h3 className="w-full text-h2 text-base-main">
                 {job.link ? (
-                  <a href={job.url} target="_blank" rel="noreferrer" className="!no-underline">
+                  <a href={job.url} target="_blank" rel="noreferrer" className="!no-underline transition">
                     {job.title}
                   </a>
                 ) : (

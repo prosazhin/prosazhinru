@@ -40,7 +40,7 @@ export default function Header() {
           <nav className="flex flex-row space-x-[24px] sm:hidden">
             {nav.map((link) => (
               <li key={link.url}>
-                <Link href={link.url} className={`text-tm3 text-base-main !no-underline hover:text-primary-main ${isActiveLink(link.active) ? "text-primary-main" : ""}`}>
+                <Link href={link.url} className={`text-tm3 text-base-main !no-underline transition hover:text-primary-main ${isActiveLink(link.active) ? "text-primary-main" : ""}`}>
                   {link.title}
                 </Link>
               </li>

@@ -15,7 +15,7 @@ const selected_styles = "text-white border-none bg-primary-main hover:bg-primary
 export default function NewTag({ title, size, theme, selected, clickHandler, place, children }) {
   return (
     <button
-      className={`flex flex-row items-center justify-center space-x-[6px] rounded-full text-tm4 ${sizes[size]} ${themes[theme]} ${selected && `${selected_styles}`}`}
+      className={`flex flex-row items-center justify-center space-x-[6px] rounded-full text-tm4 transition ${sizes[size]} ${themes[theme]} ${selected && `${selected_styles}`}`}
       onClick={() => clickHandler()}
     >
       {children && place === "left" && <>{children}</>}

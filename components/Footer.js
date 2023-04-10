@@ -16,7 +16,7 @@ export default function Footer() {
             {contacts.map((contact) => (
               <li className="inline-block" key={contact.url}>
                 {contact.link ? (
-                  <a className="text-tm3 text-primary-main hover:text-danger-main hover:underline" href={contact.url} target="_blank" rel="noreferrer">
+                  <a className="text-tm3 text-primary-main transition hover:text-danger-main hover:underline" href={contact.url} target="_blank" rel="noreferrer">
                     {contact.title}
                   </a>
                 ) : (
