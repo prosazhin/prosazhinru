@@ -2,7 +2,6 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { ContextProvider } from "@/lib/context";
 import "../styles/globals.css";
-import "../scss/global.scss";
 
 export default function MyApp({ Component, pageProps }) {
   const { t, lang } = useTranslation();

@@ -6,7 +6,7 @@ const sizes = {
 };
 
 const styles = {
-  secondary_light: "text-base-main bg-secondary-lighter",
+  secondary_light: "text-base-main border border-secondary-lighter bg-secondary-lighter",
   secondary_border: "text-base-main border border-base-main",
 };
 

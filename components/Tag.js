@@ -12,7 +12,7 @@ const themes = {
 
 const selected_styles = "text-white border-none bg-primary-main hover:bg-primary-darker";
 
-export default function NewTag({ title, size, theme, selected, clickHandler, place, children }) {
+export default function Tag({ title, size, theme, selected, clickHandler, place, children }) {
   return (
     <button
       className={`flex flex-row items-center justify-center space-x-[6px] rounded-full text-tm4 transition ${sizes[size]} ${themes[theme]} ${selected && `${selected_styles}`}`}

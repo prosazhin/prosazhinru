@@ -36,3 +36,22 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+a {
+  color: #2979ff;
+  text-decoration: none;
+  border: none;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+a:active,
+a:focus {
+  color: #2979ff;
+}
+
+a:hover {
+  color: #ff5252;
+  text-decoration: underline;
+}

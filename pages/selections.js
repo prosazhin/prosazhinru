@@ -6,9 +6,10 @@ import Mixpanel from "@/lib/mixpanel";
 import { tagsMethods, selectionsMethods } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
-import Selections from "@/components/Selections";
 import Tabs from "@/components/Tabs";
-import NewTag from "@/components/NewTag";
+import Tag from "@/components/Tag";
+import Badge from "@/components/Badge";
+import Links from "@/components/Links";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
@@ -28,6 +29,7 @@ export default function SelectionsPage({ query, tags, selections }) {
   const { t } = useTranslation();
   const router = useRouter();
   const { linksTabs } = useAppContext();
+  const [selectionList, setSelectionList] = useState([...selections]);
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
 
@@ -53,6 +55,12 @@ export default function SelectionsPage({ query, tags, selections }) {
     setActiveTag(tags.filter((item) => item.url === router.query.tag)[0]);
   }, [router.query.tag, tags]);
 
+  useEffect(() => {
+    if (activeTag !== undefined) {
+      setSelectionList(selections.filter((selection) => selection.tags.some((tag) => tag.url === activeTag.url)));
+    }
+  }, [activeTag, selections]);
+
   return (
     <Layout>
       <Head>
@@ -67,7 +75,7 @@ export default function SelectionsPage({ query, tags, selections }) {
             .filter((item) => tagList.some((tag) => item.url === tag.url))
             .map((tag) => (
               <li className="mr-[8px] mt-[8px]" key={tag.url}>
-                <NewTag
+                <Tag
                   title={tag.title}
                   size="s"
                   theme="border"
@@ -79,7 +87,24 @@ export default function SelectionsPage({ query, tags, selections }) {
             ))}
         </ul>
         <Tabs data={linksTabs} keyName="url" display="title" selected="/selections" setSelected={(value) => router.push(value.url)} customClass="mb-[32px]" />
-        <Selections array={activeTag !== undefined ? selections.filter((selection) => selection.tags.some((tag) => tag.url === activeTag.url)) : selections} />
+        <ul className="mt-[40px] flex w-full flex-col space-y-[40px]">
+          {selectionList.map((item) => (
+            <li className="flex flex-col w-full" key={item.id}>
+              <span className="w-full text-h2 text-base-main">{item.title}</span>
+              <span className="mt-[6px] w-full text-t2 text-base-light">{item.description}</span>
+              {item.tags.length > 0 && (
+                <ul className="mt-[12px] flex w-full flex-row flex-wrap">
+                  {item.tags.map((tag) => (
+                    <li className="mr-[4px] mt-[4px]" key={tag.url}>
+                      <Badge title={tag.title} size="xs" color="secondary" theme="border" />
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <Links array={item.links} customClass="mt-[24px]" />
+            </li>
+          ))}
+        </ul>
       </Container>
     </Layout>
   );

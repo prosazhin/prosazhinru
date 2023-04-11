@@ -8,7 +8,7 @@ import Layout from "@/components/Layout";
 import Container from "@/components/Container";
 import Links from "@/components/Links";
 import Tabs from "@/components/Tabs";
-import NewTag from "@/components/NewTag";
+import Tag from "@/components/Tag";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
@@ -67,7 +67,7 @@ export default function LinksPage({ query, tags, links }) {
             .filter((item) => tagList.some((tag) => item.url === tag.url))
             .map((tag) => (
               <li className="mr-[8px] mt-[8px]" key={tag.url}>
-                <NewTag
+                <Tag
                   title={tag.title}
                   size="s"
                   theme="border"

@@ -8,10 +8,6 @@ module.exports = nextTranslate({
   eslint: {
     dirs: ["components", "lib", "pages"],
   },
-  sassOptions: {
-    fiber: false,
-    includePaths: [path.join(__dirname, "styles")],
-  },
   images: {
     domains: ["images.ctfassets.net"],
   },
