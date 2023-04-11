@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useAppContext } from "@/lib/context";
 import Mixpanel from "@/lib/mixpanel";
@@ -9,7 +10,6 @@ import Container from "@/components/Container";
 import Tabs from "@/components/Tabs";
 import Tag from "@/components/Tag";
 import Badge from "@/components/Badge";
-import Links from "@/components/Links";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
@@ -86,10 +86,10 @@ export default function SelectionsPage({ query, tags, selections }) {
               </li>
             ))}
         </ul>
-        <Tabs data={linksTabs} keyName="url" display="title" selected="/selections" setSelected={(value) => router.push(value.url)} customClass="mb-[32px]" />
+        <Tabs data={linksTabs} keyName="url" display="title" selected="/selections" setSelected={(value) => router.push(value.url)} />
         <ul className="mt-[40px] flex w-full flex-col space-y-[40px]">
           {selectionList.map((item) => (
-            <li className="flex flex-col w-full" key={item.id}>
+            <li className="flex w-full flex-col" key={item.id}>
               <span className="w-full text-h2 text-base-main">{item.title}</span>
               <span className="mt-[6px] w-full text-t2 text-base-light">{item.description}</span>
               {item.tags.length > 0 && (
@@ -101,7 +101,33 @@ export default function SelectionsPage({ query, tags, selections }) {
                   ))}
                 </ul>
               )}
-              <Links array={item.links} customClass="mt-[24px]" />
+              <div className="mt-[24px] grid gap-x-[8px] gap-y-[16px] xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1">
+                {item.links
+                  .sort((a, b) => new Date(b.create) - new Date(a.create))
+                  .map((link) => (
+                    <NextLink href={link.url} target="_blank" className="group !no-underline transition" key={link.id}>
+                      <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[16px] py-[12px] !no-underline transition group-hover:border-primary-main">
+                        <span className="w-full text-tm2 text-base-main !no-underline transition group-hover:text-primary-main">{link.title}</span>
+                        <span className="mt-[6px] w-full text-t4 text-base-light !no-underline transition group-hover:text-base-main">{link.description}</span>
+                        {link.tags.length > 0 && (
+                          <ul className="mt-[8px] flex w-full flex-row flex-wrap">
+                            {link.tags.map((tag) => (
+                              <li className="mr-[4px] mt-[4px]" key={tag.url}>
+                                <Tag
+                                  title={tag.title}
+                                  size="xs"
+                                  theme="border"
+                                  selected={activeTag !== undefined && activeTag.url === tag.url}
+                                  clickHandler={() => router.push(activeTag !== undefined && activeTag.url === tag.url ? "/selections" : `/selections?tag=${tag.url}`)}
+                                />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </NextLink>
+                  ))}
+              </div>
             </li>
           ))}
         </ul>

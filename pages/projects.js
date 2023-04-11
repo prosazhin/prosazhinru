@@ -38,10 +38,10 @@ export default function ProjectsPage({ projects }) {
   };
 
   const getProjectSize = (value) => {
-    if (value === 2) return "col-span-2";
-    if (value === 3) return "col-span-3";
-    if (value === 4) return "col-span-4";
-    if (value === 6) return "col-span-6";
+    if (value === 2) return "desktop:col-span-2";
+    if (value === 3) return "desktop:col-span-3";
+    if (value === 4) return "desktop:col-span-4";
+    if (value === 6) return "desktop:col-span-6";
   };
 
   return (
@@ -57,7 +57,7 @@ export default function ProjectsPage({ projects }) {
           {projects
             .sort((a, b) => a.order - b.order)
             .map((project) => (
-              <li key={project.id} className={`${getProjectSize(project.size)}`}>
+              <li key={project.id} className={`sm:col-span-6 ${getProjectSize(project.size)}`}>
                 <a className="group !no-underline transition" href={project.url} target="_blank" rel="noreferrer">
                   <div
                     className={`flex w-full flex-col items-start justify-start transition ${
