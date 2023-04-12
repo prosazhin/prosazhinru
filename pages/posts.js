@@ -8,8 +8,9 @@ import Container from "@/components/Container";
 import Badge from "@/components/Badge";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps() {
-  const posts = await postsMethods.getList();
+export async function getServerSideProps(context) {
+  const { locale } = context;
+  const posts = await postsMethods.getList(locale);
 
   return {
     props: {
@@ -48,7 +49,7 @@ export default function PostsPage({ posts }) {
               <li className="w-full" key={post.id}>
                 <a href={post.url} target="_blank" className="group w-full !no-underline transition">
                   <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[24px] py-[20px] transition group-hover:border-primary-main">
-                    <span className="w-full text-tm1 text-base-main transition group-hover:text-primary-main">{post.title}</span>
+                    <span className="w-full transition text-tm1 text-base-main group-hover:text-primary-main">{post.title}</span>
                     <span className="mt-[8px] w-full text-t3 text-base-main">{post.description}</span>
                     {post.tags.length > 0 && (
                       <ul className="mt-[12px] flex w-full flex-row flex-wrap">

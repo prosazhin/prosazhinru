@@ -11,8 +11,9 @@ import Tag from "@/components/Tag";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps() {
-  const projects = await projectsMethods.getList();
+export async function getServerSideProps(context) {
+  const { locale } = context;
+  const projects = await projectsMethods.getList(locale);
 
   return {
     props: {
@@ -65,7 +66,7 @@ export default function ProjectsPage({ projects }) {
                     }`}
                   >
                     {project.cover && <img className="block w-full rounded-md" src={project.cover} alt={project.title} />}
-                    {!project.cover && <span className="w-full text-h4 text-base-main transition group-hover:text-primary-main">{project.title}</span>}
+                    {!project.cover && <span className="w-full transition text-h4 text-base-main group-hover:text-primary-main">{project.title}</span>}
                     {project.description && !project.cover && <span className="mt-[4px] w-full text-t3 text-base-light transition group-hover:text-base-main">{project.description}</span>}
                     <ul className="mt-[16px] flex w-full flex-row flex-wrap">
                       {project.resourceLinks.map((item) => (
