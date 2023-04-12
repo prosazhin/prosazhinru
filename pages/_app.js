@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta property="og:locale" content={lang} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="prosazhin" />
-        <meta property="og:image" content="/sharing.png" />
+        <meta property="og:image" content={`/sharing/${lang}.png`} />
         <meta name="theme-color" content="#ffffff" />
         <meta content="#ffffff" name="msapplication-TileColor" />
         <meta name="msapplication-square70x70logo" content="/favicon/mstile-70x70.png" />

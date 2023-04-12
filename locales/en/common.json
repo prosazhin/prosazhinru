@@ -1,29 +1,70 @@
 {
-  "name": "Евгений Сажин",
-  "metaTitle": "Евгений Сажин — дизайнер и фронтенд разработчик",
-  "metaDescription": "Евгений Сажин — дизайнер и фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
+  "name": "Evgenii Sazhin",
+  "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
+  "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
   "nav": {
-    "projects": "Проекты",
-    "links": "Полезные ссылки",
-    "posts": "Заметки",
-    "about": "О себе"
+    "projects": "Projects",
+    "links": "Useful links",
+    "posts": "Posts",
+    "about": "About myself"
+  },
+  "locales": {
+    "ru": "Russian",
+    "en": "English"
   },
   "linksTabs": {
-    "links": "Ссылки",
-    "selections": "Подборки"
+    "links": "Links",
+    "selections": "Compilations"
   },
   "aboutTabs": {
-    "about": "О себе",
-    "career": "Моя карьера"
+    "about": "About myself",
+    "career": "My career"
   },
   "index": {
     "headline": {
-      "1": "Дизайнер и фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
+      "1": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
       "2": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические <a href='/selections' target='_self'>подборки</a>. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>."
     }
   },
   "search": {
-    "placeholder": "Начните вводить запрос"
+    "placeholder": "Start entering your request"
+  },
+  "career": {
+    "ipgate": {
+      "title": "ipgate.io",
+      "position": "Фронтенд разработчик / Дизайнер",
+      "description": "Доработка клиентской части для запуска проекта. Поддержка работы проекта. Рефакторинг фронтенда и дизайна."
+    },
+    "sellmonitor": {
+      "title": "sellmonitor.com",
+      "position": "Фронтенд разработчик / Дизайнер",
+      "description": "Проектирование и разработка интерфейса продукта."
+    },
+    "regru": {
+      "title": "reg.ru",
+      "position": "Дизайнер / Фронтенд разработчик",
+      "description": "Поддержка и развитие доменного направления и других частей сервиса. Проектирование и разработка внутренних проектов."
+    },
+    "suplbiz": {
+      "title": "supl.biz",
+      "position": "Дизайнер / Фронтенд разработчик",
+      "description": "Проектирование и разработка торговой площадки и внутренних проектов компании."
+    },
+    "franbazar": {
+      "title": "franbazar.com",
+      "position": "Дизайнер / Верстальщик",
+      "description": "Дизайн и верстка новых проектов и мобильных приложений на WebView. Поддержка существующих проектов."
+    },
+    "pixlpark": {
+      "title": "pixlpark.ru",
+      "position": "Дизайнер / Верстальщик",
+      "description": "Поддержка и развитие демонстрационного сайта магазина полиграфии. Помощь новым и постоянным клиентам."
+    },
+    "freelance": {
+      "title": "Фриланс и типографии",
+      "position": "Дизайнер",
+      "description": "Верстка книг, газет и журналов. Графический дизайн. Рекламная полиграфия."
+    }
   },
   "skills": {
     "about": "Занимаюсь дизайном с 2009 года, верстал газеты и книги. С 2011 года занимаюсь коммерческим дизайном, работал в издательствах и типографиях. С 2014 года занимаюсь дизайном цифровых продуктов, версткой и фронтендом. В командах представляю две компетенции, дизайнера и фронтенд разработчика.",

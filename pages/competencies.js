@@ -6,6 +6,8 @@ import { competenciesMethods } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
 import Badge from "@/components/Badge";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps() {
@@ -36,20 +38,29 @@ export default function CompetenciesPage({ competenciesCategories }) {
       <Container small>
         <h1 className="w-full text-h1 text-base-main">{t("pages:competencies.title")}</h1>
         <p className="mt-[16px] w-full text-t1 text-base-main" dangerouslySetInnerHTML={{ __html: t("common:matrix.description") }} />
-        <div className="mt-[40px] rounded-md border border-secondary-lighter px-[24px] py-[20px]">
-          <h2 className="mb-[16px] w-full text-h2 text-base-main">{t("common:matrix.grades.headline")}</h2>
-          <ul className="flex w-full flex-col space-y-[16px]">
-            {[1, 2, 3, 4].map((item) => (
-              <li className="flex w-full flex-col space-y-[4px]" key={item}>
-                <span className="flex w-full flex-row items-center space-x-[8px] text-tm2 text-base-main">
-                  <span>{t(`common:matrix.grades.${item}.title`)}</span>
-                  <Badge title={item} size="xs" color="secondary" theme="light" />
-                </span>
-                <span className="w-full text-t3 text-base-main">{t(`common:matrix.grades.${item}.description`)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Disclosure as="div" className="mt-[40px] rounded-md border border-secondary-lighter px-[24px] py-[20px]">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="flex w-full flex-row items-center text-left">
+                <h2 className="w-full flex-1 text-h3 text-base-main">{t("common:matrix.grades.headline")}</h2>
+                <ChevronUpIcon className={`${!open ? "rotate-180 transform" : ""} h-[24px] w-[24px] text-base-light`} />
+              </Disclosure.Button>
+              <Disclosure.Panel className="mt-[16px]">
+                <ul className="flex w-full flex-col space-y-[16px]">
+                  {[1, 2, 3, 4].map((item) => (
+                    <li className="flex w-full flex-col space-y-[4px]" key={item}>
+                      <span className="flex w-full flex-row items-center space-x-[8px] text-tm2 text-base-main">
+                        <span>{t(`common:matrix.grades.${item}.title`)}</span>
+                        <Badge title={item} size="xs" color="secondary" theme="light" />
+                      </span>
+                      <span className="w-full text-t3 text-base-main">{t(`common:matrix.grades.${item}.description`)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
         <ul className="mt-[40px] flex w-full flex-col space-y-[40px]">
           {competenciesCategories
             .sort((a, b) => a.order - b.order)

@@ -47,7 +47,7 @@ export default function HomePage() {
         <Tabs data={aboutTabs} keyName="url" display="title" selected="/" setSelected={(value) => router.push(value.url)} customClass="mt-[80px]" />
         <ul className="mt-[40px] flex flex-col space-y-[40px]">
           {skills.map((skill, index) => (
-            <li className="flex flex-col w-full" key={index}>
+            <li className="flex w-full flex-col" key={index}>
               {skill.title.length > 0 && <h2 className="w-full text-tm1 text-base-main">{skill.title}</h2>}
               <p className="mt-[4px] w-full text-t2 text-base-main">{skill.description}</p>
               {skill.tools.length > 0 && (
