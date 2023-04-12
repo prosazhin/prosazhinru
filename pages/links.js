@@ -9,6 +9,8 @@ import Layout from "@/components/Layout";
 import Container from "@/components/Container";
 import Tabs from "@/components/Tabs";
 import Tag from "@/components/Tag";
+import Input from "@/components/Input";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
@@ -31,6 +33,7 @@ export default function LinksPage({ query, tags, links }) {
   const [linkList, setLinkList] = useState([...links]);
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     Mixpanel.event("LOADING_LINKS_PAGE");
@@ -55,12 +58,19 @@ export default function LinksPage({ query, tags, links }) {
   }, [router.query.tag, tags]);
 
   useEffect(() => {
+    let result = [...links];
     if (activeTag !== undefined) {
-      setLinkList(links.filter((link) => link.tags.some((tag) => tag.url === activeTag.url)));
+      result = result.filter((link) => link.tags.some((tag) => tag.url === activeTag.url));
     }
-  }, [activeTag, links]);
-
-  console.log(router.query.tag);
+    if (search.length > 0) {
+      result = result.filter(
+        (link) =>
+          link.title.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")) ||
+          link.description.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")),
+      );
+    }
+    setLinkList(result);
+  }, [links, search, activeTag]);
 
   return (
     <Layout>
@@ -70,8 +80,11 @@ export default function LinksPage({ query, tags, links }) {
         <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
       </Head>
       <Container>
-        <h1 className="w-full text-h1 text-base-main">{t("pages:links.title")}</h1>
-        <ul className="mb-[40px] mt-[8px] flex w-full flex-row flex-wrap">
+        <h1 className="mb-[16px] w-full text-h1 text-base-main">{t("pages:links.title")}</h1>
+        <Input place="left" placeholder={t("common:search.placeholder")} value={search} onChange={({ target }) => setSearch(target.value)}>
+          <MagnifyingGlassIcon className="h-[24px] w-[24px] text-base-light" />
+        </Input>
+        <ul className="mb-[40px] mt-[4px] flex w-full flex-row flex-wrap">
           {tags
             .filter((item) => tagList.some((tag) => item.url === tag.url))
             .map((tag) => (
@@ -91,12 +104,12 @@ export default function LinksPage({ query, tags, links }) {
           {linkList
             .sort((a, b) => new Date(b.create) - new Date(a.create))
             .map((link) => (
-              <NextLink href={link.url} target="_blank" className="group !no-underline transition" key={link.id}>
-                <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[16px] py-[12px] !no-underline transition group-hover:border-primary-main">
+              <NextLink href={link.url} target="_blank" className="group h-auto justify-self-stretch !no-underline transition" key={link.id}>
+                <div className="flex h-full w-full flex-col rounded-md border border-secondary-lighter px-[16px] py-[12px] !no-underline transition group-hover:border-primary-main">
                   <span className="w-full text-tm2 text-base-main !no-underline transition group-hover:text-primary-main">{link.title}</span>
-                  <span className="mt-[6px] w-full text-t4 text-base-light !no-underline transition group-hover:text-base-main">{link.description}</span>
+                  <span className="mt-[6px] w-full flex-1 text-t4 text-base-light !no-underline transition group-hover:text-base-main">{link.description}</span>
                   {link.tags.length > 0 && (
-                    <ul className="mt-[8px] flex w-full flex-row flex-wrap">
+                    <ul className="mt-[8px] flex w-full flex-row flex-wrap items-end justify-start">
                       {link.tags.map((tag) => (
                         <li className="mr-[4px] mt-[4px]" key={tag.url}>
                           <Tag

@@ -10,7 +10,7 @@ const themes = {
   border: "text-base-main border border-secondary-light hover:border-primary-main",
 };
 
-const selected_styles = "text-white border border-primary-main bg-primary-main hover:bg-primary-darker hover:border-primary-darker";
+const selected_styles = "text-white border !border-primary-main !bg-primary-main hover:!bg-primary-darker hover:!border-primary-darker";
 
 export default function Tag({ title, size, theme, selected, clickHandler, place, children }) {
   return (

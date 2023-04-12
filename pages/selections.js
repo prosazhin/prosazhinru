@@ -10,6 +10,8 @@ import Container from "@/components/Container";
 import Tabs from "@/components/Tabs";
 import Tag from "@/components/Tag";
 import Badge from "@/components/Badge";
+import Input from "@/components/Input";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
@@ -32,6 +34,7 @@ export default function SelectionsPage({ query, tags, selections }) {
   const [selectionList, setSelectionList] = useState([...selections]);
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     Mixpanel.event("LOADING_SELECTIONS_PAGE");
@@ -56,10 +59,24 @@ export default function SelectionsPage({ query, tags, selections }) {
   }, [router.query.tag, tags]);
 
   useEffect(() => {
+    let result = [...selections];
     if (activeTag !== undefined) {
-      setSelectionList(selections.filter((selection) => selection.tags.some((tag) => tag.url === activeTag.url)));
+      result = result.filter((selection) => selection.tags.some((tag) => tag.url === activeTag.url));
     }
-  }, [activeTag, selections]);
+    if (search.length > 0) {
+      result = result.filter(
+        (selection) =>
+          selection.title.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")) ||
+          selection.description.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")) ||
+          selection.links.some(
+            (link) =>
+              link.title.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")) ||
+              link.description.toLowerCase().replace(/\s+/g, "").includes(search.toLowerCase().replace(/\s+/g, "")),
+          ),
+      );
+    }
+    setSelectionList(result);
+  }, [selections, search, activeTag]);
 
   return (
     <Layout>
@@ -69,8 +86,11 @@ export default function SelectionsPage({ query, tags, selections }) {
         <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
       </Head>
       <Container>
-        <h1 className="w-full text-h1 text-base-main">{t("pages:selections.title")}</h1>
-        <ul className="mb-[40px] mt-[8px] flex w-full flex-row flex-wrap">
+        <h1 className="mb-[16px] w-full text-h1 text-base-main">{t("pages:selections.title")}</h1>
+        <Input place="left" placeholder={t("common:search.placeholder")} value={search} onChange={({ target }) => setSearch(target.value)}>
+          <MagnifyingGlassIcon className="h-[24px] w-[24px] text-base-light" />
+        </Input>
+        <ul className="mb-[40px] mt-[4px] flex w-full flex-row flex-wrap">
           {tags
             .filter((item) => tagList.some((tag) => item.url === tag.url))
             .map((tag) => (
@@ -87,9 +107,9 @@ export default function SelectionsPage({ query, tags, selections }) {
             ))}
         </ul>
         <Tabs data={linksTabs} keyName="url" display="title" selected="/selections" setSelected={(value) => router.push(value.url)} />
-        <ul className="mt-[40px] flex w-full flex-col space-y-[40px]">
+        <ul className="mt-[40px] flex h-auto w-full flex-col space-y-[40px]">
           {selectionList.map((item) => (
-            <li className="flex w-full flex-col" key={item.id}>
+            <li className="flex h-auto w-full flex-col" key={item.id}>
               <span className="w-full text-h2 text-base-main">{item.title}</span>
               <span className="mt-[6px] w-full text-t2 text-base-light">{item.description}</span>
               {item.tags.length > 0 && (
@@ -105,12 +125,12 @@ export default function SelectionsPage({ query, tags, selections }) {
                 {item.links
                   .sort((a, b) => new Date(b.create) - new Date(a.create))
                   .map((link) => (
-                    <NextLink href={link.url} target="_blank" className="group !no-underline transition" key={link.id}>
-                      <div className="flex w-full flex-col rounded-md border border-secondary-lighter px-[16px] py-[12px] !no-underline transition group-hover:border-primary-main">
+                    <NextLink href={link.url} target="_blank" className="group h-auto justify-self-stretch !no-underline transition" key={link.id}>
+                      <div className="flex h-full w-full flex-col rounded-md border border-secondary-lighter px-[16px] py-[12px] !no-underline transition group-hover:border-primary-main">
                         <span className="w-full text-tm2 text-base-main !no-underline transition group-hover:text-primary-main">{link.title}</span>
-                        <span className="mt-[6px] w-full text-t4 text-base-light !no-underline transition group-hover:text-base-main">{link.description}</span>
+                        <span className="mt-[6px] w-full flex-1 text-t4 text-base-light !no-underline transition group-hover:text-base-main">{link.description}</span>
                         {link.tags.length > 0 && (
-                          <ul className="mt-[8px] flex w-full flex-row flex-wrap">
+                          <ul className="mt-[8px] flex w-full flex-row flex-wrap items-end justify-start">
                             {link.tags.map((tag) => (
                               <li className="mr-[4px] mt-[4px]" key={tag.url}>
                                 <Tag

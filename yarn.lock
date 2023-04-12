@@ -1993,10 +1993,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pbstyles@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/pbstyles/-/pbstyles-1.2.0.tgz#66552e3d554eb6bee8b8f9f68861362bbde2fec2"
-  integrity sha512-jT/uuvmab8nADadpj5ltlN31+K8PBjUr0DaKFk7SEbEKuRnbBTU184hE19TbCUxPBNQgEkmv9ohBtSwXxVoYxQ==
+pbstyles@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/pbstyles/-/pbstyles-1.2.1.tgz#5ca80e25873dbcba0a53709a161bbdfd99e66267"
+  integrity sha512-dcIR0SbGJ4VFyKGObCrc+jCNghA4Jh2SPxRlN0YT/ospfAALfp2LewZO0NIbba35WaxwnFub/fYqQtYrkIM/CQ==
   dependencies:
     lodash "^4.17.21"
 
