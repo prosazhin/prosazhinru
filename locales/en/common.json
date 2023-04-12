@@ -14,7 +14,7 @@
   },
   "linksTabs": {
     "links": "Links",
-    "selections": "Compilations"
+    "compilations": "Compilations"
   },
   "aboutTabs": {
     "about": "About myself",
@@ -23,7 +23,7 @@
   "index": {
     "headline": {
       "1": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
-      "2": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические <a href='/selections' target='_self'>подборки</a>. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>."
+      "2": "Sometimes I do my own <a href='/en/projects' target='_self'>projects</a>."
     }
   },
   "search": {
@@ -32,79 +32,79 @@
   "career": {
     "ipgate": {
       "title": "ipgate.io",
-      "position": "Фронтенд разработчик / Дизайнер",
-      "description": "Доработка клиентской части для запуска проекта. Поддержка работы проекта. Рефакторинг фронтенда и дизайна."
+      "position": "Frontend developer / Designer",
+      "description": "Modification of the client-side for project launch. Support for project operation. Refactoring of frontend and design."
     },
     "sellmonitor": {
       "title": "sellmonitor.com",
-      "position": "Фронтенд разработчик / Дизайнер",
-      "description": "Проектирование и разработка интерфейса продукта."
+      "position": "Frontend developer / Designer",
+      "description": "Design and development of product interface."
     },
     "regru": {
       "title": "reg.ru",
-      "position": "Дизайнер / Фронтенд разработчик",
-      "description": "Поддержка и развитие доменного направления и других частей сервиса. Проектирование и разработка внутренних проектов."
+      "position": "Designer / Frontend developer",
+      "description": "Support and development of the domain direction and other parts of the service. Design and development of internal projects."
     },
     "suplbiz": {
       "title": "supl.biz",
-      "position": "Дизайнер / Фронтенд разработчик",
-      "description": "Проектирование и разработка торговой площадки и внутренних проектов компании."
+      "position": "Designer / Frontend developer",
+      "description": "Design and development of a trading platform and internal company projects."
     },
     "franbazar": {
       "title": "franbazar.com",
-      "position": "Дизайнер / Верстальщик",
-      "description": "Дизайн и верстка новых проектов и мобильных приложений на WebView. Поддержка существующих проектов."
+      "position": "Designer / Markup developer",
+      "description": "Design and layout of new projects and mobile applications on WebView. Support of existing projects."
     },
     "pixlpark": {
       "title": "pixlpark.ru",
-      "position": "Дизайнер / Верстальщик",
-      "description": "Поддержка и развитие демонстрационного сайта магазина полиграфии. Помощь новым и постоянным клиентам."
+      "position": "Designer / Markup developer",
+      "description": "Support and development of the demonstration website for a printing shop. Assistance to new and existing clients."
     },
     "freelance": {
-      "title": "Фриланс и типографии",
-      "position": "Дизайнер",
-      "description": "Верстка книг, газет и журналов. Графический дизайн. Рекламная полиграфия."
+      "title": "Freelance and Printing houses",
+      "position": "Designer",
+      "description": "Typesetting of books, newspapers and magazines. Graphic design. Advertising printing."
     }
   },
   "skills": {
-    "about": "Занимаюсь дизайном с 2009 года, верстал газеты и книги. С 2011 года занимаюсь коммерческим дизайном, работал в издательствах и типографиях. С 2014 года занимаюсь дизайном цифровых продуктов, версткой и фронтендом. В командах представляю две компетенции, дизайнера и фронтенд разработчика.",
+    "about": "I have been working in design since 2009, initially creating layouts for newspapers and books. Since 2011, I have been engaged in commercial design, working in publishing houses and printing houses. Since 2014, I have been involved in digital product design, layout, and front-end development. I represent two competencies in teams - as a designer and front-end developer.",
     "design": {
-      "title": "Дизайн",
-      "description": "Прототипирование интерфейсов на основе гипотез и анализа пользовательского опыта. Генерация гипотез на основне пользовательских данных сервисов аналитики. Проектирование сценариев взаимодействия пользователей с продуктом. Создание и поддержка библиотеки компонентов и дизайн-токенов, как части дизайн системы. Написание текстов для интерфейсов в информационном стиле и согласованных с tone of voice продукта.",
-      "matrix": "Матрица компетенций продуктового дизайнера"
+      "title": "Design",
+      "description": "Interface prototyping based on hypotheses and analysis of user experience. Hypothesis generation based on user data from analytics services. Designing scenarios for user interaction with the product. Creating and maintaining a library of components and design tokens as part of a design system. Writing text for interfaces in an informative style that is consistent with the product's tone of voice.",
+      "matrix": "The competency matrix of a product designer"
     },
     "frontend": {
-      "title": "Фронтенд",
-      "description": "Разработка и поддержка: интерфейсов продукта, логики на клиенте, взаимодействия с api, библиотеки компонентов."
+      "title": "Frontend",
+      "description": "Development and maintenance of: product interfaces, client-side logic, interaction with APIs, component libraries."
     },
     "html": {
-      "title": "Верстка",
-      "description": "HTML5, семантический верстка, CSS, Less, SCSS, PostCSS, TailwindCSS. BEM, Mobile first, адаптивная и кроссбраузерная верстка."
+      "title": "Markup development",
+      "description": "HTML5, semantic markup, CSS, Less, SCSS, PostCSS, TailwindCSS. BEM, Mobile first, adaptive and cross-browser layout."
     },
     "dev": {
-      "title": "Разработка",
-      "description": "Настройка и интеграция Headless CMS в проект. Настройка инфраструктуры для локальной разработки и запуска проекта на VPS в Docker. Настройка внутреннего и внешнего роутинга, включая SSL. Настройка CI/CD (drone.io) и сборка проекта."
+      "title": "Development",
+      "description": "Setting up and integrating Headless CMS into a project. Configuring infrastructure for local development and running the project on VPS in Docker. Configuring internal and external routing, including SSL. Setting up CI/CD (drone.io) and project builds."
     }
   },
   "matrix": {
-    "description": "«Для понимания текущих возможностей команды в целом нужно оценить конкретные навыки каждого дизайнера (например, анимация интерфейсов или экспертная оценка)» <a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Юрий Ветров об интерфейсах</a>",
+    "description": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)» <a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>",
     "grades": {
-      "headline": "Уровни оценки навыков",
+      "headline": "Levels of skill assessment",
       "1": {
-        "title": "Осведомлённость",
-        "description": "Понимание того, как работает специалист в этой области. Какие задачи выполняет, каков рабочий процесс и инструментарий, методы и практики, какие особенности и ограничения накладываются на него."
+        "title": "Awareness",
+        "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
       },
       "2": {
-        "title": "Умение",
-        "description": "Способность решать базовые задачи в области. Доделать не очень важный кусок работ за ведущим специалистом, собрать макет или прототип на основе чужих наработок, внести осмысленные доработки в существующий документ и т.п."
+        "title": "Skill",
+        "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
       },
       "3": {
-        "title": "Экспертиза",
-        "description": "Выполнение большинства задач в области знаний. От начала до конца и, зачастую, самостоятельно. Способность разобраться в нетипичной ситуации."
+        "title": "Expertise",
+        "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
       },
       "4": {
-        "title": "Лидерство",
-        "description": "Способность передать экспертизу другим участникам команды. Помощь в обучении и профессиональном росте коллег, развитии инструментария и методов работы, повышении общей дизайн-культуры. Возможность указать на проблемную ситуацию в проекте или процессе и помочь в её решении."
+        "title": "Leadership",
+        "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall design culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
       }
     }
   }

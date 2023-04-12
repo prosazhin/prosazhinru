@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useAppContext } from "@/lib/context";
 import Mixpanel from "@/lib/mixpanel";
-import { tagsMethods, selectionsMethods } from "@/lib/api";
+import { tagsMethods, compilationsMethods } from "@/lib/api";
 import Layout from "@/components/Layout";
 import Container from "@/components/Container";
 import Tabs from "@/components/Tabs";
@@ -16,34 +16,40 @@ import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
   const tags = await tagsMethods.getList();
-  const selections = await selectionsMethods.getList();
+  const compilations = await compilationsMethods.getList();
 
   return {
     props: {
       query: context.query,
       tags,
-      selections,
+      compilations,
     },
   };
 }
 
-export default function SelectionsPage({ query, tags, selections }) {
-  const { t } = useTranslation();
+export default function CompilationsPage({ query, tags, compilations }) {
+  const { t, lang } = useTranslation();
   const router = useRouter();
   const { linksTabs } = useAppContext();
-  const [selectionList, setSelectionList] = useState([...selections]);
+  const [compilationList, setCompilationList] = useState([...compilations]);
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    Mixpanel.event("LOADING_SELECTIONS_PAGE");
+    if (lang === "en") {
+      router.push("/");
+    }
+  }, [lang, router]);
+
+  useEffect(() => {
+    Mixpanel.event("LOADING_COMPILATIONS_PAGE");
   }, []);
 
   useEffect(() => {
     const activeTagsList = [];
 
-    selections.forEach((selection) => {
+    compilations.forEach((selection) => {
       selection.tags.forEach((tag) => {
         if (activeTagsList.every((item) => item.url !== tag.url)) {
           activeTagsList.push(tag);
@@ -52,14 +58,14 @@ export default function SelectionsPage({ query, tags, selections }) {
     });
 
     setTagList(activeTagsList);
-  }, [selections]);
+  }, [compilations]);
 
   useEffect(() => {
     setActiveTag(tags.filter((item) => item.url === router.query.tag)[0]);
   }, [router.query.tag, tags]);
 
   useEffect(() => {
-    let result = [...selections];
+    let result = [...compilations];
     if (activeTag !== undefined) {
       result = result.filter((selection) => selection.tags.some((tag) => tag.url === activeTag.url));
     }
@@ -75,18 +81,18 @@ export default function SelectionsPage({ query, tags, selections }) {
           ),
       );
     }
-    setSelectionList(result);
-  }, [selections, search, activeTag]);
+    setCompilationList(result);
+  }, [compilations, search, activeTag]);
 
   return (
     <Layout>
       <Head>
-        <title>{`${t("pages:selections.title")} | ${t("common:metaTitle")}`}</title>
-        <meta property="og:title" content={`${t("pages:selections.title")} | ${t("common:metaTitle")}`} key="title" />
+        <title>{`${t("pages:compilations.title")} | ${t("common:metaTitle")}`}</title>
+        <meta property="og:title" content={`${t("pages:compilations.title")} | ${t("common:metaTitle")}`} key="title" />
         <meta property="og:url" content={`https://prosazhin.ru${router.asPath}`} key="url" />
       </Head>
       <Container>
-        <h1 className="mb-[16px] w-full text-h1 text-base-main">{t("pages:selections.title")}</h1>
+        <h1 className="mb-[16px] w-full text-h1 text-base-main">{t("pages:compilations.title")}</h1>
         <Input place="left" placeholder={t("common:search.placeholder")} value={search} onChange={({ target }) => setSearch(target.value)}>
           <MagnifyingGlassIcon className="h-[24px] w-[24px] text-base-light" />
         </Input>
@@ -101,14 +107,14 @@ export default function SelectionsPage({ query, tags, selections }) {
                   theme="border"
                   place="right"
                   selected={activeTag !== undefined && activeTag.url === tag.url}
-                  clickHandler={() => router.push(activeTag !== undefined && activeTag.url === tag.url ? "/selections" : `/selections?tag=${tag.url}`)}
+                  clickHandler={() => router.push(activeTag !== undefined && activeTag.url === tag.url ? "/compilations" : `/compilations?tag=${tag.url}`)}
                 />
               </li>
             ))}
         </ul>
-        <Tabs data={linksTabs} keyName="url" display="title" selected="/selections" setSelected={(value) => router.push(value.url)} />
+        <Tabs data={linksTabs} keyName="url" display="title" selected="/compilations" setSelected={(value) => router.push(value.url)} />
         <ul className="mt-[40px] flex h-auto w-full flex-col space-y-[40px]">
-          {selectionList.map((item) => (
+          {compilationList.map((item) => (
             <li className="flex h-auto w-full flex-col" key={item.id}>
               <span className="w-full text-h2 text-base-main">{item.title}</span>
               <span className="mt-[6px] w-full text-t2 text-base-light">{item.description}</span>
@@ -138,7 +144,7 @@ export default function SelectionsPage({ query, tags, selections }) {
                                   size="xs"
                                   theme="border"
                                   selected={activeTag !== undefined && activeTag.url === tag.url}
-                                  clickHandler={() => router.push(activeTag !== undefined && activeTag.url === tag.url ? "/selections" : `/selections?tag=${tag.url}`)}
+                                  clickHandler={() => router.push(activeTag !== undefined && activeTag.url === tag.url ? "/compilations" : `/compilations?tag=${tag.url}`)}
                                 />
                               </li>
                             ))}

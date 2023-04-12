@@ -1,26 +1,26 @@
 {
   "career": {
-    "title": "Моя карьера"
+    "title": "My career"
   },
   "competencies": {
-    "title": "Матрица компетенций продуктового дизайнера"
+    "title": "The competency matrix of a product designer"
   },
   "projects": {
-    "title": "Проекты"
+    "title": "Projects"
   },
   "links": {
-    "title": "Полезные ссылки"
+    "title": "Useful links"
   },
-  "selections": {
-    "title": "Подборки ссылок"
+  "compilations": {
+    "title": "Link compilations"
   },
   "posts": {
-    "title": "Заметки"
+    "title": "Posts"
   },
   "404": {
-    "title": "Нет такой страницы"
+    "title": "No such page"
   },
   "500": {
-    "title": "Произошла ошибка"
+    "title": "An error has occurred"
   }
 }

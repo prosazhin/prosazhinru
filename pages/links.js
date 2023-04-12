@@ -27,13 +27,19 @@ export async function getServerSideProps(context) {
 }
 
 export default function LinksPage({ query, tags, links }) {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const router = useRouter();
   const { linksTabs } = useAppContext();
   const [linkList, setLinkList] = useState([...links]);
   const [tagList, setTagList] = useState([]);
   const [activeTag, setActiveTag] = useState(tags.filter((item) => item.url === query.tag)[0]);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (lang === "en") {
+      router.push("/");
+    }
+  }, [lang, router]);
 
   useEffect(() => {
     Mixpanel.event("LOADING_LINKS_PAGE");

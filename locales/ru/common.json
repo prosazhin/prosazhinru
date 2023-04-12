@@ -14,7 +14,7 @@
   },
   "linksTabs": {
     "links": "Ссылки",
-    "selections": "Подборки"
+    "compilations": "Подборки"
   },
   "aboutTabs": {
     "about": "О себе",
@@ -23,7 +23,7 @@
   "index": {
     "headline": {
       "1": "Дизайнер и фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
-      "2": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические <a href='/selections' target='_self'>подборки</a>. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>."
+      "2": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические <a href='/compilations' target='_self'>подборки</a>. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>."
     }
   },
   "search": {

@@ -1,53 +1,47 @@
-import { getServerSideSitemap } from 'next-sitemap';
+import { getServerSideSitemap } from "next-sitemap";
 
 export async function getServerSideProps(context) {
   const fields = [
     {
-      loc: 'https://prosazhin.ru',
+      loc: "https://prosazhin.ru",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 1.0,
     },
     {
-      loc: 'https://prosazhin.ru/links',
+      loc: "https://prosazhin.ru/career",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
     {
-      loc: 'https://prosazhin.ru/selections',
+      loc: "https://prosazhin.ru/competencies",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
     {
-      loc: 'https://prosazhin.ru/projects',
+      loc: "https://prosazhin.ru/links",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
     {
-      loc: 'https://prosazhin.ru/posts',
+      loc: "https://prosazhin.ru/compilations",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
     {
-      loc: 'https://prosazhin.ru/about',
+      loc: "https://prosazhin.ru/projects",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
     {
-      loc: 'https://prosazhin.ru/competencies',
+      loc: "https://prosazhin.ru/posts",
       lastmod: new Date().toISOString(),
-      changefreq: 'daily',
-      priority: 0.8,
-    },
-    {
-      loc: 'https://prosazhin.ru/jobs',
-      lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      changefreq: "daily",
       priority: 0.8,
     },
   ];

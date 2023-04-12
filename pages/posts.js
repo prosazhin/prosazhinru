@@ -19,8 +19,14 @@ export async function getServerSideProps() {
 }
 
 export default function PostsPage({ posts }) {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const router = useRouter();
+
+  useEffect(() => {
+    if (lang === "en") {
+      router.push("/");
+    }
+  }, [lang, router]);
 
   useEffect(() => {
     Mixpanel.event("LOADING_POSTS_PAGE");

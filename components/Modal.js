@@ -14,11 +14,11 @@ export default function Modal({ isOpen, setIsOpen, children }) {
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-200"
-              enterFrom="opacity-0 translate-y-[100px]"
+              enterFrom="opacity-0 translate-y-[50px]"
               enterTo="opacity-100 translate-y-0"
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-[100%]"
+              leaveTo="opacity-0 translate-y-[50px]"
             >
               <Dialog.Panel className="relative w-full transform overflow-hidden rounded-t-xl bg-white px-[24px] pb-[40px] pt-[64px] text-left align-middle shadow-xl transition-all">
                 {children}
