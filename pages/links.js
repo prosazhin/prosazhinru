@@ -14,8 +14,9 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
-  const tags = await tagsMethods.getList();
-  const links = await linksMethods.getList();
+  const { locale } = context;
+  const tags = await tagsMethods.getList(locale);
+  const links = await linksMethods.getList(locale);
 
   return {
     props: {

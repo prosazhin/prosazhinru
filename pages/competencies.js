@@ -10,8 +10,9 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import useTranslation from "next-translate/useTranslation";
 
-export async function getServerSideProps() {
-  const competenciesCategories = await competenciesMethods.getList();
+export async function getServerSideProps(context) {
+  const { locale } = context;
+  const competenciesCategories = await competenciesMethods.getList(locale);
 
   return {
     props: {
@@ -41,8 +42,8 @@ export default function CompetenciesPage({ competenciesCategories }) {
         <Disclosure as="div" className="mt-[40px] rounded-md border border-secondary-lighter px-[24px] py-[20px]">
           {({ open }) => (
             <>
-              <Disclosure.Button className="flex w-full flex-row items-center text-left">
-                <h2 className="w-full flex-1 text-h3 text-base-main">{t("common:matrix.grades.headline")}</h2>
+              <Disclosure.Button className="flex flex-row items-center w-full text-left">
+                <h2 className="flex-1 w-full text-h3 text-base-main">{t("common:matrix.grades.headline")}</h2>
                 <ChevronUpIcon className={`${!open ? "rotate-180 transform" : ""} h-[24px] w-[24px] text-base-light`} />
               </Disclosure.Button>
               <Disclosure.Panel className="mt-[16px]">
@@ -65,12 +66,12 @@ export default function CompetenciesPage({ competenciesCategories }) {
           {competenciesCategories
             .sort((a, b) => a.order - b.order)
             .map((category) => (
-              <li className="flex w-full flex-col" key={category.id}>
+              <li className="flex flex-col w-full" key={category.id}>
                 <span className="mb-[8px] flex w-full flex-row items-center space-x-[16px] px-[16px]">
                   <span className="flex-1 text-tm2 text-base-main">{category.title}</span>
                   <Badge title={category.rating} size="xs" color="secondary" theme="border" />
                 </span>
-                <ul className="flex w-full flex-col divide-y divide-secondary-lighter rounded-md border border-secondary-lighter">
+                <ul className="flex flex-col w-full border divide-y rounded-md divide-secondary-lighter border-secondary-lighter">
                   {category.competencies
                     .sort((a, b) => a.order - b.order)
                     .map((item) => (

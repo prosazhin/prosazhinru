@@ -15,8 +15,9 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps(context) {
-  const tags = await tagsMethods.getList();
-  const compilations = await compilationsMethods.getList();
+  const { locale } = context;
+  const tags = await tagsMethods.getList(locale);
+  const compilations = await compilationsMethods.getList(locale);
 
   return {
     props: {
@@ -115,7 +116,7 @@ export default function CompilationsPage({ query, tags, compilations }) {
         <Tabs data={linksTabs} keyName="url" display="title" selected="/compilations" setSelected={(value) => router.push(value.url)} />
         <ul className="mt-[40px] flex h-auto w-full flex-col space-y-[40px]">
           {compilationList.map((item) => (
-            <li className="flex h-auto w-full flex-col" key={item.id}>
+            <li className="flex flex-col w-full h-auto" key={item.id}>
               <span className="w-full text-h2 text-base-main">{item.title}</span>
               <span className="mt-[6px] w-full text-t2 text-base-light">{item.description}</span>
               {item.tags.length > 0 && (
