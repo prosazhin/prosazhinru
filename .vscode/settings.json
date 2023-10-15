@@ -1,7 +1,12 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "i18n-ally.localesPaths": [
-    "locales"
-  ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.format.enable": true,
+  "prettier.documentSelectors": [
+    "**/*.{ts,js,tsx,jsx}"
+  ],
+  "prettier.enable": true
 }

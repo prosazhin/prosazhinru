@@ -1,0 +1,163 @@
+{
+  "name": "Evgenii Sazhin",
+  "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
+  "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+  "nav": {
+    "projects": "Projects",
+    "links": "Useful links",
+    "posts": "Posts",
+    "about": "About myself"
+  },
+  "goToHome": "Return to the homepage",
+  "locales": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "tabs": {
+    "about": [
+      {
+        "title": "About myself",
+        "url": "/en"
+      },
+      {
+        "title": "My career",
+        "url": "/en/career"
+      }
+    ],
+    "links": [
+      {
+        "title": "Links",
+        "url": "/en/links"
+      },
+      {
+        "title": "Compilations",
+        "url": "/en/compilations"
+      }
+    ]
+  },
+  "now": "Now",
+  "search": {
+    "placeholder": "Start entering your request"
+  },
+  "career": {
+    "pixelpoint": {
+      "title": "pixelpoint.io",
+      "position": "Frontend developer",
+      "description": "Development and support of projects."
+    },
+    "ipgate": {
+      "title": "ipgate.io",
+      "position": "Frontend developer / Designer",
+      "description": "Modification of the client-side for project launch. Support for project operation. Refactoring of frontend and design."
+    },
+    "sellmonitor": {
+      "title": "sellmonitor.com",
+      "position": "Frontend developer / Designer",
+      "description": "Design and development of product interface."
+    },
+    "regru": {
+      "title": "reg.ru",
+      "position": "Designer / Frontend developer",
+      "description": "Support and development of the domain direction and other parts of the service. Design and development of internal projects."
+    },
+    "suplbiz": {
+      "title": "supl.biz",
+      "position": "Designer / Frontend developer",
+      "description": "Design and development of a trading platform and internal company projects."
+    },
+    "franbazar": {
+      "title": "franbazar.com",
+      "position": "Designer / Markup developer",
+      "description": "Design and layout of new projects and mobile applications on WebView. Support of existing projects."
+    },
+    "pixlpark": {
+      "title": "pixlpark.ru",
+      "position": "Designer / Markup developer",
+      "description": "Support and development of the demonstration website for a printing shop. Assistance to new and existing clients."
+    },
+    "freelance": {
+      "title": "Freelance and Printing houses",
+      "position": "Designer",
+      "description": "Typesetting of books, newspapers and magazines. Graphic design. Advertising printing."
+    }
+  },
+  "skills": {
+    "about": {
+      "description": "I have been working in design since 2009, initially creating layouts for newspapers and books. Since 2011, I have been engaged in commercial design, working in publishing houses and printing houses. Since 2014, I have been involved in digital product design, layout, and front-end development. I represent two competencies in teams - as a designer and front-end developer."
+    },
+    "design": {
+      "title": "Design",
+      "description": "Interface prototyping based on hypotheses and analysis of user experience. Hypothesis generation based on user data from analytics services. Designing scenarios for user interaction with the product. Creating and maintaining a library of components and design tokens as part of a design system. Writing text for interfaces in an informative style that is consistent with the product's tone of voice.",
+      "matrix": "The competency matrix of a product designer"
+    },
+    "frontend": {
+      "title": "Frontend",
+      "description": "Development and maintenance of: product interfaces, client-side logic, interaction with APIs, component libraries."
+    },
+    "html": {
+      "title": "Markup development",
+      "description": "HTML5, semantic markup, CSS, Less, SCSS, PostCSS, TailwindCSS. BEM, Mobile first, adaptive and cross-browser layout."
+    },
+    "dev": {
+      "title": "Development",
+      "description": "Setting up and integrating Headless CMS into a project. Configuring infrastructure for local development and running the project on VPS in Docker. Configuring internal and external routing, including SSL. Setting up CI/CD (drone.io) and project builds."
+    }
+  },
+  "grades": {
+    "headline": "Levels of skill assessment",
+    "1": {
+      "title": "Awareness",
+      "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
+    },
+    "2": {
+      "title": "Skill",
+      "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
+    },
+    "3": {
+      "title": "Expertise",
+      "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
+    },
+    "4": {
+      "title": "Leadership",
+      "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall design culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
+    }
+  },
+  "pages": {
+    "index": {
+      "title": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+      "description": "Sometimes I do my own <a href='/en/projects' target='_self'>projects</a>.",
+      "pathname": "/en"
+    },
+    "career": {
+      "title": "My career",
+      "pathname": "/en/career"
+    },
+    "competencies": {
+      "title": "The competency matrix of a product designer",
+      "description": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)»<br /><a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>",
+      "pathname": "/en/competencies"
+    },
+    "projects": {
+      "title": "Projects",
+      "pathname": "/en/projects"
+    },
+    "links": {
+      "title": "Useful links",
+      "pathname": "/en/links"
+    },
+    "compilations": {
+      "title": "Link compilations",
+      "pathname": "/en/compilations"
+    },
+    "posts": {
+      "title": "Posts",
+      "pathname": "/en/posts"
+    },
+    "notFound": {
+      "title": "No such page"
+    },
+    "error": {
+      "title": "An error has occurred"
+    }
+  }
+}

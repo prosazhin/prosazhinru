@@ -1,10 +1,9 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /_next
 
 # Host
-Host: https://prosazhin.ru
+Host: http://localhost:8080
 
 # Sitemaps
-Sitemap: https://prosazhin.ru/sitemap.xml
+Sitemap: http://localhost:8080/sitemap.xml
