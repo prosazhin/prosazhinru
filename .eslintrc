@@ -1,0 +1,71 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "plugins": ["react-refresh", "@typescript-eslint", "prettier", "tailwindcss"],
+  "rules": {
+    "prettier/prettier": "off",
+    "tailwindcss/classnames-order": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "curly": "error",
+    "no-shadow": "error",
+    "no-nested-ternary": "error",
+    "newline-before-return": "error",
+    "object-shorthand": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    "no-console": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false
+        }
+      }
+    ],
+    "@next/next/no-page-custom-font": "off",
+    "no-restricted-exports": [
+      "error",
+      {
+        "restrictDefaultExports": {
+          "direct": false,
+          "named": true,
+          "defaultFrom": true,
+          "namedFrom": true,
+          "namespaceFrom": true
+        }
+      }
+    ],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "noSortAlphabetically": true,
+        "shorthandLast": true,
+        "callbacksLast": true
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-refresh/only-export-components": "off"
+  }
+}

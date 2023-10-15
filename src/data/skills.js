@@ -1,0 +1,66 @@
+const skills = [
+  {
+    type: 'about',
+    title: false,
+    description: true,
+    tools: [],
+    matrix: false,
+  },
+  {
+    type: 'design',
+    title: true,
+    description: true,
+    tools: [
+      'Figma',
+      'Abode CC',
+      'Miro',
+      'Notion',
+      'Google Analytics',
+      'Yandex.Metrika',
+      'Amplitude',
+      'Mixpanel',
+    ],
+    matrix: {
+      // title: t('common:skills.design.matrix'),
+      url: '/competencies',
+    },
+  },
+  {
+    type: 'frontend',
+    title: true,
+    description: true,
+    tools: [
+      'JavaScript',
+      'TypeScript',
+      'NodeJS',
+      'Npm',
+      'Yarn',
+      'Webpack',
+      'React',
+      'Redux',
+      'Hooks',
+      'Next',
+      'Vue',
+      'Vuex',
+      'Vue 3',
+      'Nuxt',
+    ],
+    matrix: false,
+  },
+  {
+    type: 'html',
+    title: true,
+    description: true,
+    tools: ['HTML', 'CSS', 'Less', 'SCSS', 'PostCSS', 'TailwindCSS'],
+    matrix: false,
+  },
+  {
+    type: 'dev',
+    title: true,
+    description: true,
+    tools: ['VSCode', 'Terminal', 'Git', 'Docker', 'Nginx', 'Headless CMS', 'CI/CD'],
+    matrix: false,
+  },
+];
+
+export default skills;
