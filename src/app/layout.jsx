@@ -6,12 +6,6 @@ const RootLayout = async ({ children }) => {
   const _headers = headers();
   const lang = _headers.get('x-lang');
 
-  // useEffect(() => {
-  //   if (lang === 'en') {
-  //     router.push('/');
-  //   }
-  // }, [lang, router]);
-
   return (
     <html lang={lang}>
       <head>

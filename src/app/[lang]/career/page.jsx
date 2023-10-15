@@ -1,4 +1,5 @@
 import career from '@/data/career';
+import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
 import { getDictionary } from '@/utils/get-dictionaries';
 import getMetadata from '@/utils/get-metadata';
 
@@ -7,8 +8,6 @@ import Contacts from '@/components/Contacts';
 import Container from '@/components/Container';
 import Mixpanel from '@/components/Mixpanel';
 import Tabs from '@/components/Tabs';
-
-import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/lib/utils';
 
 const CareerPage = async ({ params: { lang } }) => {
   const t = await getDictionary(lang);

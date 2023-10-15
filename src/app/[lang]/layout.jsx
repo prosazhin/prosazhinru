@@ -9,13 +9,11 @@ export async function generateStaticParams() {
 
 const LangLayout = async ({ children, params: { lang } }) => {
   return (
-    <html lang={lang}>
-      <body>
-        <Header lang={lang} />
-        <main className="mb-[80px] mt-[calc(72px+40px)]">{children}</main>
-        <Footer lang={lang} />
-      </body>
-    </html>
+    <>
+      <Header lang={lang} />
+      <main className="mb-[80px] mt-[calc(72px+40px)]">{children}</main>
+      <Footer lang={lang} />
+    </>
   );
 };
 

@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// import nav from '@/data/nav';
 import { LangType } from '@/types';
-// import getActiveLink from '@/utils/get-active-link';
 import { i18n } from '@/utils/i18n';
 
 function getLocale(request: NextRequest) {
@@ -26,13 +24,6 @@ export function middleware(request: NextRequest) {
 
   const newHeaders = new Headers(request.headers);
   newHeaders.set('x-lang', lang);
-
-  // let isNoLang = false;
-  // nav.forEach((item) => {
-  //   if (getActiveLink(item.active, pathname) && item.lang.every((i) => i !== lang)) {
-  //     isNoLang = true;
-  //   }
-  // });
 
   if (isDefaultLocale) {
     return NextResponse.redirect(new URL(newPathname.length ? newPathname : '/', request.url));

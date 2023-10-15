@@ -5,7 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-export function ucFirst(value) {
+export function ucFirst(value: any) {
   if (!value) {
     return value;
   }
@@ -13,14 +13,14 @@ export function ucFirst(value) {
   return value[0].toUpperCase() + value.slice(1);
 }
 
-export function getFormatDate(value, locale) {
+export function getFormatDate(value: string, locale: string) {
   return dayjs(value).locale(locale).format('DD MMMM YYYY');
 }
 
-export function getFormatJobDate(value, locale) {
+export function getFormatJobDate(value: string, locale: string) {
   return dayjs(value).locale(locale).format('MMMM YYYY');
 }
 
-export function getDiffJobDate(start, end, locale) {
+export function getDiffJobDate(start: string, end: string, locale: string) {
   return dayjs(start).locale(locale).from(end, true);
 }

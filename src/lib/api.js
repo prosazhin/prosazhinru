@@ -1,5 +1,6 @@
+import { getFormatDate } from '@/utils/formatter';
+
 import CONTENTFULAPI from '@/lib/contentful';
-import { getFormatDate } from '@/lib/utils';
 
 const api = new CONTENTFULAPI();
 
