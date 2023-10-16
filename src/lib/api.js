@@ -117,7 +117,6 @@ export const projectsMethods = {
           title: checkValue(tag.fields.title),
           url: checkValue(tag.fields.url),
         })),
-        cover: checkValue(item.fields.cover),
         create: checkValue(item.fields.create),
         createString: getFormatDate(item.fields.create, lang),
         resourceLinks: item.fields.resourceLinks.map((link) => ({
