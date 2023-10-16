@@ -107,6 +107,7 @@ export const projectsMethods = {
       response.items.map((item) => ({
         id: checkValue(item.sys.id),
         title: checkValue(item.fields.title),
+        slug: checkValue(item.fields.slug),
         description: checkValue(item.fields.description),
         order: checkValue(item.fields.order),
         size: checkValue(item.fields.size),
@@ -124,11 +125,6 @@ export const projectsMethods = {
           title: checkValue(link.fields.title),
           url: checkValue(link.fields.url),
         })),
-        gitUrl: checkValue(item.fields.gitUrl),
-        figmaUrl: checkValue(item.fields.figmaUrl),
-        figmaCommunityUrl: checkValue(item.fields.figmaCommunityUrl),
-        behanceUrl: checkValue(item.fields.behanceUrl),
-        projectUrl: checkValue(item.fields.projectUrl),
       }))
     ),
 };
