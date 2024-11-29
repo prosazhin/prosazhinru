@@ -215,9 +215,6 @@
     },
     "notFound": {
       "title": "No such page"
-    },
-    "error": {
-      "title": "An error has occurred"
     }
   },
   "plurals": {
