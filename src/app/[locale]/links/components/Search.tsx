@@ -17,7 +17,7 @@ const Search = ({ placeholder }: { placeholder: string }) => {
   const query = params?.get('query');
   const [search, setSearch] = useState(query || '');
 
-  useDebounce(() => router.push(getQuery(type, search, activeTag)), 300, [search, activeTag, type]);
+  useDebounce(() => router.push(getQuery(type, search, activeTag)), 150, [search, activeTag, type]);
 
   return (
     <Input
