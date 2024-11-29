@@ -57,16 +57,14 @@ const AsideProfile = () => {
             {` ${getDiffJobDate('2011-01-01', String(new Date()), locale)}`}
           </span>
         </div>
-        {false && (
-          <Button
-            size="s"
-            className="!w-max"
-            leftIcon={ArrowDownTrayIcon}
-            onClick={() => downloadCV()}
-          >
-            {t('download')}
-          </Button>
-        )}
+        <Button
+          size="s"
+          className="!w-max"
+          leftIcon={ArrowDownTrayIcon}
+          onClick={() => downloadCV()}
+        >
+          {t('download')}
+        </Button>
       </div>
     </div>
   );
