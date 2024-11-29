@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin');
-const theme = require('pbstyles/styles/tailwindcss');
+import theme from 'pbstyles/styles/tailwind-theme';
+import plugin from 'tailwindcss/plugin';
 
-module.exports = {
+export default {
   mode: 'jit',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   future: {
@@ -84,5 +84,11 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
+    plugin(function ({ addVariant }) {
+      addVariant('hover', [
+        '@media (hover: hover) and (pointer: fine) { &:hover }',
+        '@media (hover: none) { &:active }',
+      ]);
+    }),
   ],
 };

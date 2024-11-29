@@ -21,11 +21,19 @@ const data = [
     priority: 0.9,
   },
   {
-    path: '/competencies',
+    path: '/designer',
     priority: 0.8,
   },
   {
-    path: '/en/competencies',
+    path: '/en/designer',
+    priority: 0.8,
+  },
+  {
+    path: '/developer',
+    priority: 0.8,
+  },
+  {
+    path: '/en/developer',
     priority: 0.8,
   },
   {
@@ -41,51 +49,15 @@ const data = [
     priority: 0.7,
   },
   {
+    path: '/en/posts',
+    priority: 0.7,
+  },
+  {
     path: '/links',
     priority: 0.7,
   },
   {
-    path: '/links?tag=design',
-    priority: 0.7,
-  },
-  {
-    path: '/links?tag=frontend',
-    priority: 0.7,
-  },
-  {
-    path: '/links?tag=tooling',
-    priority: 0.7,
-  },
-  {
-    path: '/links?tag=figma',
-    priority: 0.7,
-  },
-  {
-    path: '/links?tag=dev',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations?tag=design',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations?tag=frontend',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations?tag=tooling',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations?tag=figma',
-    priority: 0.7,
-  },
-  {
-    path: '/compilations?tag=dev',
+    path: '/en/links',
     priority: 0.7,
   },
 ];

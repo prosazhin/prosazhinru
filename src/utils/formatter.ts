@@ -5,6 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ucFirst(value: any) {
   if (!value) {
     return value;

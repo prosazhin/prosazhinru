@@ -6,49 +6,56 @@ const api = new CONTENTFULAPI();
 
 const checkValue = (value) => (value ? value : null);
 
-export const competenciesMethods = {
-  getList: async (lang) =>
-    await api.get('competencies-categories', { locale: lang }).then((response) =>
-      response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        order: checkValue(item.fields.order),
-        rating: checkValue(item.fields.rating),
-        competencies: item.fields.competencies.map((competence) => ({
-          id: checkValue(competence.sys.id),
-          title: checkValue(competence.fields.title),
-          rating: checkValue(competence.fields.rating),
-          order: checkValue(competence.fields.order),
+const getObject = (value, checkArray, lang) => {
+  const result = checkArray.reduce((acc, cur) => {
+    let keyValue = checkValue(value.fields[cur]);
+
+    if (cur === 'id') keyValue = checkValue(value.sys.id);
+    if (cur === 'createString') keyValue = getFormatDate(value.fields.create, lang);
+
+    return {
+      ...acc,
+      [cur]: keyValue,
+    };
+  }, {});
+
+  return result;
+};
+
+export const matrixMethods = {
+  getOne: async (type, lang) =>
+    await api.get('matrix', { locale: lang }).then((response) => {
+      const matrix = response.items.filter((item) => item.fields.type === type)[0];
+
+      const result = {
+        ...getObject(matrix, ['id', 'type'], lang),
+        category: matrix.fields.category.map((category) => ({
+          ...getObject(category, ['id', 'title'], lang),
+          competencies: category.fields.competencies.map((competence) =>
+            getObject(competence, ['id', 'title', 'rating'], lang)
+          ),
         })),
-      }))
-    ),
+      };
+
+      return result;
+    }),
 };
 
 export const tagsMethods = {
   getList: async (lang) =>
-    await api.get('tags', { order: 'sys.createdAt', locale: lang }).then((response) =>
-      response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        url: checkValue(item.fields.url),
-      }))
-    ),
+    await api
+      .get('tags', { order: 'sys.createdAt', locale: lang })
+      .then((response) =>
+        response.items.map((item) => getObject(item, ['id', 'title', 'url'], lang))
+      ),
 };
 
 export const linksMethods = {
   getList: async (lang) =>
     await api.get('links', { limit: 500, locale: lang }).then((response) =>
       response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        description: checkValue(item.fields.description),
-        url: checkValue(item.fields.url),
-        create: checkValue(item.fields.create),
-        tags: item.fields.tags.map((tag) => ({
-          id: checkValue(tag.sys.id),
-          title: checkValue(tag.fields.title),
-          url: checkValue(tag.fields.url),
-        })),
+        ...getObject(item, ['id', 'title', 'description', 'url', 'create'], lang),
+        tags: item.fields.tags.map((tag) => getObject(tag, ['id', 'title', 'url'], lang)),
       }))
     ),
 };
@@ -57,26 +64,11 @@ export const compilationsMethods = {
   getList: async (lang) =>
     await api.get('selections', { locale: lang }).then((response) =>
       response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        description: checkValue(item.fields.description),
-        create: checkValue(item.fields.create),
-        tags: item.fields.tags.map((tag) => ({
-          id: checkValue(tag.sys.id),
-          title: checkValue(tag.fields.title),
-          url: checkValue(tag.fields.url),
-        })),
+        ...getObject(item, ['id', 'title', 'description', 'create'], lang),
+        tags: item.fields.tags.map((tag) => getObject(tag, ['id', 'title', 'url'], lang)),
         links: item.fields.links.map((link) => ({
-          id: checkValue(link.sys.id),
-          title: checkValue(link.fields.title),
-          description: checkValue(link.fields.description),
-          url: checkValue(link.fields.url),
-          create: checkValue(item.sys.createdAt),
-          tags: item.fields.tags.map((tag) => ({
-            id: checkValue(tag.sys.id),
-            title: checkValue(tag.fields.title),
-            url: checkValue(tag.fields.url),
-          })),
+          ...getObject(link, ['id', 'title', 'description', 'url', 'create'], lang),
+          tags: item.fields.tags.map((tag) => getObject(tag, ['id', 'title', 'url'], lang)),
         })),
       }))
     ),
@@ -86,17 +78,8 @@ export const postsMethods = {
   getList: async (lang) =>
     await api.get('posts', { locale: lang }).then((response) =>
       response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        url: checkValue(item.fields.url),
-        title: checkValue(item.fields.title),
-        description: checkValue(item.fields.description),
-        tags: item.fields.tags.map((tag) => ({
-          id: checkValue(tag.sys.id),
-          title: checkValue(tag.fields.title),
-          url: checkValue(tag.fields.url),
-        })),
-        create: checkValue(item.fields.create),
-        createString: getFormatDate(item.fields.create, lang),
+        ...getObject(item, ['id', 'url', 'title', 'description', 'create', 'createString'], lang),
+        tags: item.fields.tags.map((tag) => getObject(tag, ['id', 'title', 'url'], lang)),
       }))
     ),
 };
@@ -105,25 +88,15 @@ export const projectsMethods = {
   getList: async (lang) =>
     await api.get('projects', { locale: lang }).then((response) =>
       response.items.map((item) => ({
-        id: checkValue(item.sys.id),
-        title: checkValue(item.fields.title),
-        slug: checkValue(item.fields.slug),
-        description: checkValue(item.fields.description),
-        order: checkValue(item.fields.order),
-        size: checkValue(item.fields.size),
-        url: checkValue(item.fields.url),
-        tags: item.fields.tags.map((tag) => ({
-          id: checkValue(tag.sys.id),
-          title: checkValue(tag.fields.title),
-          url: checkValue(tag.fields.url),
-        })),
-        create: checkValue(item.fields.create),
-        createString: getFormatDate(item.fields.create, lang),
-        resourceLinks: item.fields.resourceLinks.map((link) => ({
-          id: checkValue(link.sys.id),
-          title: checkValue(link.fields.title),
-          url: checkValue(link.fields.url),
-        })),
+        ...getObject(
+          item,
+          ['id', 'title', 'description', 'order', 'size', 'accent', 'first'],
+          lang
+        ),
+        tags: item.fields.tags.map((tag) => getObject(tag, ['id', 'title', 'url'], lang)),
+        resourceLinks: item.fields.resourceLinks.map((link) =>
+          getObject(link, ['id', 'title', 'url'], lang)
+        ),
       }))
     ),
 };

@@ -1,29 +1,30 @@
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
+'use client';
+
+import { LinkIcon } from '@heroicons/react/24/outline';
 
 import contacts from '@/data/contacts';
-
-import Badge from '@/components/Badge';
-import Tag from '@/components/Tag';
+import { Badge, Tag } from '@pbcomponents/react';
 
 const Contacts = () => {
   return (
-    <ul className="mt-[24px] flex w-full flex-row flex-wrap">
+    <ul className="flex flex-row flex-wrap w-full gap-8 mt-24">
       {contacts.map(({ url, link, title }, index) => (
-        <li className="mr-[8px] mt-[8px]" key={index}>
+        <li key={index}>
           {link ? (
             <Tag
-              tag="a"
-              title={title}
-              size="s"
+              size="m"
               theme="border"
-              place="right"
               href={url}
               target="_blank"
+              rel="noreferrer"
+              rightIcon={LinkIcon}
             >
-              <ArrowRightIcon className="h-[16px] w-[16px]" />
+              {title}
             </Tag>
           ) : (
-            <Badge title={title} size="s" color="secondary" theme="border" />
+            <Badge size="m" color="secondary" theme="border">
+              {title}
+            </Badge>
           )}
         </li>
       ))}

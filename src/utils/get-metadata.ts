@@ -1,4 +1,4 @@
-import { AnyObjectType, LangType } from '@/types';
+import { AnyObjectType, MetadataType } from '@/types';
 
 const PROD = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
 const SITE_URL = PROD ? 'https://prosazhin.ru' : 'http://localhost:8080';
@@ -6,14 +6,6 @@ const SITE_NAME = 'prosazhin';
 const TYPE = 'website';
 const GOOGLE = 'oXkccV9eEltz10YzICaE33ZUFtjof1E4fFLFE4EgW-0';
 const YANDEX = 'dd48801ed051b178';
-
-type Props = {
-  lang: LangType;
-  title: string;
-  description: string;
-  pathname: string;
-  isRobotsIndexPage: boolean;
-};
 
 const faviconIcons = ['16x16', '32x32', '96x96', '128x128', '196x196'];
 
@@ -43,7 +35,13 @@ const metaOthers = [
   { name: 'msapplication-square310x310logo', content: '/favicon/mstile-310x310.png' },
 ];
 
-const getMetadata = ({ lang, title, description, pathname, isRobotsIndexPage = true }: Props) => {
+const getMetadata = ({
+  lang,
+  title,
+  description,
+  pathname,
+  isRobotsIndexPage = true,
+}: MetadataType) => {
   const currentUrl = pathname === '/' ? SITE_URL : SITE_URL + pathname;
   const canonicalUrl = pathname ? currentUrl : false;
   const imageUrl = SITE_URL + `/sharing/${lang}.png`;
@@ -68,18 +66,12 @@ const getMetadata = ({ lang, title, description, pathname, isRobotsIndexPage = t
   });
 
   return {
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
-    },
     title,
     description,
     alternates: {
       canonical: canonicalUrl,
     },
     metadataBase: new URL(SITE_URL),
-    themeColor: '#ffffff',
     icons: {
       icon: [
         ...icons,

@@ -3,39 +3,32 @@
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import nav from '@/data/nav';
-import { AnyObjectType, LangType } from '@/types';
-import getActiveLink from '@/utils/get-active-link';
 import clsx from 'clsx';
 
-type Props = {
-  lang: LangType;
-  t: AnyObjectType;
-};
-
-const Nav = ({ lang, t }: Props) => {
+const Nav = ({ className }: { className?: string }) => {
   const pathname = usePathname();
+  const {
+    t,
+    i18n: { language: lang },
+  } = useTranslation();
 
   return (
-    <nav className="flex flex-row space-x-[24px] sm:hidden">
-      {nav.map((link) => (
-        <Fragment key={link.url}>
-          {link.lang.includes(lang) && (
-            <li>
-              <NextLink
-                href={lang === 'ru' ? link.url : `/${lang}${link.url}`}
-                className={clsx(
-                  'text-tm3 text-base-main !no-underline transition hover:text-primary-main',
-                  getActiveLink(link.active, pathname) ? 'text-primary-main' : ''
-                )}
-              >
-                {t.nav[link.type]}
-              </NextLink>
-            </li>
-          )}
-        </Fragment>
+    <nav className={clsx('flex flex-col desktop:flex-row gap-24', className)}>
+      {nav.map((link, index) => (
+        <li key={index}>
+          <NextLink
+            href={lang === 'ru' ? link.url : `/${lang}${link.url}`}
+            className={clsx(
+              'text-tm16 text-basic-main group-hover:text-basic-light !no-underline transition-colors hover:!text-primary-darker',
+              link.active.some((item) => pathname === item) ? '!text-primary-darker' : ''
+            )}
+          >
+            {t(`nav.${link.type}`)}
+          </NextLink>
+        </li>
       ))}
     </nav>
   );

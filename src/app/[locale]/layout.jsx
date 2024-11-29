@@ -1,0 +1,58 @@
+import { notFound } from 'next/navigation';
+
+import { i18nConfig, initTranslations } from '@/i18n';
+import { PBCProvider } from '@pbcomponents/react';
+import { dir } from 'i18next';
+
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import ToTop from '@/components/ToTop';
+import TranslationsProvider from '@/components/TranslationsProvider';
+
+import '@/styles/globals.css';
+
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+const RootLayout = async ({ children, params: { locale } }) => {
+  const { resources } = await initTranslations(locale);
+
+  if (!i18nConfig.locales.includes(locale)) {
+    notFound();
+  }
+
+  return (
+    <html lang={locale} dir={dir(locale)} className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <TranslationsProvider locale={locale} resources={resources}>
+          <PBCProvider>
+            <Header locale={locale} />
+            <main className="mb-80 mt-[calc(72px+40px)] min-h-[calc(100vh-299px-80px-(72px+40px))] desktop:min-h-[calc(100vh-107px-80px-(72px+40px))]">
+              {children}
+            </main>
+            <Footer locale={locale} />
+          </PBCProvider>
+        </TranslationsProvider>
+        <ToTop />
+      </body>
+    </html>
+  );
+};
+
+export const viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+export default RootLayout;

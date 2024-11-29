@@ -1,0 +1,241 @@
+{
+  "name": "Evgenii Sazhin",
+  "location": "Sochi, Russia",
+  "age": "Agd",
+  "experience": "Experience",
+  "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
+  "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+  "nav": {
+    "projects": "Projects",
+    "links": "Useful links",
+    "posts": "Posts",
+    "about": "About myself"
+  },
+  "goToHome": "Return to the homepage",
+  "download": "Download CV",
+  "locales": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "langAlert": "Unfortunately, the content on this page may be partially in Russian.",
+  "tabs": {
+    "about": [
+      {
+        "title": "About myself",
+        "url": "/en"
+      },
+      {
+        "title": "My career",
+        "url": "/en/career"
+      }
+    ],
+    "matrix": [
+      {
+        "title": "Designer",
+        "url": "/en/designer"
+      },
+      {
+        "title": "Developer",
+        "url": "/en/developer"
+      }
+    ]
+  },
+  "now": "Now",
+  "result": "Result",
+  "search": {
+    "placeholder": "Start entering your request"
+  },
+  "linkType": {
+    "link": "Links",
+    "compilation": "Compilations"
+  },
+  "compilation": "Compilation",
+  "career": {
+    "positions": {
+      "design": "Designer",
+      "frontend": "Frontend developer",
+      "html": "Markup developer"
+    },
+    "opensource": {
+      "title": "Open source",
+      "titleForAside": "Open source",
+      "positions": {
+        "frontend": "Development and maintenance of your own npm packages and projects.",
+        "design": "Development and maintenance of your own projects."
+      }
+    },
+    "pixelpoint": {
+      "title": "pixelpoint.io",
+      "titleForAside": "pixelpoint.io",
+      "positions": {
+        "frontend": "Development and support of projects."
+      }
+    },
+    "ipgate": {
+      "title": "ipgate.io",
+      "titleForAside": "ipgate.io",
+      "positions": {
+        "frontend": "Improvement of the client side for project launch. Project maintenance and refactoring.",
+        "design": "Project support."
+      }
+    },
+    "sellmonitor": {
+      "title": "sellmonitor.com",
+      "titleForAside": "sellmonitor.com",
+      "positions": {
+        "frontend": "Product interface development.",
+        "design": "Product interface design."
+      }
+    },
+    "regru": {
+      "title": "reg.ru",
+      "titleForAside": "reg.ru",
+      "positions": {
+        "design": "Support and development of the domain area and other parts of the service. Designing internal projects.",
+        "frontend": "Support and development of the domain area and other parts of the service. Development of internal projects."
+      }
+    },
+    "suplbiz": {
+      "title": "supl.biz",
+      "titleForAside": "supl.biz",
+      "positions": {
+        "design": "Designing a marketplace and internal projects for the company.",
+        "frontend": "Development of a marketplace and internal projects for the company."
+      }
+    },
+    "franbazar": {
+      "title": "franbazar.com",
+      "titleForAside": "franbazar.com",
+      "positions": {
+        "html": "Layout development for new projects and mobile applications using WebView. Maintenance of existing projects.",
+        "design": "Designing new projects. Supporting existing projects."
+      }
+    },
+    "pixlpark": {
+      "title": "pixlpark.ru",
+      "titleForAside": "pixlpark.ru",
+      "positions": {
+        "design": "Designing a demo website for a printing shop.",
+        "html": "Development of a demo website for a printing shop. Assistance to new and regular clients."
+      }
+    },
+    "freelance": {
+      "title": "Freelance and Printing houses",
+      "titleForAside": "Freelance",
+      "positions": {
+        "design": "Typesetting of books, newspapers and magazines. Graphic design. Advertising printing."
+      }
+    }
+  },
+  "skills": {
+    "about": {
+      "title": "General",
+      "description": "I have been working in design since 2009, creating layouts for newspapers and books. Since 2011, I have been involved in commercial design, working in publishing houses and printing companies. Since 2014, I have been focusing on digital product design, layout, and frontend development. In teams, I represent two competencies: designer and frontend developer."
+    },
+    "design": {
+      "title": "Design",
+      "description": "Prototyping interfaces based on hypotheses and user experience analysis. Generating hypotheses based on user data from analytics services. Designing interaction scenarios between users and the product. Creating and maintaining a component library and design tokens as part of the design system. Writing interface texts in an informative style, aligned with the product’s tone of voice.",
+      "matrix": {
+        "title": "Designer competency matrix",
+        "description": "Personal skills assessment",
+        "url": "/en/designer"
+      }
+    },
+    "frontend": {
+      "title": "Frontend",
+      "description": "Development and maintenance of: product interfaces, client-side logic, API interactions, component libraries, and npm packages.",
+      "matrix": {
+        "title": "Developer competency matrix",
+        "description": "Personal skills assessment",
+        "url": "/en/developer"
+      }
+    },
+    "html": {
+      "title": "Markup development",
+      "description": "HTML5, semantic markup, CSS, Less, SCSS, PostCSS, TailwindCSS. BEM, Mobile-first, responsive and cross-browser layout. Basic animation."
+    },
+    "dev": {
+      "title": "Development",
+      "description": "Working with Jamstack. Setting up and integrating a Headless CMS into the project. Configuring infrastructure for local development and deploying the project on a VPS in Docker. Setting up internal and external routing, including SSL. Configuring CI/CD and building the project. SEO analysis and project optimization."
+    }
+  },
+  "grades": {
+    "headline": "Levels of skill assessment",
+    "1": {
+      "title": "1. Awareness",
+      "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
+    },
+    "2": {
+      "title": "2. Skill",
+      "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
+    },
+    "3": {
+      "title": "3. Expertise",
+      "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
+    },
+    "4": {
+      "title": "4. Leadership",
+      "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall design culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
+    }
+  },
+  "matrixDescription": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)»<br /><a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>",
+  "pages": {
+    "index": {
+      "title": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+      "description": "I collect <a href='/en/links' target='_self'>useful links</a> and create thematic compilations from them. Sometimes I write <a href='/en/posts' target='_self'>notes</a> and work on my <a href='/en/projects' target='_self'>projects</a>.",
+      "pathname": "/en"
+    },
+    "career": {
+      "title": "My career",
+      "pathname": "/en/career"
+    },
+    "designer": {
+      "title": "Designer competency matrix",
+      "pathname": "/en/designer"
+    },
+    "developer": {
+      "title": "Developer competency matrix",
+      "pathname": "/en/developer"
+    },
+    "projects": {
+      "title": "Projects",
+      "pathname": "/en/projects"
+    },
+    "links": {
+      "title": "Useful links",
+      "pathname": "/en/links"
+    },
+    "compilations": {
+      "title": "Link compilations",
+      "pathname": "/en/compilations"
+    },
+    "posts": {
+      "title": "Posts",
+      "pathname": "/en/posts"
+    },
+    "notFound": {
+      "title": "No such page"
+    },
+    "error": {
+      "title": "An error has occurred"
+    }
+  },
+  "plurals": {
+    "links": {
+      "links_zero": "{{count}} links",
+      "links_one": "{{count}} link",
+      "links_two": "{{count}} links",
+      "links_few": "{{count}} links",
+      "links_many": "{{count}} links",
+      "links_other": "{{count}} links"
+    },
+    "year": {
+      "year_zero": "{{count}} years",
+      "year_one": "{{count}} year",
+      "year_two": "{{count}} years",
+      "year_few": "{{count}} years",
+      "year_many": "{{count}} years",
+      "year_other": "{{count}} years"
+    }
+  }
+}

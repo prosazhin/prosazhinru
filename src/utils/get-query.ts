@@ -1,10 +1,10 @@
-import { AnyObjectType, LinksType } from '@/types';
+import { AnyObjectType } from '@/types';
 
 const PROD = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
 const SITE_URL = PROD ? 'https://prosazhin.ru' : 'http://localhost:8080';
 
-const getQuery = (type: LinksType, search?: string | null, activeTag?: string | null) => {
-  const url = new URL(`/${type}`, SITE_URL);
+const getQuery = (type?: string | null, search?: string | null, activeTag?: string | null) => {
+  const url = new URL(`/links`, SITE_URL);
 
   const newParams = [
     {
@@ -14,6 +14,10 @@ const getQuery = (type: LinksType, search?: string | null, activeTag?: string | 
     {
       name: 'query',
       value: search,
+    },
+    {
+      name: 'type',
+      value: type,
     },
   ];
 

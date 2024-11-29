@@ -13,12 +13,13 @@ export default class API {
       .getEntries({
         content_type: contentType,
         order: '-sys.createdAt',
+        include: 10,
         ...params,
       })
       .then((response) => response);
   }
 
-  async getOne(params) {
-    return await this.client.getEntry(params).then((response) => response);
+  async getOne(id, params) {
+    return await this.client.getEntry(id, params).then((response) => response);
   }
 }
