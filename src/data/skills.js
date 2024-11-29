@@ -47,7 +47,7 @@ const skills = [
       'GraphQL',
       'Jamstack',
     ],
-    matrix: false,
+    matrix: true,
   },
   {
     type: 'html',

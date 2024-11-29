@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+
+/* eslint-disable import/no-anonymous-default-export */
+
 /** @type {import('tailwindcss').Config} */
 import theme from 'pbstyles/styles/tailwind-theme';
 import plugin from 'tailwindcss/plugin';
@@ -81,7 +85,6 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     plugin(function ({ addVariant }) {
