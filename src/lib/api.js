@@ -29,12 +29,16 @@ export const matrixMethods = {
 
       const result = {
         ...getObject(matrix, ['id', 'type'], lang),
-        category: matrix.fields.category.map((category) => ({
-          ...getObject(category, ['id', 'title'], lang),
-          competencies: category.fields.competencies.map((competence) =>
-            getObject(competence, ['id', 'title', 'rating'], lang)
-          ),
-        })),
+        category: matrix.fields.category
+          ? matrix.fields.category.map((category) => ({
+              ...getObject(category, ['id', 'title'], lang),
+              competencies: category.fields.competencies
+                ? category.fields.competencies.map((competence) =>
+                    getObject(competence, ['id', 'title', 'rating'], lang)
+                  )
+                : [],
+            }))
+          : [],
       };
 
       return result;

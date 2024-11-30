@@ -9,7 +9,7 @@ import { matrixMethods } from '@/lib/api';
 import CategoryList from '../components/List';
 
 const DeveloperPage = async ({ params: { locale } }) => {
-  const matrix = await matrixMethods.getOne('designer', locale);
+  const matrix = await matrixMethods.getOne('developer', locale);
   const { t } = await initTranslations(locale);
 
   return (

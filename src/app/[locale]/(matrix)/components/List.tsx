@@ -32,6 +32,10 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
     return result;
   }, [matrix, locale]);
 
+  if (!categories.length) {
+    return;
+  }
+
   return (
     <ul className="flex flex-col w-full mt-40 gap-y-40">
       <li className="flex flex-col w-full">
@@ -58,16 +62,21 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
               {rating}
             </Badge>
           </span>
-          <ul className="flex flex-col w-full border-1 divide-y-1 rounded-8 divide-secondary-lighter border-secondary-lighter">
-            {competencies.map((item) => (
-              <li className="flex flex-row items-center w-full px-16 py-12 gap-x-16" key={item.id}>
-                <h3 className="flex-1 text-t16 text-basic-main">{item.title}</h3>
-                <Badge size="s" color="secondary" theme="light">
-                  {item.rating}
-                </Badge>
-              </li>
-            ))}
-          </ul>
+          {competencies.length && (
+            <ul className="flex flex-col w-full border-1 divide-y-1 rounded-8 divide-secondary-lighter border-secondary-lighter">
+              {competencies.map((item) => (
+                <li
+                  className="flex flex-row items-center w-full px-16 py-12 gap-x-16"
+                  key={item.id}
+                >
+                  <h3 className="flex-1 text-t16 text-basic-main">{item.title}</h3>
+                  <Badge size="s" color="secondary" theme="light">
+                    {item.rating}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ul>
