@@ -135,7 +135,7 @@ const career = [
         stack: ['Adobe Photoshop', 'Adobe Illustrator'],
       },
       {
-        type: 'frontend',
+        type: 'html',
         stack: ['JavaScript', 'HTML', 'CSS'],
       },
     ],
