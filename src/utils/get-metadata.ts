@@ -36,7 +36,7 @@ const metaOthers = [
 ];
 
 const getMetadata = ({
-  lang,
+  locale,
   title,
   description,
   pathname,
@@ -44,7 +44,7 @@ const getMetadata = ({
 }: MetadataType) => {
   const currentUrl = pathname === '/' ? SITE_URL : SITE_URL + pathname;
   const canonicalUrl = pathname ? currentUrl : false;
-  const imageUrl = SITE_URL + `/sharing/${lang}.png`;
+  const imageUrl = SITE_URL + `/sharing/${locale}.png`;
 
   const icons = faviconIcons.map((item) => ({
     url: `/favicon/favicon-${item}.png`,
@@ -85,7 +85,7 @@ const getMetadata = ({
       description,
       siteName: SITE_NAME,
       url: canonicalUrl,
-      locale: lang,
+      locale: locale,
       images: [
         {
           url: imageUrl,

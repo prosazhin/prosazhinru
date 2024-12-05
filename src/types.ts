@@ -6,7 +6,7 @@ export type AnyObjectType = {
 };
 
 export type MetadataType = {
-  lang: LangType;
+  locale: LangType;
   title: string;
   description: string;
   pathname: string;
