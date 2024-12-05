@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { i18nConfig, initTranslations } from '@/i18n';
 import { PBCProvider } from '@pbcomponents/react';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 
 import Footer from '@/components/Footer';
@@ -39,6 +40,7 @@ const RootLayout = async ({ children, params: { locale } }) => {
             <main className="mb-80 mt-[calc(72px+40px)] min-h-[calc(100vh-299px-80px-(72px+40px))] desktop:min-h-[calc(100vh-107px-80px-(72px+40px))]">
               {children}
               <Analytics />
+              <SpeedInsights />
             </main>
             <Footer locale={locale} />
           </PBCProvider>
