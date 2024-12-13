@@ -26,7 +26,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
   }, [projects]);
 
   return (
-    <ul className="grid w-full grid-cols-6 gap-24">
+    <ul className="grid w-full grid-cols-6 gap-24 grid-flow-dense">
       {firstProjects.map(({ title, description, resourceLinks, tags }, index) => (
         <li
           key={index}

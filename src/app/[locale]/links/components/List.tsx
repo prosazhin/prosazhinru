@@ -39,7 +39,7 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
   }, [data, activeTag, query, type]);
 
   return (
-    <div className="grid gap-24 mt-24 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
+    <div className="grid gap-24 mt-24 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 grid-flow-dense">
       {filteredData.map((item, index) => {
         const { type } = item;
 
