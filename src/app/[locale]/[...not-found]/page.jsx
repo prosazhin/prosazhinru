@@ -1,13 +1,13 @@
-import { notFound } from 'next/navigation';
-
 import { initTranslations } from '@/i18n';
 import getMetadata from '@/utils/get-metadata';
+import { notFound } from 'next/navigation';
 
 function NotFoundCatchAll() {
   notFound();
 }
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
 
   return getMetadata({

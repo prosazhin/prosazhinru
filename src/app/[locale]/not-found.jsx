@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <>
       <NotFoundContent />
-      <Mixpanel event="LOADING_404_ERROR_PAGE" />
+      <Mixpanel event='LOADING_404_ERROR_PAGE' />
     </>
   );
 };

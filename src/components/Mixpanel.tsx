@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import SendMixpanel from '@/lib/mixpanel';
+import { useEffect } from 'react';
 
 const Mixpanel = ({ event }: { event: string }) => {
   useEffect(() => {

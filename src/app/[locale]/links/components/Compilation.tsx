@@ -1,11 +1,9 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
-
 import { CompilationType, TagType } from '@/types';
 import { Badge, useDialog } from '@pbcomponents/react';
 import clsx from 'clsx';
-
+import { useTranslation } from 'react-i18next';
 import Link from './Link';
 
 const Compilation = (props: CompilationType) => {
@@ -14,13 +12,17 @@ const Compilation = (props: CompilationType) => {
   const { t } = useTranslation();
 
   const DialogChildren = () => (
-    <div className="flex flex-col w-full">
-      <h3 className="text-h32 text-basic-main">{title}</h3>
-      <p className="mt-8 text-basic-light text-t20">{description}</p>
+    <div className='flex w-full flex-col'>
+      <h3 className='text-h32 text-basic-main'>{title}</h3>
+      <p className='text-basic-light text-t20 mt-8'>{description}</p>
       {links?.length && (
-        <div className="grid grid-cols-2 gap-24 mt-24 xs:grid-cols-1">
+        <div className='max-xs:grid-cols-1 mt-24 grid grid-cols-2 gap-24'>
           {links.map((item, index) => (
-            <Link {...item} key={index} activeTag={activeTag} />
+            <Link
+              {...item}
+              key={index}
+              activeTag={activeTag}
+            />
           ))}
         </div>
       )}
@@ -30,29 +32,41 @@ const Compilation = (props: CompilationType) => {
   return (
     <div
       className={clsx(
-        'flex flex-col h-auto desktop:min-h-200 px-24 py-16 cursor-pointer transition-colors group justify-self-stretch rounded-8 border-1 border-secondary-lighter hover:border-primary-main',
+        'desktop:min-h-200 group rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto cursor-pointer flex-col justify-self-stretch border-1 px-24 py-16 transition-colors duration-150',
         className
       )}
-      onClick={() => showDialog({ children: <DialogChildren /> })}
+      onClick={() => showDialog({ children: <DialogChildren />, id: 'compilation-content' })}
     >
-      <span className="w-full transition-colors text-tm24 text-basic-main group-hover:text-primary-darker">
+      <span className='text-tm24 text-basic-main group-hover:text-primary-darker w-full transition-colors duration-150'>
         {title}
       </span>
-      <span className="flex-1 w-full mt-6 transition-colors text-t16 text-basic-light group-hover:text-basic-main">
+      <span className='text-t16 text-basic-light group-hover:text-basic-main mt-6 w-full flex-1 transition-colors duration-150'>
         {description}
       </span>
-      <ul className="flex flex-row flex-wrap items-end justify-start w-full gap-4 mt-16">
-        <Badge size="s" color="primary" theme="filled">
+      <ul className='mt-16 flex w-full flex-row flex-wrap items-end justify-start gap-4'>
+        <Badge
+          size='s'
+          color='primary'
+          theme='filled'
+        >
           {t('compilation')}
         </Badge>
         {links && (
-          <Badge size="s" color="secondary" theme="light">
+          <Badge
+            size='s'
+            color='secondary'
+            theme='light'
+          >
             {t('plurals.links.links', { count: links?.length })}
           </Badge>
         )}
         {tags.map((tag: TagType, index: number) => (
           <li key={index}>
-            <Badge size="s" color={activeTag === tag.url ? 'primary' : 'secondary'} theme="light">
+            <Badge
+              size='s'
+              color={activeTag === tag.url ? 'primary' : 'secondary'}
+              theme='light'
+            >
               {tag.title}
             </Badge>
           </li>

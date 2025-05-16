@@ -1,20 +1,20 @@
+import Contacts from '@/components/Contacts';
+import MatrixBanner from '@/components/MatrixBanner';
+import Mixpanel from '@/components/Mixpanel';
+import LeftAside from '@/components/aside';
 import skills from '@/data/skills';
 import { initTranslations } from '@/i18n';
 import getMetadata from '@/utils/get-metadata';
 import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
 
-import Contacts from '@/components/Contacts';
-import MatrixBanner from '@/components/MatrixBanner';
-import Mixpanel from '@/components/Mixpanel';
-import LeftAside from '@/components/aside';
-
-const IndexPage = async ({ params: { locale } }) => {
+const IndexPage = async ({ params }) => {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
   const wrapperId = 'aboutList';
 
   return (
     <Container
-      size="s"
+      size='s'
       leftAside={
         <LeftAside
           wrapperId={wrapperId}
@@ -22,31 +22,50 @@ const IndexPage = async ({ params: { locale } }) => {
         />
       }
     >
-      <h1 className="text-t24 text-basic-main">{t('pages.index.title')}</h1>
+      <h1 className='text-t24 text-basic-main'>{t('pages.index.title')}</h1>
       <p
-        className="mt-16 text-t24 text-basic-main link"
+        className='text-t24 text-basic-main link mt-16'
         dangerouslySetInnerHTML={{ __html: t('pages.index.description') }}
       />
       <Contacts />
-      <Tabs defaultIndex={0} className="mt-80">
+      <Tabs
+        defaultIndex={0}
+        className='mt-80 print:hidden'
+      >
         {t('tabs.about', { returnObjects: true }).map(({ title, url }, index) => (
-          <Tab key={index} label={title} href={url} />
+          <Tab
+            key={index}
+            label={title}
+            href={url}
+          />
         ))}
       </Tabs>
-      <ul className="flex flex-col mt-40 gap-y-40" id={wrapperId}>
+      <span className='text-h64 hidden print:mt-180 print:!block'>О себе</span>
+      <ul
+        className='mt-40 flex flex-col gap-y-40'
+        id={wrapperId}
+      >
         {skills.map(({ type, title, tools, matrix }, index) => (
-          <li className="flex flex-col w-full gap-y-20 scroll-mt-96" key={index} id={type}>
-            <div className="flex flex-col w-full gap-y-12">
+          <li
+            className='flex w-full scroll-mt-96 flex-col gap-y-20'
+            key={index}
+            id={type}
+          >
+            <div className='flex w-full flex-col gap-y-12'>
               {title && (
-                <h2 className="w-full text-h24 text-basic-main">{t(`skills.${type}.title`)}</h2>
+                <h2 className='text-h24 text-basic-main w-full'>{t(`skills.${type}.title`)}</h2>
               )}
-              <p className="w-full text-t20 text-basic-main">{t(`skills.${type}.description`)}</p>
+              <p className='text-t20 text-basic-main w-full'>{t(`skills.${type}.description`)}</p>
             </div>
             {Boolean(tools.length) && (
-              <ul className="flex flex-row flex-wrap w-full gap-4">
+              <ul className='flex w-full flex-row flex-wrap gap-4'>
                 {tools.map((tool, index) => (
                   <li key={index}>
-                    <Badge size="s" color="secondary" theme="light">
+                    <Badge
+                      size='s'
+                      color='secondary'
+                      theme='light'
+                    >
                       {tool}
                     </Badge>
                   </li>
@@ -63,12 +82,13 @@ const IndexPage = async ({ params: { locale } }) => {
           </li>
         ))}
       </ul>
-      <Mixpanel event="LOADING_MAIN_PAGE" />
+      <Mixpanel event='LOADING_MAIN_PAGE' />
     </Container>
   );
 };
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
 
   return getMetadata({

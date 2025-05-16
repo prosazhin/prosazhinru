@@ -1,11 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-
-import { useTranslation } from 'react-i18next';
-
 import useHash from '@/hooks/use-hash';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const AsideNav = ({
   data,
@@ -20,7 +18,7 @@ const AsideNav = ({
   const hash = useHash(wrapperId);
 
   return (
-    <ul className="flex-col hidden w-full pt-32 gap-y-8 xl:flex">
+    <ul className='border-secondary-lighter hidden w-full flex-col gap-y-8 border-t-1 pt-32 xl:flex print:hidden'>
       {data.map(({ title, type }, index) => (
         <li key={index}>
           <Link
@@ -28,7 +26,7 @@ const AsideNav = ({
             scroll={true}
             locale={locale}
             className={clsx(
-              'transition-colors text-tm16 text-basic-light hover:text-primary-darker',
+              'text-tm16 text-basic-light hover:text-primary-darker transition-colors duration-150',
               (type === hash || (type === data[0].type && !hash?.length)) && '!text-basic-main'
             )}
           >

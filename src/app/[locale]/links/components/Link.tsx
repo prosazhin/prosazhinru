@@ -1,10 +1,9 @@
 'use client';
 
-import NextLink from 'next/link';
-
 import { LinkType, TagType } from '@/types';
 import { Badge } from '@pbcomponents/react';
 import clsx from 'clsx';
+import NextLink from 'next/link';
 
 const Link = (props: LinkType) => {
   const { url = '', title, description, tags, activeTag, className } = props;
@@ -12,23 +11,27 @@ const Link = (props: LinkType) => {
   return (
     <NextLink
       href={url}
-      target="_blank"
+      target='_blank'
       className={clsx(
-        'group h-auto desktop:min-h-200 justify-self-stretch !no-underline transition-colors flex flex-col rounded-8 border-1 border-secondary-lighter px-16 py-12 hover:border-primary-main',
+        'group desktop:min-h-200 rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto flex-col justify-self-stretch border-1 px-16 py-12 !no-underline transition-colors duration-150',
         className
       )}
     >
-      <span className="w-full text-tm20 text-basic-main !no-underline transition-colors group-hover:text-primary-darker">
+      <span className='text-tm20 text-basic-main group-hover:text-primary-darker w-full !no-underline transition-colors duration-150'>
         {title}
       </span>
-      <span className="mt-6 w-full flex-1 text-t14 text-basic-light !no-underline transition-colors group-hover:text-basic-main">
+      <span className='text-t14 text-basic-light group-hover:text-basic-main mt-6 w-full flex-1 !no-underline transition-colors duration-150'>
         {description}
       </span>
       {tags.length > 0 && (
-        <ul className="flex flex-row flex-wrap items-end justify-start w-full gap-4 mt-16">
+        <ul className='mt-16 flex w-full flex-row flex-wrap items-end justify-start gap-4'>
           {tags.map((tag: TagType, index: number) => (
             <li key={index}>
-              <Badge size="s" color={activeTag === tag.url ? 'primary' : 'secondary'} theme="light">
+              <Badge
+                size='s'
+                color={activeTag === tag.url ? 'primary' : 'secondary'}
+                theme='light'
+              >
                 {tag.title}
               </Badge>
             </li>

@@ -1,5 +1,34 @@
 const career = [
   {
+    type: '15web',
+    url: 'https://www.15web.ru',
+    positions: [
+      {
+        type: 'frontendLead',
+        stack: [
+          'JavaScript',
+          'React',
+          'Next',
+          'TypeScript',
+          'HTML',
+          'CSS',
+          'SCSS',
+          'TailwindCSS',
+          'NodeJS',
+          'Redux',
+          'Zustand',
+          'Framer Motion',
+        ],
+      },
+      {
+        type: 'design',
+        stack: ['Figma'],
+      },
+    ],
+    dateFrom: '2024-12-12',
+    dateTo: 'now',
+  },
+  {
     type: 'opensource',
     url: false,
     positions: [
@@ -14,6 +43,7 @@ const career = [
           'CSS',
           'TailwindCSS',
           'NodeJS',
+          'Framer Motion',
         ],
       },
       {
@@ -22,7 +52,7 @@ const career = [
       },
     ],
     dateFrom: '2024-05-25',
-    dateTo: 'now',
+    dateTo: '2024-12-12',
   },
   {
     type: 'pixelpoint',
@@ -40,6 +70,7 @@ const career = [
           'HTML',
           'CSS',
           'TailwindCSS',
+          'Framer Motion',
         ],
       },
     ],

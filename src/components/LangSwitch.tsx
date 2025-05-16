@@ -1,13 +1,11 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
+import { i18nConfig } from '@/i18n';
 import { CheckIcon } from '@heroicons/react/24/outline';
+import { Button, Dropdown, DropdownItem } from '@pbcomponents/react';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import { i18nConfig } from '@/i18n';
-import { Button, Dropdown, DropdownItem } from '@pbcomponents/react';
 
 const LangSwitch = () => {
   const [currentUrl, setCurrentUrl] = useState<string | null>(null);
@@ -30,19 +28,24 @@ const LangSwitch = () => {
   return (
     <Dropdown
       button={
-        <Button size="xs" color="secondary" theme="border" textClassName="uppercase">
+        <Button
+          size='xs'
+          color='secondary'
+          theme='border'
+          textClassName='uppercase'
+        >
           {lang}
         </Button>
       }
-      align="right"
-      className="!w-160"
+      align='right'
+      className='!w-160'
     >
       {i18nConfig.locales.map((item: string) => (
         <DropdownItem
           key={item}
           href={`/${item}${currentUrl}`}
           leftIcon={lang === item ? CheckIcon : undefined}
-          leftIconClassName="!text-primary-darker"
+          leftIconClassName='!text-primary-darker'
         >
           {t(`locales.${item}`)}
         </DropdownItem>

@@ -54,7 +54,16 @@
     "positions": {
       "design": "Дизайнер",
       "frontend": "Фронтенд разработчик",
+      "frontendLead": "Тимлид фронтенд разработки",
       "html": "Верстальщик"
+    },
+    "15web": {
+      "title": "Студия 15",
+      "titleForAside": "Студия 15",
+      "positions": {
+        "frontendLead": "Огранизация работы команды фронтенд разработки. Разработка и поддержка проектов клиентов.",
+        "design": "Поддержка внутренних и клиентских проектов."
+      }
     },
     "opensource": {
       "title": "Open source",
@@ -230,7 +239,7 @@
       "year_zero": "{{count}} лет",
       "year_one": "{{count}} год",
       "year_two": "{{count}} года",
-      "year_few": "{{count}} лет",
+      "year_few": "{{count}} года",
       "year_many": "{{count}} лет",
       "year_other": "{{count}} года"
     }

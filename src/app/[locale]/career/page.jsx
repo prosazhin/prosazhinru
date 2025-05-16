@@ -1,20 +1,20 @@
+import Contacts from '@/components/Contacts';
+import Mixpanel from '@/components/Mixpanel';
+import LeftAside from '@/components/aside';
 import career from '@/data/career';
 import { initTranslations } from '@/i18n';
 import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
 import getMetadata from '@/utils/get-metadata';
 import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
 
-import Contacts from '@/components/Contacts';
-import Mixpanel from '@/components/Mixpanel';
-import LeftAside from '@/components/aside';
-
-const CareerPage = async ({ params: { locale } }) => {
+const CareerPage = async ({ params }) => {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
   const wrapperId = 'careerList';
 
   return (
     <Container
-      size="s"
+      size='s'
       leftAside={
         <LeftAside
           wrapperId={wrapperId}
@@ -25,18 +25,29 @@ const CareerPage = async ({ params: { locale } }) => {
         />
       }
     >
-      <h1 className="text-t24 text-basic-main">{t('pages.index.title')}</h1>
+      <h1 className='text-t24 text-basic-main'>{t('pages.index.title')}</h1>
       <p
-        className="mt-16 text-t24 text-basic-main link"
+        className='text-t24 text-basic-main link mt-16'
         dangerouslySetInnerHTML={{ __html: t('pages.index.description') }}
       />
       <Contacts />
-      <Tabs defaultIndex={1} className="mt-80">
+      <Tabs
+        defaultIndex={1}
+        className='mt-80 print:hidden'
+      >
         {t('tabs.about', { returnObjects: true }).map(({ title, url }, index) => (
-          <Tab key={index} label={title} href={url} />
+          <Tab
+            key={index}
+            label={title}
+            href={url}
+          />
         ))}
       </Tabs>
-      <article className="flex flex-col w-full mt-40 gap-y-40" id={wrapperId}>
+      <span className='text-h64 hidden print:mt-420 print:!block print:pt-20'>Моя карьера</span>
+      <article
+        className='mt-40 flex w-full flex-col gap-y-40'
+        id={wrapperId}
+      >
         {career.map(({ type, url, positions, dateFrom, dateTo }, index) => {
           const formatDateFrom = ucFirst(getFormatJobDate(dateFrom, locale));
           const formatDateTo =
@@ -44,34 +55,49 @@ const CareerPage = async ({ params: { locale } }) => {
           const diffDate = getDiffJobDate(dateFrom, dateTo === 'now' ? new Date() : dateTo, locale);
 
           return (
-            <section className="flex flex-col w-full gap-y-16 scroll-mt-96" key={index} id={type}>
-              <div className="flex flex-col w-full gap-y-8">
-                <h2 className="w-full text-h32 text-basic-main link">
+            <section
+              className='flex w-full scroll-mt-96 flex-col gap-y-16'
+              key={index}
+              id={type}
+            >
+              <div className='flex w-full flex-col gap-y-8'>
+                <h2 className='text-h32 text-basic-main link w-full'>
                   {url ? (
-                    <a href={url} target="_blank" rel="noreferrer">
+                    <a
+                      href={url}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
                       {t(`career.${type}.title`)}
                     </a>
                   ) : (
                     <>{t(`career.${type}.title`)}</>
                   )}
                 </h2>
-                <span className="w-full text-t16 text-basic-light">
+                <span className='text-t16 text-basic-light w-full'>
                   {`${formatDateFrom} – ${formatDateTo}, ${diffDate}`}
                 </span>
               </div>
-              <ul className="flex flex-col w-full gap-y-16">
+              <ul className='flex w-full flex-col gap-y-16'>
                 {positions.map((position, index) => (
-                  <li className="mr-[4px] mt-[4px]" key={index}>
-                    <h3 className="w-full text-tm20 text-basic-main">
+                  <li
+                    className='mt-[4px] mr-[4px]'
+                    key={index}
+                  >
+                    <h3 className='text-tm20 text-basic-main w-full'>
                       {t(`career.positions.${position.type}`)}
                     </h3>
-                    <p className="w-full mt-4p text-t16 text-basic-main">
+                    <p className='mt-4p text-t16 text-basic-main w-full'>
                       {t(`career.${type}.positions.${position.type}`)}
                     </p>
-                    <ul className="flex flex-row flex-wrap w-full gap-4 mt-12">
+                    <ul className='mt-12 flex w-full flex-row flex-wrap gap-4'>
                       {position.stack.map((tool) => (
                         <li key={tool}>
-                          <Badge size="s" color="secondary" theme="light">
+                          <Badge
+                            size='s'
+                            color='secondary'
+                            theme='light'
+                          >
                             {tool}
                           </Badge>
                         </li>
@@ -84,12 +110,13 @@ const CareerPage = async ({ params: { locale } }) => {
           );
         })}
       </article>
-      <Mixpanel event="LOADING_JOBS_PAGE" />
+      <Mixpanel event='LOADING_JOBS_PAGE' />
     </Container>
   );
 };
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
 
   return getMetadata({

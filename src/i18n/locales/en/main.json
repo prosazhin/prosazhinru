@@ -54,7 +54,16 @@
     "positions": {
       "design": "Designer",
       "frontend": "Frontend developer",
+      "frontendLead": "Frontend development team lead",
       "html": "Markup developer"
+    },
+    "15web": {
+      "title": "Studio 15",
+      "titleForAside": "Studio 15",
+      "positions": {
+        "frontendLead": "Organization of the frontend development team’s work. Development and maintenance of client projects.",
+        "design": "Support of internal and client projects."
+      }
     },
     "opensource": {
       "title": "Open source",

@@ -25,3 +25,7 @@ export function getFormatJobDate(value: string, locale: string) {
 export function getDiffJobDate(start: string, end: string, locale: string) {
   return dayjs(start).locale(locale).from(end, true);
 }
+
+export function getYearsDiff(start: string, end: string) {
+  return Math.abs(dayjs(start).diff(end, 'years'));
+}

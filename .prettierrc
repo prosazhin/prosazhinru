@@ -5,24 +5,13 @@
   "semi": true,
   "singleQuote": true,
   "quoteProps": "as-needed",
-  "jsxSingleQuote": false,
+  "jsxSingleQuote": true,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
+  "bracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "lf",
-  "importOrder": [
-    "^(next)|(next/(.*))$",
-    "^(react)|(react/(.*))$",
-    "<THIRD_PARTY_MODULES>",
-    "^@/components/(.*)$",
-    "^@/types/(.*)$",
-    "^@/lib/(.*)$",
-    "^@/styles/(.*)$",
-    "^@/svgs/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"]
+  "singleAttributePerLine": true,
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
 }

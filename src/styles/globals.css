@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'pbstyles/styles/tailwind/theme.css';
+@plugin "@tailwindcss/typography";
 
 @layer base {
   * {
@@ -38,7 +38,7 @@
   }
 
   .link a {
-    @apply cursor-pointer text-primary-darker no-underline transition-colors focus:text-primary-darker active:text-primary-darker hover:text-danger-main hover:underline;
+    @apply text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline;
     font-size: inherit;
     line-height: inherit;
   }

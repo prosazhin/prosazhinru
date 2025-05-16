@@ -1,10 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-
 import { LangType, MatrixType } from '@/types';
 import { Badge } from '@pbcomponents/react';
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const getRating = (locale: LangType, value: number) => {
   return new Intl.NumberFormat(locale, {
@@ -37,17 +36,24 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
   }
 
   return (
-    <ul className="flex flex-col w-full mt-40 gap-y-40">
-      <li className="flex flex-col w-full">
-        <span className="flex flex-row items-center w-full px-16 mb-8 gap-x-16">
-          <h2 className="flex-1 text-tm20 text-basic-main">{t('result')}</h2>
-          <Badge size="s">{totalRating}</Badge>
+    <ul className='mt-40 flex w-full flex-col gap-y-40'>
+      <li className='flex w-full flex-col'>
+        <span className='mb-8 flex w-full flex-row items-center gap-x-16 px-16'>
+          <h2 className='text-tm20 text-basic-main flex-1'>{t('result')}</h2>
+          <Badge size='s'>{totalRating}</Badge>
         </span>
-        <ul className="flex flex-col w-full border-1 divide-y-1 rounded-8 divide-secondary-lighter border-secondary-lighter">
+        <ul className='rounded-8 divide-secondary-lighter border-secondary-lighter flex w-full flex-col divide-y-1 border-1'>
           {categories.map(({ title, rating }, index) => (
-            <li className="flex flex-row items-center w-full px-16 py-12 gap-x-16" key={index}>
-              <h3 className="flex-1 text-t16 text-basic-main">{title}</h3>
-              <Badge size="s" color="secondary" theme="border">
+            <li
+              className='flex w-full flex-row items-center gap-x-16 px-16 py-12'
+              key={index}
+            >
+              <h3 className='text-t16 text-basic-main flex-1'>{title}</h3>
+              <Badge
+                size='s'
+                color='secondary'
+                theme='border'
+              >
                 {rating}
               </Badge>
             </li>
@@ -55,22 +61,33 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
         </ul>
       </li>
       {categories.map(({ title, rating, competencies }, index) => (
-        <li className="flex flex-col w-full" key={index}>
-          <span className="flex flex-row items-center w-full px-16 mb-8 gap-x-16">
-            <h2 className="flex-1 text-tm20 text-basic-main">{title}</h2>
-            <Badge size="s" color="secondary" theme="border">
+        <li
+          className='flex w-full flex-col'
+          key={index}
+        >
+          <span className='mb-8 flex w-full flex-row items-center gap-x-16 px-16'>
+            <h2 className='text-tm20 text-basic-main flex-1'>{title}</h2>
+            <Badge
+              size='s'
+              color='secondary'
+              theme='border'
+            >
               {rating}
             </Badge>
           </span>
           {competencies.length && (
-            <ul className="flex flex-col w-full border-1 divide-y-1 rounded-8 divide-secondary-lighter border-secondary-lighter">
+            <ul className='rounded-8 divide-secondary-lighter border-secondary-lighter flex w-full flex-col divide-y-1 border-1'>
               {competencies.map((item) => (
                 <li
-                  className="flex flex-row items-center w-full px-16 py-12 gap-x-16"
+                  className='flex w-full flex-row items-center gap-x-16 px-16 py-12'
                   key={item.id}
                 >
-                  <h3 className="flex-1 text-t16 text-basic-main">{item.title}</h3>
-                  <Badge size="s" color="secondary" theme="light">
+                  <h3 className='text-t16 text-basic-main flex-1'>{item.title}</h3>
+                  <Badge
+                    size='s'
+                    color='secondary'
+                    theme='light'
+                  >
                     {item.rating}
                   </Badge>
                 </li>

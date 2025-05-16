@@ -34,6 +34,7 @@ const skills = [
       'Vite',
       'React',
       'Redux',
+      'Zustand',
       'Hooks',
       'Next',
       'Vue 2',

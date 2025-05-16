@@ -8,9 +8,12 @@ const LeftAside = ({
   data: { title: string; type: string }[];
   wrapperId: string;
 }) => (
-  <div className="sticky flex flex-col pr-16 top-96 gap-y-32 divide-y-1 divide-secondary-lighter">
+  <div className='sticky top-96 flex flex-col gap-y-32 pr-16 print:relative print:top-0 print:-mt-70 print:mb-20'>
     <AsideProfile />
-    <AsideNav data={data} wrapperId={wrapperId} />
+    <AsideNav
+      data={data}
+      wrapperId={wrapperId}
+    />
   </div>
 );
 

@@ -1,9 +1,8 @@
 'use client';
 
 import { ArrowUpIcon } from '@heroicons/react/24/outline';
-import { useEffect, useState } from 'react';
-
 import { Button } from '@pbcomponents/react';
+import { useEffect, useState } from 'react';
 
 const ToTop = () => {
   const [show, setShow] = useState(false);
@@ -36,12 +35,12 @@ const ToTop = () => {
   return (
     <>
       {show && (
-        <div className="fixed z-50 w-64 pointer-events-none bottom-16 right-16 desktop:bottom-24 desktop:right-24">
+        <div className='desktop:bottom-24 desktop:right-24 pointer-events-none fixed right-16 bottom-16 z-50 w-64'>
           <Button
-            size="l"
-            color="secondary"
-            theme="ghost"
-            className="!w-max !pointer-events-auto"
+            size='l'
+            color='secondary'
+            theme='ghost'
+            className='!pointer-events-auto !w-max'
             leftIcon={ArrowUpIcon}
             onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
           />

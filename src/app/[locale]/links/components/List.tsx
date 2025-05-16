@@ -1,11 +1,8 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-
-import { useMemo } from 'react';
-
 import { CompilationType, LinkType, TagType } from '@/types';
-
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
 import Compilation from './Compilation';
 import Link from './Link';
 
@@ -39,7 +36,7 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
   }, [data, activeTag, query, type]);
 
   return (
-    <div className="grid gap-24 mt-24 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 grid-flow-dense">
+    <div className='max-xs:grid-cols-1 sm-min:grid-cols-2 md-min:grid-cols-3 lg-min:grid-cols-3 mt-24 grid grid-flow-dense gap-24 xl:grid-cols-4'>
       {filteredData.map((item, index) => {
         const { type } = item;
 
@@ -49,12 +46,18 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
               {...item}
               key={index}
               activeTag={activeTag}
-              className="col-span-2 xs:col-span-1"
+              className='max-xs:col-span-1 col-span-2'
             />
           );
         }
 
-        return <Link {...item} key={index} activeTag={activeTag} />;
+        return (
+          <Link
+            {...item}
+            key={index}
+            activeTag={activeTag}
+          />
+        );
       })}
     </div>
   );
