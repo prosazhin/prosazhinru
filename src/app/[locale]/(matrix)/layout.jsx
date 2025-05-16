@@ -1,7 +1,8 @@
 import { initTranslations } from '@/i18n';
 import { Collapse, CollapseGroup, Container } from '@pbcomponents/react';
 
-const MatrixLayout = async ({ children, params: { locale } }) => {
+const MatrixLayout = async ({ children, params }) => {
+  const { locale } = await params;
   const { t } = await initTranslations(locale);
 
   return (
