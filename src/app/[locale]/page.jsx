@@ -6,6 +6,7 @@ import skills from '@/data/skills';
 import { initTranslations } from '@/i18n';
 import getMetadata from '@/utils/get-metadata';
 import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
+import clsx from 'clsx';
 
 const IndexPage = async ({ params }) => {
   const { locale } = await params;
@@ -40,7 +41,14 @@ const IndexPage = async ({ params }) => {
           />
         ))}
       </Tabs>
-      <span className='text-h64 hidden print:mt-180 print:!block'>О себе</span>
+      <span
+        className={clsx(
+          'text-h64 hidden print:mt-190 print:!block',
+          locale === 'en' && 'print:mt-230'
+        )}
+      >
+        {t('tabs.about', { returnObjects: true })[0].title}
+      </span>
       <ul
         className='mt-40 flex flex-col gap-y-40'
         id={wrapperId}

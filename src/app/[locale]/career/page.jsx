@@ -6,6 +6,7 @@ import { initTranslations } from '@/i18n';
 import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
 import getMetadata from '@/utils/get-metadata';
 import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
+import clsx from 'clsx';
 
 const CareerPage = async ({ params }) => {
   const { locale } = await params;
@@ -43,7 +44,14 @@ const CareerPage = async ({ params }) => {
           />
         ))}
       </Tabs>
-      <span className='text-h64 hidden print:mt-420 print:!block print:pt-20'>Моя карьера</span>
+      <span
+        className={clsx(
+          'text-h64 hidden print:mt-420 print:!block print:pt-20',
+          locale === 'en' && 'print:pt-50'
+        )}
+      >
+        {t('tabs.about', { returnObjects: true })[1].title}
+      </span>
       <article
         className='mt-40 flex w-full flex-col gap-y-40'
         id={wrapperId}

@@ -13,7 +13,7 @@ const ProjectsPage = async ({ params }) => {
   return (
     <Container size='m'>
       <h1 className='sr-only'>{t('pages.projects.title')}</h1>
-      <span className='text-h64 hidden print:mt-400 print:!block print:pt-20 print:pb-20'>
+      <span className='text-h64 hidden print:mt-[100dvh] print:!block print:pt-20 print:pb-20'>
         {t('pages.projects.title')}
       </span>
       <ProjectList projects={projects} />
