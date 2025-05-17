@@ -43,7 +43,7 @@ const RootLayout = async ({ children, params }) => {
           locale={locale}
           resources={resources}
         >
-          <PBCProvider notificationTop={120}>
+          <PBCProvider notificationTop={80}>
             <Header locale={locale} />
             <main className='desktop:min-h-[calc(100vh-107px-80px-(72px+40px))] mt-[calc(72px+40px)] mb-80 min-h-[calc(100vh-299px-80px-(72px+40px))]'>
               {children}
