@@ -42,9 +42,15 @@ const AsideProfile = () => {
             })}`}
           </span>
           <span className='w-full'>
-            <span className='text-basic-light'>{t('experience')}:</span>
+            <span className='text-basic-light'>{t('experienceDesign')}:</span>
             {` ${t('plurals.year.year', {
               count: getYearsDiff('2011-01-01', String(new Date())),
+            })}`}
+          </span>
+          <span className='w-full'>
+            <span className='text-basic-light'>{t('experienceDev')}:</span>
+            {` ${t('plurals.year.year', {
+              count: getYearsDiff('2014-01-01', String(new Date())),
             })}`}
           </span>
         </div>

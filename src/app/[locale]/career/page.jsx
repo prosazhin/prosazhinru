@@ -53,7 +53,7 @@ const CareerPage = async ({ params }) => {
         {t('tabs.about', { returnObjects: true })[1].title}
       </span>
       <article
-        className='mt-40 flex w-full flex-col gap-y-40'
+        className='mt-40 flex w-full flex-col gap-y-16'
         id={wrapperId}
       >
         {career.map(({ type, url, positions, dateFrom, dateTo }, index) => {
@@ -64,7 +64,7 @@ const CareerPage = async ({ params }) => {
 
           return (
             <section
-              className='flex w-full scroll-mt-96 flex-col gap-y-16'
+              className='border-secondary-lighter rounded-16 flex w-full scroll-mt-96 flex-col gap-y-16 border-1 px-32 py-24'
               key={index}
               id={type}
             >
@@ -95,9 +95,27 @@ const CareerPage = async ({ params }) => {
                     <h3 className='text-tm20 text-basic-main w-full'>
                       {t(`career.positions.${position.type}`)}
                     </h3>
-                    <p className='mt-4p text-t16 text-basic-main w-full'>
+                    <p className='text-t16 text-basic-main mt-4 w-full'>
                       {t(`career.${type}.positions.${position.type}`)}
                     </p>
+                    {position.hasDetails && (
+                      <ul className='mt-4 flex w-full flex-col gap-4'>
+                        {t(`career.${type}.details.${position.type}`, { returnObjects: true }).map(
+                          (item, i) => (
+                            <li
+                              key={i}
+                              className='flex gap-x-8'
+                            >
+                              <span>—</span>
+                              <span
+                                className='text-t16 text-basic-main flex-1'
+                                dangerouslySetInnerHTML={{ __html: item }}
+                              />
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    )}
                     <ul className='mt-12 flex w-full flex-row flex-wrap gap-4'>
                       {position.stack.map((tool) => (
                         <li key={tool}>

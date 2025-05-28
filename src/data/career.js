@@ -5,6 +5,7 @@ const career = [
     positions: [
       {
         type: 'frontendLead',
+        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -22,6 +23,7 @@ const career = [
       },
       {
         type: 'design',
+        hasDetails: true,
         stack: ['Figma'],
       },
     ],
@@ -34,6 +36,7 @@ const career = [
     positions: [
       {
         type: 'frontend',
+        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -48,6 +51,7 @@ const career = [
       },
       {
         type: 'design',
+        hasDetails: true,
         stack: ['Figma', 'Notion'],
       },
     ],
@@ -60,6 +64,7 @@ const career = [
     positions: [
       {
         type: 'frontend',
+        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -83,10 +88,12 @@ const career = [
     positions: [
       {
         type: 'frontend',
+        hasDetails: true,
         stack: ['JavaScript', 'Vue', 'Vuex', 'Quasar', 'TypeScript', 'HTML', 'CSS', 'SCSS'],
       },
       {
         type: 'design',
+        hasDetails: true,
         stack: ['Figma'],
       },
     ],
@@ -99,11 +106,8 @@ const career = [
     positions: [
       {
         type: 'frontend',
+        hasDetails: true,
         stack: ['JavaScript', 'React', 'Next', 'TypeScript', 'HTML', 'CSS', 'TailwindCSS'],
-      },
-      {
-        type: 'design',
-        stack: ['Figma', 'Miro'],
       },
     ],
     dateFrom: '2021-12-20',
@@ -115,10 +119,12 @@ const career = [
     positions: [
       {
         type: 'design',
+        hasDetails: true,
         stack: ['Figma', 'Miro', 'Notion'],
       },
       {
         type: 'frontend',
+        hasDetails: true,
         stack: ['JavaScript', 'Vue', 'Vuex', 'GraphQL', 'TypeScript', 'HTML', 'CSS', 'Less'],
       },
     ],
@@ -131,10 +137,12 @@ const career = [
     positions: [
       {
         type: 'design',
+        hasDetails: false,
         stack: ['Figma', 'Adobe Photoshop'],
       },
       {
         type: 'frontend',
+        hasDetails: false,
         stack: ['JavaScript', 'React', 'Redux', 'HTML', 'CSS', 'Less', 'PostCSS'],
       },
     ],
@@ -147,10 +155,12 @@ const career = [
     positions: [
       {
         type: 'html',
+        hasDetails: false,
         stack: ['JavaScript', 'HTML', 'CSS', 'Less'],
       },
       {
         type: 'design',
+        hasDetails: false,
         stack: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator'],
       },
     ],
@@ -163,10 +173,12 @@ const career = [
     positions: [
       {
         type: 'design',
+        hasDetails: false,
         stack: ['Adobe Photoshop', 'Adobe Illustrator'],
       },
       {
         type: 'html',
+        hasDetails: false,
         stack: ['JavaScript', 'HTML', 'CSS'],
       },
     ],
@@ -179,6 +191,7 @@ const career = [
     positions: [
       {
         type: 'design',
+        hasDetails: false,
         stack: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign'],
       },
     ],

@@ -2,7 +2,8 @@
   "name": "Евгений Сажин",
   "location": "Сочи, Россия",
   "age": "Возраст",
-  "experience": "Опыт работы",
+  "experienceDesign": "В дизайне",
+  "experienceDev": "В разработке",
   "metaTitle": "Евгений Сажин — Дизайнер и Фронтенд разработчик",
   "metaDescription": "Евгений Сажин — Дизайнер и Фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
   "nav": {
@@ -61,8 +62,28 @@
       "title": "Студия 15",
       "titleForAside": "Студия 15",
       "positions": {
-        "frontendLead": "Огранизация работы команды фронтенд разработки. Разработка и поддержка проектов клиентов.",
+        "frontendLead": "Огранизация работы команды фронтенд разработки. Разработка и поддержка проекта для агрохолдинга.",
         "design": "Поддержка внутренних и клиентских проектов."
+      },
+      "details": {
+        "frontendLead": [
+          "Делал операционные задачи. Создание, постановка и приоритизация задач команды фронтенд разработки.",
+          "Проводил ревью и деплой задач команды.",
+          "Принимал решения по архитектуре и стеку технологий на проектах.",
+          "Создал CMS и сайта для агрохолдинга.",
+          "Реализовал миграцию проект CMS с Next 14 Pages Router на Next 15 App Router. Так же с Redux на Zustand. Внедрил SSR, использование ”use client” и получение данных на сервере.",
+          "Доработал линтер на проекте CMS. Внедрил prettier и автоматизацию code style. Внедрил пакеты для совместной работы simple-git-hooks, lint-staged и commitlint.",
+          "Проектировал работу интерфейса CMS без дизайна с учетом библиотек компонентов. Помогал в проектировании команде.",
+          "Доработал критически важные модули (авторизация и тд.) и запустил проекта CMS.",
+          "Создал с нуля проект сайта для агрохолдинга с учетом новых для команды технологий.",
+          "Внедрил Tailwind для верстки и Framer Motion для анимированных блоков для сайта агрохолдинга.",
+          "Создал базу компонентов для сайта агрохолдинга.",
+          "Внедрил принцип PixelPerfect для сайта агрохолдинга."
+        ],
+        "design": [
+          "Проводил ревью дизайна от подрядчиков.",
+          "Дорабатывал дизайна внутри команды в процессе разработки."
+        ]
       }
     },
     "opensource": {
@@ -71,6 +92,18 @@
       "positions": {
         "frontend": "Разработка и поддержка своих npm пакетов и проектов.",
         "design": "Разработка и поддержка своих проектов."
+      },
+      "details": {
+        "frontend": [
+          "Создал и опубликовал npm пакет <a href='https://github.com/prosazhin/tailwind-dictionary' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Tailwind Dictionary</a> для преобразования дизайн-токенов в Tailwind тему.",
+          "Создал и опубликовал npm пакет <a href='https://github.com/prosazhin/mixin-dictionary' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Mixin Dictionary</a> для преобразования дизайн-токенов в Less или SCSS миксины.",
+          "Доработал и опубликовал npm пакет <a href='https://github.com/prosazhin/pbstyles' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>pbstyles</a>, библиотека стилей для быстрого прототипирования.",
+          "Создал и опубликовал npm пакет <a href='https://github.com/prosazhin/pbcomponents' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>pbcomponents</a>, библиотека компонентов для быстрого прототипирования."
+        ],
+        "design": [
+          "Доработал библиотеку стилей pbstyles, создал презентацию и опубликовал в <a href='https://www.figma.com/community/file/1213609862805339771' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Figma Community</a> и <a href='https://www.behance.net/gallery/162935391/pbstyles' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Behance</a>.",
+          "Доработал библиотеку компонентов pbcomponents, создал презентацию и опубликовал в <a href='https://www.figma.com/community/file/1214486013859546496' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Figma Community</a> и <a href='https://www.behance.net/gallery/206064847/pbcomponents' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Behance</a>."
+        ]
       }
     },
     "pixelpoint": {
@@ -78,6 +111,18 @@
       "titleForAside": "pixelpoint.io",
       "positions": {
         "frontend": "Разработка и поддержка проектов."
+      },
+      "details": {
+        "frontend": [
+          "Участвовал в разработке 9 клиентских проектов.",
+          "Создавал PixelPerfect страницы и блоки для сайтов по готовому дизайну с управлением контентом через Headless CMS.",
+          "Создавал интерактивные блоки с анимацией и логикой интеграцией с другими сервисами.",
+          "Развивал компонентную базу проектов.",
+          "Активно использовал SSR, ”use client” и получение данных на сервере.",
+          "Оптимизация работы и загрузки новых и уже существующих страниц и модулей проектов.",
+          "Проводил ревью задач других разработчиков. Следил за уровнем доступности, качества и seo анализом на проектах.",
+          "Создавал и поддерживал работу мультиязычности проектов."
+        ]
       }
     },
     "ipgate": {
@@ -86,6 +131,20 @@
       "positions": {
         "frontend": "Доработка клиентской части для запуска проекта. Поддержка работы и рефакторинг проекта.",
         "design": "Поддержка проекта."
+      },
+      "details": {
+        "frontend": [
+          "Исправил критические баги после бета-теста проекта.",
+          "Доработал основные модули для полноценного запуска проекта: авторизация, заказ, тарифы и тд.",
+          "Занимался рефакторингом и развитием компонентной базы проекта.",
+          "Создал информационные страниц проекта.",
+          "Создал и поддерживал работу мультиязычности проекта.",
+          "Реализовал миграцию проекта с Quasar на Nuxt и сделал редизайн проекта."
+        ],
+        "design": [
+          "Делал прототипирование новых страниц и блоков проекта.",
+          "Сделал полный редизайн проекта, как дорожная карта для будущего развития после запуска проекта, с сохранением функциональности."
+        ]
       }
     },
     "sellmonitor": {
@@ -94,6 +153,14 @@
       "positions": {
         "frontend": "Разработка интерфейса продукта.",
         "design": "Проектирование интерфейса продукта."
+      },
+      "details": {
+        "frontend": [
+          "Участвовал в разработке и поддержке продукта.",
+          "Занимался рефакторингом и развитием компонентной базы проекта.",
+          "Создал отдельный большой модуль по аналитике данных продовцов из данных получаемых по API из маркетплейсов.",
+          "Поддерживал работу мультиязычности проекта."
+        ]
       }
     },
     "regru": {
@@ -102,6 +169,19 @@
       "positions": {
         "design": "Поддержка и развитие доменного направления и других частей сервиса. Проектирование внутренних проектов.",
         "frontend": "Поддержка и развитие доменного направления и других частей сервиса. Разработка внутренних проектов."
+      },
+      "details": {
+        "design": [
+          "Создал внутренний проект для HR и сотрудников компании.",
+          "Участвовал как дизайнер в команде развития доменного направления.",
+          "Развивал дизайн-систему компании в команде дизайнеров.",
+          "Участвовал в рабочей группе по внедрению дизайн-токенов и единой библиотеки компонентов."
+        ],
+        "frontend": [
+          "Участвовал как старший разработчик в команде по созданию внутреннего проекта для HR и сотрудников компании.",
+          "Проводил ревью и довел внутренний проект до релиза.",
+          "Участвовал как разработчик в команде развития доменного направления."
+        ]
       }
     },
     "suplbiz": {
