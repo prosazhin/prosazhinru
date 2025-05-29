@@ -25,7 +25,7 @@ const IndexPage = async ({ params }) => {
     >
       <h1 className='text-t24 text-basic-main'>{t('pages.index.title')}</h1>
       <p
-        className='text-t24 text-basic-main link mt-16'
+        className='text-t24 text-basic-main link mt-16 print:hidden'
         dangerouslySetInnerHTML={{ __html: t('pages.index.description') }}
       />
       <Contacts />
@@ -43,7 +43,7 @@ const IndexPage = async ({ params }) => {
       </Tabs>
       <span
         className={clsx(
-          'text-h64 hidden print:mt-190 print:!block',
+          'text-h64 hidden print:mt-230 print:!block print:pt-60',
           locale === 'en' && 'print:mt-230'
         )}
       >
