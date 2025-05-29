@@ -28,7 +28,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
       {firstProjects.map(({ title, description, resourceLinks, tags }, index) => (
         <li
           key={index}
-          className='desktop:px-80 desktop:py-64 group rounded-16 bg-basic-lightest hover:bg-primary-lighter relative col-span-6 flex flex-col gap-y-24 overflow-hidden px-24 pt-20 pb-24 transition-colors duration-150'
+          className='desktop:px-80 desktop:py-64 group rounded-16 bg-basic-lightest hover:bg-primary-lighter print:border-secondary-lighter relative col-span-6 flex flex-col gap-y-24 overflow-hidden px-24 pt-20 pb-24 transition-colors duration-150 print:border-1'
         >
           <div className='desktop:gap-y-8 flex w-full flex-1 flex-col gap-y-4'>
             <h2 className='text-basic-main group-hover:text-primary-darker text-tm24 desktop:text-h48 w-full transition-colors duration-150'>
@@ -82,7 +82,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
             'group rounded-16 relative col-span-6 flex flex-col gap-y-24 overflow-hidden transition-colors duration-150',
             sizes[size],
             accent
-              ? 'desktop:px-40 desktop:pt-32 desktop:pb-40 bg-basic-lightest hover:bg-primary-lighter px-24 pt-20 pb-24'
+              ? 'desktop:px-40 desktop:pt-32 desktop:pb-40 bg-basic-lightest hover:bg-primary-lighter print:border-secondary-lighter px-24 pt-20 pb-24 print:border-1'
               : 'border-secondary-lighter hover:border-primary-main border-1 px-24 pt-20 pb-24'
           )}
         >

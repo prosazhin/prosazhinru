@@ -56,7 +56,7 @@ const CareerPage = async ({ params }) => {
         className='mt-40 flex w-full flex-col gap-y-16'
         id={wrapperId}
       >
-        {career.map(({ type, url, positions, dateFrom, dateTo }, index) => {
+        {career.map(({ type, url, positions, dateFrom, dateTo, dismissal }, index) => {
           const formatDateFrom = ucFirst(getFormatJobDate(dateFrom, locale));
           const formatDateTo =
             dateTo === 'now' ? t('now') : ucFirst(getFormatJobDate(dateTo, locale));
@@ -123,6 +123,7 @@ const CareerPage = async ({ params }) => {
                             size='s'
                             color='secondary'
                             theme='light'
+                            className='print:border-secondary-light print:border-1'
                           >
                             {tool}
                           </Badge>
@@ -132,6 +133,14 @@ const CareerPage = async ({ params }) => {
                   </li>
                 ))}
               </ul>
+              {dismissal && (
+                <div className='flex w-full flex-col'>
+                  <span className='text-t12 text-basic-light w-full'>{t('dismissal')}:</span>
+                  <span className='text-tm16 text-basic-main w-full'>
+                    {t(`career.${type}.dismissal`)}
+                  </span>
+                </div>
+              )}
             </section>
           );
         })}

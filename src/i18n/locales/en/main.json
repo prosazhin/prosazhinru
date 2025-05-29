@@ -4,6 +4,7 @@
   "age": "Age",
   "experienceDesign": "In design",
   "experienceDev": "In development",
+  "dismissal": "Reason for leaving",
   "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
   "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
   "nav": {
@@ -84,7 +85,8 @@
           "Reviewed designs from contractors.",
           "Refined designs within the team during the development process."
         ]
-      }
+      },
+      "dismissal": "Project completion. Work on the CMS and the website for the agricultural holding was finished."
     },
     "opensource": {
       "title": "Open source",
@@ -123,7 +125,8 @@
           "Reviewed tasks from other developers. Ensured accessibility, quality, and SEO analysis on the projects.",
           "Implemented and maintained multilingual functionality of the projects."
         ]
-      }
+      },
+      "dismissal": "Difficulties working with a foreign company from Russia."
     },
     "ipgate": {
       "title": "ipgate.io",
@@ -145,7 +148,8 @@
           "Prototyped new pages and sections of the project.",
           "Completed a full redesign of the project as a roadmap for future development after launch, while preserving functionality."
         ]
-      }
+      },
+      "dismissal": "Project completion. Work on the product was finished."
     },
     "sellmonitor": {
       "title": "sellmonitor.com",
@@ -161,7 +165,8 @@
           "Created a separate large module for analytics of sellers’ data from API-sourced marketplace data.",
           "Maintained the multilingual functionality of the project."
         ]
-      }
+      },
+      "dismissal": "Staff reduction due to the crisis in the fall of 2022."
     },
     "regru": {
       "title": "reg.ru",
@@ -182,7 +187,8 @@
           "Conducted code reviews and led the internal project to release.",
           "Participated as a developer in the domain development team."
         ]
-      }
+      },
+      "dismissal": "Desire for growth in development."
     },
     "suplbiz": {
       "title": "supl.biz",
@@ -190,7 +196,8 @@
       "positions": {
         "design": "Designing a marketplace and internal projects for the company.",
         "frontend": "Development of a marketplace and internal projects for the company."
-      }
+      },
+      "dismissal": "Desire for growth in design and development."
     },
     "franbazar": {
       "title": "franbazar.com",
@@ -198,7 +205,8 @@
       "positions": {
         "html": "Layout development for new projects and mobile applications using WebView. Maintenance of existing projects.",
         "design": "Designing new projects. Supporting existing projects."
-      }
+      },
+      "dismissal": "Staff reduction."
     },
     "pixlpark": {
       "title": "pixlpark.ru",
@@ -206,7 +214,8 @@
       "positions": {
         "design": "Designing a demo website for a printing shop.",
         "html": "Development of a demo website for a printing shop. Assistance to new and regular clients."
-      }
+      },
+      "dismissal": "Desire for growth in design and development."
     },
     "freelance": {
       "title": "Freelance and Printing houses",

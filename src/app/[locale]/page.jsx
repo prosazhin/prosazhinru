@@ -73,6 +73,7 @@ const IndexPage = async ({ params }) => {
                       size='s'
                       color='secondary'
                       theme='light'
+                      className='print:border-secondary-light print:border-1'
                     >
                       {tool}
                     </Badge>
