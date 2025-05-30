@@ -15,6 +15,16 @@ const contacts = [
     link: true,
   },
   {
+    title: 'Habr Career',
+    url: 'https://career.habr.com/prosazhin',
+    link: true,
+  },
+  {
+    title: 'hh.ru',
+    url: 'https://sochi.hh.ru/resume/189bff75ff0ee32bed0039ed1f6d5345696862',
+    link: true,
+  },
+  {
     title: 'Behance',
     url: 'https://www.behance.net/prosazhin',
     link: true,
