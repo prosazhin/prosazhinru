@@ -1,6 +1,5 @@
 import Contacts from '@/components/Contacts';
 import MatrixBanner from '@/components/MatrixBanner';
-import Mixpanel from '@/components/Mixpanel';
 import LeftAside from '@/components/aside';
 import skills from '@/data/skills';
 import { initTranslations } from '@/i18n';
@@ -91,7 +90,6 @@ const IndexPage = async ({ params }) => {
           </li>
         ))}
       </ul>
-      <Mixpanel event='LOADING_MAIN_PAGE' />
     </Container>
   );
 };

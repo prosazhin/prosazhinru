@@ -1,4 +1,3 @@
-import Mixpanel from '@/components/Mixpanel';
 import { initTranslations } from '@/i18n';
 import { compilationsMethods, linksMethods, tagsMethods } from '@/lib/api';
 import getMetadata from '@/utils/get-metadata';
@@ -38,7 +37,6 @@ const LinksPage = async ({ params }) => {
           ]}
         />
       </Suspense>
-      <Mixpanel event='LOADING_LINKS_PAGE' />
     </Container>
   );
 };

@@ -1,5 +1,4 @@
 import Contacts from '@/components/Contacts';
-import Mixpanel from '@/components/Mixpanel';
 import LeftAside from '@/components/aside';
 import career from '@/data/career';
 import { initTranslations } from '@/i18n';
@@ -145,7 +144,6 @@ const CareerPage = async ({ params }) => {
           );
         })}
       </article>
-      <Mixpanel event='LOADING_JOBS_PAGE' />
     </Container>
   );
 };

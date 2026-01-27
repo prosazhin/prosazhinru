@@ -1,4 +1,3 @@
-import Mixpanel from '@/components/Mixpanel';
 import { initTranslations } from '@/i18n';
 import { projectsMethods } from '@/lib/api';
 import getMetadata from '@/utils/get-metadata';
@@ -17,7 +16,6 @@ const ProjectsPage = async ({ params }) => {
         {t('pages.projects.title')}
       </span>
       <ProjectList projects={projects} />
-      <Mixpanel event='LOADING_PROJECTS_PAGE' />
     </Container>
   );
 };

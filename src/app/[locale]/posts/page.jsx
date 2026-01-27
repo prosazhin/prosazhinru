@@ -1,4 +1,3 @@
-import Mixpanel from '@/components/Mixpanel';
 import { initTranslations } from '@/i18n';
 import { postsMethods } from '@/lib/api';
 import getMetadata from '@/utils/get-metadata';
@@ -65,7 +64,6 @@ const PostsPage = async ({ params }) => {
             </li>
           ))}
       </ul>
-      <Mixpanel event='LOADING_POSTS_PAGE' />
     </Container>
   );
 };

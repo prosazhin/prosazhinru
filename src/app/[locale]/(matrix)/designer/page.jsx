@@ -1,4 +1,3 @@
-import Mixpanel from '@/components/Mixpanel';
 import { initTranslations } from '@/i18n';
 import { matrixMethods } from '@/lib/api';
 import getMetadata from '@/utils/get-metadata';
@@ -29,7 +28,6 @@ const DesignerPage = async ({ params }) => {
         matrix={matrix}
         locale={locale}
       />
-      <Mixpanel event='LOADING_DESIGNER_PAGE' />
     </>
   );
 };
