@@ -1,27 +1,35 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const nextConfigCoreWebVitals = require('eslint-config-next/core-web-vitals');
+const nextConfigTypeScript = require('eslint-config-next/typescript');
 
 const eslintConfig = [
-  ...compat.config({
-    extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
+  {
+    ignores: [
+      'next-env.d.ts',
+      '.next/**',
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'coverage/**',
+    ],
+  },
+  ...nextConfigCoreWebVitals,
+  ...nextConfigTypeScript,
+  eslintConfigPrettier,
+  {
     settings: {
       next: {
         rootDir: ['src/'],
       },
     },
-    plugins: ['prettier'],
     rules: {
       '@next/next/no-page-custom-font': 'off',
     },
-  }),
+  },
 ];
 
 export default eslintConfig;

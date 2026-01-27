@@ -3,7 +3,6 @@
 import useHash from '@/hooks/use-hash';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 
 const AsideNav = ({
   data,
@@ -12,9 +11,6 @@ const AsideNav = ({
   data: { title: string; type: string }[];
   wrapperId: string;
 }) => {
-  const {
-    i18n: { language: locale },
-  } = useTranslation();
   const hash = useHash(wrapperId);
 
   return (
@@ -24,7 +20,6 @@ const AsideNav = ({
           <Link
             href={`#${type}`}
             scroll={true}
-            locale={locale}
             className={clsx(
               'text-tm16 text-basic-light hover:text-primary-darker transition-colors duration-150',
               (type === hash || (type === data[0].type && !hash?.length)) && '!text-basic-main'
