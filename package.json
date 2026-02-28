@@ -8,7 +8,7 @@
   "author": "Evgenii Sazhin <prosazhin@gmail.com> (https://prosazhin.ru)",
   "license": "MIT",
   "engines": {
-    "node": ">=22.22.0"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "next dev -p 8080",
