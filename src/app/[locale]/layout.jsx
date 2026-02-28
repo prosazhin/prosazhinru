@@ -10,9 +10,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
-}
+export const dynamic = 'force-dynamic';
 
 const RootLayout = async ({ children, params }) => {
   const { locale } = await params;

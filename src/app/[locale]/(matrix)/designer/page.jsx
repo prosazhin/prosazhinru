@@ -32,8 +32,6 @@ const DesignerPage = async ({ params }) => {
   );
 };
 
-export const revalidate = 600;
-
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const { t } = await initTranslations(locale);
