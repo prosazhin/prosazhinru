@@ -11,9 +11,9 @@ const ProjectsPage = async ({ params }) => {
 
   return (
     <Container size='m'>
-      <h1 className='sr-only'>{t('pages.projects.title')}</h1>
+      <h1 className='sr-only'>{t('pages:projects.title')}</h1>
       <span className='text-h64 hidden print:mt-[100dvh] print:!block print:pt-20 print:pb-20'>
-        {t('pages.projects.title')}
+        {t('pages:projects.title')}
       </span>
       <ProjectList projects={projects} />
     </Container>
@@ -26,9 +26,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.projects.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:projects.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.projects.pathname'),
+    pathname: t('pages:projects.pathname'),
   });
 }
 

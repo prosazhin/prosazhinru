@@ -1,0 +1,38 @@
+{
+  "index": {
+    "title": "Дизайнер и фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
+    "description": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические подборки. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>.",
+    "pathname": "/"
+  },
+  "career": {
+    "title": "Моя карьера",
+    "pathname": "/career"
+  },
+  "designer": {
+    "title": "Матрица компетенций дизайнера",
+    "pathname": "/designer"
+  },
+  "developer": {
+    "title": "Матрица компетенций разработчика",
+    "pathname": "/developer"
+  },
+  "projects": {
+    "title": "Проекты",
+    "pathname": "/projects"
+  },
+  "links": {
+    "title": "Полезные ссылки",
+    "pathname": "/links"
+  },
+  "compilations": {
+    "title": "Подборки ссылок",
+    "pathname": "/compilations"
+  },
+  "posts": {
+    "title": "Заметки",
+    "pathname": "/posts"
+  },
+  "notFound": {
+    "title": "Нет такой страницы"
+  }
+}

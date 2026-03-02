@@ -19,16 +19,16 @@ const CareerPage = async ({ params }) => {
         <LeftAside
           wrapperId={wrapperId}
           data={career.map(({ type }) => ({
-            title: t(`career.${type}.titleForAside`),
+            title: t(`career:${type}.titleForAside`),
             type: type,
           }))}
         />
       }
     >
-      <h1 className='text-t24 text-basic-main'>{t('pages.index.title')}</h1>
+      <h1 className='text-t24 text-basic-main'>{t('pages:index.title')}</h1>
       <p
         className='text-t24 text-basic-main link mt-16'
-        dangerouslySetInnerHTML={{ __html: t('pages.index.description') }}
+        dangerouslySetInnerHTML={{ __html: t('pages:index.description') }}
       />
       <Contacts />
       <Tabs
@@ -75,10 +75,10 @@ const CareerPage = async ({ params }) => {
                       target='_blank'
                       rel='noreferrer'
                     >
-                      {t(`career.${type}.title`)}
+                      {t(`career:${type}.title`)}
                     </a>
                   ) : (
-                    <>{t(`career.${type}.title`)}</>
+                    <>{t(`career:${type}.title`)}</>
                   )}
                 </h2>
                 <span className='text-t16 text-basic-light w-full'>
@@ -92,14 +92,14 @@ const CareerPage = async ({ params }) => {
                     key={index}
                   >
                     <h3 className='text-tm20 text-basic-main w-full'>
-                      {t(`career.positions.${position.type}`)}
+                      {t(`career:positions.${position.type}`)}
                     </h3>
                     <p className='text-t16 text-basic-main mt-4 w-full'>
-                      {t(`career.${type}.positions.${position.type}`)}
+                      {t(`career:${type}.positions.${position.type}`)}
                     </p>
                     {position.hasDetails && (
                       <ul className='mt-4 flex w-full flex-col gap-4'>
-                        {t(`career.${type}.details.${position.type}`, { returnObjects: true }).map(
+                        {t(`career:${type}.details.${position.type}`, { returnObjects: true }).map(
                           (item, i) => (
                             <li
                               key={i}
@@ -136,7 +136,7 @@ const CareerPage = async ({ params }) => {
                 <div className='flex w-full flex-col'>
                   <span className='text-t12 text-basic-light w-full'>{t('dismissal')}:</span>
                   <span className='text-tm16 text-basic-main w-full'>
-                    {t(`career.${type}.dismissal`)}
+                    {t(`career:${type}.dismissal`)}
                   </span>
                 </div>
               )}
@@ -154,9 +154,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.career.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:career.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.career.pathname'),
+    pathname: t('pages:career.pathname'),
   });
 }
 

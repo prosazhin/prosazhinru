@@ -11,7 +11,7 @@ const NotFoundContent = () => {
 
   return (
     <Container size='s'>
-      <h1 className='text-h48 text-basic-main w-full'>{t('pages.notFound.title')}</h1>
+      <h1 className='text-h48 text-basic-main w-full'>{t('pages:notFound.title')}</h1>
       <Button
         size='m'
         color='secondary'

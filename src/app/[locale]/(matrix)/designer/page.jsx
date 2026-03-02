@@ -11,7 +11,7 @@ const DesignerPage = async ({ params }) => {
 
   return (
     <>
-      <h1 className='sr-only'>{t('pages.designer.title')}</h1>
+      <h1 className='sr-only'>{t('pages:designer.title')}</h1>
       <Tabs
         defaultIndex={0}
         className='mt-80'
@@ -38,9 +38,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.designer.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:designer.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.designer.pathname'),
+    pathname: t('pages:designer.pathname'),
   });
 }
 

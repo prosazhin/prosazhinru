@@ -1,0 +1,20 @@
+{
+  "headline": "Levels of skill assessment",
+  "1": {
+    "title": "1. Awareness",
+    "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
+  },
+  "2": {
+    "title": "2. Skill",
+    "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
+  },
+  "3": {
+    "title": "3. Expertise",
+    "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
+  },
+  "4": {
+    "title": "4. Leadership",
+    "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
+  },
+  "matrixDescription": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)»<br /><a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>"
+}

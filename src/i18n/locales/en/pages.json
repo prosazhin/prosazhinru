@@ -1,0 +1,38 @@
+{
+  "index": {
+    "title": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+    "description": "I collect <a href='/en/links' target='_self'>useful links</a> and create thematic compilations from them. Sometimes I write <a href='/en/posts' target='_self'>notes</a> and work on my <a href='/en/projects' target='_self'>projects</a>.",
+    "pathname": "/en"
+  },
+  "career": {
+    "title": "My career",
+    "pathname": "/en/career"
+  },
+  "designer": {
+    "title": "Designer competency matrix",
+    "pathname": "/en/designer"
+  },
+  "developer": {
+    "title": "Developer competency matrix",
+    "pathname": "/en/developer"
+  },
+  "projects": {
+    "title": "Projects",
+    "pathname": "/en/projects"
+  },
+  "links": {
+    "title": "Useful links",
+    "pathname": "/en/links"
+  },
+  "compilations": {
+    "title": "Link compilations",
+    "pathname": "/en/compilations"
+  },
+  "posts": {
+    "title": "Posts",
+    "pathname": "/en/posts"
+  },
+  "notFound": {
+    "title": "No such page"
+  }
+}

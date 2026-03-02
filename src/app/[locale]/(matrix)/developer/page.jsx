@@ -11,7 +11,7 @@ const DeveloperPage = async ({ params }) => {
 
   return (
     <>
-      <h1 className='sr-only'>{t('pages.developer.title')}</h1>
+      <h1 className='sr-only'>{t('pages:developer.title')}</h1>
       <Tabs
         defaultIndex={1}
         className='mt-80'
@@ -38,9 +38,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.developer.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:developer.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.developer.pathname'),
+    pathname: t('pages:developer.pathname'),
   });
 }
 

@@ -1,0 +1,173 @@
+{
+  "positions": {
+    "design": "Designer",
+    "frontend": "Frontend developer",
+    "frontendLead": "Frontend development team lead",
+    "html": "Markup developer"
+  },
+  "15web": {
+    "title": "Studio 15",
+    "titleForAside": "Studio 15",
+    "positions": {
+      "frontendLead": "Organization of the frontend development team's work. Development and maintenance of a project for an agricultural holding.",
+      "design": "Support of internal and client projects."
+    },
+    "details": {
+      "frontendLead": [
+        "Handled operational tasks: creating, assigning, and prioritizing tasks for the frontend development team.",
+        "Conducted task reviews and deployments for the team.",
+        "Made architectural and technology stack decisions for projects.",
+        "Created a CMS and website for an agricultural holding.",
+        "Migrated the CMS project from Next 14 Pages Router to Next 15 App Router, and from Redux to Zustand. Implemented SSR, \"use client,\" and server-side data fetching.",
+        "Improved the CMS project's linter. Introduced Prettier and automated code style enforcement. Integrated packages for collaboration: simple-git-hooks, lint-staged, and commitlint.",
+        "Designed the CMS interface without a design file, considering component libraries. Assisted the team in interface planning.",
+        "Refined critical modules (authentication, etc.) and launched the CMS project.",
+        "Built the agricultural holding's website from scratch using technologies new to the team.",
+        "Implemented Tailwind for layout and Framer Motion for animated sections on the website.",
+        "Created a component base for the agricultural holding's website.",
+        "Applied the PixelPerfect principle to the agricultural holding's website."
+      ],
+      "design": [
+        "Reviewed designs from contractors.",
+        "Refined designs within the team during the development process."
+      ]
+    },
+    "dismissal": "Project completion. Work on the CMS and the website for the agricultural holding was finished."
+  },
+  "opensource": {
+    "title": "Open source",
+    "titleForAside": "Open source",
+    "positions": {
+      "frontend": "Development and maintenance of your own npm packages and projects.",
+      "design": "Development and maintenance of your own projects."
+    },
+    "details": {
+      "frontend": [
+        "Created and published the npm package <a href='https://github.com/prosazhin/tailwind-dictionary' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Tailwind Dictionary</a> for converting design tokens into a Tailwind theme.",
+        "Created and published the npm package <a href='https://github.com/prosazhin/mixin-dictionary' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Mixin Dictionary</a> for converting design tokens into Less or SCSS mixins.",
+        "Refined and published the npm package <a href='https://github.com/prosazhin/pbstyles' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>pbstyles</a>, a style library for rapid prototyping.",
+        "Created and published the npm package <a href='https://github.com/prosazhin/pbcomponents' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>pbcomponents</a>, a component library for rapid prototyping."
+      ],
+      "design": [
+        "Refined the pbstyles style library, created a presentation, and published it on <a href='https://www.figma.com/community/file/1213609862805339771' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Figma Community</a> and <a href='https://www.behance.net/gallery/162935391/pbstyles' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Behance</a>.",
+        "Refined the pbcomponents component library, created a presentation, and published it on <a href='https://www.figma.com/community/file/1214486013859546496' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Figma Community</a> and <a href='https://www.behance.net/gallery/206064847/pbcomponents' target='_blank' class='text-primary-darker focus:text-primary-darker active:text-primary-darker hover:text-danger-main cursor-pointer no-underline transition-colors duration-150 hover:underline'>Behance</a>."
+      ]
+    }
+  },
+  "pixelpoint": {
+    "title": "pixelpoint.io",
+    "titleForAside": "pixelpoint.io",
+    "positions": {
+      "frontend": "Development and support of projects."
+    },
+    "details": {
+      "frontend": [
+        "Participated in the development of 9 client projects.",
+        "Created PixelPerfect pages and sections for websites based on ready-made designs with content managed via Headless CMS.",
+        "Developed interactive sections with animations and logic integrated with other services.",
+        "Enhanced the component base of the projects.",
+        "Actively used SSR, \"use client\" and server-side data fetching.",
+        "Optimized performance and loading of new and existing pages and modules.",
+        "Reviewed tasks from other developers. Ensured accessibility, quality, and SEO analysis on the projects.",
+        "Implemented and maintained multilingual functionality of the projects."
+      ]
+    },
+    "dismissal": "Difficulties working with a foreign company from Russia."
+  },
+  "ipgate": {
+    "title": "ipgate.io",
+    "titleForAside": "ipgate.io",
+    "positions": {
+      "frontend": "Improvement of the client side for project launch. Project maintenance and refactoring.",
+      "design": "Project support."
+    },
+    "details": {
+      "frontend": [
+        "Fixed critical bugs after the project's beta testing.",
+        "Refined core modules for the full launch of the project: authentication, ordering, pricing, etc.",
+        "Handled refactoring and improvement of the project's component base.",
+        "Created informational pages for the project.",
+        "Implemented and maintained the multilingual functionality of the project.",
+        "Migrated the project from Quasar to Nuxt and carried out a redesign."
+      ],
+      "design": [
+        "Prototyped new pages and sections of the project.",
+        "Completed a full redesign of the project as a roadmap for future development after launch, while preserving functionality."
+      ]
+    },
+    "dismissal": "Project completion. Work on the product was finished."
+  },
+  "sellmonitor": {
+    "title": "sellmonitor.com",
+    "titleForAside": "sellmonitor.com",
+    "positions": {
+      "frontend": "Product interface development.",
+      "design": "Product interface design."
+    },
+    "details": {
+      "frontend": [
+        "Participated in the development and maintenance of the product.",
+        "Handled refactoring and improvement of the project's component base.",
+        "Created a separate large module for analytics of sellers' data from API-sourced marketplace data.",
+        "Maintained the multilingual functionality of the project."
+      ]
+    },
+    "dismissal": "Staff reduction due to the crisis in the fall of 2022."
+  },
+  "regru": {
+    "title": "reg.ru",
+    "titleForAside": "reg.ru",
+    "positions": {
+      "design": "Support and development of the domain area and other parts of the service. Designing internal projects.",
+      "frontend": "Support and development of the domain area and other parts of the service. Development of internal projects."
+    },
+    "details": {
+      "design": [
+        "Created an internal project for HR and company employees.",
+        "Participated as a designer in the domain development team.",
+        "Contributed to the company's design system as part of the design team.",
+        "Participated in a working group on the implementation of design tokens and a unified component library."
+      ],
+      "frontend": [
+        "Participated as a senior developer in the team creating an internal project for HR and company employees.",
+        "Conducted code reviews and led the internal project to release.",
+        "Participated as a developer in the domain development team."
+      ]
+    },
+    "dismissal": "Desire for growth in development."
+  },
+  "suplbiz": {
+    "title": "supl.biz",
+    "titleForAside": "supl.biz",
+    "positions": {
+      "design": "Designing a marketplace and internal projects for the company.",
+      "frontend": "Development of a marketplace and internal projects for the company."
+    },
+    "dismissal": "Desire for growth in design and development."
+  },
+  "franbazar": {
+    "title": "franbazar.com",
+    "titleForAside": "franbazar.com",
+    "positions": {
+      "html": "Layout development for new projects and mobile applications using WebView. Maintenance of existing projects.",
+      "design": "Designing new projects. Supporting existing projects."
+    },
+    "dismissal": "Staff reduction."
+  },
+  "pixlpark": {
+    "title": "pixlpark.ru",
+    "titleForAside": "pixlpark.ru",
+    "positions": {
+      "design": "Designing a demo website for a printing shop.",
+      "html": "Development of a demo website for a printing shop. Assistance to new and regular clients."
+    },
+    "dismissal": "Desire for growth in design and development."
+  },
+  "freelance": {
+    "title": "Freelance and Printing houses",
+    "titleForAside": "Freelance",
+    "positions": {
+      "design": "Typesetting of books, newspapers and magazines. Graphic design. Advertising printing."
+    }
+  }
+}

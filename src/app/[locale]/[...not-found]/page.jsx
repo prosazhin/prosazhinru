@@ -12,9 +12,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.notFound.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:notFound.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.index.pathname'),
+    pathname: t('pages:index.pathname'),
   });
 }
 

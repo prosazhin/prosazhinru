@@ -1,0 +1,77 @@
+{
+  "name": "Евгений Сажин",
+  "location": "Сочи, Россия",
+  "age": "Возраст",
+  "experienceDesign": "В дизайне",
+  "experienceDev": "В разработке",
+  "dismissal": "Причина ухода",
+  "metaTitle": "Евгений Сажин — Дизайнер и Фронтенд разработчик",
+  "metaDescription": "Евгений Сажин — Дизайнер и Фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
+  "nav": {
+    "projects": "Проекты",
+    "links": "Полезные ссылки",
+    "posts": "Заметки",
+    "about": "О себе"
+  },
+  "goToHome": "Вернуться на главную",
+  "download": "Скачать CV",
+  "locales": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "langAlert": "К сожалению, контент на этой странице может быть частично на русском языке.",
+  "tabs": {
+    "about": [
+      {
+        "title": "О себе",
+        "url": "/"
+      },
+      {
+        "title": "Моя карьера",
+        "url": "/career"
+      }
+    ],
+    "matrix": [
+      {
+        "title": "Дизайнер",
+        "url": "/designer"
+      },
+      {
+        "title": "Разработчик",
+        "url": "/developer"
+      }
+    ]
+  },
+  "now": "Сейчас",
+  "result": "Результат",
+  "search": {
+    "placeholder": "Начните вводить запрос"
+  },
+  "linkType": {
+    "link": "Ссылки",
+    "compilation": "Подборки"
+  },
+  "compilation": "Подборка",
+  "cv": {
+    "contacts": "Контакты",
+    "skills": "Навыки"
+  },
+  "plurals": {
+    "links": {
+      "links_zero": "{{count}} ссылок",
+      "links_one": "{{count}} ссылка",
+      "links_two": "{{count}} ссылки",
+      "links_few": "{{count}} ссылок",
+      "links_many": "{{count}} ссылок",
+      "links_other": "{{count}} ссылки"
+    },
+    "year": {
+      "year_zero": "{{count}} лет",
+      "year_one": "{{count}} год",
+      "year_two": "{{count}} года",
+      "year_few": "{{count}} года",
+      "year_many": "{{count}} лет",
+      "year_other": "{{count}} года"
+    }
+  }
+}

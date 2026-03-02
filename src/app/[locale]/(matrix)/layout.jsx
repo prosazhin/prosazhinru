@@ -9,17 +9,17 @@ const MatrixLayout = async ({ children, params }) => {
     <Container size='s'>
       <p
         className='text-t24 text-basic-main link w-full'
-        dangerouslySetInnerHTML={{ __html: t('matrixDescription') }}
+        dangerouslySetInnerHTML={{ __html: t('matrix:matrixDescription') }}
       />
       <div className='mt-40 flex flex-col gap-16'>
-        <span className='text-h24 text-basic-main w-full flex-1'>{t('grades.headline')}</span>
+        <span className='text-h24 text-basic-main w-full flex-1'>{t('matrix:headline')}</span>
         <CollapseGroup name='grades'>
           {[1, 2, 3, 4].map((item, index) => (
             <Collapse
               key={index}
-              summary={t(`grades.${item}.title`)}
+              summary={t(`matrix:${item}.title`)}
             >
-              {t(`grades.${item}.description`)}
+              {t(`matrix:${item}.description`)}
             </Collapse>
           ))}
         </CollapseGroup>

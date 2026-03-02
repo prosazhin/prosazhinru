@@ -23,7 +23,7 @@ const LinksPage = async ({ params }) => {
           color='danger'
         />
       )}
-      <h1 className='sr-only'>{t('pages.links.title')}</h1>
+      <h1 className='sr-only'>{t('pages:links.title')}</h1>
       <Suspense>
         <Search placeholder={t('search.placeholder')} />
         <TagList
@@ -47,9 +47,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.links.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:links.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.links.pathname'),
+    pathname: t('pages:links.pathname'),
   });
 }
 

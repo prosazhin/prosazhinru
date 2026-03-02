@@ -17,7 +17,7 @@ const PostsPage = async ({ params }) => {
           color='danger'
         />
       )}
-      <h1 className='sr-only'>{t('pages.posts.title')}</h1>
+      <h1 className='sr-only'>{t('pages:posts.title')}</h1>
       <ul className='flex w-full flex-col gap-y-24'>
         {posts
           .sort((a, b) => new Date(b.create) - new Date(a.create))
@@ -74,9 +74,9 @@ export async function generateMetadata({ params }) {
 
   return getMetadata({
     locale,
-    title: `${t('pages.posts.title')} | ${t('metaTitle')}`,
+    title: `${t('pages:posts.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages.posts.pathname'),
+    pathname: t('pages:posts.pathname'),
   });
 }
 

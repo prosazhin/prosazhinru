@@ -4,21 +4,33 @@ import { getYearsDiff } from '@/utils/formatter';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { Button } from '@pbcomponents/react';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const AsideProfile = () => {
   const { t } = useTranslation();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'ru';
 
   const downloadCV = () => {
-    fetch(`/cv/${t('metaTitle')}.pdf`).then((response) => {
-      response.blob().then((blob) => {
+    fetch(`/api/cv/${locale}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to generate CV');
+        }
+        return response.blob();
+      })
+      .then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         const alink = document.createElement('a');
         alink.href = fileURL;
         alink.download = `${t('metaTitle')}.pdf`;
         alink.click();
+        window.URL.revokeObjectURL(fileURL);
+      })
+      .catch(() => {
+        window.open(`/api/cv/${locale}`, '_blank');
       });
-    });
   };
 
   return (

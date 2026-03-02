@@ -1,0 +1,77 @@
+{
+  "name": "Evgenii Sazhin",
+  "location": "Sochi, Russia",
+  "age": "Age",
+  "experienceDesign": "In design",
+  "experienceDev": "In development",
+  "dismissal": "Reason for leaving",
+  "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
+  "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
+  "nav": {
+    "projects": "Projects",
+    "links": "Useful links",
+    "posts": "Posts",
+    "about": "About myself"
+  },
+  "goToHome": "Return to the homepage",
+  "download": "Download CV",
+  "locales": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "langAlert": "Unfortunately, the content on this page may be partially in Russian.",
+  "tabs": {
+    "about": [
+      {
+        "title": "About myself",
+        "url": "/en"
+      },
+      {
+        "title": "My career",
+        "url": "/en/career"
+      }
+    ],
+    "matrix": [
+      {
+        "title": "Designer",
+        "url": "/en/designer"
+      },
+      {
+        "title": "Developer",
+        "url": "/en/developer"
+      }
+    ]
+  },
+  "now": "Now",
+  "result": "Result",
+  "search": {
+    "placeholder": "Start entering your request"
+  },
+  "linkType": {
+    "link": "Links",
+    "compilation": "Compilations"
+  },
+  "compilation": "Compilation",
+  "cv": {
+    "contacts": "Contacts",
+    "skills": "Skills"
+  },
+  "plurals": {
+    "links": {
+      "links_zero": "{{count}} links",
+      "links_one": "{{count}} link",
+      "links_two": "{{count}} links",
+      "links_few": "{{count}} links",
+      "links_many": "{{count}} links",
+      "links_other": "{{count}} links"
+    },
+    "year": {
+      "year_zero": "{{count}} years",
+      "year_one": "{{count}} year",
+      "year_two": "{{count}} years",
+      "year_few": "{{count}} years",
+      "year_many": "{{count}} years",
+      "year_other": "{{count}} years"
+    }
+  }
+}

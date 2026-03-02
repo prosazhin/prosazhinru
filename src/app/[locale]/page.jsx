@@ -18,14 +18,14 @@ const IndexPage = async ({ params }) => {
       leftAside={
         <LeftAside
           wrapperId={wrapperId}
-          data={skills.map(({ type }) => ({ title: t(`skills.${type}.title`), type: type }))}
+          data={skills.map(({ type }) => ({ title: t(`skills:${type}.title`), type: type }))}
         />
       }
     >
-      <h1 className='text-t24 text-basic-main'>{t('pages.index.title')}</h1>
+      <h1 className='text-t24 text-basic-main'>{t('pages:index.title')}</h1>
       <p
         className='text-t24 text-basic-main link mt-16 print:hidden'
-        dangerouslySetInnerHTML={{ __html: t('pages.index.description') }}
+        dangerouslySetInnerHTML={{ __html: t('pages:index.description') }}
       />
       <Contacts />
       <Tabs
@@ -60,9 +60,9 @@ const IndexPage = async ({ params }) => {
           >
             <div className='flex w-full flex-col gap-y-12'>
               {title && (
-                <h2 className='text-h24 text-basic-main w-full'>{t(`skills.${type}.title`)}</h2>
+                <h2 className='text-h24 text-basic-main w-full'>{t(`skills:${type}.title`)}</h2>
               )}
-              <p className='text-t20 text-basic-main w-full'>{t(`skills.${type}.description`)}</p>
+              <p className='text-t20 text-basic-main w-full'>{t(`skills:${type}.description`)}</p>
             </div>
             {Boolean(tools.length) && (
               <ul className='flex w-full flex-row flex-wrap gap-4'>
@@ -82,9 +82,9 @@ const IndexPage = async ({ params }) => {
             )}
             {matrix && (
               <MatrixBanner
-                title={t(`skills.${type}.matrix.title`)}
-                description={t(`skills.${type}.matrix.description`)}
-                href={t(`skills.${type}.matrix.url`)}
+                title={t(`skills:${type}.matrix.title`)}
+                description={t(`skills:${type}.matrix.description`)}
+                href={t(`skills:${type}.matrix.url`)}
               />
             )}
           </li>
@@ -102,7 +102,7 @@ export async function generateMetadata({ params }) {
     locale,
     title: t('metaTitle'),
     description: t('metaDescription'),
-    pathname: t('pages.index.pathname'),
+    pathname: t('pages:index.pathname'),
   });
 }
 
