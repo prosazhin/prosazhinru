@@ -1,12 +1,9 @@
-const skills = [
-  {
-    type: 'about',
+const skills = {
+  about: {
     title: false,
     tools: [],
-    matrix: false,
   },
-  {
-    type: 'design',
+  design: {
     title: true,
     tools: [
       'Figma',
@@ -18,10 +15,9 @@ const skills = [
       'Amplitude',
       'Mixpanel',
     ],
-    matrix: true,
+    matrixUrl: '/designer',
   },
-  {
-    type: 'frontend',
+  frontend: {
     title: true,
     tools: [
       'JavaScript',
@@ -58,10 +54,9 @@ const skills = [
       'Axios',
       'Storybook',
     ],
-    matrix: true,
+    matrixUrl: '/developer',
   },
-  {
-    type: 'html',
+  html: {
     title: true,
     tools: [
       'HTML',
@@ -75,10 +70,8 @@ const skills = [
       'Grid',
       'Animations',
     ],
-    matrix: false,
   },
-  {
-    type: 'dev',
+  dev: {
     title: true,
     tools: [
       'VSCode',
@@ -104,8 +97,7 @@ const skills = [
       'Semrush',
       'Screaming Frog',
     ],
-    matrix: false,
   },
-];
+};
 
 export default skills;

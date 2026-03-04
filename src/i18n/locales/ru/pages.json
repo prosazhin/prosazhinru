@@ -1,36 +1,28 @@
 {
   "index": {
     "title": "Дизайнер и фронтенд разработчик. Проектирую интерфейсы, которые могу сделать сам. Программирую то что запроектировал.",
-    "description": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические подборки. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>.",
-    "pathname": "/"
+    "description": "Собираю <a href='/links' target='_self'>полезные ссылки</a> и составляю из них тематические подборки. Иногда пишу <a href='/posts' target='_self'>заметки</a> и делаю свои <a href='/projects' target='_self'>проекты</a>."
   },
   "career": {
-    "title": "Моя карьера",
-    "pathname": "/career"
+    "title": "Моя карьера"
   },
   "designer": {
-    "title": "Матрица компетенций дизайнера",
-    "pathname": "/designer"
+    "title": "Матрица компетенций дизайнера"
   },
   "developer": {
-    "title": "Матрица компетенций разработчика",
-    "pathname": "/developer"
+    "title": "Матрица компетенций разработчика"
   },
   "projects": {
-    "title": "Проекты",
-    "pathname": "/projects"
+    "title": "Проекты"
   },
   "links": {
-    "title": "Полезные ссылки",
-    "pathname": "/links"
+    "title": "Полезные ссылки"
   },
   "compilations": {
-    "title": "Подборки ссылок",
-    "pathname": "/compilations"
+    "title": "Подборки ссылок"
   },
   "posts": {
-    "title": "Заметки",
-    "pathname": "/posts"
+    "title": "Заметки"
   },
   "notFound": {
     "title": "Нет такой страницы"

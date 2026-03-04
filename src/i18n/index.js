@@ -28,7 +28,7 @@ export const initTranslations = async (locale, i18nInstance, resources) => {
     supportedLngs: i18nConfig.locales,
     defaultNS: 'common',
     fallbackNS: 'common',
-    ns: ['common', 'pages', 'career', 'skills', 'matrix'],
+    ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix'],
     preload: resources ? [] : i18nConfig.locales,
   });
 

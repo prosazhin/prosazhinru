@@ -1,9 +1,17 @@
 import { i18nConfig } from '@/i18n';
-import { i18nRouter } from 'next-i18n-router';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export function proxy(request: NextRequest) {
-  return i18nRouter(request, i18nConfig);
+  const locale = request.cookies.get('NEXT_LOCALE')?.value;
+  if (!locale || !i18nConfig.locales.includes(locale)) {
+    const response = NextResponse.next();
+    response.cookies.set('NEXT_LOCALE', i18nConfig.defaultLocale, {
+      path: '/',
+      maxAge: 365 * 24 * 60 * 60,
+    });
+    return response;
+  }
+  return NextResponse.next();
 }
 
 export const config = {

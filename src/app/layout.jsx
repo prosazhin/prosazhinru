@@ -1,24 +1,21 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import ScrollToTop from '@/components/ScrollToTop';
 import ToTop from '@/components/ToTop';
 import TranslationsProvider from '@/components/TranslationsProvider';
-import { i18nConfig, initTranslations } from '@/i18n';
+import { initTranslations } from '@/i18n';
 import '@/styles/globals.css';
+import { getLocale } from '@/utils/get-locale';
 import { PBCProvider } from '@pbcomponents/react';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
-import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
-const RootLayout = async ({ children, params }) => {
-  const { locale } = await params;
+const RootLayout = async ({ children }) => {
+  const locale = await getLocale();
   const { resources } = await initTranslations(locale);
-
-  if (!i18nConfig.locales.includes(locale)) {
-    notFound();
-  }
 
   return (
     <html
@@ -51,6 +48,7 @@ const RootLayout = async ({ children, params }) => {
             <Footer locale={locale} />
           </PBCProvider>
         </TranslationsProvider>
+        <ScrollToTop />
         <ToTop />
       </body>
     </html>

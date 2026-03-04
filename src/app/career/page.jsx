@@ -1,14 +1,15 @@
 import Contacts from '@/components/Contacts';
 import LeftAside from '@/components/aside';
-import career from '@/data/career';
+import careerByType from '@/data/career';
 import { initTranslations } from '@/i18n';
 import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
+import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
 import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
 import clsx from 'clsx';
 
-const CareerPage = async ({ params }) => {
-  const { locale } = await params;
+const CareerPage = async () => {
+  const locale = await getLocale();
   const { t } = await initTranslations(locale);
   const wrapperId = 'careerList';
 
@@ -18,9 +19,9 @@ const CareerPage = async ({ params }) => {
       leftAside={
         <LeftAside
           wrapperId={wrapperId}
-          data={career.map(({ type }) => ({
-            title: t(`career:${type}.titleForAside`),
-            type: type,
+          data={t('career:entries', { returnObjects: true }).map(({ type, titleForAside }) => ({
+            type,
+            title: titleForAside,
           }))}
         />
       }
@@ -45,7 +46,7 @@ const CareerPage = async ({ params }) => {
       </Tabs>
       <span
         className={clsx(
-          'text-h64 hidden print:mt-420 print:!block print:pt-20',
+          'text-h64 hidden print:mt-420 print:block! print:pt-20',
           locale === 'en' && 'print:pt-50'
         )}
       >
@@ -55,17 +56,21 @@ const CareerPage = async ({ params }) => {
         className='mt-40 flex w-full flex-col gap-y-16'
         id={wrapperId}
       >
-        {career.map(({ type, url, positions, dateFrom, dateTo, dismissal }, index) => {
+        {t('career:entries', { returnObjects: true }).map((entry, index) => {
+          const extra = careerByType[entry.type];
+          if (!extra) return null;
+          const { url, positions, dateFrom, dateTo } = extra;
           const formatDateFrom = ucFirst(getFormatJobDate(dateFrom, locale));
           const formatDateTo =
             dateTo === 'now' ? t('now') : ucFirst(getFormatJobDate(dateTo, locale));
           const diffDate = getDiffJobDate(dateFrom, dateTo === 'now' ? new Date() : dateTo, locale);
+          const hasDismissal = entry.dismissal && String(entry.dismissal).trim().length > 0;
 
           return (
             <section
               className='border-secondary-lighter rounded-16 flex w-full scroll-mt-96 flex-col gap-y-16 border-1 px-32 py-24'
               key={index}
-              id={type}
+              id={entry.type}
             >
               <div className='flex w-full flex-col gap-y-8'>
                 <h2 className='text-h32 text-basic-main link w-full'>
@@ -75,10 +80,10 @@ const CareerPage = async ({ params }) => {
                       target='_blank'
                       rel='noreferrer'
                     >
-                      {t(`career:${type}.title`)}
+                      {entry.title}
                     </a>
                   ) : (
-                    <>{t(`career:${type}.title`)}</>
+                    <>{entry.title}</>
                   )}
                 </h2>
                 <span className='text-t16 text-basic-light w-full'>
@@ -86,21 +91,23 @@ const CareerPage = async ({ params }) => {
                 </span>
               </div>
               <ul className='flex w-full flex-col gap-y-16'>
-                {positions.map((position, index) => (
-                  <li
-                    className='mt-[4px] mr-[4px]'
-                    key={index}
-                  >
-                    <h3 className='text-tm20 text-basic-main w-full'>
-                      {t(`career:positions.${position.type}`)}
-                    </h3>
-                    <p className='text-t16 text-basic-main mt-4 w-full'>
-                      {t(`career:${type}.positions.${position.type}`)}
-                    </p>
-                    {position.hasDetails && (
-                      <ul className='mt-4 flex w-full flex-col gap-4'>
-                        {t(`career:${type}.details.${position.type}`, { returnObjects: true }).map(
-                          (item, i) => (
+                {positions.map((position, posIndex) => {
+                  const detailsList = entry.details?.[position.type];
+                  const hasDetails = Array.isArray(detailsList) && detailsList.length > 0;
+                  return (
+                    <li
+                      className='mt-4 mr-4'
+                      key={posIndex}
+                    >
+                      <h3 className='text-tm20 text-basic-main w-full'>
+                        {t(`career:positions.${position.type}`)}
+                      </h3>
+                      <p className='text-t16 text-basic-main mt-4 w-full'>
+                        {entry.positions?.[position.type] ?? ''}
+                      </p>
+                      {hasDetails && (
+                        <ul className='mt-4 flex w-full flex-col gap-4'>
+                          {detailsList.map((item, i) => (
                             <li
                               key={i}
                               className='flex gap-x-8'
@@ -111,33 +118,31 @@ const CareerPage = async ({ params }) => {
                                 dangerouslySetInnerHTML={{ __html: item }}
                               />
                             </li>
-                          )
-                        )}
+                          ))}
+                        </ul>
+                      )}
+                      <ul className='mt-12 flex w-full flex-row flex-wrap gap-4'>
+                        {position.stack.map((tool) => (
+                          <li key={tool}>
+                            <Badge
+                              size='s'
+                              color='secondary'
+                              theme='light'
+                              className='print:border-secondary-light print:border'
+                            >
+                              {tool}
+                            </Badge>
+                          </li>
+                        ))}
                       </ul>
-                    )}
-                    <ul className='mt-12 flex w-full flex-row flex-wrap gap-4'>
-                      {position.stack.map((tool) => (
-                        <li key={tool}>
-                          <Badge
-                            size='s'
-                            color='secondary'
-                            theme='light'
-                            className='print:border-secondary-light print:border-1'
-                          >
-                            {tool}
-                          </Badge>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ul>
-              {dismissal && (
+              {hasDismissal && (
                 <div className='flex w-full flex-col'>
                   <span className='text-t12 text-basic-light w-full'>{t('dismissal')}:</span>
-                  <span className='text-tm16 text-basic-main w-full'>
-                    {t(`career:${type}.dismissal`)}
-                  </span>
+                  <span className='text-tm16 text-basic-main w-full'>{entry.dismissal}</span>
                 </div>
               )}
             </section>
@@ -148,15 +153,15 @@ const CareerPage = async ({ params }) => {
   );
 };
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
+export async function generateMetadata() {
+  const locale = await getLocale();
   const { t } = await initTranslations(locale);
 
   return getMetadata({
     locale,
     title: `${t('pages:career.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages:career.pathname'),
+    pathname: '/career',
   });
 }
 

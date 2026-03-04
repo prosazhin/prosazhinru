@@ -2,7 +2,7 @@
 
 import { LangType, MatrixType } from '@/types';
 import { Badge } from '@pbcomponents/react';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const getRating = (locale: LangType, value: number) => {
@@ -14,9 +14,8 @@ const getRating = (locale: LangType, value: number) => {
 
 const CategoryList = ({ matrix, locale }: MatrixType) => {
   const { t } = useTranslation();
-  const [totalRating, setTotalRating] = useState<string>('');
 
-  const categories = useMemo(() => {
+  const { categories, totalRating } = useMemo(() => {
     const result = [...matrix.category];
 
     const total = matrix.category.reduce((acc, { competencies }, index) => {
@@ -26,9 +25,7 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
       return acc + summary;
     }, 0);
 
-    setTotalRating(getRating(locale, total));
-
-    return result;
+    return { categories: result, totalRating: getRating(locale, total) };
   }, [matrix, locale]);
 
   if (!categories.length) {

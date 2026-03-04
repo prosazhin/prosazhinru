@@ -1,13 +1,25 @@
+import matrixData from '@/data/matrix';
 import { initTranslations } from '@/i18n';
-import { matrixMethods } from '@/lib/api';
+import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
 import { Tab, Tabs } from '@pbcomponents/react';
 import CategoryList from '../components/List';
 
-const DeveloperPage = async ({ params }) => {
-  const { locale } = await params;
-  const matrix = await matrixMethods.getOne('developer', locale);
+const DeveloperPage = async () => {
+  const locale = await getLocale();
   const { t } = await initTranslations(locale);
+
+  const type = 'developer';
+  const category = t(`matrix:${type}`, { returnObjects: true }).map((cat, index) => ({
+    id: String(index),
+    title: cat.title,
+    competencies: cat.competencies.map((comp) => ({
+      id: comp.id,
+      title: comp.title,
+      rating: matrixData[type][comp.id] ?? 0,
+    })),
+  }));
+  const matrix = { type, category };
 
   return (
     <>
@@ -32,15 +44,15 @@ const DeveloperPage = async ({ params }) => {
   );
 };
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
+export async function generateMetadata() {
+  const locale = await getLocale();
   const { t } = await initTranslations(locale);
 
   return getMetadata({
     locale,
     title: `${t('pages:developer.title')} | ${t('metaTitle')}`,
     description: t('metaDescription'),
-    pathname: t('pages:developer.pathname'),
+    pathname: '/developer',
   });
 }
 

@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "slug": "get-offer-ru",
+      "title": "get-offer.ru",
+      "description": "A service for collaborative candidate skill assessment"
+    },
+    {
+      "slug": "pbcomponents",
+      "title": "pbcomponents",
+      "description": "prosazhin basic components"
+    },
+    { "slug": "pbstyles", "title": "pbstyles", "description": "prosazhin basic styles" },
+    {
+      "slug": "prosazhin-ru",
+      "title": "prosazhin.ru",
+      "description": "My platform for experiments"
+    },
+    {
+      "slug": "mixin-dictionary",
+      "title": "Mixin Dictionary",
+      "description": "Creating mixins from design tokens for LESS and SCSS"
+    },
+    {
+      "slug": "tailwind-dictionary",
+      "title": "Tailwind Dictionary",
+      "description": "Creating a Tailwind Theme from design tokens"
+    },
+    {
+      "slug": "bank-money-time",
+      "title": "Bank Money Time",
+      "description": "Interface design for a banking application of the future that allows transfers across time"
+    },
+    {
+      "slug": "telegram-assistent-bot",
+      "title": "telegram assistent bot",
+      "description": "Assistant for daily reminders of important information in a group chat"
+    },
+    {
+      "slug": "telegram-access-permission-bot",
+      "title": "telegram access permission bot",
+      "description": "Bot for obtaining access to a closed chat"
+    },
+    {
+      "slug": "shake-to-mind",
+      "title": "Shake to mind",
+      "description": "Assistant for memorizing text"
+    }
+  ]
+}

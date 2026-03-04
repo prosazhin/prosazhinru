@@ -7,12 +7,12 @@
   "dismissal": "Reason for leaving",
   "metaTitle": "Evgenii Sazhin — Designer & Frontend developer",
   "metaDescription": "Evgenii Sazhin — Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
-  "nav": {
-    "projects": "Projects",
-    "links": "Useful links",
-    "posts": "Posts",
-    "about": "About myself"
-  },
+  "nav": [
+    { "type": "projects", "title": "Projects" },
+    { "type": "links", "title": "Useful links" },
+    { "type": "posts", "title": "Posts" },
+    { "type": "about", "title": "About myself" }
+  ],
   "goToHome": "Return to the homepage",
   "download": "Download CV",
   "locales": {
@@ -24,21 +24,21 @@
     "about": [
       {
         "title": "About myself",
-        "url": "/en"
+        "url": "/"
       },
       {
         "title": "My career",
-        "url": "/en/career"
+        "url": "/career"
       }
     ],
     "matrix": [
       {
         "title": "Designer",
-        "url": "/en/designer"
+        "url": "/designer"
       },
       {
         "title": "Developer",
-        "url": "/en/developer"
+        "url": "/developer"
       }
     ]
   },

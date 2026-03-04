@@ -4,16 +4,13 @@ import { getYearsDiff } from '@/utils/formatter';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { Button } from '@pbcomponents/react';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const AsideProfile = () => {
   const { t } = useTranslation();
-  const params = useParams();
-  const locale = (params?.locale as string) || 'ru';
 
   const downloadCV = () => {
-    fetch(`/api/cv/${locale}`)
+    fetch('/api/cv')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to generate CV');
@@ -29,7 +26,7 @@ const AsideProfile = () => {
         window.URL.revokeObjectURL(fileURL);
       })
       .catch(() => {
-        window.open(`/api/cv/${locale}`, '_blank');
+        window.open('/api/cv', '_blank');
       });
   };
 

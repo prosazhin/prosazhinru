@@ -1,11 +1,11 @@
-const career = [
-  {
-    type: '15web',
+const career = {
+  '15web': {
     url: 'https://www.15web.ru',
+    dateFrom: '2024-12-12',
+    dateTo: 'now',
     positions: [
       {
         type: 'frontendLead',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -39,21 +39,16 @@ const career = [
       },
       {
         type: 'design',
-        hasDetails: true,
         stack: ['Figma'],
       },
     ],
-    dateFrom: '2024-12-12',
-    dateTo: 'now',
-    dismissal: true,
   },
-  {
-    type: 'opensource',
-    url: false,
+  opensource: {
+    dateFrom: '2024-05-25',
+    dateTo: '2024-12-12',
     positions: [
       {
         type: 'frontend',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -87,20 +82,17 @@ const career = [
       },
       {
         type: 'design',
-        hasDetails: true,
         stack: ['Figma', 'Notion'],
       },
     ],
-    dateFrom: '2024-05-25',
-    dateTo: '2024-12-12',
   },
-  {
-    type: 'pixelpoint',
+  pixelpoint: {
     url: 'https://pixelpoint.io',
+    dateFrom: '2023-04-25',
+    dateTo: '2024-05-24',
     positions: [
       {
         type: 'frontend',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -137,17 +129,14 @@ const career = [
         ],
       },
     ],
-    dateFrom: '2023-04-25',
-    dateTo: '2024-05-24',
-    dismissal: true,
   },
-  {
-    type: 'ipgate',
+  ipgate: {
     url: 'https://ipgate.io/',
+    dateFrom: '2022-10-19',
+    dateTo: '2023-03-31',
     positions: [
       {
         type: 'frontend',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'Vue',
@@ -174,21 +163,17 @@ const career = [
       },
       {
         type: 'design',
-        hasDetails: true,
         stack: ['Figma'],
       },
     ],
-    dateFrom: '2022-10-19',
-    dateTo: '2023-03-31',
-    dismissal: true,
   },
-  {
-    type: 'sellmonitor',
+  sellmonitor: {
     url: 'https://sellmonitor.com/',
+    dateFrom: '2021-12-20',
+    dateTo: '2022-09-22',
     positions: [
       {
         type: 'frontend',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'React',
@@ -214,22 +199,18 @@ const career = [
         ],
       },
     ],
-    dateFrom: '2021-12-20',
-    dateTo: '2022-09-22',
-    dismissal: true,
   },
-  {
-    type: 'regru',
+  regru: {
     url: 'https://www.reg.ru/',
+    dateFrom: '2018-10-01',
+    dateTo: '2021-12-17',
     positions: [
       {
         type: 'design',
-        hasDetails: true,
         stack: ['Figma', 'Miro', 'Notion'],
       },
       {
         type: 'frontend',
-        hasDetails: true,
         stack: [
           'JavaScript',
           'Vue',
@@ -256,22 +237,18 @@ const career = [
         ],
       },
     ],
-    dateFrom: '2018-10-01',
-    dateTo: '2021-12-17',
-    dismissal: true,
   },
-  {
-    type: 'suplbiz',
+  suplbiz: {
     url: 'https://supl.biz/',
+    dateFrom: '2016-10-01',
+    dateTo: '2018-10-01',
     positions: [
       {
         type: 'design',
-        hasDetails: false,
         stack: ['Figma', 'Adobe Photoshop'],
       },
       {
         type: 'frontend',
-        hasDetails: false,
         stack: [
           'JavaScript',
           'React',
@@ -297,17 +274,14 @@ const career = [
         ],
       },
     ],
-    dateFrom: '2016-10-01',
-    dateTo: '2018-10-01',
-    dismissal: true,
   },
-  {
-    type: 'franbazar',
+  franbazar: {
     url: 'http://franbazar.com/',
+    dateFrom: '2016-05-01',
+    dateTo: '2016-10-01',
     positions: [
       {
         type: 'html',
-        hasDetails: false,
         stack: [
           'JavaScript',
           'HTML',
@@ -324,46 +298,35 @@ const career = [
       },
       {
         type: 'design',
-        hasDetails: false,
         stack: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator'],
       },
     ],
-    dateFrom: '2016-05-01',
-    dateTo: '2016-10-01',
-    dismissal: true,
   },
-  {
-    type: 'pixlpark',
+  pixlpark: {
     url: 'https://pixlpark.ru/',
+    dateFrom: '2014-02-01',
+    dateTo: '2016-05-01',
     positions: [
       {
         type: 'design',
-        hasDetails: false,
         stack: ['Adobe Photoshop', 'Adobe Illustrator'],
       },
       {
         type: 'html',
-        hasDetails: false,
         stack: ['JavaScript', 'HTML', 'CSS', 'Flexbox', 'Animations', 'Terminal'],
       },
     ],
-    dateFrom: '2014-02-01',
-    dateTo: '2016-05-01',
-    dismissal: true,
   },
-  {
-    type: 'freelance',
-    url: false,
+  freelance: {
+    dateFrom: '2011-01-01',
+    dateTo: '2014-02-01',
     positions: [
       {
         type: 'design',
-        hasDetails: false,
         stack: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign'],
       },
     ],
-    dateFrom: '2011-01-01',
-    dateTo: '2014-02-01',
   },
-];
+};
 
 export default career;

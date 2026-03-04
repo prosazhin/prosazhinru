@@ -60,7 +60,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
                   href={link.url}
                   target='_blank'
                   rel='noreferrer'
-                  className='!relative !z-20'
+                  className='relative! z-20!'
                 >
                   {link.title}
                 </Tag>
@@ -83,7 +83,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
             sizes[size],
             accent
               ? 'desktop:px-40 desktop:pt-32 desktop:pb-40 bg-basic-lightest hover:bg-primary-lighter print:border-secondary-lighter px-24 pt-20 pb-24 print:border-1'
-              : 'border-secondary-lighter hover:border-primary-main border-1 px-24 pt-20 pb-24'
+              : 'border-secondary-lighter hover:border-primary-main border px-24 pt-20 pb-24'
           )}
         >
           <div
@@ -131,7 +131,7 @@ const ProjectList = ({ projects }: { projects: ProjectType[] }) => {
                   href={link.url}
                   target='_blank'
                   rel='noreferrer'
-                  className='!relative !z-20'
+                  className='relative! z-20!'
                 >
                   {link.title}
                 </Tag>

@@ -2,7 +2,7 @@
 
 ## Обзор проекта
 
-Персональный сайт [prosazhin.ru](https://prosazhin.ru) — мультиязычный (ru/en) портфолио-сайт на Next.js App Router с данными из Contentful CMS.
+Персональный сайт [prosazhin.ru](https://prosazhin.ru) — мультиязычный (ru/en) портфолио-сайт на Next.js App Router со статическими данными из `src/data/`.
 
 ## Технологический стек
 
@@ -11,33 +11,34 @@
 - **React:** 19
 - **Styling:** Tailwind CSS 4 + pbstyles (кастомная тема)
 - **UI:** @pbcomponents/react, @heroicons/react, clsx
-- **CMS:** Contentful (headless)
-- **i18n:** i18next + react-i18next + next-i18n-router
+- **i18n:** i18next + react-i18next (локаль в cookie)
 - **Deploy:** Vercel (standalone output)
-- **Node.js:** >=22.22.0
+- **Node.js:** 24.x
 
 ## Структура проекта
 
 ```
 src/
-├── app/[locale]/          # Страницы (App Router, динамическая локаль)
+├── app/                   # Страницы (App Router)
 │   ├── layout.jsx         # Root layout
 │   ├── page.jsx           # Главная
 │   ├── career/            # Карьера
-│   ├── posts/             # Заметки (Contentful)
-│   ├── projects/          # Проекты (Contentful)
-│   ├── links/             # Ссылки (Contentful)
-│   ├── (matrix)/          # Route group — матрицы компетенций
-│   └── [...not-found]/    # 404
+│   ├── posts/             # Заметки
+│   ├── projects/          # Проекты
+│   ├── links/             # Ссылки
+│   ├── (matrix)/          # Route group — матрицы компетенций (designer, developer)
+│   ├── api/cv/            # API: генерация PDF резюме
+│   ├── not-found.jsx      # 404
+│   └── [...not-found]/    # Catch-all 404
 ├── components/            # React-компоненты
 │   └── aside/             # Боковая панель
 ├── data/                  # Статические данные (JS)
 ├── hooks/                 # Custom React hooks
 ├── i18n/                  # Конфигурация i18next + locales (ru, en)
-├── lib/                   # Contentful API клиент и методы
+├── lib/                   # Вспомогательные модули
 ├── styles/                # globals.css (Tailwind + pbstyles)
-├── utils/                 # Утилиты (formatter, get-metadata, get-query)
-├── proxy.ts               # i18n middleware
+├── utils/                 # Утилиты (formatter, get-metadata, get-query, get-locale)
+├── proxy.ts               # i18n middleware (cookie NEXT_LOCALE)
 └── types.ts               # TypeScript типы
 ```
 
@@ -79,23 +80,14 @@ src/
 
 ## Работа с данными
 
-### Contentful CMS
-
-- Класс `API` в `src/lib/contentful.js` — обёртка над Contentful SDK
-- Методы запросов в `src/lib/api.js`: `matrixMethods`, `tagsMethods`, `linksMethods`, `compilationsMethods`, `postsMethods`, `projectsMethods`
-- Нормализация через `getObject()` — маппинг полей Contentful в плоские объекты
-- Данные загружаются в Server Components через async/await
-
-### Статические данные
-
-- `src/data/` — навигация, навыки, карьера, контакты (JS-файлы)
+- `src/data/` — статические данные в JS-файлах: `nav.js`, `skills.js`, `career.js`, `contacts.js`, `posts.js`, `projects.js`, `links.js`, `compilations.js`, `tags.js`, `matrix.js`
 
 ## Интернационализация
 
 - Два языка: `ru` (default), `en`
-- Роутинг через `[locale]` сегмент в App Router
-- Middleware: `src/proxy.ts` (next-i18n-router)
-- Переводы: `src/i18n/locales/{ru,en}/main.json`
+- Локаль хранится в cookie `NEXT_LOCALE`; чтение на сервере: `getLocale()` из `src/utils/get-locale.ts`
+- Middleware: `src/proxy.ts` (установка cookie по умолчанию)
+- Переводы: `src/i18n/locales/{ru,en}/*.json` (common, pages, projects, career, skills, matrix)
 - Инициализация: `initTranslations(locale)` → `{ t, resources }`
 - Client-компоненты оборачиваются в `<TranslationsProvider>`
 
@@ -107,7 +99,7 @@ src/
 
 ## Линтинг и форматирование
 
-- **ESLint 10:** `eslint-config-next` (core-web-vitals + typescript) + Prettier
+- **ESLint 9:** `eslint-config-next` (core-web-vitals + typescript) + Prettier
 - **Prettier:** single quotes, trailing comma es5, print width 100, single attribute per line
 - **Git hooks:** `simple-git-hooks` + `lint-staged` (Prettier + ESLint на pre-commit)
 - **Commits:** conventional commits через `commitlint`
@@ -124,6 +116,4 @@ src/
 
 ## Переменные окружения
 
-- `NEXT_PUBLIC_CONTENTFUL_SPACE_ID` — Contentful Space ID
-- `NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN` — Contentful Access Token
 - `NEXT_PUBLIC_NODE_ENV` — окружение

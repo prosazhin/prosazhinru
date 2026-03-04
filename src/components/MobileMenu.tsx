@@ -14,7 +14,7 @@ const MobileMenu = () => {
         color='secondary'
         theme='ghost'
         leftIcon={Bars2Icon}
-        className='desktop:!hidden'
+        className='desktop:hidden!'
         onClick={() => showDialog({ children: <Nav />, id: 'mobile-menu' })}
       />
     </>

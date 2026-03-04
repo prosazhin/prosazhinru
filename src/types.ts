@@ -36,7 +36,6 @@ export type MatrixCategoryType = {
 export type MatrixType = {
   locale: LangType;
   matrix: {
-    id: string;
     type: string;
     category: MatrixCategoryType[];
   };

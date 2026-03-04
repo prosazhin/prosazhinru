@@ -14,7 +14,7 @@ const Header = ({ locale }: { locale: LangType }) => (
       <div className='flex w-full flex-row items-center gap-x-24'>
         <div className='inline-flex h-40 flex-1 items-center justify-start'>
           <NextLink
-            href={`/${locale}`}
+            href='/'
             className='h-40 w-auto no-underline'
           >
             <Image

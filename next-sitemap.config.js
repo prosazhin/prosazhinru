@@ -9,15 +9,7 @@ const data = [
     priority: 1.0,
   },
   {
-    path: '/en',
-    priority: 1.0,
-  },
-  {
     path: '/career',
-    priority: 0.9,
-  },
-  {
-    path: '/en/career',
     priority: 0.9,
   },
   {
@@ -25,15 +17,7 @@ const data = [
     priority: 0.8,
   },
   {
-    path: '/en/designer',
-    priority: 0.8,
-  },
-  {
     path: '/developer',
-    priority: 0.8,
-  },
-  {
-    path: '/en/developer',
     priority: 0.8,
   },
   {
@@ -41,23 +25,11 @@ const data = [
     priority: 0.8,
   },
   {
-    path: '/en/projects',
-    priority: 0.8,
-  },
-  {
     path: '/posts',
     priority: 0.7,
   },
   {
-    path: '/en/posts',
-    priority: 0.7,
-  },
-  {
     path: '/links',
-    priority: 0.7,
-  },
-  {
-    path: '/en/links',
     priority: 0.7,
   },
 ];

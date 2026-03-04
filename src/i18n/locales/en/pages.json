@@ -1,36 +1,28 @@
 {
   "index": {
     "title": "Designer & Frontend developer. I design interfaces that I can implement myself. I program what I have designed.",
-    "description": "I collect <a href='/en/links' target='_self'>useful links</a> and create thematic compilations from them. Sometimes I write <a href='/en/posts' target='_self'>notes</a> and work on my <a href='/en/projects' target='_self'>projects</a>.",
-    "pathname": "/en"
+    "description": "I collect <a href='/links' target='_self'>useful links</a> and create thematic compilations from them. Sometimes I write <a href='/posts' target='_self'>notes</a> and work on my <a href='/projects' target='_self'>projects</a>."
   },
   "career": {
-    "title": "My career",
-    "pathname": "/en/career"
+    "title": "My career"
   },
   "designer": {
-    "title": "Designer competency matrix",
-    "pathname": "/en/designer"
+    "title": "Designer competency matrix"
   },
   "developer": {
-    "title": "Developer competency matrix",
-    "pathname": "/en/developer"
+    "title": "Developer competency matrix"
   },
   "projects": {
-    "title": "Projects",
-    "pathname": "/en/projects"
+    "title": "Projects"
   },
   "links": {
-    "title": "Useful links",
-    "pathname": "/en/links"
+    "title": "Useful links"
   },
   "compilations": {
-    "title": "Link compilations",
-    "pathname": "/en/compilations"
+    "title": "Link compilations"
   },
   "posts": {
-    "title": "Posts",
-    "pathname": "/en/posts"
+    "title": "Posts"
   },
   "notFound": {
     "title": "No such page"

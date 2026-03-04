@@ -1,29 +1,21 @@
 'use client';
 
 import { i18nConfig } from '@/i18n';
+import { setLocaleCookie } from '@/utils/set-locale-cookie';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import { Button, Dropdown, DropdownItem } from '@pbcomponents/react';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LangSwitch = () => {
-  const [currentUrl, setCurrentUrl] = useState<string | null>(null);
-  const pathname = usePathname();
   const {
     t,
     i18n: { language: lang },
   } = useTranslation();
 
-  useEffect(() => {
-    let result: string | null = pathname;
-
-    if (pathname === '/' || pathname === '/en') {
-      result = '/';
-    }
-
-    setCurrentUrl(result ? result.replace(`/${lang}`, '') : '/');
-  }, [pathname, lang]);
+  const switchLocale = (newLocale: string) => {
+    setLocaleCookie(newLocale);
+    window.location.reload();
+  };
 
   return (
     <Dropdown
@@ -43,7 +35,7 @@ const LangSwitch = () => {
       {i18nConfig.locales.map((item: string) => (
         <DropdownItem
           key={item}
-          href={`/${item}${currentUrl}`}
+          onClick={() => switchLocale(item)}
           leftIcon={lang === item ? CheckIcon : undefined}
           leftIconClassName='!text-primary-darker'
         >

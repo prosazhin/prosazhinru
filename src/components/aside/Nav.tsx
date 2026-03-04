@@ -4,25 +4,21 @@ import useHash from '@/hooks/use-hash';
 import clsx from 'clsx';
 import Link from 'next/link';
 
-const AsideNav = ({
-  data,
-  wrapperId,
-}: {
-  data: { title: string; type: string }[];
-  wrapperId: string;
-}) => {
+type NavItem = { type: string; title: string };
+
+const AsideNav = ({ wrapperId, items }: { wrapperId: string; items: NavItem[] }) => {
   const hash = useHash(wrapperId);
 
   return (
-    <ul className='border-secondary-lighter hidden w-full flex-col gap-y-8 border-t-1 pt-32 xl:flex print:hidden'>
-      {data.map(({ title, type }, index) => (
-        <li key={index}>
+    <ul className='border-secondary-lighter hidden w-full flex-col gap-y-8 border-t pt-32 xl:flex print:hidden'>
+      {items.map(({ title, type }) => (
+        <li key={type}>
           <Link
             href={`#${type}`}
             scroll={true}
             className={clsx(
               'text-tm16 text-basic-light hover:text-primary-darker transition-colors duration-150',
-              (type === hash || (type === data[0].type && !hash?.length)) && '!text-basic-main'
+              (type === hash || (type === items[0].type && !hash?.length)) && 'text-basic-main!'
             )}
           >
             {title}

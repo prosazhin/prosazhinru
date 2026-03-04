@@ -4,10 +4,7 @@ import { Button, Container } from '@pbcomponents/react';
 import { useTranslation } from 'react-i18next';
 
 const NotFoundContent = () => {
-  const {
-    t,
-    i18n: { language: lang },
-  } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Container size='s'>
@@ -17,7 +14,7 @@ const NotFoundContent = () => {
         color='secondary'
         theme='border'
         className='!mt-24'
-        href={`/${lang}`}
+        href='/'
       >
         {t('goToHome')}
       </Button>

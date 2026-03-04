@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "slug": "get-offer-ru",
+      "title": "get-offer.ru",
+      "description": "Сервис для совместной проверки навыков кандидатов"
+    },
+    {
+      "slug": "pbcomponents",
+      "title": "pbcomponents",
+      "description": "prosazhin basic components"
+    },
+    { "slug": "pbstyles", "title": "pbstyles", "description": "prosazhin basic styles" },
+    {
+      "slug": "prosazhin-ru",
+      "title": "prosazhin.ru",
+      "description": "Моя площадка для экспериментов"
+    },
+    {
+      "slug": "mixin-dictionary",
+      "title": "Mixin Dictionary",
+      "description": "Creating mixins from design tokens for LESS and SCSS"
+    },
+    {
+      "slug": "tailwind-dictionary",
+      "title": "Tailwind Dictionary",
+      "description": "Creating a Tailwind Theme from design tokens"
+    },
+    {
+      "slug": "bank-money-time",
+      "title": "Bank Money Time",
+      "description": "Интерфейс для банковского приложения будущего, в котором возможны переводы сквозь время"
+    },
+    {
+      "slug": "telegram-assistent-bot",
+      "title": "telegram assistent bot",
+      "description": "Ассистент для ежедневного напоминания важной информации в общем чате"
+    },
+    {
+      "slug": "telegram-access-permission-bot",
+      "title": "telegram access permission bot",
+      "description": "Бот для получения права доступа к закрытому чату"
+    },
+    {
+      "slug": "shake-to-mind",
+      "title": "Shake to mind",
+      "description": "Помощник для запоминания текста"
+    }
+  ]
+}

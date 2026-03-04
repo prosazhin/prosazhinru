@@ -1,20 +1,523 @@
 {
   "headline": "Levels of skill assessment",
-  "1": {
-    "title": "1. Awareness",
-    "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
-  },
-  "2": {
-    "title": "2. Skill",
-    "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
-  },
-  "3": {
-    "title": "3. Expertise",
-    "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
-  },
-  "4": {
-    "title": "4. Leadership",
-    "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
-  },
-  "matrixDescription": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)»<br /><a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>"
+  "levels": [
+    {
+      "title": "1. Awareness",
+      "description": "Understanding how a specialist works in this field, what tasks they perform, their workflow and tools, methods and practices, what peculiarities and limitations are imposed on them."
+    },
+    {
+      "title": "2. Skill",
+      "description": "The ability to solve basic tasks in the field, such as completing less critical parts of work under the guidance of a lead specialist, assembling a layout or prototype based on existing materials, making meaningful improvements to an existing document, etc."
+    },
+    {
+      "title": "3. Expertise",
+      "description": "Performing most tasks in the field of knowledge from start to finish, often independently. Ability to handle atypical situations."
+    },
+    {
+      "title": "4. Leadership",
+      "description": "The ability to transfer expertise to other team members, assist in training and professional growth of colleagues, develop tools and methods, and enhance overall culture. The opportunity to identify problematic situations in the project or process and assist in their resolution."
+    }
+  ],
+  "matrixDescription": "«To understand the current capabilities of the team as a whole, it is necessary to assess the specific skills of each designer (such as interface animation or expert evaluation)»<br /><a href='https://jvetrau.com/uxstrategy-4/' target='_blank'>Yuri Vetrov on interfaces</a>",
+  "designer": [
+    {
+      "title": "General skills",
+      "competencies": [
+        {
+          "id": "analytical-and-creative-thinking",
+          "title": "Analytical and creative thinking"
+        },
+        {
+          "id": "facilitation-of-meetings-brainstorming-sessions-critiques",
+          "title": "Facilitation of meetings, brainstorming sessions, critiques"
+        },
+        {
+          "id": "communication-and-teamwork",
+          "title": "Communication and teamwork"
+        }
+      ]
+    },
+    {
+      "title": "Analytics",
+      "competencies": [
+        {
+          "id": "understanding-of-the-domain-and-the-market",
+          "title": "Understanding of the domain and the market"
+        },
+        {
+          "id": "identification-and-tracking-of-interface-and-product-metrics",
+          "title": "Identification and tracking of interface and product metrics"
+        },
+        {
+          "id": "developing-and-validating-product-hypotheses",
+          "title": "Developing and validating product hypotheses"
+        },
+        {
+          "id": "statistics-analysis-and-visualization-of-large-volumes-of-data",
+          "title": "Statistics, analysis, and visualization of large volumes of data"
+        }
+      ]
+    },
+    {
+      "title": "User research and analytics",
+      "competencies": [
+        {
+          "id": "understanding-and-describing-users-personas-scenarios-customer-journey-maps-etc",
+          "title": "Understanding and describing users (personas, scenarios, customer journey maps, etc.)"
+        },
+        {
+          "id": "insight-and-needs-discovery",
+          "title": "Insight and Needs Discovery"
+        },
+        {
+          "id": "validation-of-design-solutions",
+          "title": "Validation of design solutions"
+        }
+      ]
+    },
+    {
+      "title": "Information architecture and interface design",
+      "competencies": [
+        {
+          "id": "designing-structure-and-navigation",
+          "title": "Designing structure and navigation"
+        },
+        {
+          "id": "designing-interface-screens-and-their-interactive-prototypes",
+          "title": "Designing interface screens and their interactive prototypes"
+        },
+        {
+          "id": "designing-interaction-outside-the-interface-service-design",
+          "title": "Designing interaction outside the interface (service design)"
+        },
+        {
+          "id": "description-of-interface-working-principles-and-patterns",
+          "title": "Description of interface working principles and patterns"
+        }
+      ]
+    },
+    {
+      "title": "Visual design",
+      "competencies": [
+        {
+          "id": "basic-skills-composition-and-grids-typography-color-theory",
+          "title": "Basic skills: composition and grids, typography, color theory"
+        },
+        {
+          "id": "iconography-and-illustrations",
+          "title": "Iconography and illustrations"
+        },
+        {
+          "id": "interface-animation-and-motion-design",
+          "title": "Interface animation and motion design"
+        },
+        {
+          "id": "creating-guidelines",
+          "title": "Creating guidelines"
+        },
+        {
+          "id": "data-visualization",
+          "title": "Data visualization"
+        },
+        {
+          "id": "identity-and-branding",
+          "title": "Identity and branding"
+        },
+        {
+          "id": "typography-design",
+          "title": "Typography design"
+        }
+      ]
+    },
+    {
+      "title": "Frontend",
+      "competencies": [
+        {
+          "id": "layout-html-css-javascript-and-interface-animation",
+          "title": "Layout (HTML, CSS, JavaScript) and interface animation"
+        },
+        {
+          "id": "working-with-data-sources",
+          "title": "Working with data sources"
+        },
+        {
+          "id": "setting-up-a-working-environment-for-testing-and-launching-services",
+          "title": "Setting up a working environment for testing and launching services"
+        },
+        {
+          "id": "optimization-performance-cross-browser-compatibility-etc",
+          "title": "Optimization (performance, cross-browser compatibility, etc.)"
+        }
+      ]
+    },
+    {
+      "title": "Content strategy and copywriting",
+      "competencies": [
+        {
+          "id": "micro-copywriting",
+          "title": "Micro-copywriting"
+        },
+        {
+          "id": "building-content-strategy-and-planning",
+          "title": "Building Content Strategy and Planning"
+        }
+      ]
+    },
+    {
+      "title": "Quality assurance",
+      "competencies": [
+        {
+          "id": "expert-evaluation",
+          "title": "Expert evaluation"
+        },
+        {
+          "id": "formal-quality-testing",
+          "title": "Formal quality testing"
+        }
+      ]
+    },
+    {
+      "title": "Marketing and PR",
+      "competencies": [
+        {
+          "id": "publications-and-presentations",
+          "title": "Publications and presentations"
+        },
+        {
+          "id": "search-engine-optimization-seo",
+          "title": "Search engine optimization (SEO)"
+        },
+        {
+          "id": "mobile-app-promotion",
+          "title": "Mobile app promotion"
+        }
+      ]
+    },
+    {
+      "title": "Project and Product Management",
+      "competencies": [
+        {
+          "id": "project-planning",
+          "title": "Project planning"
+        },
+        {
+          "id": "team-organization",
+          "title": "Team organization"
+        },
+        {
+          "id": "building-ux-strategy",
+          "title": "Building UX strategy"
+        }
+      ]
+    }
+  ],
+  "developer": [
+    {
+      "title": "Basics",
+      "competencies": [
+        {
+          "id": "analytics-services",
+          "title": "Analytics services"
+        },
+        {
+          "id": "authorization-and-authentication",
+          "title": "Authorization and Authentication"
+        },
+        {
+          "id": "algorithms",
+          "title": "Algorithms"
+        },
+        {
+          "id": "basics-of-unix",
+          "title": "Basics of UNIX"
+        },
+        {
+          "id": "docker",
+          "title": "Docker"
+        },
+        {
+          "id": "ide",
+          "title": "IDE"
+        },
+        {
+          "id": "markdown",
+          "title": "Markdown"
+        },
+        {
+          "id": "chrome-devtools",
+          "title": "Chrome Devtools"
+        }
+      ]
+    },
+    {
+      "title": "Internet",
+      "competencies": [
+        {
+          "id": "hosting-services",
+          "title": "Hosting services"
+        },
+        {
+          "id": "dns",
+          "title": "DNS"
+        },
+        {
+          "id": "ssh",
+          "title": "SSH"
+        },
+        {
+          "id": "http-protocol",
+          "title": "HTTP protocol"
+        },
+        {
+          "id": "cors",
+          "title": "CORS"
+        }
+      ]
+    },
+    {
+      "title": "HTML",
+      "competencies": [
+        {
+          "id": "basics",
+          "title": "Basics"
+        },
+        {
+          "id": "semantic-html",
+          "title": "Semantic HTML"
+        },
+        {
+          "id": "forms-and-validation",
+          "title": "Forms and validation"
+        },
+        {
+          "id": "accessibility",
+          "title": "Accessibility"
+        },
+        {
+          "id": "seo",
+          "title": "SEO"
+        }
+      ]
+    },
+    {
+      "title": "CSS",
+      "competencies": [
+        {
+          "id": "basics-2",
+          "title": "Basics"
+        },
+        {
+          "id": "making-layouts",
+          "title": "Making layouts"
+        },
+        {
+          "id": "responsive-design",
+          "title": "Responsive Design"
+        },
+        {
+          "id": "tailwind-css",
+          "title": "Tailwind CSS"
+        },
+        {
+          "id": "less",
+          "title": "Less"
+        },
+        {
+          "id": "scss",
+          "title": "SCSS"
+        },
+        {
+          "id": "postcss",
+          "title": "PostCSS"
+        },
+        {
+          "id": "bem",
+          "title": "BEM"
+        },
+        {
+          "id": "css-modules",
+          "title": "CSS modules"
+        },
+        {
+          "id": "css-in-js",
+          "title": "CSS-in-JS"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript",
+      "competencies": [
+        {
+          "id": "basics-3",
+          "title": "Basics"
+        },
+        {
+          "id": "dom",
+          "title": "DOM"
+        },
+        {
+          "id": "fetch-api-ajax",
+          "title": "Fetch API / Ajax"
+        },
+        {
+          "id": "typescript",
+          "title": "TypeScript"
+        }
+      ]
+    },
+    {
+      "title": "Frameworks",
+      "competencies": [
+        {
+          "id": "react",
+          "title": "React"
+        },
+        {
+          "id": "next",
+          "title": "Next"
+        },
+        {
+          "id": "vue-2",
+          "title": "Vue 2"
+        },
+        {
+          "id": "nuxt-2",
+          "title": "Nuxt 2"
+        },
+        {
+          "id": "vue-3",
+          "title": "Vue 3"
+        },
+        {
+          "id": "nuxt-3",
+          "title": "Nuxt 3"
+        },
+        {
+          "id": "angular",
+          "title": "Angular"
+        },
+        {
+          "id": "svelte",
+          "title": "Svelte"
+        }
+      ]
+    },
+    {
+      "title": "Version Control Systems and VCS Hosting",
+      "competencies": [
+        {
+          "id": "git",
+          "title": "Git"
+        },
+        {
+          "id": "github",
+          "title": "GitHub"
+        },
+        {
+          "id": "gitlab",
+          "title": "GitLab"
+        },
+        {
+          "id": "bitbucket",
+          "title": "Bitbucket"
+        }
+      ]
+    },
+    {
+      "title": "Package managers",
+      "competencies": [
+        {
+          "id": "npm",
+          "title": "NPM"
+        },
+        {
+          "id": "yarn",
+          "title": "Yarn"
+        },
+        {
+          "id": "bun",
+          "title": "Bun"
+        }
+      ]
+    },
+    {
+      "title": "Build tools",
+      "competencies": [
+        {
+          "id": "eslint",
+          "title": "ESLint"
+        },
+        {
+          "id": "prettier",
+          "title": "Prettier"
+        },
+        {
+          "id": "vite",
+          "title": "Vite"
+        },
+        {
+          "id": "webpack",
+          "title": "Webpack"
+        },
+        {
+          "id": "rollup",
+          "title": "Rollup"
+        },
+        {
+          "id": "parcel",
+          "title": "Parcel"
+        }
+      ]
+    },
+    {
+      "title": "Testing",
+      "competencies": [
+        {
+          "id": "jest",
+          "title": "Jest"
+        },
+        {
+          "id": "vitest",
+          "title": "Vitest"
+        },
+        {
+          "id": "playwright",
+          "title": "Playwright"
+        }
+      ]
+    },
+    {
+      "title": "Wep API",
+      "competencies": [
+        {
+          "id": "service-workers",
+          "title": "Service Workers"
+        },
+        {
+          "id": "web-workers",
+          "title": "Web Workers"
+        },
+        {
+          "id": "shared-workers",
+          "title": "Shared Workers"
+        },
+        {
+          "id": "local-session-storage",
+          "title": "Local & Session Storage"
+        },
+        {
+          "id": "iframe",
+          "title": "IFrame"
+        },
+        {
+          "id": "pwa",
+          "title": "PWA"
+        },
+        {
+          "id": "indexeddb",
+          "title": "IndexedDB"
+        }
+      ]
+    }
+  ]
 }
