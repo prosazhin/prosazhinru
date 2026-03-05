@@ -8,6 +8,29 @@ export const i18nConfig = {
   defaultLocale: 'ru',
 };
 
+/**
+ * Создаёт экземпляр i18n с resources и возвращает промис, резолвящийся когда init завершён.
+ * Важно дождаться init(), иначе useTranslation может вернуть некорректные данные
+ * и вызвать ошибку гидрации (разный вывод на сервере и клиенте).
+ */
+export function initClientI18n(locale, resources) {
+  const i18n = createInstance();
+  i18n.use(initReactI18next);
+
+  return i18n
+    .init({
+      lng: locale,
+      resources: resources || {},
+      fallbackLng: i18nConfig.defaultLocale,
+      supportedLngs: i18nConfig.locales,
+      defaultNS: 'common',
+      fallbackNS: 'common',
+      ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix'],
+      react: { useSuspense: false },
+    })
+    .then(() => i18n);
+}
+
 export const initTranslations = async (locale, i18nInstance, resources) => {
   i18nInstance = i18nInstance || createInstance();
 

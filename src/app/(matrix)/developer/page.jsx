@@ -1,4 +1,3 @@
-import matrixData from '@/data/matrix';
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
@@ -8,6 +7,7 @@ import CategoryList from '../components/List';
 const DeveloperPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const { default: matrixData } = await import('@/data/matrix');
 
   const type = 'developer';
   const category = t(`matrix:${type}`, { returnObjects: true }).map((cat, index) => ({

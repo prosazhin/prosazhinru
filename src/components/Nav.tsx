@@ -1,13 +1,18 @@
 'use client';
 
-import nav from '@/data/nav';
 import { useDialog } from '@pbcomponents/react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
-const Nav = ({ className }: { className?: string }) => {
+const Nav = ({
+  nav,
+  className,
+}: {
+  nav: Record<string, { url: string; active: string[] }>;
+  className?: string;
+}) => {
   const pathname = usePathname();
   const { t } = useTranslation();
   const { closeDialog } = useDialog();

@@ -1,7 +1,7 @@
 import { i18nConfig } from '@/i18n';
 import { NextRequest, NextResponse } from 'next/server';
 
-export function proxy(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const locale = request.cookies.get('NEXT_LOCALE')?.value;
   if (!locale || !i18nConfig.locales.includes(locale)) {
     const response = NextResponse.next();

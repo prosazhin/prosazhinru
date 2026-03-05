@@ -1,6 +1,5 @@
 import Contacts from '@/components/Contacts';
 import LeftAside from '@/components/aside';
-import careerByType from '@/data/career';
 import { initTranslations } from '@/i18n';
 import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
 import { getLocale } from '@/utils/get-locale';
@@ -11,6 +10,10 @@ import clsx from 'clsx';
 const CareerPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const [{ default: careerByType }, { default: contacts }] = await Promise.all([
+    import('@/data/career'),
+    import('@/data/contacts'),
+  ]);
   const wrapperId = 'careerList';
 
   return (
@@ -31,7 +34,7 @@ const CareerPage = async () => {
         className='text-t24 text-basic-main link mt-16'
         dangerouslySetInnerHTML={{ __html: t('pages:index.description') }}
       />
-      <Contacts />
+      <Contacts contacts={contacts} />
       <Tabs
         defaultIndex={1}
         className='mt-80 print:hidden'

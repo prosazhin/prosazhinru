@@ -8,7 +8,13 @@ import LangSwitch from '@/components/LangSwitch';
 import MobileMenu from '@/components/MobileMenu';
 import Nav from '@/components/Nav';
 
-const Header = ({ locale }: { locale: LangType }) => (
+const Header = ({
+  locale,
+  nav,
+}: {
+  locale: LangType;
+  nav: Record<string, { url: string; active: string[] }>;
+}) => (
   <header className='border-secondary-lighter group fixed top-0 z-40 block h-72 w-full border-b-1 bg-white py-16 transition-colors duration-150 print:relative'>
     <Container size='m'>
       <div className='flex w-full flex-row items-center gap-x-24'>
@@ -37,9 +43,12 @@ const Header = ({ locale }: { locale: LangType }) => (
         </div>
         <div className='flex flex-row items-center gap-x-24 print:hidden'>
           <LangSwitch />
-          <MobileMenu />
+          <MobileMenu nav={nav} />
         </div>
-        <Nav className='desktop:flex hidden print:hidden' />
+        <Nav
+          nav={nav}
+          className='desktop:flex hidden print:hidden'
+        />
       </div>
     </Container>
   </header>

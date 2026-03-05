@@ -1,4 +1,3 @@
-import projectsBySlug from '@/data/projects';
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
@@ -8,6 +7,7 @@ import ProjectList from './components//List';
 const ProjectsPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const { default: projectsBySlug } = await import('@/data/projects');
 
   const projects = t('projects:entries', { returnObjects: true })
     .map((entry) => {

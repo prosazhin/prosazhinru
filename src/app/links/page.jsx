@@ -1,6 +1,3 @@
-import compilationsData from '@/data/compilations';
-import linksData from '@/data/links';
-import tagsData from '@/data/tags';
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
@@ -12,6 +9,12 @@ import TagList from './components/TagList';
 const LinksPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const [{ default: linksData }, { default: compilationsData }, { default: tagsData }] =
+    await Promise.all([
+      import('@/data/links'),
+      import('@/data/compilations'),
+      import('@/data/tags'),
+    ]);
 
   const tagsArray = Object.entries(tagsData).map(([id, { title, url }]) => ({
     id,

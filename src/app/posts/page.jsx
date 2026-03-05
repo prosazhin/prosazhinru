@@ -1,4 +1,3 @@
-import posts from '@/data/posts';
 import { initTranslations } from '@/i18n';
 import { getFormatDate } from '@/utils/formatter';
 import { getLocale } from '@/utils/get-locale';
@@ -8,6 +7,7 @@ import { Alert, Badge, Container } from '@pbcomponents/react';
 const PostsPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const { default: posts } = await import('@/data/posts');
 
   return (
     <Container size='s'>

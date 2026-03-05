@@ -1,11 +1,13 @@
-import contacts from '@/data/contacts';
 import { initTranslations } from '@/i18n';
 import { LangType } from '@/types';
 import { Container } from '@pbcomponents/react';
 import dayjs from 'dayjs';
 
 const Footer = async ({ locale }: { locale: LangType }) => {
-  const { t } = await initTranslations(locale);
+  const [{ t }, { default: contacts }] = await Promise.all([
+    initTranslations(locale),
+    import('@/data/contacts'),
+  ]);
 
   return (
     <footer className='border-secondary-lighter block w-full border-t-1 py-24 print:hidden'>

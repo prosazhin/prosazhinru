@@ -1,10 +1,13 @@
 'use client';
 
-import contacts from '@/data/contacts';
 import { LinkIcon } from '@heroicons/react/24/outline';
 import { Badge, Tag } from '@pbcomponents/react';
 
-const Contacts = () => {
+const Contacts = ({
+  contacts,
+}: {
+  contacts: Array<{ title: string; url: string; link?: boolean }>;
+}) => {
   return (
     <ul className='mt-24 flex w-full flex-row flex-wrap gap-8'>
       {contacts.map(({ url, link, title }, index) => (

@@ -11,11 +11,15 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
 
+// Локаль читается из cookie NEXT_LOCALE — layout должен рендериться динамически на каждый запрос
 export const dynamic = 'force-dynamic';
 
 const RootLayout = async ({ children }) => {
   const locale = await getLocale();
-  const { resources } = await initTranslations(locale);
+  const [{ resources }, { default: nav }] = await Promise.all([
+    initTranslations(locale),
+    import('@/data/nav'),
+  ]);
 
   return (
     <html
@@ -35,11 +39,15 @@ const RootLayout = async ({ children }) => {
       </head>
       <body>
         <TranslationsProvider
+          key={locale}
           locale={locale}
           resources={resources}
         >
           <PBCProvider notificationTop={80}>
-            <Header locale={locale} />
+            <Header
+              locale={locale}
+              nav={nav}
+            />
             <main className='desktop:min-h-[calc(100vh-107px-80px-(72px+40px))] mt-[calc(72px+40px)] mb-80 min-h-[calc(100vh-299px-80px-(72px+40px))]'>
               {children}
               <Analytics />

@@ -1,7 +1,6 @@
 import Contacts from '@/components/Contacts';
 import MatrixBanner from '@/components/MatrixBanner';
 import LeftAside from '@/components/aside';
-import skillsByType from '@/data/skills';
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
@@ -11,6 +10,10 @@ import clsx from 'clsx';
 const IndexPage = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale);
+  const [{ default: skillsByType }, { default: contacts }] = await Promise.all([
+    import('@/data/skills'),
+    import('@/data/contacts'),
+  ]);
   const wrapperId = 'aboutList';
 
   const skills = t('skills:entries', { returnObjects: true }).map((entry) => {
@@ -45,7 +48,7 @@ const IndexPage = async () => {
         className='text-t24 text-basic-main link mt-16 print:hidden'
         dangerouslySetInnerHTML={{ __html: t('pages:index.description') }}
       />
-      <Contacts />
+      <Contacts contacts={contacts} />
       <Tabs
         defaultIndex={0}
         className='mt-80 print:hidden'
