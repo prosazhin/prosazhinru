@@ -17,10 +17,10 @@ const Compilation = (props: CompilationType) => {
       <p className='text-basic-light text-t20 mt-8'>{description}</p>
       {links?.length && (
         <div className='max-xs:grid-cols-1 mt-24 grid grid-cols-2 gap-24'>
-          {links.map((item, index) => (
+          {links.map((item) => (
             <Link
               {...item}
-              key={index}
+              key={item.id}
               activeTag={activeTag}
             />
           ))}
@@ -60,8 +60,8 @@ const Compilation = (props: CompilationType) => {
             {t('plurals.links.links', { count: links?.length })}
           </Badge>
         )}
-        {tags.map((tag: TagType, index: number) => (
-          <li key={index}>
+        {tags.map((tag: TagType) => (
+          <li key={tag.url}>
             <Badge
               size='s'
               color={activeTag === tag.url ? 'primary' : 'secondary'}

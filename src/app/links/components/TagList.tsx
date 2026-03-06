@@ -17,8 +17,8 @@ const TagList = ({ tags }: { tags: TagType[] }) => {
 
   return (
     <ul className='mt-12 mb-24 flex w-full flex-row flex-wrap gap-8'>
-      {linkType.map((item, index) => (
-        <li key={index}>
+      {linkType.map((item) => (
+        <li key={item}>
           <Tag
             size='m'
             theme='border'
@@ -30,8 +30,8 @@ const TagList = ({ tags }: { tags: TagType[] }) => {
           </Tag>
         </li>
       ))}
-      {tags.map(({ title, url }, index) => (
-        <li key={index}>
+      {tags.map(({ title, url }) => (
+        <li key={url}>
           <Tag
             size='m'
             theme='border'

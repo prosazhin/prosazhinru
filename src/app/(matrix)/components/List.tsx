@@ -40,10 +40,10 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
           <Badge size='s'>{totalRating}</Badge>
         </span>
         <ul className='rounded-8 divide-secondary-lighter border-secondary-lighter flex w-full flex-col divide-y-1 border-1'>
-          {categories.map(({ title, rating }, index) => (
+          {categories.map(({ id, title, rating }) => (
             <li
               className='flex w-full flex-row items-center gap-x-16 px-16 py-12'
-              key={index}
+              key={id}
             >
               <h3 className='text-t16 text-basic-main flex-1'>{title}</h3>
               <Badge
@@ -57,10 +57,10 @@ const CategoryList = ({ matrix, locale }: MatrixType) => {
           ))}
         </ul>
       </li>
-      {categories.map(({ title, rating, competencies }, index) => (
+      {categories.map(({ id, title, rating, competencies }) => (
         <li
           className='flex w-full flex-col'
-          key={index}
+          key={id}
         >
           <span className='mb-8 flex w-full flex-row items-center gap-x-16 px-16'>
             <h2 className='text-tm20 text-basic-main flex-1'>{title}</h2>

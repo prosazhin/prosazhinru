@@ -15,9 +15,9 @@ const MatrixLayout = async ({ children }) => {
       <div className='mt-40 flex flex-col gap-16'>
         <span className='text-h24 text-basic-main w-full flex-1'>{t('matrix:headline')}</span>
         <CollapseGroup name='grades'>
-          {t('matrix:levels', { returnObjects: true }).map((level, index) => (
+          {t('matrix:levels', { returnObjects: true }).map((level) => (
             <Collapse
-              key={index}
+              key={level.title}
               summary={level.title}
             >
               {level.description}

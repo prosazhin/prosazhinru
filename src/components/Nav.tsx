@@ -20,10 +20,10 @@ const Nav = ({
 
   return (
     <nav className={clsx('desktop:flex-row flex flex-col gap-24', className)}>
-      {items.map((item, index) => {
+      {items.map((item) => {
         const { url, active } = nav[item.type as keyof typeof nav];
         return (
-          <li key={index}>
+          <li key={item.type}>
             <NextLink
               href={url}
               className={clsx(

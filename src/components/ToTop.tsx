@@ -5,31 +5,33 @@ import { Button } from '@pbcomponents/react';
 import { useEffect, useState } from 'react';
 
 const ToTop = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(
+    typeof window !== 'undefined' ? window.pageYOffset > 500 : false
+  );
 
-  const handleScroll = () => () => {
+  const handleScroll = () => {
     const offsetTop = window.pageYOffset;
     setShow(offsetTop > 500);
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      let throttleTimer: boolean;
+    let throttleTimer: ReturnType<typeof setTimeout> | null = null;
 
-      const throttle = (callback: () => void, time: number) => {
-        if (throttleTimer) return;
-        throttleTimer = true;
+    const onScroll = () => {
+      if (throttleTimer) return;
 
-        setTimeout(() => {
-          callback();
+      throttleTimer = setTimeout(() => {
+        handleScroll();
+        throttleTimer = null;
+      }, 200);
+    };
 
-          throttleTimer = false;
-        }, time);
-      };
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-      window.addEventListener('scroll', () => throttle(handleScroll(), 200));
-      return () => window.removeEventListener('scroll', handleScroll());
-    }
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (throttleTimer) clearTimeout(throttleTimer);
+    };
   }, []);
 
   return (

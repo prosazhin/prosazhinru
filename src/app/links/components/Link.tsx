@@ -25,8 +25,8 @@ const Link = (props: LinkType) => {
       </span>
       {tags.length > 0 && (
         <ul className='mt-16 flex w-full flex-row flex-wrap items-end justify-start gap-4'>
-          {tags.map((tag: TagType, index: number) => (
-            <li key={index}>
+          {tags.map((tag: TagType) => (
+            <li key={tag.url}>
               <Badge
                 size='s'
                 color={activeTag === tag.url ? 'primary' : 'secondary'}

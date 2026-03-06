@@ -37,14 +37,14 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
 
   return (
     <div className='max-xs:grid-cols-1 sm-min:grid-cols-2 md-min:grid-cols-3 lg-min:grid-cols-3 mt-24 grid grid-flow-dense gap-24 xl:grid-cols-4'>
-      {filteredData.map((item, index) => {
+      {filteredData.map((item) => {
         const { type } = item;
 
         if (type === 'compilation') {
           return (
             <Compilation
               {...item}
-              key={index}
+              key={item.id}
               activeTag={activeTag}
               className='max-xs:col-span-1 col-span-2'
             />
@@ -54,7 +54,7 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
         return (
           <Link
             {...item}
-            key={index}
+            key={item.id}
             activeTag={activeTag}
           />
         );

@@ -19,19 +19,7 @@ export default function useHash(wrapperId: string) {
   useEffect(() => {
     if (!isMounted) return;
 
-    let throttleTimer = false;
-
-    const throttle = (callback: () => void, time: number) => {
-      if (throttleTimer) return;
-      throttleTimer = true;
-
-      setTimeout(() => {
-        callback();
-        throttleTimer = false;
-      }, time);
-    };
-
-    const handel = () => {
+    const handle = () => {
       const curHash = window.location.hash.replace('#', '');
       const element = document.getElementById(wrapperId);
 
@@ -46,7 +34,7 @@ export default function useHash(wrapperId: string) {
       setHash(curHash);
     };
 
-    throttle(() => handel(), 600);
+    handle();
   }, [isMounted, pathname, wrapperId, y]);
 
   return hash;

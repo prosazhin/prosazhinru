@@ -53,9 +53,9 @@ const IndexPage = async () => {
         defaultIndex={0}
         className='mt-80 print:hidden'
       >
-        {t('tabs.about', { returnObjects: true }).map(({ title, url }, index) => (
+        {t('tabs.about', { returnObjects: true }).map(({ title, url }) => (
           <Tab
-            key={index}
+            key={url}
             label={title}
             href={url}
           />
@@ -73,43 +73,41 @@ const IndexPage = async () => {
         className='mt-40 flex flex-col gap-y-40'
         id={wrapperId}
       >
-        {skills.map(
-          ({ type, title, description, showTitle, tools, matrixContent, matrixUrl }, index) => (
-            <li
-              className='flex w-full scroll-mt-96 flex-col gap-y-20'
-              key={index}
-              id={type}
-            >
-              <div className='flex w-full flex-col gap-y-12'>
-                {showTitle && <h2 className='text-h24 text-basic-main w-full'>{title}</h2>}
-                <p className='text-t20 text-basic-main w-full'>{description}</p>
-              </div>
-              {Boolean(tools.length) && (
-                <ul className='flex w-full flex-row flex-wrap gap-4'>
-                  {tools.map((tool, index) => (
-                    <li key={index}>
-                      <Badge
-                        size='s'
-                        color='secondary'
-                        theme='light'
-                        className='print:border-secondary-light print:border'
-                      >
-                        {tool}
-                      </Badge>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {matrixContent && matrixUrl && (
-                <MatrixBanner
-                  title={matrixContent.title}
-                  description={matrixContent.description}
-                  href={matrixUrl}
-                />
-              )}
-            </li>
-          )
-        )}
+        {skills.map(({ type, title, description, showTitle, tools, matrixContent, matrixUrl }) => (
+          <li
+            className='flex w-full scroll-mt-96 flex-col gap-y-20'
+            key={type}
+            id={type}
+          >
+            <div className='flex w-full flex-col gap-y-12'>
+              {showTitle && <h2 className='text-h24 text-basic-main w-full'>{title}</h2>}
+              <p className='text-t20 text-basic-main w-full'>{description}</p>
+            </div>
+            {Boolean(tools.length) && (
+              <ul className='flex w-full flex-row flex-wrap gap-4'>
+                {tools.map((tool) => (
+                  <li key={tool}>
+                    <Badge
+                      size='s'
+                      color='secondary'
+                      theme='light'
+                      className='print:border-secondary-light print:border'
+                    >
+                      {tool}
+                    </Badge>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {matrixContent && matrixUrl && (
+              <MatrixBanner
+                title={matrixContent.title}
+                description={matrixContent.description}
+                href={matrixUrl}
+              />
+            )}
+          </li>
+        ))}
       </ul>
     </Container>
   );

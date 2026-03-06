@@ -10,8 +10,8 @@ const Contacts = ({
 }) => {
   return (
     <ul className='mt-24 flex w-full flex-row flex-wrap gap-8'>
-      {contacts.map(({ url, link, title }, index) => (
-        <li key={index}>
+      {contacts.map(({ url, link, title }) => (
+        <li key={`${url}:${title}`}>
           {link ? (
             <Tag
               size='m'

@@ -39,9 +39,9 @@ const CareerPage = async () => {
         defaultIndex={1}
         className='mt-80 print:hidden'
       >
-        {t('tabs.about', { returnObjects: true }).map(({ title, url }, index) => (
+        {t('tabs.about', { returnObjects: true }).map(({ title, url }) => (
           <Tab
-            key={index}
+            key={url}
             label={title}
             href={url}
           />
@@ -59,7 +59,7 @@ const CareerPage = async () => {
         className='mt-40 flex w-full flex-col gap-y-16'
         id={wrapperId}
       >
-        {t('career:entries', { returnObjects: true }).map((entry, index) => {
+        {t('career:entries', { returnObjects: true }).map((entry) => {
           const extra = careerByType[entry.type];
           if (!extra) return null;
           const { url, positions, dateFrom, dateTo } = extra;
@@ -72,7 +72,7 @@ const CareerPage = async () => {
           return (
             <section
               className='border-secondary-lighter rounded-16 flex w-full scroll-mt-96 flex-col gap-y-16 border-1 px-32 py-24'
-              key={index}
+              key={entry.type}
               id={entry.type}
             >
               <div className='flex w-full flex-col gap-y-8'>
@@ -94,13 +94,13 @@ const CareerPage = async () => {
                 </span>
               </div>
               <ul className='flex w-full flex-col gap-y-16'>
-                {positions.map((position, posIndex) => {
+                {positions.map((position) => {
                   const detailsList = entry.details?.[position.type];
                   const hasDetails = Array.isArray(detailsList) && detailsList.length > 0;
                   return (
                     <li
                       className='mt-4 mr-4'
-                      key={posIndex}
+                      key={position.type}
                     >
                       <h3 className='text-tm20 text-basic-main w-full'>
                         {t(`career:positions.${position.type}`)}
@@ -112,7 +112,7 @@ const CareerPage = async () => {
                         <ul className='mt-4 flex w-full flex-col gap-4'>
                           {detailsList.map((item, i) => (
                             <li
-                              key={i}
+                              key={`${position.type}-${i}`}
                               className='flex gap-x-8'
                             >
                               <span>—</span>

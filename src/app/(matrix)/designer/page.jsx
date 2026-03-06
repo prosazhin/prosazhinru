@@ -28,9 +28,9 @@ const DesignerPage = async () => {
         defaultIndex={0}
         className='mt-80'
       >
-        {t('tabs.matrix', { returnObjects: true }).map(({ title, url }, index) => (
+        {t('tabs.matrix', { returnObjects: true }).map(({ title, url }) => (
           <Tab
-            key={index}
+            key={url}
             label={title}
             href={url}
           />

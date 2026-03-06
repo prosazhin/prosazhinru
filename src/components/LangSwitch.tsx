@@ -4,9 +4,11 @@ import { i18nConfig } from '@/i18n';
 import { setLocaleCookie } from '@/utils/set-locale-cookie';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import { Button, Dropdown, DropdownItem } from '@pbcomponents/react';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const LangSwitch = () => {
+  const router = useRouter();
   const {
     t,
     i18n: { language: lang },
@@ -14,7 +16,7 @@ const LangSwitch = () => {
 
   const switchLocale = (newLocale: string) => {
     setLocaleCookie(newLocale);
-    window.location.reload();
+    router.refresh();
   };
 
   return (
