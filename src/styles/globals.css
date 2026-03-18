@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import 'pbstyles/styles/tailwind/theme.css';
+@import '@prosazhin/pbstyles/styles/tailwind/theme.css';
 @plugin '@tailwindcss/typography';
 
 @layer base {

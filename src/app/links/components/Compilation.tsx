@@ -1,14 +1,13 @@
 'use client';
 
 import { CompilationType, TagType } from '@/types';
-import { Badge, useDialog } from '@pbcomponents/react';
+import { Badge, Dialog, useShowDialog } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import Link from './Link';
 
 const Compilation = (props: CompilationType) => {
-  const { title, description, tags, activeTag, links, className } = props;
-  const { showDialog } = useDialog();
+  const { id, title, description, tags, activeTag, links, className } = props;
   const { t } = useTranslation();
 
   const DialogChildren = () => (
@@ -29,13 +28,22 @@ const Compilation = (props: CompilationType) => {
     </div>
   );
 
+  const showDialog = useShowDialog(
+    () => (
+      <Dialog id={`compilation-content-${id}`}>
+        <DialogChildren />
+      </Dialog>
+    ),
+    [id, title, description, tags, activeTag, links]
+  );
+
   return (
     <div
       className={clsx(
         'desktop:min-h-200 group rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto cursor-pointer flex-col justify-self-stretch border-1 px-24 py-16 transition-colors duration-150',
         className
       )}
-      onClick={() => showDialog({ children: <DialogChildren />, id: 'compilation-content' })}
+      onClick={showDialog}
     >
       <span className='text-tm24 text-basic-main group-hover:text-primary-darker w-full transition-colors duration-150'>
         {title}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useDialog } from '@pbcomponents/react';
+import { useDialog } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';

@@ -7,6 +7,14 @@
   },
   "entries": [
     {
+      "type": "sellmonitorCurrent",
+      "title": "sellmonitor.com",
+      "titleForAside": "sellmonitor.com",
+      "positions": {
+        "frontend": "Разработка интерфейса продукта."
+      }
+    },
+    {
       "type": "15web",
       "title": "Студия 15",
       "titleForAside": "Студия 15",

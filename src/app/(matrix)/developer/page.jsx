@@ -1,7 +1,7 @@
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Tab, Tabs } from '@pbcomponents/react';
+import { Tab, Tabs } from '@prosazhin/pbcomponents';
 import CategoryList from '../components/List';
 
 const DeveloperPage = async () => {

@@ -2,7 +2,7 @@
 
 import { TagType } from '@/types';
 import getQuery from '@/utils/get-query';
-import { Tag } from '@pbcomponents/react';
+import { Tag } from '@prosazhin/pbcomponents';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 

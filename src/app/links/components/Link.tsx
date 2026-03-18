@@ -1,7 +1,7 @@
 'use client';
 
 import { LinkType, TagType } from '@/types';
-import { Badge } from '@pbcomponents/react';
+import { Badge } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 

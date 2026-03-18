@@ -2,7 +2,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 
 import { LangType } from '@/types';
-import { Container } from '@pbcomponents/react';
+import { Container } from '@prosazhin/pbcomponents';
 
 import LangSwitch from '@/components/LangSwitch';
 import MobileMenu from '@/components/MobileMenu';

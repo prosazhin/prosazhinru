@@ -1,7 +1,7 @@
 'use client';
 
 import { LinkIcon } from '@heroicons/react/24/outline';
-import { Badge, Tag } from '@pbcomponents/react';
+import { Badge, Tag } from '@prosazhin/pbcomponents';
 
 const Contacts = ({
   contacts,

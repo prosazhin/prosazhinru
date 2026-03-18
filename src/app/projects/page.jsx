@@ -1,7 +1,7 @@
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Container } from '@pbcomponents/react';
+import { Container } from '@prosazhin/pbcomponents';
 import ProjectList from './components//List';
 
 const ProjectsPage = async () => {

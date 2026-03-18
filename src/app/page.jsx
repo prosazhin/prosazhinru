@@ -1,10 +1,11 @@
 import Contacts from '@/components/Contacts';
 import MatrixBanner from '@/components/MatrixBanner';
+import PageWithLeftAside from '@/components/PageWithLeftAside';
 import LeftAside from '@/components/aside';
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
+import { Badge, Tab, Tabs } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 
 const IndexPage = async () => {
@@ -31,9 +32,8 @@ const IndexPage = async () => {
   });
 
   return (
-    <Container
-      size='s'
-      leftAside={
+    <PageWithLeftAside
+      aside={
         <LeftAside
           wrapperId={wrapperId}
           data={t('skills:entries', { returnObjects: true }).map(({ type, title }) => ({
@@ -42,6 +42,7 @@ const IndexPage = async () => {
           }))}
         />
       }
+      size='s'
     >
       <h1 className='text-t24 text-basic-main'>{t('pages:index.title')}</h1>
       <p
@@ -109,7 +110,7 @@ const IndexPage = async () => {
           </li>
         ))}
       </ul>
-    </Container>
+    </PageWithLeftAside>
   );
 };
 

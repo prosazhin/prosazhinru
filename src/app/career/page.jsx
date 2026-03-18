@@ -1,10 +1,11 @@
 import Contacts from '@/components/Contacts';
+import PageWithLeftAside from '@/components/PageWithLeftAside';
 import LeftAside from '@/components/aside';
 import { initTranslations } from '@/i18n';
 import { getDiffJobDate, getFormatJobDate, ucFirst } from '@/utils/formatter';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Badge, Container, Tab, Tabs } from '@pbcomponents/react';
+import { Badge, Tab, Tabs } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 
 const CareerPage = async () => {
@@ -17,9 +18,8 @@ const CareerPage = async () => {
   const wrapperId = 'careerList';
 
   return (
-    <Container
-      size='s'
-      leftAside={
+    <PageWithLeftAside
+      aside={
         <LeftAside
           wrapperId={wrapperId}
           data={t('career:entries', { returnObjects: true }).map(({ type, titleForAside }) => ({
@@ -28,6 +28,7 @@ const CareerPage = async () => {
           }))}
         />
       }
+      size='s'
     >
       <h1 className='text-t24 text-basic-main'>{t('pages:index.title')}</h1>
       <p
@@ -152,7 +153,7 @@ const CareerPage = async () => {
           );
         })}
       </article>
-    </Container>
+    </PageWithLeftAside>
   );
 };
 

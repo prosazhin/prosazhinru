@@ -2,7 +2,7 @@ import { initTranslations } from '@/i18n';
 import { getFormatDate } from '@/utils/formatter';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Alert, Badge, Container } from '@pbcomponents/react';
+import { Alert, Badge, Container } from '@prosazhin/pbcomponents';
 
 const PostsPage = async () => {
   const locale = await getLocale();

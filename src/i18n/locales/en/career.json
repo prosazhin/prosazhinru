@@ -7,6 +7,14 @@
   },
   "entries": [
     {
+      "type": "sellmonitorCurrent",
+      "title": "sellmonitor.com",
+      "titleForAside": "sellmonitor.com",
+      "positions": {
+        "frontend": "Product interface development."
+      }
+    },
+    {
       "type": "15web",
       "title": "Studio 15",
       "titleForAside": "Studio 15",

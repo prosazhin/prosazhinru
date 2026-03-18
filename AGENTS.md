@@ -9,8 +9,8 @@
 - **Framework:** Next.js 16 (App Router, Server Components)
 - **Language:** TypeScript 5.9 + JavaScript (`.jsx` для страниц и data-файлов)
 - **React:** 19
-- **Styling:** Tailwind CSS 4 + pbstyles (кастомная тема)
-- **UI:** @pbcomponents/react, @heroicons/react, clsx
+- **Styling:** Tailwind CSS 4 + @prosazhin/pbstyles (кастомная тема)
+- **UI:** @prosazhin/pbcomponents, @heroicons/react, clsx
 - **i18n:** i18next + react-i18next (локаль в cookie)
 - **Deploy:** Vercel (standalone output)
 - **Node.js:** 24.x
@@ -36,7 +36,7 @@ src/
 ├── hooks/                 # Custom React hooks
 ├── i18n/                  # Конфигурация i18next + locales (ru, en)
 ├── lib/                   # Вспомогательные модули
-├── styles/                # globals.css (Tailwind + pbstyles)
+├── styles/                # globals.css (Tailwind + @prosazhin/pbstyles)
 ├── utils/                 # Утилиты (formatter, get-metadata, get-query, get-locale)
 ├── proxy.ts               # i18n middleware (cookie NEXT_LOCALE)
 └── types.ts               # TypeScript типы
@@ -57,6 +57,7 @@ src/
 - Client Components помечаются `'use client'` в начале файла
 - Default export для компонентов
 - Named export для утилит, типов и API-методов
+- Для части UI-компонентов из `@prosazhin/pbcomponents` используется compound API
 
 ### Импорты
 
@@ -67,7 +68,7 @@ src/
 ### Стилизация
 
 - Tailwind CSS utility-классы, без CSS Modules
-- Кастомная тема из `pbstyles/styles/tailwind/theme.css`
+- Кастомная тема из `@prosazhin/pbstyles/styles/tailwind/theme.css`
 - Условные классы через `clsx`
 - Responsive: `desktop:`, `max-xs:`, `sm-min:`, `md-min:`, `lg-min:`, `xl:`
 - Print-стили: `print:hidden`, `print:block`

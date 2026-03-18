@@ -14,12 +14,12 @@ const projects = {
     first: true,
     tags: ['Design', 'Development'],
     resourceLinks: [
-      { url: 'https://pbcomponents-react.vercel.app/?path=/docs/intro--docs', title: 'Preview' },
+      { url: 'https://pbcomponents.vercel.app/?path=/docs/intro--docs', title: 'Preview' },
       {
-        url: 'https://github.com/prosazhin/pbcomponents/tree/main/packages/%40pbcomponents-react',
+        url: 'https://github.com/prosazhin/pbcomponents',
         title: 'GitHub',
       },
-      { url: 'https://www.npmjs.com/package/@pbcomponents/react', title: 'NPM' },
+      { url: 'https://www.npmjs.com/package/@prosazhin/pbcomponents', title: 'NPM' },
       {
         url: 'https://www.figma.com/community/file/1214486013859546496',
         title: 'Figma Community',
@@ -35,7 +35,7 @@ const projects = {
     tags: ['Design', 'Development'],
     resourceLinks: [
       { url: 'https://github.com/prosazhin/pbstyles', title: 'GitHub' },
-      { url: 'https://www.npmjs.com/package/pbstyles', title: 'NPM' },
+      { url: 'https://www.npmjs.com/package/@prosazhin/pbstyles', title: 'NPM' },
       {
         url: 'https://www.figma.com/community/file/1213609862805339771',
         title: 'Figma Community',

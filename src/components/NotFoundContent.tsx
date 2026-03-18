@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Container } from '@pbcomponents/react';
+import { Button, Container } from '@prosazhin/pbcomponents';
 import { useTranslation } from 'react-i18next';
 
 const NotFoundContent = () => {

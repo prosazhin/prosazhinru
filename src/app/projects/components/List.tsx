@@ -2,7 +2,7 @@
 
 import { ProjectType } from '@/types';
 import { LinkIcon } from '@heroicons/react/24/outline';
-import { Badge, Tag } from '@pbcomponents/react';
+import { Badge, Tag } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 import { useMemo } from 'react';
 

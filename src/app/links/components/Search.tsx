@@ -2,7 +2,7 @@
 
 import getQuery from '@/utils/get-query';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { Input } from '@pbcomponents/react';
+import { Input } from '@prosazhin/pbcomponents';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useDebounce } from 'react-use';
@@ -31,13 +31,15 @@ const Search = ({ placeholder }: { placeholder: string }) => {
   );
 
   return (
-    <Input
-      placeholder={placeholder}
-      value={search}
-      type='search'
-      leftIcon={MagnifyingGlassIcon}
-      onChange={(value) => setSearch(value)}
-    />
+    <Input>
+      <Input.Control
+        placeholder={placeholder}
+        value={search}
+        type='search'
+        leftIcon={MagnifyingGlassIcon}
+        onChange={(value) => setSearch(value)}
+      />
+    </Input>
   );
 };
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowUpIcon } from '@heroicons/react/24/outline';
-import { Button } from '@pbcomponents/react';
+import { Button } from '@prosazhin/pbcomponents';
 import { useEffect, useState } from 'react';
 
 const ToTop = () => {

@@ -3,7 +3,7 @@
 import { i18nConfig } from '@/i18n';
 import { setLocaleCookie } from '@/utils/set-locale-cookie';
 import { CheckIcon } from '@heroicons/react/24/outline';
-import { Button, Dropdown, DropdownItem } from '@pbcomponents/react';
+import { Dropdown } from '@prosazhin/pbcomponents';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
@@ -20,30 +20,30 @@ const LangSwitch = () => {
   };
 
   return (
-    <Dropdown
-      button={
-        <Button
-          size='xs'
-          color='secondary'
-          theme='border'
-          textClassName='uppercase'
-        >
-          {lang}
-        </Button>
-      }
-      align='right'
-      className='!w-160'
-    >
-      {i18nConfig.locales.map((item: string) => (
-        <DropdownItem
-          key={item}
-          onClick={() => switchLocale(item)}
-          leftIcon={lang === item ? CheckIcon : undefined}
-          leftIconClassName='!text-primary-darker'
-        >
-          {t(`locales.${item}`)}
-        </DropdownItem>
-      ))}
+    <Dropdown className='max-xs:!w-max !w-max'>
+      <Dropdown.Trigger
+        size='xs'
+        color='secondary'
+        theme='border'
+        textClassName='uppercase'
+      >
+        {lang}
+      </Dropdown.Trigger>
+      <Dropdown.Content
+        align='right'
+        className='max-xs:!w-160 !w-160'
+      >
+        {i18nConfig.locales.map((item: string) => (
+          <Dropdown.Item
+            key={item}
+            onClick={() => switchLocale(item)}
+            leftIcon={lang === item ? CheckIcon : undefined}
+            leftIconClassName='!text-primary-darker'
+          >
+            {t(`locales.${item}`)}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Content>
     </Dropdown>
   );
 };

@@ -2,7 +2,7 @@
 
 import { MatrixBannerType } from '@/types';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import { Icon } from '@pbcomponents/react';
+import { Icon } from '@prosazhin/pbcomponents';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 

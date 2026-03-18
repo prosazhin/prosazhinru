@@ -1,6 +1,6 @@
 import { initTranslations } from '@/i18n';
 import { LangType } from '@/types';
-import { Container } from '@pbcomponents/react';
+import { Container } from '@prosazhin/pbcomponents';
 import dayjs from 'dayjs';
 
 const Footer = async ({ locale }: { locale: LangType }) => {

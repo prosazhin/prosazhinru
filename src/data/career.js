@@ -1,4 +1,37 @@
 const career = {
+  sellmonitorCurrent: {
+    url: 'https://sellmonitor.com/',
+    dateFrom: '2025-06-01',
+    dateTo: 'now',
+    positions: [
+      {
+        type: 'frontend',
+        stack: [
+          'JavaScript',
+          'React',
+          'React Hooks',
+          'Next',
+          'SSR',
+          'jotai',
+          'TypeScript',
+          'HTML',
+          'CSS',
+          'TailwindCSS',
+          'Flexbox',
+          'Grid',
+          'Animations',
+          'Webpack',
+          'EsLint',
+          'Prettier',
+          'Fetch',
+          'VSCode',
+          'Terminal',
+          'Git',
+          'GitHub',
+        ],
+      },
+    ],
+  },
   '15web': {
     url: 'https://www.15web.ru',
     dateFrom: '2024-12-12',

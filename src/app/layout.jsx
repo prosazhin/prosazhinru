@@ -6,7 +6,7 @@ import TranslationsProvider from '@/components/TranslationsProvider';
 import { initTranslations } from '@/i18n';
 import '@/styles/globals.css';
 import { getLocale } from '@/utils/get-locale';
-import { PBCProvider } from '@pbcomponents/react';
+import { PBCProvider } from '@prosazhin/pbcomponents';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
@@ -43,7 +43,7 @@ const RootLayout = async ({ children }) => {
           locale={locale}
           resources={resources}
         >
-          <PBCProvider notificationTop={80}>
+          <PBCProvider notifications={{ top: 80 }}>
             <Header
               locale={locale}
               nav={nav}

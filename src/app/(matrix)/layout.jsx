@@ -1,6 +1,6 @@
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
-import { Collapse, CollapseGroup, Container } from '@pbcomponents/react';
+import { Collapse, CollapseGroup, Container } from '@prosazhin/pbcomponents';
 
 const MatrixLayout = async ({ children }) => {
   const locale = await getLocale();

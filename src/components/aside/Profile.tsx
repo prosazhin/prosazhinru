@@ -2,7 +2,7 @@
 
 import { getYearsDiff } from '@/utils/formatter';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
-import { Button } from '@pbcomponents/react';
+import { Button } from '@prosazhin/pbcomponents';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 

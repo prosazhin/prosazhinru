@@ -1,7 +1,7 @@
 'use client';
 
 import { LangType, MatrixType } from '@/types';
-import { Badge } from '@pbcomponents/react';
+import { Badge } from '@prosazhin/pbcomponents';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 

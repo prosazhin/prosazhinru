@@ -1,7 +1,7 @@
 import { initTranslations } from '@/i18n';
 import { getLocale } from '@/utils/get-locale';
 import getMetadata from '@/utils/get-metadata';
-import { Alert, Container } from '@pbcomponents/react';
+import { Alert, Container } from '@prosazhin/pbcomponents';
 import List from './components/List';
 import Search from './components/Search';
 import TagList from './components/TagList';
