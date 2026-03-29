@@ -1,6 +1,15 @@
 const links = [
   {
     type: 'link',
+    id: 'rXLsGM5VGmsCMt55NK3IDg',
+    title: 'Ollama',
+    description: 'Run and customize large language models locally',
+    url: 'https://ollama.com',
+    create: '2026-03-29',
+    tags: ['dev', 'tooling'],
+  },
+  {
+    type: 'link',
     id: 'cquVYLv5GNyNIzQ3Ev3o2g',
     title: 'MiroFish',
     description: 'AI simulation chat for scenario prediction with files and multi-agent workflows',

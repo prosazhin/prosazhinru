@@ -26,6 +26,7 @@ const RootLayout = async ({ children }) => {
       lang={locale}
       dir={dir(locale)}
       className='scroll-smooth'
+      data-scroll-behavior='smooth'
     >
       <head>
         <link

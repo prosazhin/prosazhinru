@@ -7,6 +7,7 @@ const compilations = [
     create: '2026-03-29',
     tags: ['dev', 'tooling'],
     links: [
+      'rXLsGM5VGmsCMt55NK3IDg',
       'pkCeXhGDm3yPObVfww8Q',
       'BB5ruzu1udexzMRcruGyg',
       'cquVYLv5GNyNIzQ3Ev3o2g',
