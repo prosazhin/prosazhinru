@@ -3,15 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export default function proxy(request: NextRequest) {
   const locale = request.cookies.get('NEXT_LOCALE')?.value;
-  if (!locale || !i18nConfig.locales.includes(locale)) {
-    const response = NextResponse.next();
-    response.cookies.set('NEXT_LOCALE', i18nConfig.defaultLocale, {
-      path: '/',
-      maxAge: 365 * 24 * 60 * 60,
-    });
-    return response;
+  const hasValidLocale = locale && i18nConfig.locales.includes(locale);
+
+  if (hasValidLocale || request.nextUrl.pathname !== '/') {
+    return NextResponse.next();
   }
-  return NextResponse.next();
+
+  const response = NextResponse.next();
+  response.cookies.set('NEXT_LOCALE', i18nConfig.defaultLocale, {
+    path: '/',
+    maxAge: 365 * 24 * 60 * 60,
+  });
+  return response;
 }
 
 export const config = {

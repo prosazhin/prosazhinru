@@ -16,10 +16,11 @@ export const dynamic = 'force-dynamic';
 
 const RootLayout = async ({ children }) => {
   const locale = await getLocale();
-  const [{ resources }, { default: nav }] = await Promise.all([
+  const [{ resources: resourceStore }, { default: nav }] = await Promise.all([
     initTranslations(locale),
     import('@/data/nav'),
   ]);
+  const resources = { [locale]: resourceStore[locale] ?? {} };
 
   return (
     <html

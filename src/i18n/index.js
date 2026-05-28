@@ -52,7 +52,7 @@ export const initTranslations = async (locale, i18nInstance, resources) => {
     defaultNS: 'common',
     fallbackNS: 'common',
     ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix'],
-    preload: resources ? [] : i18nConfig.locales,
+    preload: resources ? [] : [locale],
   });
 
   return {
