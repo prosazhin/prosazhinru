@@ -19,7 +19,7 @@ const Compilation = (props: CompilationType) => {
           {links.map((item) => (
             <Link
               {...item}
-              key={item.id}
+              key={item.url}
               activeTag={activeTag}
             />
           ))}

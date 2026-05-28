@@ -54,7 +54,7 @@ const List = ({ data }: { data: LinkType[] | CompilationType[] }) => {
         return (
           <Link
             {...item}
-            key={item.id}
+            key={item.url}
             activeTag={activeTag}
           />
         );

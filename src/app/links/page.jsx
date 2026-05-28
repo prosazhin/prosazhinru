@@ -45,6 +45,20 @@ const LinksPage = async () => {
     links: (c.links || []).map((id) => linksById.get(id)).filter(Boolean),
   }));
 
+  // id ссылок — высокоэнтропийные строки, которые почти не сжимаются и раздувают
+  // клиентский документ выше порога зависания на custom-домене. Клиенту они не нужны
+  // (как React key используем уникальный url), поэтому в payload их не отдаём.
+  const omitLinkId = (link) => {
+    const rest = { ...link };
+    delete rest.id;
+    return rest;
+  };
+  const linksForClient = linksNormalized.map(omitLinkId);
+  const compilationsForClient = compilationsNormalized.map((c) => ({
+    ...c,
+    links: c.links.map(omitLinkId),
+  }));
+
   return (
     <Container size='m'>
       {locale === 'en' && (
@@ -60,7 +74,7 @@ const LinksPage = async () => {
         tags={tagsArray}
         type='links'
       />
-      <List data={[...linksNormalized, ...compilationsNormalized]} />
+      <List data={[...linksForClient, ...compilationsForClient]} />
     </Container>
   );
 };
