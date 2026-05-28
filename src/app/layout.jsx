@@ -20,7 +20,16 @@ const RootLayout = async ({ children }) => {
     initTranslations(locale),
     import('@/data/nav'),
   ]);
-  const resources = { [locale]: resourceStore[locale] ?? {} };
+  // В клиентский бандл сериализуем только namespaces, нужные client-компонентам
+  // (common — дефолтный для всех; pages — для NotFoundContent). Тяжёлые matrix/career
+  // используются только на сервере через t(), поэтому в документ их не отдаём.
+  const localeResources = resourceStore[locale] ?? {};
+  const resources = {
+    [locale]: {
+      common: localeResources.common,
+      pages: localeResources.pages,
+    },
+  };
 
   return (
     <html
