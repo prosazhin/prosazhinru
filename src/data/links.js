@@ -1,6 +1,36 @@
 const links = [
   {
     type: 'link',
+    id: 'EtsbBJOcxabktpXbUmx3Wz',
+    title: 'LLM Checker',
+    description:
+      'CLI tool that scans your hardware and shows which LLM models you can run locally with Ollama',
+    url: 'https://github.com/Pavelevich/llm-checker',
+    create: '2026-06-02',
+    tags: ['ai', 'dev', 'tooling'],
+  },
+  {
+    type: 'link',
+    id: 'jW2B3IWqfehyod0pGrhFFK',
+    title: 'AI Engineering Coach',
+    description:
+      'VS Code extension that turns local AI coding session logs into productivity insights',
+    url: 'https://github.com/microsoft/AI-Engineering-Coach',
+    create: '2026-06-02',
+    tags: ['ai', 'dev', 'tooling'],
+  },
+  {
+    type: 'link',
+    id: 'T3T9G8_Xt6tsebZLB6RJaG',
+    title: 'SkillOpt',
+    description:
+      'Framework that optimizes natural-language skill docs for LLM agents via rollouts and reflection',
+    url: 'https://microsoft.github.io/SkillOpt/',
+    create: '2026-06-02',
+    tags: ['ai', 'dev', 'tooling'],
+  },
+  {
+    type: 'link',
     id: 'ig0d9ia4tl-v_yRg3yvV1Q',
     title: 'E-ImageCompression',
     description: 'Figma plugin for compressing images without quality loss',
@@ -42,7 +72,7 @@ const links = [
     description: 'Cheat sheet for Claude Code with shortcuts, commands, MCP and settings',
     url: 'https://cc.storyfox.cz',
     create: '2026-04-14',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -51,7 +81,7 @@ const links = [
     description: 'Terminal tool that matches LLM models to your RAM, CPU and GPU',
     url: 'https://github.com/AlexsJones/llmfit',
     create: '2026-04-14',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -60,7 +90,7 @@ const links = [
     description: 'Tool for creating a digital avatar from chat history by fine-tuning an LLM',
     url: 'https://github.com/xming521/WeClone',
     create: '2026-04-14',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -69,7 +99,7 @@ const links = [
     description: 'Run and customize large language models locally',
     url: 'https://ollama.com',
     create: '2026-03-29',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -78,7 +108,7 @@ const links = [
     description: 'AI simulation chat for scenario prediction with files and multi-agent workflows',
     url: 'https://mirofish.homes',
     create: '2026-03-29',
-    tags: ['tooling'],
+    tags: ['ai', 'tooling'],
   },
   {
     type: 'link',
@@ -161,7 +191,7 @@ const links = [
     description: 'Trae is an adaptive AI IDE that transforms how you work',
     url: 'https://www.trae.ai',
     create: '2025-04-07',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -170,7 +200,7 @@ const links = [
     description: 'The AI Code Editor',
     url: 'https://www.cursor.com',
     create: '2025-03-23',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -596,7 +626,7 @@ const links = [
     description: 'Automate your design-to-code workflow with AI',
     url: 'https://www.builder.io',
     create: '2023-10-13',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
   },
   {
     type: 'link',
@@ -2223,7 +2253,7 @@ const links = [
     description: 'Библиотека для распознавания текста на изображении',
     url: 'https://tesseract.projectnaptha.com',
     create: '2019-06-06',
-    tags: ['frontend', 'dev'],
+    tags: ['ai', 'frontend', 'dev'],
   },
   {
     type: 'link',
@@ -2750,7 +2780,7 @@ const links = [
     description: 'При помощи библиотеки Tensorflow.js',
     url: 'https://habr.com/ru/company/piter/blog/432984/',
     create: '2019-01-27',
-    tags: ['tooling', 'dev'],
+    tags: ['ai', 'tooling', 'dev'],
   },
   {
     type: 'link',

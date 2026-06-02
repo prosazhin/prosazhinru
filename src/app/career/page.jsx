@@ -72,7 +72,7 @@ const CareerPage = async () => {
 
           return (
             <section
-              className='border-secondary-lighter rounded-16 flex w-full scroll-mt-96 flex-col gap-y-16 border-1 px-32 py-24'
+              className='border-secondary-lighter rounded-16 flex w-full scroll-mt-96 flex-col gap-y-16 border px-32 py-24'
               key={entry.type}
               id={entry.type}
             >

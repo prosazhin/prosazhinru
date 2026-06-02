@@ -43,17 +43,17 @@ const projects = {
       { url: 'https://www.behance.net/gallery/162935391/pbstyles', title: 'Behance' },
     ],
   },
-  'prosazhin-ru': {
+  prosazhin_website: {
     order: 4,
     size: 2,
     accent: false,
     first: false,
     tags: ['Design', 'Development'],
     resourceLinks: [
-      { url: 'https://prosazhin.ru/', title: 'prosazhin.ru' },
-      { url: 'https://github.com/prosazhin/prosazhinru', title: 'GitHub' },
+      { url: 'https://prosazhin.dev/', title: 'prosazhin.dev' },
+      { url: 'https://github.com/prosazhin/prosazhin_website', title: 'GitHub' },
       {
-        url: 'https://www.figma.com/design/O9AtkMq4FD0Hh4JmUJ9swbsq/prosazhin.ru?node-id=0-1&t=PdVEtAbDbbyj42s1-1',
+        url: 'https://www.figma.com/design/O9AtkMq4FD0Hh4JmUJ9swbsq/prosazhin-website?node-id=0-1&t=KTNfs2JHlnNl3Nn6-1',
         title: 'Figma',
       },
     ],

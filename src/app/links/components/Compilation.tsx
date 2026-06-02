@@ -40,7 +40,7 @@ const Compilation = (props: CompilationType) => {
   return (
     <div
       className={clsx(
-        'desktop:min-h-200 group rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto cursor-pointer flex-col justify-self-stretch border-1 px-24 py-16 transition-colors duration-150',
+        'desktop:min-h-200 group rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto cursor-pointer flex-col justify-self-stretch border px-24 py-16 transition-colors duration-150',
         className
       )}
       onClick={showDialog}

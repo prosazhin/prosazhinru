@@ -12,8 +12,8 @@
     },
     { "slug": "pbstyles", "title": "pbstyles", "description": "prosazhin basic styles" },
     {
-      "slug": "prosazhin-ru",
-      "title": "prosazhin.ru",
+      "slug": "prosazhin_website",
+      "title": "prosazhin.dev",
       "description": "Моя площадка для экспериментов"
     },
     {

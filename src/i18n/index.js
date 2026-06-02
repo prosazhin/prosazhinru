@@ -25,7 +25,7 @@ export function initClientI18n(locale, resources) {
       supportedLngs: i18nConfig.locales,
       defaultNS: 'common',
       fallbackNS: 'common',
-      ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix'],
+      ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix', 'privacy'],
       react: { useSuspense: false },
     })
     .then(() => i18n);
@@ -51,7 +51,7 @@ export const initTranslations = async (locale, i18nInstance, resources) => {
     supportedLngs: i18nConfig.locales,
     defaultNS: 'common',
     fallbackNS: 'common',
-    ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix'],
+    ns: ['common', 'pages', 'projects', 'career', 'skills', 'matrix', 'privacy'],
     preload: resources ? [] : [locale],
   });
 

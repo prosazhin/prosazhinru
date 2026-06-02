@@ -1,3 +1,4 @@
+import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -7,9 +8,17 @@ import { initTranslations } from '@/i18n';
 import '@/styles/globals.css';
 import { getLocale } from '@/utils/get-locale';
 import { PBCProvider } from '@prosazhin/pbcomponents';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { dir } from 'i18next';
+import { Inter } from 'next/font/google';
+
+// Шрифт самохостится через next/font (вшивается в бандл на сборке) — запрос к Google Fonts
+// не выполняется, IP посетителя за рубеж не уходит (без трансграничной передачи ПДн по 152-ФЗ).
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 // Локаль читается из cookie NEXT_LOCALE — layout должен рендериться динамически на каждый запрос
 export const dynamic = 'force-dynamic';
@@ -35,19 +44,9 @@ const RootLayout = async ({ children }) => {
     <html
       lang={locale}
       dir={dir(locale)}
-      className='scroll-smooth'
+      className={`${inter.variable} scroll-smooth`}
       data-scroll-behavior='smooth'
     >
-      <head>
-        <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-        />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
-          rel='stylesheet'
-        />
-      </head>
       <body>
         <TranslationsProvider
           key={locale}
@@ -59,12 +58,11 @@ const RootLayout = async ({ children }) => {
               locale={locale}
               nav={nav}
             />
-            <main className='desktop:min-h-[calc(100vh-107px-80px-(72px+40px))] mt-[calc(72px+40px)] mb-80 min-h-[calc(100vh-299px-80px-(72px+40px))]'>
+            <main className='desktop:min-h-[calc(100vh-107px-80px-(72px+40px))] mt-112 mb-80 min-h-[calc(100vh-299px-80px-(72px+40px))]'>
               {children}
-              <Analytics />
-              <SpeedInsights />
             </main>
             <Footer locale={locale} />
+            <CookieBanner />
           </PBCProvider>
         </TranslationsProvider>
         <ScrollToTop />

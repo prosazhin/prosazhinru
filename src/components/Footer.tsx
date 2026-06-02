@@ -2,6 +2,7 @@ import { initTranslations } from '@/i18n';
 import { LangType } from '@/types';
 import { Container } from '@prosazhin/pbcomponents';
 import dayjs from 'dayjs';
+import NextLink from 'next/link';
 
 const Footer = async ({ locale }: { locale: LangType }) => {
   const [{ t }, { default: contacts }] = await Promise.all([
@@ -10,7 +11,7 @@ const Footer = async ({ locale }: { locale: LangType }) => {
   ]);
 
   return (
-    <footer className='border-secondary-lighter block w-full border-t-1 py-24 print:hidden'>
+    <footer className='border-secondary-lighter block w-full border-t py-24 print:hidden'>
       <Container size='m'>
         <div className='flex w-full flex-col gap-y-16'>
           <ul className='desktop:flex-row desktop:gap-x-32 flex flex-col gap-y-8'>
@@ -34,9 +35,17 @@ const Footer = async ({ locale }: { locale: LangType }) => {
               </li>
             ))}
           </ul>
-          <span className='text-t12 text-basic-light w-full'>
-            © 2017 — {dayjs().format('YYYY')}, {t('name')}
-          </span>
+          <div className='desktop:flex-row desktop:items-center desktop:gap-x-16 flex flex-col gap-y-8'>
+            <span className='text-t12 text-basic-light'>
+              © 2017 — {dayjs().format('YYYY')}, {t('name')}
+            </span>
+            <NextLink
+              className='text-t12 text-basic-light underline-offset-2 hover:underline'
+              href='/privacy'
+            >
+              {t('privacyPolicy')}
+            </NextLink>
+          </div>
         </div>
       </Container>
     </footer>

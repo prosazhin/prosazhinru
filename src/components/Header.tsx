@@ -8,6 +8,13 @@ import LangSwitch from '@/components/LangSwitch';
 import MobileMenu from '@/components/MobileMenu';
 import Nav from '@/components/Nav';
 
+// Размеры пропсов должны совпадать с реальным соотношением сторон SVG, иначе при
+// `w-auto` отрендеренная ширина расходится с атрибутом и Next ругается на aspect ratio.
+const wordmark: Record<LangType, { width: number; height: number }> = {
+  ru: { width: 312, height: 41 },
+  en: { width: 295, height: 41 },
+};
+
 const Header = ({
   locale,
   nav,
@@ -15,7 +22,7 @@ const Header = ({
   locale: LangType;
   nav: Record<string, { url: string; active: string[] }>;
 }) => (
-  <header className='border-secondary-lighter group fixed top-0 z-40 block h-72 w-full border-b-1 bg-white py-16 transition-colors duration-150 print:relative'>
+  <header className='border-secondary-lighter group fixed top-0 z-40 block h-72 w-full border-b bg-white py-16 transition-colors duration-150 print:relative'>
     <Container size='m'>
       <div className='flex w-full flex-row items-center gap-x-24'>
         <div className='inline-flex h-40 flex-1 items-center justify-start'>
@@ -26,15 +33,15 @@ const Header = ({
             <Image
               src={`/logo/${locale}.svg`}
               alt='Logotype'
-              width={311}
-              height={40}
+              width={wordmark[locale].width}
+              height={wordmark[locale].height}
               className='desktop:block hidden h-full w-auto print:block'
               loading='eager'
             />
             <Image
               src='/logo/icon.svg'
               alt='Logotype'
-              width={51}
+              width={52}
               height={40}
               className='desktop:hidden h-full w-auto print:hidden'
               loading='eager'

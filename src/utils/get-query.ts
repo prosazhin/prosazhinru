@@ -1,7 +1,7 @@
 import { AnyObjectType } from '@/types';
 
 const PROD = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
-const SITE_URL = PROD ? 'https://prosazhin.ru' : 'http://localhost:8080';
+const SITE_URL = PROD ? 'https://prosazhin.dev' : 'http://localhost:8080';
 
 const getQuery = (type?: string | null, search?: string | null, activeTag?: string | null) => {
   const url = new URL(`/links`, SITE_URL);

@@ -33,7 +33,7 @@ const PostsPage = async () => {
                 className='group w-full no-underline! transition'
                 rel='noreferrer'
               >
-                <div className='rounded-8 border-secondary-lighter group-hover:border-primary-main flex w-full flex-col gap-y-20 border-1 border-solid px-28 py-20 transition-colors duration-150'>
+                <div className='rounded-8 border-secondary-lighter group-hover:border-primary-main flex w-full flex-col gap-y-20 border border-solid px-28 py-20 transition-colors duration-150'>
                   <div className='flex w-full flex-col gap-y-6'>
                     <h2 className='text-tm24 text-basic-main group-hover:text-primary-darker w-full transition-colors duration-150'>
                       {title}

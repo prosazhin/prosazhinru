@@ -4,7 +4,7 @@ const tags = {
   tooling: { title: 'Tools', url: 'tooling' },
   figma: { title: 'Figma', url: 'figma' },
   dev: { title: 'Development', url: 'dev' },
-  // ai: { title: 'AI', url: 'ai' },
+  ai: { title: 'AI', url: 'ai' },
 };
 
 export default tags;

@@ -65,7 +65,7 @@ const AsideProfile = () => {
         </div>
         <Button
           size='s'
-          className='!w-max print:!hidden'
+          className='w-max! print:hidden!'
           leftIcon={ArrowDownTrayIcon}
           onClick={() => downloadCV()}
         >

@@ -5,9 +5,10 @@ const compilations = [
     title: 'Автоматизация и AI workflows',
     description: 'Сервисы для автоматизации процессов, AI-сценариев и orchestration workflows',
     create: '2026-03-29',
-    tags: ['dev', 'tooling'],
+    tags: ['ai', 'dev', 'tooling'],
     links: [
       'rXLsGM5VGmsCMt55NK3IDg',
+      'EtsbBJOcxabktpXbUmx3Wz',
       'pkCeXhGDm3yPObVfww8Q',
       'BB5ruzu1udexzMRcruGyg',
       'cquVYLv5GNyNIzQ3Ev3o2g',

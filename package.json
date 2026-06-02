@@ -1,11 +1,11 @@
 {
-  "name": "prosazhin.ru",
+  "name": "prosazhin_website",
   "description": "Personal site",
   "repository": {
     "type": "git",
-    "url": "https://github.com/prosazhin/prosazhinru.git"
+    "url": "https://github.com/prosazhin/prosazhin_website.git"
   },
-  "author": "Evgenii Sazhin <prosazhin@gmail.com> (https://prosazhin.ru)",
+  "author": "Evgenii Sazhin <prosazhin@gmail.com> (https://prosazhin.dev)",
   "license": "MIT",
   "engines": {
     "node": "24.x"
@@ -40,8 +40,6 @@
     "@prosazhin/pbcomponents": "^1.0.2",
     "@prosazhin/pbstyles": "1.0.0",
     "@react-pdf/renderer": "^4.3.2",
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "dayjs": "^1.11.20",
     "globals": "^17.3.0",
     "i18next": "^26.0.1",

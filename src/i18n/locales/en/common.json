@@ -1,5 +1,12 @@
 {
   "name": "Evgenii Sazhin",
+  "privacyPolicy": "Personal Data Processing Policy",
+  "cookie": {
+    "title": "Only necessary cookies",
+    "text": "Needed for the site to work — no ads or analytics.",
+    "accept": "Got it",
+    "more": "Learn more"
+  },
   "location": "Sochi, Russia",
   "age": "Age",
   "experienceDesign": "In design",

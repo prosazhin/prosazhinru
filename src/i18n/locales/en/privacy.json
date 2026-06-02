@@ -1,0 +1,92 @@
+{
+  "title": "Personal Data Processing Policy",
+  "updated": "Last updated: June 1, 2026",
+  "intro": "This Policy is issued under Article 18.1(2) of Russian Federal Law No. 152-FZ of 27 July 2006 “On Personal Data”. It defines how personal data is processed and describes the protection measures in place on the website at https://prosazhin.dev. The site is a personal résumé page of an individual, is not intended for selling goods or services, and contains no personal-data collection forms.",
+  "sections": [
+    {
+      "heading": "1. General provisions",
+      "body": [
+        "Personal data means any information relating to a directly or indirectly identified individual (the data subject).",
+        "Personal data is processed on a lawful and fair basis, limited to achieving specific, predefined purposes, and is not excessive in relation to them.",
+        "This Policy is available to an unlimited number of persons on this page so that you can learn what data is processed and for what purposes."
+      ]
+    },
+    {
+      "heading": "2. Operator",
+      "body": [
+        "The party organising and carrying out the processing of personal data is the individual Evgenii Sazhin (the “Operator”).",
+        "For any questions related to the processing of personal data, or to exercise your rights, you can contact <a href='mailto:prosazhin@gmail.com'>prosazhin@gmail.com</a>."
+      ]
+    },
+    {
+      "heading": "3. Categories of subjects and processed data",
+      "body": [
+        "Data of the following subjects is processed: visitors to the site, and persons who contact the Operator on their own initiative using the listed contacts.",
+        "When you visit the site, technical data may be recorded automatically in the hosting provider's server logs: IP address, date and time of the request, browser and operating system type and version, the referring page, the requested pages, and strictly necessary cookie data. This data is used solely to keep the site operational and secure; no analytics or profiling tools are applied.",
+        "If you choose to contact the Operator by email or messenger, your address (account) and the content of your message are processed solely to reply to you.",
+        "Special categories of personal data and biometric personal data are not processed."
+      ]
+    },
+    {
+      "heading": "4. Purposes of processing",
+      "body": [
+        "Keeping the site operational, stable, and secure; remembering the chosen interface language; and reviewing and replying to enquiries."
+      ]
+    },
+    {
+      "heading": "5. Legal basis and conditions of processing",
+      "body": [
+        "Processing is carried out in accordance with Federal Law No. 152-FZ of 27 July 2006 “On Personal Data”.",
+        "Technical data and strictly necessary cookies are processed on the basis of Article 6(1)(7) of that law — for the Operator's legitimate interests in keeping the site operational and secure, provided this does not infringe the rights and freedoms of the data subject. Consent is not required for such processing.",
+        "The data in your enquiry is processed on the basis of your voluntary decision to send that enquiry.",
+        "Advertising and third-party analytics technologies that require separate consent are not used on the site. Should such technologies be introduced in the future, they will be activated only after obtaining the visitor's consent through an affirmative action."
+      ]
+    },
+    {
+      "heading": "6. Cookies",
+      "body": [
+        "The site uses only strictly necessary cookies — in particular, to remember the chosen interface language and the fact that the notice has been acknowledged. No advertising or third-party analytics cookies and no profiling tools are used.",
+        "You can disable cookies in your browser settings or delete stored ones. If strictly necessary cookies are disabled, some site features may not work correctly."
+      ]
+    },
+    {
+      "heading": "7. Actions performed and methods of processing",
+      "body": [
+        "The following actions are performed with personal data: collection, recording, systematisation, accumulation, storage, clarification (updating, modification), use, deletion, and anonymisation.",
+        "Processing is carried out both with and without the use of automation. Decisions producing legal effects for subjects are not made solely on the basis of automated processing."
+      ]
+    },
+    {
+      "heading": "8. Sharing with third parties and cross-border transfer",
+      "body": [
+        "The Operator does not sell personal data and does not share it with third parties for advertising or marketing purposes.",
+        "The site is hosted by a third-party hosting provider. Technical data (for example, the IP address in server logs) may be processed within that provider's infrastructure, including on servers located outside the Russian Federation, solely to the extent required for the site to function. The Operator does not carry out any other targeted cross-border transfer of personal data."
+      ]
+    },
+    {
+      "heading": "9. Retention and grounds for ending processing",
+      "body": [
+        "Personal data is kept no longer than the purposes of its processing require. Processing ends when the purposes are achieved, when consent is withdrawn (if processing was based on it), or when unlawful processing is identified. Once these conditions are met, the data is deleted or anonymised, unless the law provides otherwise."
+      ]
+    },
+    {
+      "heading": "10. Security measures",
+      "body": [
+        "The Operator takes reasonable legal, organisational, and technical measures to protect personal data against unlawful or accidental access, alteration, copying, distribution, and destruction."
+      ]
+    },
+    {
+      "heading": "11. Your rights and how to exercise them",
+      "body": [
+        "You have the right to: obtain information about the processing of your personal data; request its correction, blocking, or deletion if it is incomplete, inaccurate, or processed unlawfully; withdraw consent given earlier; and appeal the Operator's actions to Roskomnadzor or in court.",
+        "To exercise your rights, send a request to <a href='mailto:prosazhin@gmail.com'>prosazhin@gmail.com</a>. The Operator will review it and respond within the timeframes set by Federal Law No. 152-FZ."
+      ]
+    },
+    {
+      "heading": "12. Final provisions",
+      "body": [
+        "The Operator may amend this Policy. The current version is always available on this page, with the update date shown at the top. If legislation changes, the Policy is brought into line with the applicable requirements."
+      ]
+    }
+  ]
+}

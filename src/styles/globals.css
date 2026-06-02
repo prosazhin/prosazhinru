@@ -2,6 +2,12 @@
 @import '@prosazhin/pbstyles/styles/tailwind/theme.css';
 @plugin '@tailwindcss/typography';
 
+/* Inter подаётся самохостингом через next/font (--font-inter). Переопределяем
+   --font-sans из pbstyles, чтобы запрос к Google Fonts не требовался. */
+:root {
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+}
+
 @layer base {
   * {
     box-sizing: border-box;

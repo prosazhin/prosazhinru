@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 const PROD = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
-const SITE_URL = PROD ? 'https://prosazhin.ru' : 'http://localhost:8080';
+const SITE_URL = PROD ? 'https://prosazhin.dev' : 'http://localhost:8080';
 
 const data = [
   {

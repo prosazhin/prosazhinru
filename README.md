@@ -1,1 +1,1 @@
-# [prosazhin.ru](https://prosazhin.ru)
+# [prosazhin.dev](https://prosazhin.dev)

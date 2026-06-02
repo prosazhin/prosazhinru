@@ -13,14 +13,14 @@ const Link = (props: LinkType) => {
       href={url}
       target='_blank'
       className={clsx(
-        'group desktop:min-h-200 rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto flex-col justify-self-stretch border-1 px-16 py-12 !no-underline transition-colors duration-150',
+        'group desktop:min-h-200 rounded-8 border-secondary-lighter hover:border-primary-main flex h-auto flex-col justify-self-stretch border px-16 py-12 no-underline! transition-colors duration-150',
         className
       )}
     >
-      <span className='text-tm20 text-basic-main group-hover:text-primary-darker w-full !no-underline transition-colors duration-150'>
+      <span className='text-tm20 text-basic-main group-hover:text-primary-darker w-full no-underline! transition-colors duration-150'>
         {title}
       </span>
-      <span className='text-t14 text-basic-light group-hover:text-basic-main mt-6 w-full flex-1 !no-underline transition-colors duration-150'>
+      <span className='text-t14 text-basic-light group-hover:text-basic-main mt-6 w-full flex-1 no-underline! transition-colors duration-150'>
         {description}
       </span>
       {tags.length > 0 && (

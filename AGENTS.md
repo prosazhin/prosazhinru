@@ -2,7 +2,7 @@
 
 ## Обзор проекта
 
-Персональный сайт [prosazhin.ru](https://prosazhin.ru) — мультиязычный (ru/en) портфолио-сайт на Next.js App Router со статическими данными из `src/data/`.
+Персональный сайт [prosazhin.dev](https://prosazhin.dev) — мультиязычный (ru/en) портфолио-сайт на Next.js App Router со статическими данными из `src/data/`.
 
 ## Технологический стек
 
@@ -26,18 +26,19 @@ src/
 │   ├── posts/             # Заметки
 │   ├── projects/          # Проекты
 │   ├── links/             # Ссылки
+│   ├── privacy/           # Политика обработки персональных данных (152-ФЗ)
 │   ├── (matrix)/          # Route group — матрицы компетенций (designer, developer)
 │   ├── api/cv/            # API: генерация PDF резюме
 │   ├── not-found.jsx      # 404
 │   └── [...not-found]/    # Catch-all 404
 ├── components/            # React-компоненты
-│   └── aside/             # Боковая панель
+│   ├── aside/             # Боковая панель
+│   └── cv/                # Компоненты PDF-резюме
 ├── data/                  # Статические данные (JS)
 ├── hooks/                 # Custom React hooks
 ├── i18n/                  # Конфигурация i18next + locales (ru, en)
-├── lib/                   # Вспомогательные модули
 ├── styles/                # globals.css (Tailwind + @prosazhin/pbstyles)
-├── utils/                 # Утилиты (formatter, get-metadata, get-query, get-locale)
+├── utils/                 # Утилиты (formatter, get-metadata, get-query, get-locale, set-locale-cookie)
 ├── proxy.ts               # i18n middleware (cookie NEXT_LOCALE)
 └── types.ts               # TypeScript типы
 ```
@@ -88,9 +89,16 @@ src/
 - Два языка: `ru` (default), `en`
 - Локаль хранится в cookie `NEXT_LOCALE`; чтение на сервере: `getLocale()` из `src/utils/get-locale.ts`
 - Middleware: `src/proxy.ts` (установка cookie по умолчанию)
-- Переводы: `src/i18n/locales/{ru,en}/*.json` (common, pages, projects, career, skills, matrix)
+- Переводы: `src/i18n/locales/{ru,en}/*.json` (common, pages, projects, career, skills, matrix, privacy)
 - Инициализация: `initTranslations(locale)` → `{ t, resources }`
 - Client-компоненты оборачиваются в `<TranslationsProvider>`
+
+## Приватность и соответствие 152-ФЗ
+
+- Сторонняя аналитика не используется; обрабатываются только технически необходимые данные
+- Шрифты самохостятся через `next/font` (без запросов к Google Fonts — нет трансграничной передачи)
+- Страница политики: `src/app/privacy/` + namespace `privacy` в i18n
+- Cookie-баннер: `src/components/CookieBanner.tsx` (согласие в `localStorage`, рендер через `useSyncExternalStore` без рассинхрона гидрации)
 
 ## SEO
 

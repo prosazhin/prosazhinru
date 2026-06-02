@@ -20,7 +20,7 @@ const LangSwitch = () => {
   };
 
   return (
-    <Dropdown className='max-xs:!w-max !w-max'>
+    <Dropdown className='max-xs:w-max! w-max!'>
       <Dropdown.Trigger
         size='xs'
         color='secondary'
@@ -31,7 +31,7 @@ const LangSwitch = () => {
       </Dropdown.Trigger>
       <Dropdown.Content
         align='right'
-        className='max-xs:!w-160 !w-160'
+        className='max-xs:w-160! w-160!'
       >
         {i18nConfig.locales.map((item: string) => (
           <Dropdown.Item

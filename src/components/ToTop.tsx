@@ -42,7 +42,7 @@ const ToTop = () => {
             size='l'
             color='secondary'
             theme='ghost'
-            className='!pointer-events-auto !w-max'
+            className='pointer-events-auto! w-max!'
             leftIcon={ArrowUpIcon}
             onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
           />
