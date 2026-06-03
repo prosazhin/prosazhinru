@@ -78,6 +78,7 @@
     "typescript": "^6.0.2"
   },
   "overrides": {
+    "tmp": "^0.2.6",
     "fast-uri": "^3.1.1",
     "js-cookie": "^3.0.7",
     "flatted": "^3.4.2",
